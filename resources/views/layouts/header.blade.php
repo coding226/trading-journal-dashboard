@@ -72,14 +72,6 @@
                     <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
                 </div>
                 <div class="left-header col horizontal-wrapper ps-0">
-                    <ul class="horizontal-menu">
-                        <li class="mega-menu outside">
-                            <a class="nav-link" href="#!"><i data-feather="layers"></i><span>Bonus Ui</span></a>
-                        </li>
-                        <li class="level-menu outside">
-                            <a class="nav-link" href="#!"><i data-feather="inbox"></i><span>Level Menu</span></a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="nav-right col-8 pull-right right-header p-0">
                     <ul class="nav-menus">
@@ -172,17 +164,18 @@
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                 </li>
                                 <li class="sidebar-list">
-                                    <label class="badge badge-success">2</label>
+                                    {{-- <label class="badge badge-success">2</label> --}}
                                     <a class="sidebar-link sidebar-title link-nav" href="{{ url('/dashboard') }}"><i data-feather="home"></i><span class="lan-3">Dashboard </span></a>
                                 </li>
                                 <li class="sidebar-main-title">
                                     <div><h6 class="lan-8">Applications</h6><p class="lan-9">Ready to use Apps</p></div>
                                 </li>
                                 <li class="sidebar-list">
-                                    <label class="badge badge-danger">New</label><a class="sidebar-link sidebar-title" href="#"><i data-feather="box"></i><span>Trades </span></a>
+                                    {{-- <label class="badge badge-danger">New</label> --}}
+                                    <a class="sidebar-link sidebar-title" href="#"><i data-feather="box"></i><span>Trades </span></a>
                                     <ul class="sidebar-submenu">
                                         <li><a href="{{ url('/mytrades') }}">My trades</a></li>
-                                        <li><a href="{{ url('/newtrade') }}">Create new</a></li>
+                                        <li><a href="{{ url('/new-trade') }}">Create new</a></li>
                                     </ul>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/analytics') }}"><i data-feather="bar-chart"> </i><span>Analytics</span></a></li>

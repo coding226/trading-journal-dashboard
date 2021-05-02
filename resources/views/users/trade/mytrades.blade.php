@@ -11,13 +11,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>JS Grid Tables</h3>
+                        <h3>My Trade</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>
-                            <li class="breadcrumb-item">Tables</li>
-                            <li class="breadcrumb-item active"> JS Grid Tables</li>
+                            <li class="breadcrumb-item"><a href="index.html">                                       
+                                <i data-feather="home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item">My Trade</li>
                         </ol>
                     </div>
                 </div>
@@ -29,7 +30,7 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-3">Basic Scenario</h5><span>Grid with filtering, editing, inserting, deleting, sorting and paging. Data provided by controller.</span>
+                            <h5 class="mb-3">Trade Page</h5><span>List of all trades inputed from the New Trades Form.</span>
                         </div>
                         <div class="card-body">
                             <div id="basicScenario"></div>

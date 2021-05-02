@@ -42,7 +42,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // Trade start
 Route::get('/mytrades', [TradeController::class, 'index'])->name('mytrades.index');
-Route::get('/newtrade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
+Route::get('/new-trade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
 // Trade end
 
 
