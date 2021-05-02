@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title')
     <title>Analytics | Trading Journal</title>
 @endsection
@@ -162,6 +162,7 @@
     </div>
 @endsection
 @section('script')
+    <script src="../assets/js/dashboard/default.js"></script>
     <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
     <script src="../assets/js/chart/apex-chart/stock-prices.js"></script>
     <script src="../assets/js/chart/apex-chart/chart-custom.js"></script>

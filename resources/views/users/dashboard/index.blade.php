@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title')
     <title>Dashbaord | Trading Journal</title>
 @endsection

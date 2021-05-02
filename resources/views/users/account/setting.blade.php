@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title')
     <title>Account Setting | Trading Journal</title>
 @endsection
@@ -159,5 +159,6 @@
     </div>
 @endsection
 @section('script')
+    <script src="../assets/js/dashboard/default.js"></script>
     <script src="../assets/js/tooltip-init.js"></script>
 @endsection

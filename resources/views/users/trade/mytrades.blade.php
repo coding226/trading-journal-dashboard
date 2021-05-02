@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title')
     <title>My Trades | Trading Journal</title>
 @endsection
@@ -76,6 +76,7 @@
     </div>
 @endsection
 @section('script')
+    <script src="../assets/js/dashboard/default.js"></script>
     <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
     <script src="../assets/js/jsgrid/griddata.js"></script>
     <script src="../assets/js/jsgrid/jsgrid.js"></script>

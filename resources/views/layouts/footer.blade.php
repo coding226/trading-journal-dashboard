@@ -33,6 +33,4 @@
     <!-- Plugin used-->
 </body>
 
-<!-- Mirrored from admin.pixelstrap.com/cuba/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Apr 2021 21:26:32 GMT -->
-
 </html>
