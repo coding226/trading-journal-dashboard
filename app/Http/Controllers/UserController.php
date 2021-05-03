@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+use Validator;
 use App\Models\User;
 use Auth;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,16 +25,23 @@ class UserController extends Controller
 
     public function mainsetting(Request $request)
     {
-        $subscription = (isset($data['subscription'])) ? 1 : 0;
+        $subscription = (isset($request['subscription'])) ? 1 : 0;
         if (Auth::attempt(['email' => Auth::user()->email, 'password' => $request->password, 'status' => 1])) {
             $user = User::where('id', Auth::user()->id)->first();
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
             $user->email = $request->email;
             $user->subscription = $subscription;
+            if($request->has('avatar_img')) {
+                $image = $request->file('avatar_img');
+                $new_name = Auth::user()->id . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('assets/images/avatar'), $new_name);
+                $user->avatar = $new_name;
+            }
             $user->save();
+            return json_encode(true);
         }
-        return redirect()->back();
+        return json_encode(false);
     }
 
     
@@ -42,8 +51,9 @@ class UserController extends Controller
             $user = User::where('id', Auth::user()->id)->first();
             $user->password = Hash::make($request->newpassword);
             $user->save();
+            return json_encode(true);
         }
-        return redirect()->back();
+        return json_encode(false);
     }
 
 
@@ -54,7 +64,7 @@ class UserController extends Controller
         $user->currency = $request->currency;
         $user->withamount = $request->withamount;
         $user->save();
-        return redirect()->back();
+        return json_encode(true);
     }
 }
 
