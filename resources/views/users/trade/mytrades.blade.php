@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('title')
     <title>My Trades | Trading Journal</title>
 @endsection

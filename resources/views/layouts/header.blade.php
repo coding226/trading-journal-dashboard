@@ -121,13 +121,22 @@
                         <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                         <li class="profile-nav onhover-dropdown p-0 me-0">
                             <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
-                                <div class="media-body"><span>Emay Walter</span>
-                                    <p class="mb-0 font-roboto">Monthly type <i class="middle fa fa-angle-down"></i></p>
+                                <div class="media-body"><span>{{Auth::user()->name}}</span>
+                                    <p class="mb-0 font-roboto">Beginner <i class="middle fa fa-angle-down"></i></p>
                                 </div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="{{ url('/account-setting') }}"><i data-feather="user"></i><span>Account</span></a></li>
-                                <li><a href="login.html"><i data-feather="log-in"> </i><span>Log out</span></a></li>
+                                <li><a href="login.html">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i data-feather="log-in"> </i><span>{{ __('Logout') }}</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>   
                             </ul>
                         </li>
                     </ul>

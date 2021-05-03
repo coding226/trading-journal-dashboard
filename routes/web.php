@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm']);
 Route::get('/admin/register', [RegisterController::class, 'showAdminRegisterForm']);
@@ -35,27 +37,29 @@ Route::view('/home', 'home')->middleware('auth');
 Route::view('/admin', 'admin');
 
 
-// Dashboard start
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-// Dashboard ends
+Route::group(['middleware' => ['auth']], function () {
+
+    // Dashboard start
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    // Dashboard ends
 
 
-// Trade start
-Route::get('/mytrades', [TradeController::class, 'index'])->name('mytrades.index');
-Route::get('/new-trade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
-// Trade end
+    // Trade start
+    Route::get('/mytrades', [TradeController::class, 'index'])->name('mytrades.index');
+    Route::get('/new-trade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
+    // Trade end
 
 
-// Analytics start
-Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
-// Analytics ends
+    // Analytics start
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
+    // Analytics ends
 
 
-// User start
-Route::get('/account-setting', [UserController::class, 'setting'])->name('user.setting');
-// User ends
+    // User start
+    Route::get('/account-setting', [UserController::class, 'setting'])->name('user.setting');
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('/mainsetting', [UserController::class, 'mainsetting'])->name('user.mainsetting');
+    Route::post('/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
+    Route::post('/othersetting', [UserController::class, 'othersetting'])->name('user.othersetting');
+    // User ends
+});

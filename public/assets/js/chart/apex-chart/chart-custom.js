@@ -1554,10 +1554,10 @@ var options2 = {
         enabled: false
     },
     series: [{
-        data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+        data: [430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
     }],
     xaxis: {
-        categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'],
+        categories: ['Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'],
     },
     colors:[ CubaAdminConfig.primary ]
 }

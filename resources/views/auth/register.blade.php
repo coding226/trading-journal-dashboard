@@ -66,11 +66,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Password Confirm</label>
+                                    <div class="form-input position-relative">
+                                        <input class="form-control @error('password') is-invalid @enderror" id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="*********">
+                                        <div class="show-hide"><span class="show"></span></div>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-form-label">Payment Option</label>
                                     <div class="m-t-15 m-checkbox-inline custom-radio-ml">
                                         <div class="form-check form-check-inline radio radio-primary">
-                                            <input class="form-check-input" id="radioinline1" type="radio" name="payment" value="option1">
+                                            <input class="form-check-input" id="radioinline1" type="radio" name="payment" value="option1" checked>
                                             <label class="form-check-label mb-0" for="radioinline1">Stripe</label>
                                         </div>
                                         <div class="form-check form-check-inline radio radio-primary">

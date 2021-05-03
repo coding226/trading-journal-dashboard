@@ -68,8 +68,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        ($data['payment'] == 'option1')? $data['payment'] = 'stripe' : 'paypal';
-        ($data['subscription']) ? $data['subscription'] = 1 : 0;
+        $payment = ($data['payment'] == 'option1') ? 'stripe' : 'paypal';
+        $subscription = (isset($data['subscription'])) ? 1 : 0;
         return User::create([
             'name' => $data['firstname'].' '.$data['lastname'],
             'firstname' => $data['firstname'],
@@ -77,8 +77,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'number' => $data['number'],
             'password' => Hash::make($data['password']),
-            'payment' => $data['payment'],
-            'subscription' => $data['subscription'],
+            'payment' => $payment,
+            'subscription' => $subscription,
             'status' => 0,
         ]);
     }

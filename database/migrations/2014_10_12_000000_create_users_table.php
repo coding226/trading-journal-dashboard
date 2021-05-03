@@ -25,9 +25,9 @@ class CreateUsersTable extends Migration
             $table->string('payment');
             $table->boolean('subscription');
             $table->string('status');
-            $table->string('startcapital')->nullable();
-            $table->string('currency')->nullable();
-            $table->string('withamount')->nullable();
+            $table->string('startcapital')->default('0');
+            $table->string('currency')->default('USD');
+            $table->string('withamount')->default('10');
             $table->rememberToken();
             $table->timestamps();
         });
