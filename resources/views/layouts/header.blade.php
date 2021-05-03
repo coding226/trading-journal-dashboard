@@ -127,8 +127,7 @@
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="{{ url('/account-setting') }}"><i data-feather="user"></i><span>Account</span></a></li>
-                                <li><a href="login.html">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <li><a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i data-feather="log-in"> </i><span>{{ __('Logout') }}</span>
