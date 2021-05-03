@@ -32,7 +32,7 @@
                                 <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="{{ Route('user.mainsetting') }}" class="card">
+                                <form method="POST" action="{{ Route('user.mainsetting') }}">
                                 @csrf
                                     <div class="row mb-2">
                                         <div class="profile-title">

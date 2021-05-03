@@ -23,11 +23,13 @@ class UserController extends Controller
 
     public function mainsetting(Request $request)
     {
+        $subscription = (isset($data['subscription'])) ? 1 : 0;
         if (Auth::attempt(['email' => Auth::user()->email, 'password' => $request->password, 'status' => 1])) {
             $user = User::where('id', Auth::user()->id)->first();
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
             $user->email = $request->email;
+            $user->subscription = $subscription;
             $user->save();
         }
         return redirect()->back();
