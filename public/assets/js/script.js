@@ -268,19 +268,19 @@ var trans = [{
         cn: 'ä¸€èˆ¬',
         ae: 'Ø­Ø¬Ù†Ø±Ø§Ù„ Ù„ÙˆØ§Ø¡'
     }, {
-        en: 'Dashboards,widgets & layout.',
+        en: 'Dashboard,widgets & layout.',
         pt: 'PainÃ©is, widgets e layout.',
         es: 'Paneloj, fenestraÄµoj kaj aranÄo.',
         fr: "Tableaux de bord, widgets et mise en page.",
-        de: 'Dashboards, widgets en lay-out.',
+        de: 'Dashboard, widgets en lay-out.',
         cn: 'ä»ªè¡¨æ¿ï¼Œå°å·¥å…·å’Œå¸ƒå±€ã€‚',
         ae: 'Ù„ÙˆØ­Ø§Øª Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙˆØ§Ù„Ø£Ø¯ÙˆØ§Øª ÙˆØ§Ù„ØªØ®Ø·ÙŠØ·.'
     }, {
-        en: 'Dashboards',
+        en: 'Dashboard',
         pt: 'PainÃ©is',
         es: 'Paneloj',
         fr: 'Tableaux',
-        de: 'Dashboards',
+        de: 'Dashboard',
         cn: ' ä»ªè¡¨æ¿ ',
         ae: 'ÙˆØ­Ø§Øª Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© '
     }, {

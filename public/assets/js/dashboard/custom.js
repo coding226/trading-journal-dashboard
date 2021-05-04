@@ -6,7 +6,6 @@ $("#save_account_setting").click(function(e) {
         }
     });
     e.preventDefault();
-    // var formData = new FormData($("#mainsettingform"));
     var formData = new FormData(document.getElementById("mainsettingform"));
     $.ajax({
         type: "POST",
