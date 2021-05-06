@@ -11,22 +11,9 @@ class AnalyticsController extends Controller
         
     }
 
-    //all analytics
+    
     public function index()
     {
         return view('users.analytics.index');
     }
-    
-    // long analytics
-    public function long_index()
-    {
-        return view('users.analytics.long');
-    }
-
-    //short analytics
-    public function short_index()
-    {
-        return view('users.analytics.short');
-    }
-    
 }
