@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TradeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\SymbolanalyticsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +44,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     // Dashboard ends
 
-
     // Trade start
     Route::get('/mytrades', [TradeController::class, 'index'])->name('mytrades.index');
     Route::get('/new-trade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
@@ -54,6 +54,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
     // Analytics ends
 
+    // Symbol Analytics start
+    Route::get('/symbolanalytics', [SymbolanalyticsController::class, 'index'])->name('symbolanalytics.index');
+    // Symbol Analytics ends
 
     // User start
     Route::get('/account-setting', [UserController::class, 'setting'])->name('user.setting');

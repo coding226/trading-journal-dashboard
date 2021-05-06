@@ -393,7 +393,7 @@
                                                 title="">Short</a></li>
                                     </ul>
                                 </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/symbolanalytics') }}"><i
                                             data-feather="bar-chart">
                                         </i><span>Symbol Analytics</span></a></li>
                                 <li class="sidebar-main-title">

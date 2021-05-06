@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>New Trade | Trading Journal</title>
+    <title>New Trade | Trading Buddy</title>
 @endsection
 @section('style')
 @endsection
