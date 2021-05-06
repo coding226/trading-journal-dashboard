@@ -387,9 +387,9 @@
                                     <ul class="sidebar-submenu" style="">
                                         <li><a class="" href="{{ url('/analytics') }}" data-bs-original-title=""
                                                 title="">All</a></li>
-                                        <li><a class="" href="{{ url('/analytics-long') }}" data-bs-original-title=""
+                                        <li><a class="" href="#" data-bs-original-title=""
                                                 title="">Long</a></li>
-                                        <li><a class="" href="{{ url('/analytics-short') }}" data-bs-original-title=""
+                                        <li><a class="" href="#" data-bs-original-title=""
                                                 title="">Short</a></li>
                                     </ul>
                                 </li>

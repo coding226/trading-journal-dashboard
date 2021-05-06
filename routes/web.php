@@ -52,8 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Analytics start
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
-    Route::get('/analytics-long', [AnalyticsController::class, 'long_index'])->name('analytics.long');
-    Route::get('/analytics-short', [AnalyticsController::class, 'short_index'])->name('analytics.short');
     // Analytics ends
 
     // Symbol Analytics start
