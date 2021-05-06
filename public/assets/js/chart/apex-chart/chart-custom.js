@@ -1581,7 +1581,7 @@ var options3 = {
     plotOptions: {
         bar: {
             horizontal: false,
-            endingShape: 'rounded',
+            // endingShape: 'rounded',
             columnWidth: '55%',
         },
     },
@@ -1596,15 +1596,9 @@ var options3 = {
     series: [{
         name: 'Net Profit',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-        name: 'Free Cash Flow',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
     }],
     xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: ['GBP/USD', 'EUR/USD', 'CAD/USD', 'AUD/USD', 'NZD/USD', 'GBP/USD', 'JPY/USD', 'CHY/USD', 'HKD/USD'],
     },
     yaxis: {
         title: {
@@ -1631,6 +1625,120 @@ var chart3 = new ApexCharts(
 );
 
 chart3.render();
+
+// column chart
+var options33 = {
+    chart: {
+        height: 350,
+        type: 'bar',
+        toolbar:{
+          show: false
+        }
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            // endingShape: 'rounded',
+            columnWidth: '55%',
+        },
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+    },
+    series: [{
+        name: 'Net Profit',
+        data: [44, 55, 57, 56, 61]
+    }],
+    xaxis: {
+        categories: ['GBP/USD', 'EUR/USD', 'CAD/USD', 'AUD/USD', 'NZD/USD'],
+    },
+    yaxis: {
+        title: {
+            text: '$ (thousands)'
+        }
+    },
+    fill: {
+        opacity: 1
+
+    },
+    tooltip: {
+        y: {
+            formatter: function (val) {
+                return "$ " + val + " thousands"
+            }
+        }
+    },
+    colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25']
+}
+
+var chart33 = new ApexCharts(
+    document.querySelector("#column-chart1"),
+    options33
+);
+
+chart33.render();
+
+// column chart
+var options22 = {
+    chart: {
+        height: 350,
+        type: 'bar',
+        toolbar:{
+          show: false
+        }
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            // endingShape: 'rounded',
+            columnWidth: '55%',
+        },
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+    },
+    series: [{
+        name: 'Net Profit',
+        data: [44, 55, 57, 56, 61]
+    }],
+    xaxis: {
+        categories: ['GBP/USD', 'EUR/USD', 'CAD/USD', 'AUD/USD', 'NZD/USD'],
+    },
+    yaxis: {
+        title: {
+            text: '% ( Percentage Gain)'
+        }
+    },
+    fill: {
+        opacity: 1
+
+    },
+    tooltip: {
+        y: {
+            formatter: function (val) {
+                return "$ " + val + " thousands"
+            }
+        }
+    },
+    colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25']
+}
+
+var chart22 = new ApexCharts(
+    document.querySelector("#column-chart2"),
+    options22
+);
+
+chart22.render();
 
 // 3d bubble chart
 
@@ -2282,6 +2390,35 @@ var chart8 = new ApexCharts(
 );
 
 chart8.render();
+
+// pie chart
+var options88 = {
+    chart: {
+        width: 480,
+        type: 'pie',
+    },
+    labels: ['Win', 'Loss'],
+    series: [75, 25],
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                width: 200
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }],
+    colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25', '#a927f9', '#f8d62b']
+}
+
+var chart88 = new ApexCharts(
+    document.querySelector("#piechart1"),
+    options88
+);
+
+chart88.render();
 
 // donut chart
 var options9 = {

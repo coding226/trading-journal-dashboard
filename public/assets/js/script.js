@@ -324,7 +324,7 @@ var trans = [{
         cn: 'æ‡‰ç”¨é ˜åŸŸ',
         ae: 'ÙˆØ§Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª'
     }, {
-        en: 'Ready to use Apps',
+        en: 'Description',
         pt: 'Pronto para usar aplicativos',
         es: 'Preta uzi Apps',
         fr: ' Applications prÃªtes Ã  lemploi ',

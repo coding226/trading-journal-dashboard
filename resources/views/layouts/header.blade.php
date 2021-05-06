@@ -180,30 +180,52 @@
                         </li>
                     </ul> --}}
                     <ul class="horizontal-menu">
-                        <li class="mega-menu outside"><a class="nav-link" href="#!"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg><span>Switch Accounts</span></a>
-                          <div class="mega-menu-container nav-submenu menu-to-be-close header-mega" style="display: none;">
-                            <div class="container-fluid">
-                              <div class="row">
-                                <div class="col mega-box">
-                                  <div class="mobile-title d-none">
-                                    <h5>Mega menu</h5><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                  </div>
-                                  <div class="link-section icon">
-                                    <div>
-                                      <h6>Sub Accounts</h6>
+                        <li class="mega-menu outside"><a class="nav-link" href="#!"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-layers">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg><span>Switch Accounts</span></a>
+                            <div class="mega-menu-container nav-submenu menu-to-be-close header-mega"
+                                style="display: none;">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col mega-box">
+                                            <div class="mobile-title d-none">
+                                                <h5>Mega menu</h5><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-x">
+                                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                </svg>
+                                            </div>
+                                            <div class="link-section icon">
+                                                <div>
+                                                    <h6>Sub Accounts</h6>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="#">Account 1</a></li>
+                                                    <li><a href="#">Account 2</a></li>
+                                                    <li><a href="#">Account 3</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <ul>
-                                      <li><a href="#">Account 1</a></li>
-                                      <li><a href="#">Account 2</a></li>
-                                      <li><a href="#">Account 3</a></li>
-                                    </ul>
-                                  </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
                         </li>
-                        <li class="level-menu outside"><a class="nav-link" href="#!"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg><span>Add New</span></a>
+                        <li class="level-menu outside"><a class="nav-link" href="#!"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-inbox">
+                                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                                    <path
+                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
+                                    </path>
+                                </svg><span>Add New</span></a>
                             <ul class="header-level-menu menu-to-be-close">
                                 <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -226,7 +248,7 @@
                                 </li>
                             </ul>
                         </li>
-                      </ul>
+                    </ul>
                 </div>
                 <div class="nav-right col-8 pull-right right-header p-0">
                     <ul class="nav-menus">
@@ -355,18 +377,33 @@
                                 </li>
                                 <li class="sidebar-main-title">
                                     <div>
-                                        <h6 class="lan-8">Applications</h6>
-                                        <p class="lan-9">Ready to use Apps</p>
+                                        <h6 class="lan-10">Analytics</h6>
+                                        <p class="lan-9">Description</p>
                                     </div>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                    href="{{ url('/analytics') }}"><i data-feather="pie-chart">
-                                        </i><span>Analytics</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="bar-chart">
+                                        href="#"><i data-feather="pie-chart">
+                                        </i><span>Analytics</span></a>
+                                    <ul class="sidebar-submenu" style="">
+                                        <li><a class="" href="{{ url('/analytics') }}" data-bs-original-title=""
+                                                title="">All</a></li>
+                                        <li><a class="" href="#" data-bs-original-title=""
+                                                title="">Long</a></li>
+                                        <li><a class="" href="#" data-bs-original-title=""
+                                                title="">Short</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                            data-feather="bar-chart">
                                         </i><span>Symbol Analytics</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="activity">
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6 class="lan-11">Trades</h6>
+                                        <p class="lan-9">Description</p>
+                                    </div>
+                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                            data-feather="activity">
                                         </i><span>Active Trades</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="{{ url('/mytrades') }}"><i data-feather="trending-up">
@@ -374,11 +411,17 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                                         href="{{ url('/new-trade') }}"><i data-feather="plus">
                                         </i><span>Create New Trade</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="list">
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6 class="lan-12">Other</h6>
+                                        <p class="lan-9">Description</p>
+                                    </div>
+                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                            data-feather="list">
                                         </i><span>Quick Course</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="server">
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                            data-feather="server">
                                         </i><span>Contact Us</span></a></li>
                             </ul>
                         </div>

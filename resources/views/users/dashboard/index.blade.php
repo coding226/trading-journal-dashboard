@@ -350,9 +350,10 @@
                             <h5 class="m-0">Profitability</h5>
                         </div>
                     </div>
-                    <div class="card-Body">
+                    <div class="card-Body apex-chart">
                         <div class="radar-chart">
-                            <div id="basic-bar"> </div>
+                            {{-- <div id="basic-bar"> </div> --}}
+                            <div id="profitablility-chart"></div>
                         </div>
                     </div>
                 </div>
@@ -377,7 +378,7 @@
                     </div>
                     <div class="card-Body">
                         <div class="radar-chart">
-                            <div id="column-chart"> </div>
+                            <div id="trades-pairs-chart"> </div>
                         </div>
                     </div>
                 </div>
@@ -402,7 +403,7 @@
                     </div>
                     <div class="card-Body">
                         <div class="radar-chart">
-                            <div id="stepline"> </div>
+                            <div id="profit-pairs-chart"> </div>
                         </div>
                     </div>
                 </div>
@@ -427,7 +428,7 @@
                     </div>
                     <div class="card-Body">
                         <div class="radar-chart">
-                            <div id="marketchart"> </div>
+                            <div id="monthly-chart"> </div>
                         </div>
                     </div>
                 </div>
@@ -448,7 +449,7 @@
 <script src="../assets/js/dashboard/default.js"></script>
 <script src="../assets/js/notify/index.js"></script>
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
-<script src="../assets/js/chart/apex-chart/chart-custom.js"></script>
+<script src="../assets/js/dashboard/chart_dash.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
