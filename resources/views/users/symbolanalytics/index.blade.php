@@ -3,7 +3,8 @@
     <title>My Trades | Trading Buddy</title>
 @endsection
 @section('style')
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/jsgrid.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
 @endsection
 @section('content')
     <div class="page-body">
@@ -30,44 +31,55 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-3">Trade Page</h5><span>List of all trades inputed from the New Trades Form.</span>
+                            <h5 class="mb-3">Footer callback</h5>
                         </div>
-                        <div class="card-body">
-                            <div id="basicScenario"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-3">Sorting Scenario</h5><span>Sorting can be done not only with column header interaction, but also with sort method.</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="sort-panel mb-3">
-                                <label>Sorting Field:
-                                    <select class="btn btn-primary dropdown-toggle btn-md" id="sortingField">
-                                        <option>Name</option>
-                                        <option>Age</option>
-                                        <option>Address</option>
-                                        <option>Country</option>
-                                        <option>Married</option>
-                                    </select>
-                                </label>
-                                <div class="d-inline">
-                                    <button class="btn btn-md btn-secondary" id="sort" type="button">Sort</button>
-                                </div>
-                            </div>
-                            <div class="js-shorting" id="sorting-table"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-3">Batch Delete</h5><span>Cell content of every column can be customized with itemTemplate, headerTemplate, filterTemplate and insertTemplate functions specified in field config. This example shows how to implement batch deleting with custom field for selecting items.</span>
-                        </div>
-                        <div class="card-body">
-                            <div id="batchDelete"></div>
+                        <div class="card-body table-responsive">
+                            <table class="display" id="advance-12">
+                                <thead>
+                                    <tr>
+                                        <th>Rank #</th>
+                                        <th>Symbol:</th>
+                                        <th>Total % Gain:</th>
+                                        <th>Total £ Gain:</th>
+                                        <th>Total Amount Of<br/> Wins</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>GBP/USD</td>
+                                    <td>20.6%</td>
+                                    <td>£3,876</td>
+                                    <td>30</td>
+                                    <td>See More</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2</td>
+                                    <td>EUR/USD</td>
+                                    <td>17.8%</td>
+                                    <td>£2,378</td>
+                                    <td>22</td>
+                                    <td>See More</td>
+                                  </tr>
+                                  <tr>
+                                    <td>3</td>
+                                    <td>USD/CAD</td>
+                                    <td>12.4%</td>
+                                    <td>£1,890</td>
+                                    <td>15</td>
+                                    <td>See More</td>
+                                  </tr>
+                                  <tr>
+                                    <td>4</td>
+                                    <td>AUD/USD</td>
+                                    <td>9.3%</td>
+                                    <td>£4,545</td>
+                                    <td>12</td>
+                                    <td>See More</td>
+                                  </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -77,9 +89,6 @@
     </div>
 @endsection
 @section('script')
-    <script src="../assets/js/dashboard/default.js"></script>
-    <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
-    <script src="../assets/js/jsgrid/griddata.js"></script>
-    <script src="../assets/js/jsgrid/jsgrid.js"></script>
-    <script src="../assets/js/tooltip-init.js"></script>
+    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
 @endsection
