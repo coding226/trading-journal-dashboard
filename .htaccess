@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?master.jbms-tech\.com
+RewriteRule ^(.*)$ https://www.master.jbms-tech.com/$1 [R,L]
+
+RewriteCond %{REQUEST_URI} !^/public
+RewriteRule ^(.*)$ public/$1 [L]
