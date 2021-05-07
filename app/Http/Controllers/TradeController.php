@@ -22,6 +22,12 @@ class TradeController extends Controller
     {
         return view('users.trade.new-trade');
     }
+
+
+    public function activetrades()
+    {
+        return view('users.trade.active-trade');
+    }
     /**
      * Show the form for creating a new resource.
      *

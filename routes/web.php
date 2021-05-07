@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Trade start
     Route::get('/mytrades', [TradeController::class, 'index'])->name('mytrades.index');
+    Route::get('/activetrades', [TradeController::class, 'activetrades'])->name('activetrades.index');
     Route::get('/new-trade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
     // Trade end
 

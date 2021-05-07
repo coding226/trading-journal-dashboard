@@ -402,7 +402,7 @@
                                         <p class="lan-9">Description</p>
                                     </div>
                                 </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/activetrades') }}"><i
                                             data-feather="activity">
                                         </i><span>Active Trades</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
