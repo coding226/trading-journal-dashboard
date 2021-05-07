@@ -35,10 +35,10 @@ function checkTime(i) {
 var options = {
     series: [{
         name: 'series1',
-        data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0]
+        data: [6, 20, 15, 40, 18, 20, 18]
     }, {
         name: 'series2',
-        data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0]
+        data: [2, 22, 35, 32, 40, 25, 50]
     }],
     chart: {
         height: 240,
@@ -58,45 +58,46 @@ var options = {
         low: 0,
         offsetX: 0,
         offsetY: 0,
-        show: false,
-        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+        show: true,
+        categories: ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"],
         labels: {
             low: 0,
             offsetX: 0,
-            show: false,
+            show: true,
         },
         axisBorder: {
             low: 0,
             offsetX: 0,
-            show: false,
+            show: true,
         },
     },
     markers: {
-        strokeWidth: 3,
+        strokeWidth: 1,
         colors: "#ffffff",
         strokeColors: [ CubaAdminConfig.primary , CubaAdminConfig.secondary ],
         hover: {
-            size: 6,
+            size: 5,
         }
     },
     yaxis: {
         low: 0,
         offsetX: 0,
         offsetY: 0,
-        show: false,
+        show: true,
+        categories: ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"],
         labels: {
             low: 0,
             offsetX: 0,
-            show: false,
+            show: true,
         },
         axisBorder: {
             low: 0,
             offsetX: 0,
-            show: false,
+            show: true,
         },
     },
     grid: {
-        show: false,
+        show: true,
         padding: {
             left: 0,
             right: 0,

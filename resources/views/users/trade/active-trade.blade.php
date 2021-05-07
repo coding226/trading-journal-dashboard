@@ -13,14 +13,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>My Trades</h3>
+                        <h3>Active Trades</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">                                       
                                 <i data-feather="home"></i></a>
                             </li>
-                            <li class="breadcrumb-item">My Trades</li>
+                            <li class="breadcrumb-item">Active Trades</li>
                         </ol>
                     </div>
                 </div>
@@ -32,8 +32,8 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header pb-3">
-                            <h5 class="mb-3">Trade Page</h5><span>Select Daterange to view specific date data.</span>
-                            <div class="row form theme-form mt-3">
+                            <h5 class="mb-3">Active Trades Page</h5>
+                            <!-- <div class="row form theme-form mt-3">
                                 <div class="col">
                                     <div class="mb-3 row">
                                         <p class="col-sm-3 text-end pt-3 mt-0">Date Filter:</p>
@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="card-body table-responsive">
                             <table class="display" id="advance-12">
