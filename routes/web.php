@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Symbol Analytics start
     Route::get('/symbolanalytics', [SymbolanalyticsController::class, 'index'])->name('symbolanalytics.index');
+    Route::get('/symbolmore', [SymbolanalyticsController::class, 'symbolmore'])->name('symbolanalytics.moredata');
     // Symbol Analytics ends
 
     // User start

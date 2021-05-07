@@ -16,4 +16,10 @@ class SymbolanalyticsController extends Controller
     {
         return view('users.symbolanalytics.index');
     }
+
+    public function symbolmore()
+    {
+        return view('users.symbolanalytics.moredata');
+    }
+
 }
