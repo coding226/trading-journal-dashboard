@@ -52,7 +52,7 @@
                                     <td>20.6%</td>
                                     <td>£3,876</td>
                                     <td>30</td>
-                                    <td><a href="{{ url(/symbolmore) }}">See More</a></td>
+                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
                                   </tr>
                                   <tr>
                                     <td>2</td>
@@ -60,7 +60,7 @@
                                     <td>17.8%</td>
                                     <td>£2,378</td>
                                     <td>22</td>
-                                    <td>See More</td>
+                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
                                   </tr>
                                   <tr>
                                     <td>3</td>
@@ -68,7 +68,7 @@
                                     <td>12.4%</td>
                                     <td>£1,890</td>
                                     <td>15</td>
-                                    <td>See More</td>
+                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
                                   </tr>
                                   <tr>
                                     <td>4</td>
@@ -76,7 +76,7 @@
                                     <td>9.3%</td>
                                     <td>£4,545</td>
                                     <td>12</td>
-                                    <td>See More</td>
+                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
                                   </tr>
                                 </tbody>
                             </table>

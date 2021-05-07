@@ -87,7 +87,7 @@ var gainpermonth_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
+        name: 'Gain',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
     }],
     xaxis: {
