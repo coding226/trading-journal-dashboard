@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
+
+    public function trade()
+    {
+        return $this->hasMany(Trade::class);
+    }
 }
