@@ -15,6 +15,18 @@ class CreateTradesTable extends Migration
     {
         Schema::create('trades', function (Blueprint $table) {
             $table->id();
+            $table->biginteger('image_id');
+            $table->biginteger('symbol_id');
+            $table->datetime('start_datetime');
+            $table->datetime('end_datetime');
+            $table->string('long_short');
+            $table->string('pips');
+            $table->string('fees');
+            $table->string('profit_gl');
+            $table->string('percentage_gl');
+            $table->string('open_price');
+            $table->string('close_price');
+            $table->string('description');
             $table->timestamps();
         });
     }
