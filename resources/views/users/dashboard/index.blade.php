@@ -109,27 +109,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row border-top m-0">
-                                    <div class="col-xl-4 ps-0 col-md-6 col-sm-6">
-                                        <div class="media p-0">
-                                            <div class="media-left"><i class="icofont icofont-crown"></i></div>
-                                            <div class="media-body">
-                                                <h6>Date</h6>
-                                                <p>May 4, 2021</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-sm-6">
-                                        <div class="media p-0">
-                                            <div class="media-left bg-secondary"><i
-                                                    class="icofont icofont-heart-alt"></i></div>
-                                            <div class="media-body">
-                                                <h6>Time</h6>
-                                                <p>18:22</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -240,150 +219,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 xl-100 box-col-12">
-                <div class="widget-joins card widget-arrow">
-                    <div class="row">
-                        <div class="col-sm-6 pe-0">
-                            <div class="media border-after-xs">
-                                <div class="align-self-center me-3 text-start"><span class="mb-1">Sale</span>
-                                    <h5 class="mb-0">Today</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary"
-                                        data-feather="arrow-down"></i></div>
-                                <div class="media-body">
-                                    <h5 class="mb-0">$<span class="counter">25698</span></h5><span
-                                        class="mb-1">-$2658(36%)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ps-0">
-                            <div class="media">
-                                <div class="align-self-center me-3 text-start"><span class="mb-1">Sale</span>
-                                    <h5 class="mb-0">Month</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary"
-                                        data-feather="arrow-up"></i></div>
-                                <div class="media-body ps-2">
-                                    <h5 class="mb-0">$<span class="counter">6954</span></h5><span
-                                        class="mb-1">+$369(15%)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 pe-0">
-                            <div class="media border-after-xs">
-                                <div class="align-self-center me-3 text-start"><span class="mb-1">Sale</span>
-                                    <h5 class="mb-0">Week</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary"
-                                        data-feather="arrow-up"></i></div>
-                                <div class="media-body">
-                                    <h5 class="mb-0">$<span class="counter">63147</span></h5><span
-                                        class="mb-1">+$69(65%)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ps-0">
-                            <div class="media">
-                                <div class="align-self-center me-3 text-start"><span class="mb-1">Sale</span>
-                                    <h5 class="mb-0">Year</h5>
-                                </div>
-                                <div class="media-body align-self-center ps-3"><i class="font-primary"
-                                        data-feather="arrow-up"></i></div>
-                                <div class="media-body ps-2">
-                                    <h5 class="mb-0">$<span class="counter">963198</span></h5><span
-                                        class="mb-1">+$3654(90%) </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 xl-100 box-col-12">
-                <div class="widget-joins card">
-                    <div class="row">
-                        <div class="col-sm-6 pe-0">
-                            <div class="media border-after-xs">
-                                <div class="align-self-center me-3">68%<i class="fa fa-angle-up ms-2"></i></div>
-                                <div class="media-body details ps-3"><span class="mb-1">New</span>
-                                    <h5 class="mb-0 counter">6982</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary float-end ms-2"
-                                        data-feather="shopping-bag"></i></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ps-0">
-                            <div class="media">
-                                <div class="align-self-center me-3">12%<i class="fa fa-angle-down ms-2"></i></div>
-                                <div class="media-body details ps-3"><span class="mb-1">Pending</span>
-                                    <h5 class="mb-0 counter">783</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary float-end ms-3"
-                                        data-feather="layers"></i></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 pe-0">
-                            <div class="media border-after-xs">
-                                <div class="align-self-center me-3">68%<i class="fa fa-angle-up ms-2"></i></div>
-                                <div class="media-body details ps-3 pt-0"><span class="mb-1">Done</span>
-                                    <h5 class="mb-0 counter">3674</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary float-end ms-2"
-                                        data-feather="shopping-cart"></i></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ps-0">
-                            <div class="media">
-                                <div class="align-self-center me-3">68%<i class="fa fa-angle-up ms-2"></i></div>
-                                <div class="media-body details ps-3 pt-0"><span class="mb-1">Cancel</span>
-                                    <h5 class="mb-0 counter">069</h5>
-                                </div>
-                                <div class="media-body align-self-center"><i class="font-primary float-end ms-2"
-                                        data-feather="dollar-sign"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 xl-50 appointment box-col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="header-top">
-                            <h5 class="m-0">Profitability</h5>
-                        </div>
-                    </div>
-                    <div class="card-Body apex-chart">
-                        <div class="radar-chart">
-                            {{-- <div id="basic-bar"> </div> --}}
-                            <div id="profitablility-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 xl-50 appointment box-col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="header-top">
-                            <h5 class="m-0">Trades Pairs</h5>
-                            <div class="card-header-right-icon">
-                                <div class="dropdown">
-                                    <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Year</button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Day</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-Body">
-                        <div class="radar-chart">
-                            <div id="trades-pairs-chart"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-xl-6 xl-50 appointment box-col-6">
                 <div class="card">
                     <div class="card-header">
@@ -463,6 +299,46 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Profitability</h5>
+                        </div>
+                    </div>
+                    <div class="card-Body apex-chart">
+                        <div class="radar-chart">
+                            {{-- <div id="basic-bar"> </div> --}}
+                            <div id="profitablility-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Trades Pairs</h5>
+                            <div class="card-header-right-icon">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Year</button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Year</a>
+                                        <a class="dropdown-item" href="#">Month</a>
+                                        <a class="dropdown-item" href="#">Day</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="trades-pairs-chart"> </div>
+                        </div>
                     </div>
                 </div>
             </div>
