@@ -88,7 +88,7 @@ trades_pairs_chart.render();
 // profitable pairs chart
 var profit_pairs_option = {
     chart: {
-        height: 480,
+        height: 350,
         type: 'bar',
         toolbar:{
           show: false

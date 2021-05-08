@@ -55,34 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 xl-50 appointment box-col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="header-top">
-                            <h5 class="m-0">Wins/Loss/BE per Month</h5>
-                        </div>
-                    </div>
-                    <div class="card-Body">
-                        <div class="radar-chart">
-                            <div id="winlossmonthly-graph"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 xl-50 appointment box-col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="header-top">
-                            <h5 class="m-0">Gain Per Month</h5>
-                        </div>
-                    </div>
-                    <div class="card-Body">
-                        <div class="radar-chart">
-                            <div id="gainpermonth-graph"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-sm-12 col-xl-6">
                 <div class="card">
                     <div class="card-header b-l-primary border-3">
@@ -127,6 +100,34 @@
                         <p>Entry Time:</p>
                     </div>
                     </p>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Wins/Loss/BE per Month</h5>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="winlossmonthly-graph"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Gain Per Month</h5>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="gainpermonth-graph"> </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
