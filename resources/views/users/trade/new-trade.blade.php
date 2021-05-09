@@ -74,13 +74,24 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Fees</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input class="form-control" type="number"
+                                                    aria-describedby="validationTooltipUsernamePrepend" required=""
+                                                    data-bs-original-title="" title="" placeholder="Type here information">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Profit Gain/Loss</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
                                                 <input class="form-control" type="number"
                                                     aria-describedby="validationTooltipUsernamePrepend" required=""
-                                                    data-bs-original-title="" title="">
+                                                    data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
                                     </div>

@@ -56,14 +56,13 @@
                             <table class="display" id="advance-12">
                                 <thead>
                                     <tr>
-                                        <th>Trade No</th>
-                                        <th>Symbol:</th>
-                                        <th>Long/Short</th>
-                                        <th>Trade Duration</th>
-                                        <th>Profit/Loss(In Money Values)</th>
-                                        <th>Profit/Loss(In Percentage Values)</th>
-                                        <th>Win/Loss/BE</th>
-                                        <th>Edit/Delete</th>
+                                        <th class="text-center">Trade No</th>
+                                        <th class="text-center">Symbol:</th>
+                                        <th class="text-center">Long/Short</th>
+                                        <th class="text-center">Trade Duration</th>
+                                        <th class="text-center">Trade open date</th>
+                                        <th class="text-center">Trade open price</th>
+                                        <th class="text-center">Edit/Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,8 +73,7 @@
                                         <td class="text-center">3 Hours 55Mins</td>
                                         <td class="font-success text-center">+$320.00</td>
                                         <td class="font-success text-center">2%</td>
-                                        <td class="font-success text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
+                                        <td class="text-center"><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center">2</td>
@@ -84,8 +82,7 @@
                                         <td class="text-center">3 Hours 55Mins</td>
                                         <td class="font-secondary text-center">-$320.00</td>
                                         <td class="font-secondary text-center">2%</td>
-                                        <td class="font-secondary text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
+                                        <td class="text-center"><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center">3</td>
@@ -94,8 +91,7 @@
                                         <td class="text-center">3 Hours 55Mins</td>
                                         <td class="font-success text-center">+$320.00</td>
                                         <td class="font-success text-center">2%</td>
-                                        <td class="font-success text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
+                                        <td class="text-center"><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center">4</td>
@@ -104,8 +100,7 @@
                                         <td class="text-center">3 Hours 55Mins</td>
                                         <td class="font-secondary text-center">+$320.00</td>
                                         <td class="font-secondary text-center">2%</td>
-                                        <td class="font-secondary text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
+                                        <td class="text-center"><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
                                 </tbody>
                             </table>
