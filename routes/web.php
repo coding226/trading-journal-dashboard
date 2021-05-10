@@ -75,3 +75,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/othersetting', [UserController::class, 'othersetting'])->name('user.othersetting');
     // User ends
 });
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admindashboard.index');
+});
