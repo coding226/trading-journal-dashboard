@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Subuser;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -70,20 +71,28 @@ class RegisterController extends Controller
     {
         $payment = ($data['payment'] == 'option1') ? 'stripe' : 'paypal';
         $subscription = (isset($data['subscription'])) ? 1 : 0;
-        return User::create([
-            'name' => $data['firstname'].' '.$data['lastname'],
+        $user = User::create([
+            'name' => $data['name'],
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
+            'location' => $data['location'],
             'number' => $data['number'],
             'password' => Hash::make($data['password']),
             'payment' => $payment,
             'subscription' => $subscription,
-            'status' => 0,
         ]);
+
+        Subuser::create([
+            'user_id' => $user->id,
+            'acc_num' => $user->id+10000,
+            'username' => 'Main',
+            'desc' => 'Main',
+        ]);
+
+        return $user;
     }
 
-    
     public function showAdminRegisterForm()
     {
         return view('auth.register', ['url' => 'admin']);

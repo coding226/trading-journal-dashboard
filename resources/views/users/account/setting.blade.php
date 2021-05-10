@@ -109,7 +109,7 @@
                                                 
                                                 <div class="media-body">
                                                     <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                                                    <p>BEIGNNER</p>
+                                                    <p>{{ Auth::user()->id + 10000 }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -132,6 +132,10 @@
                                     <div class="mb-3">
                                         <label class="form-label">Email-Address</label>
                                         <input class="form-control" type="email" id="email" name="email" placeholder="your-email@domain.com" value="{{ Auth::user()->email }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Location</label>
+                                        <input class="form-control" type="text" name="location" placeholder="Your location" value="{{ Auth::user()->location }}">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
@@ -234,10 +238,6 @@
     </div>
 @endsection
 @section('script')
-    <script src="../assets/js/dashboard/default.js"></script>
     <script src="../assets/js/dashboard/custom.js"></script>
     <script src="../assets/js/tooltip-init.js"></script>
-    <script>
-        
-    </script>
 @endsection

@@ -15,9 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('location');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -25,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('payment');
             $table->boolean('subscription');
             $table->string('avatar')->nullable();
-            $table->string('status');
+            $table->string('status')->default('1');
             $table->string('startcapital')->default('0');
             $table->string('currency')->default('USD');
             $table->string('withamount')->default('10');

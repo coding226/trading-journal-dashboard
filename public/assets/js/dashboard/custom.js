@@ -25,6 +25,7 @@ $("#save_account_setting").click(function(e) {
         // },
         data: formData,
         success:function(data) {
+            console.log(data);
             alert( "Data Saved: " + data );
         }
     });

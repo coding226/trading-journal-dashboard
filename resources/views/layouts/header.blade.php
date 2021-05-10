@@ -313,17 +313,10 @@
                         <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize"></i></a></li>
                         <li class="profile-nav onhover-dropdown p-0 me-0">
-                            <div class="media profile-media"><img class="b-r-10"
-                                    src="../assets/images/dashboard/profile.jpg" alt="">
-                                @empty($url)
+                            <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
                                 <div class="media-body"><span>{{Auth::user()->name}}</span>
-                                    <p class="mb-0 font-roboto">Beginner <i class="middle fa fa-angle-down"></i></p>
+                                    <p class="mb-0 font-roboto">{{ Session::get('subuser')->acc_num }} <i class="middle fa fa-angle-down"></i></p>
                                 </div>
-                                @else
-                                <div class="media-body"><span>{{Auth::guard('admin')->user()->name}}</span>
-                                    <p class="mb-0 font-roboto"> {{Auth::guard('admin')->user()->email}} <i class="middle fa fa-angle-down"></i></p>
-                                </div>
-                                @endempty
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="{{ url('/account-setting') }}"><i

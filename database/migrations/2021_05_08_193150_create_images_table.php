@@ -15,7 +15,10 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->longtext('before_local');
+            $table->longtext('before_link');
+            $table->longtext('after_local');
+            $table->longtext('after_link');
             $table->timestamps();
         });
     }

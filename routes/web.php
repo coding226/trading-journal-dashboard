@@ -51,8 +51,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/mytrades', [TradeController::class, 'index'])->name('mytrades.index');
     Route::get('/activetrades', [TradeController::class, 'activetrades'])->name('activetrades.index');
     Route::get('/new-trade', [TradeController::class, 'addnewtrade'])->name('newtrade.index');
+    Route::post('/createtrade', [TradeController::class, 'create'])->name('newtrade.create');
     // Trade end
-
 
     // Analytics start
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
@@ -78,5 +78,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::prefix('admin')->group(function () {
+
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admindashboard.index');
 });

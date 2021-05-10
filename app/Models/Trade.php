@@ -9,6 +9,27 @@ class Trade extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'subuser_id',
+        'image_id',
+        'symbol_id',
+        'start_datetime',
+        'end_datetime',
+        'long_short',
+        'pips',
+        'fees',
+        'profit_gl',
+        'percentage_gl',
+        'open_price',
+        'close_price',
+        'description'
+    ];
+
     public function subuser()
     {
         return $this->belongsTo(Subuser::class);
