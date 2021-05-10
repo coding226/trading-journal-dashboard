@@ -82,6 +82,7 @@
                             data-feather="align-center"></i></div>
                 </div>
                 <div class="left-header col horizontal-wrapper ps-0">
+                @empty($url)
                     {{-- <ul class="horizontal-menu">
                         <li class="mega-menu outside"><a class="nav-link" href="#!" data-bs-original-title=""
                                 title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -112,8 +113,7 @@
                                                                 </path>
                                                                 <polyline points="13 2 13 9 20 9"></polyline>
                                                             </svg>Sub Account</a></li>
-                                                    <li><a href="comingsoon-bg-video.html" data-bs-original-title=""
-                                                            title=""> <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    <li><a href="comingsoon-bg-video.html" data-bs-original-title=""                                                            title=""> <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                                 stroke="currentColor" stroke-width="2"
                                                                 stroke-linecap="round" stroke-linejoin="round"
@@ -249,6 +249,7 @@
                             </ul>
                         </li>
                     </ul>
+                @endempty
                 </div>
                 <div class="nav-right col-8 pull-right right-header p-0">
                     <ul class="nav-menus">
@@ -314,9 +315,15 @@
                         <li class="profile-nav onhover-dropdown p-0 me-0">
                             <div class="media profile-media"><img class="b-r-10"
                                     src="../assets/images/dashboard/profile.jpg" alt="">
+                                @empty($url)
                                 <div class="media-body"><span>{{Auth::user()->name}}</span>
                                     <p class="mb-0 font-roboto">Beginner <i class="middle fa fa-angle-down"></i></p>
                                 </div>
+                                @else
+                                <div class="media-body"><span>{{Auth::guard('admin')->user()->name}}</span>
+                                    <p class="mb-0 font-roboto"> {{Auth::guard('admin')->user()->email}} <i class="middle fa fa-angle-down"></i></p>
+                                </div>
+                                @endempty
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="{{ url('/account-setting') }}"><i

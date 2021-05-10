@@ -8,6 +8,9 @@ use App\Http\Controllers\TradeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\SymbolanalyticsController;
+use App\Http\Controllers\admin\AdmindashboardController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

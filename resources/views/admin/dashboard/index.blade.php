@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>Dashbaord | Trading Buddy</title>
+<title>Admin Dashbaord | Trading Buddy</title>
 @endsection
 @section('style')
 <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
