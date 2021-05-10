@@ -1,21 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Subuser;
 
-class AdminDashboardController extends Controller
+class AdmindashboardController extends Controller
 {
-    public function __construct()
-    {
-        
-    }
 
-    
-    public function index()
-    {
-        return view('admin.dashboard.index');
+    public function index(){
+        
+        return view('admin.dashboard.index', ['url' => 'admin']);
     }
 }
