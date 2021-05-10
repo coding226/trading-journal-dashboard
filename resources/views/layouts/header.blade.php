@@ -227,7 +227,7 @@
                                     </path>
                                 </svg><span>Add New</span></a>
                             <ul class="header-level-menu menu-to-be-close">
-                                <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
+                                <li><a href="{{ url('new-trade') }}" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-git-pull-request">

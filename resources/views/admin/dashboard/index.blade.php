@@ -42,7 +42,7 @@
                             <div class="profile-vector"><img class="img-fluid"
                                     src="../assets/images/dashboard/welcome.png" alt=""></div>
                             <h4 class="f-w-600"><span id="greeting">Good Morning</span><span>,
-                                    {{Auth::guard('admin')->user()->name}}</span> <span class="right-circle"><i
+                                    {{Auth::user()->firstname}}</span> <span class="right-circle"><i
                                         class="fa fa-check-circle f-14 middle"></i></span></h4>
                             <p><span> Todays profit is +3.5% which makes your Total Percentage +12% this month.</span>
                             </p>

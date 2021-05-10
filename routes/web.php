@@ -68,14 +68,10 @@ Route::group(['middleware' => ['auth']], function () {
     // User start
     Route::get('/account-setting', [UserController::class, 'setting'])->name('user.setting');
     Route::get('/new-account', [UserController::class, 'new_account'])->name('user.newaccount');
+    Route::post('/create_subaccount', [UserController::class, 'create_subaccount'])->name('user.createsub');
 
     Route::post('/mainsetting', [UserController::class, 'mainsetting'])->name('user.mainsetting');
     Route::post('/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
     Route::post('/othersetting', [UserController::class, 'othersetting'])->name('user.othersetting');
     // User ends
-});
-
-
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [AdmindashboardController::class, 'index'])->name('dashboard.index');
 });
