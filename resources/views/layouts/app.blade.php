@@ -1,7 +1,7 @@
-@empty($url)
-    @include('layouts.header')
-@else
+@isset($url)
     @include('layouts.admin_header')
-@endempty
+@else
+    @include('layouts.header')
+@endisset
 @yield('content')
 @include('layouts.footer')

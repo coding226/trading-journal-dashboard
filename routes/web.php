@@ -87,4 +87,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admindashboard.index');
     Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
     Route::get('/member', [MemberController::class, 'index'])->name('member.index');
+    Route::get('/create-account', [MemberController::class, 'create_account'])->name('member.create');
 });

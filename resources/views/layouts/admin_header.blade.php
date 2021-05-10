@@ -147,15 +147,9 @@
                         <li class="profile-nav onhover-dropdown p-0 me-0">
                             <div class="media profile-media"><img class="b-r-10"
                                     src="../assets/images/dashboard/profile.jpg" alt="">
-                                @empty($url)
-                                <div class="media-body"><span>{{Auth::user()->name}}</span>
-                                    <p class="mb-0 font-roboto">Beginner <i class="middle fa fa-angle-down"></i></p>
-                                </div>
-                                @else
                                 <div class="media-body"><span>{{Auth::guard('admin')->user()->name}}</span>
                                     <p class="mb-0 font-roboto"> {{Auth::guard('admin')->user()->email}} <i class="middle fa fa-angle-down"></i></p>
                                 </div>
-                                @endempty
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="{{ url('/account-setting') }}"><i
@@ -221,15 +215,12 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/admin/member') }}"><i
                                             data-feather="bar-chart">
                                         </i><span>Members</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
-                                            data-feather="activity">
-                                        </i><span>Create Account</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="trending-up">
+                                        href="{{ url('/admin/create-account') }}"><i data-feather="plus">
                                         </i><span>Create Account</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="plus">
-                                        </i><span>Notification</span></a></li>
+                                {{-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
+                                        href="#"><i data-feather="list">
+                                        </i><span>Notification</span></a></li> --}}
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
                                             data-feather="list">
                                         </i><span>Coupons</span></a></li>

@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $subuser = Subuser::where('acc_num', Auth::user()->id + 10000)->first();
         session(['subuser' => $subuser]);
         $url = 'dashboard';
-        return view("users.dashboard.index", compact("url"));
+        return view("users.dashboard.index");
     }
     
     public function contactus()

@@ -11,4 +11,8 @@ class MemberController extends Controller
     public function index(){
         return view('admin.member.index', ['url' => 'admin']);
     }
+    
+    public function create_account(){
+        return view('admin.member.create_account', ['url' => 'admin']);
+    }
 }

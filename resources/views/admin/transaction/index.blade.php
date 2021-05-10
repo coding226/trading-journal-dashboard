@@ -68,44 +68,44 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">6786</td>
-                                        <td class="text-center">Journal</td>
-                                        <td class="text-center">Lola</td>
-                                        <td class="text-center">Lola-2021</td>
-                                        <td class="text-center">lola@user.com</td>
-                                        <td class="text-center">£7.99</td>
-                                        <td class="text-center">1/6/2021</td>
+                                        <td>1</td>
+                                        <td>6786</td>
+                                        <td>Journal</td>
+                                        <td>Lola</td>
+                                        <td>Lola-2021</td>
+                                        <td>lola@user.com</td>
+                                        <td>£7.99</td>
+                                        <td>1/6/2021</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">2</td>
-                                        <td class="text-center">6787</td>
-                                        <td class="text-center">Free</td>
-                                        <td class="text-center">Rose</td>
-                                        <td class="text-center">Rose_098</td>
-                                        <td class="text-center">rose@user.com</td>
-                                        <td class="text-center">£7.99</td>
-                                        <td class="text-center">1/6/2021</td>
+                                        <td>2</td>
+                                        <td>6787</td>
+                                        <td>Free</td>
+                                        <td>Rose</td>
+                                        <td>Rose_098</td>
+                                        <td>rose@user.com</td>
+                                        <td>£7.99</td>
+                                        <td>1/6/2021</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">6788</td>
-                                        <td class="text-center">Additional account</td>
-                                        <td class="text-center">Sam</td>
-                                        <td class="text-center">Sam</td>
-                                        <td class="text-center">rose@user.com</td>
-                                        <td class="text-center">£7.99</td>
-                                        <td class="text-center">1/6/2021</td>
+                                        <td>3</td>
+                                        <td>6788</td>
+                                        <td>Additional account</td>
+                                        <td>Sam</td>
+                                        <td>Sam</td>
+                                        <td>rose@user.com</td>
+                                        <td>£7.99</td>
+                                        <td>1/6/2021</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">4</td>
-                                        <td class="text-center">6789</td>
-                                        <td class="text-center">Journal</td>
-                                        <td class="text-center">steve</td>
-                                        <td class="text-center">Steve</td>
-                                        <td class="text-center">rose@user.com</td>
-                                        <td class="text-center">£7.99</td>
-                                        <td class="text-center">1/6/2021</td>
+                                        <td>4</td>
+                                        <td>6789</td>
+                                        <td>Journal</td>
+                                        <td>steve</td>
+                                        <td>Steve</td>
+                                        <td>rose@user.com</td>
+                                        <td>£7.99</td>
+                                        <td>1/6/2021</td>
                                     </tr>
                                 </tbody>
                             </table>
