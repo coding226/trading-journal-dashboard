@@ -22,4 +22,9 @@ class DashboardController extends Controller
         $url = 'dashboard';
         return view("users.dashboard.index", compact("url"));
     }
+    
+    public function contactus()
+    {
+        return view('users.contactus.index');
+    }
 }

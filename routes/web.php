@@ -9,6 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\SymbolanalyticsController;
 use App\Http\Controllers\admin\AdmindashboardController;
+use App\Http\Controllers\admin\TransactionController;
+use App\Http\Controllers\admin\MemberController;
 
 
 /*
@@ -74,10 +76,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
     Route::post('/othersetting', [UserController::class, 'othersetting'])->name('user.othersetting');
     // User ends
+
+    //Contact us
+    Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus.index');
 });
 
 
 Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admindashboard.index');
+    Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
+    Route::get('/member', [MemberController::class, 'index'])->name('member.index');
 });
