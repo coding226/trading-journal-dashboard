@@ -18,4 +18,9 @@ class DashboardController extends Controller
     {
         return view('users.dashboard.index');
     }
+    
+    public function contactus()
+    {
+        return view('users.contactus.index');
+    }
 }

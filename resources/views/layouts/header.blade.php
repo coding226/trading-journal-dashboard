@@ -427,7 +427,7 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
                                             data-feather="list">
                                         </i><span>Quick Course</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/contactus') }}"><i
                                             data-feather="server">
                                         </i><span>Contact Us</span></a></li>
                             </ul>
