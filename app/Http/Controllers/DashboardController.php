@@ -16,8 +16,6 @@ class DashboardController extends Controller
     
     public function index()
     {
-        $comment = Subuser::find(1);
-        dd($comment->user->name);
-        return view('users.dashboard.index', ['preloader' => true]);
+        return view('users.dashboard.index');
     }
 }

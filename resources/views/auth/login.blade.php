@@ -11,7 +11,7 @@
                     <div><a class="logo text-start" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
                     <div class="login-main">
                         @isset($url)
-                        <form class="theme-form" method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
+                        <form class="theme-form" method="POST" action='{{ url("$url/login") }}' aria-label="{{ __('Login') }}">
                         @else
                         <form class="theme-form" method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @endisset
@@ -39,11 +39,14 @@
                                     @enderror
                                 </div>
                             </div>
+                            
                             <div class="form-group mb-0">
+                                @empty($url)
                                 <div class="checkbox p-0">
                                     <input id="checkbox1" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="text-muted" for="checkbox1">Remember password</label>
                                 </div><a class="link" href="{{ route('password.request') }}">Forgot password?</a>
+                                @endempty
                                 <div class="text-end mt-3">
                                     <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button>
                                 </div>

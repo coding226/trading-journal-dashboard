@@ -8,6 +8,9 @@ use App\Http\Controllers\TradeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\SymbolanalyticsController;
+use App\Http\Controllers\admin\AdmindashboardController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,4 +72,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
     Route::post('/othersetting', [UserController::class, 'othersetting'])->name('user.othersetting');
     // User ends
+});
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdmindashboardController::class, 'index'])->name('dashboard.index');
 });
