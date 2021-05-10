@@ -36,15 +36,15 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Start Data and Time</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control digits" id="example-datetime-local-input"
-                                                type="datetime-local" value="2018-01-19T18:45:00">
+                                            <input class="form-control digits" id="start_date" name="start_date"
+                                                type="datetime-local" value="2021-01-19T18:45:00">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">End Data and Time</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control digits" id="example-datetime-local-input"
-                                                type="datetime-local" value="2018-01-19T18:45:00">
+                                            <input class="form-control digits" id="end_date" name="end_date"
+                                                type="datetime-local" value="2021-01-19T18:45:00">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -70,7 +70,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Type here information">
+                                            <input class="form-control" id="pip_pro_loss" name="pip_pro_loss" type="text" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -78,7 +78,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="number"
+                                                <input class="form-control" type="number" id="fee" name="fee"
                                                     aria-describedby="validationTooltipUsernamePrepend" required=""
                                                     data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
@@ -89,7 +89,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="number"
+                                                <input class="form-control" type="number" id="profit_gain" name="profit_gain"
                                                     aria-describedby="validationTooltipUsernamePrepend" required=""
                                                     data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
@@ -98,37 +98,37 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="per_gain" name="per_gain" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Open Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="open_price" name="open_price" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Close Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="close_price" name="close_price" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Before Image Upload</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="file" data-bs-original-title="" title="">
+                                            <input class="form-control" type="file" id="before_img" name="before_img" data-bs-original-title="" title="">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">After Image Upload</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="file" data-bs-original-title="" title="">
+                                            <input class="form-control" type="file" id="after_img" name="after_img" data-bs-original-title="" title="">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5"
+                                            <textarea class="form-control" rows="5" cols="5" id="trade_desc" name="trade_desc"
                                                 placeholder="Default textarea"></textarea>
                                         </div>
                                     </div>

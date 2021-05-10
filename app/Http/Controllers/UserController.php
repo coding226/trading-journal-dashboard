@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use Validator;
 use App\Models\User;
+use App\Models\Subuser;
 use Auth;
 
 class UserController extends Controller
@@ -25,6 +26,17 @@ class UserController extends Controller
     public function new_account()
     {
         return view('users.account.new-account');
+    }
+    
+    public function create_subaccount(Request $request)
+    {
+        $subuser = new Subuser;
+        $subuser->user_id = Auth::user()->id;
+        $subuser->acc_num = 12345;
+        $subuser->username = $request->username;
+        $subuser->desc = $request->account_desc;
+        $subuser->save();
+        return json_encode(true);
     }
 
 

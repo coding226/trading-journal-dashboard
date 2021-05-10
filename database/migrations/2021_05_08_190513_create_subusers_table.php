@@ -17,6 +17,8 @@ class CreateSubusersTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->biginteger('acc_num');
+            $table->string('username');
+            $table->string('desc');
             $table->timestamps();
         });
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Subuser;
 
-class DashboardController extends Controller
+class AdminDashboardController extends Controller
 {
     public function __construct()
     {
@@ -16,6 +16,6 @@ class DashboardController extends Controller
     
     public function index()
     {
-        return view('users.dashboard.index', ['preloader' => true]);
+        return view('admin.dashboard.index');
     }
 }
