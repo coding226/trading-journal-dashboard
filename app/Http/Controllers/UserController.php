@@ -22,6 +22,11 @@ class UserController extends Controller
         return view('users.account.setting');
     }
 
+    public function new_account()
+    {
+        return view('users.account.new-account');
+    }
+
 
     public function mainsetting(Request $request)
     {
