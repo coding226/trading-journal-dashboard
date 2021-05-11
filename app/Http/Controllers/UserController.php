@@ -29,14 +29,27 @@ class UserController extends Controller
     }
     
     public function create_subaccount(Request $request)
-    {
+    {   
+        $current_userid = Auth::user()->id;
         $subuser = new Subuser;
-        $subuser->user_id = Auth::user()->id;
-        $subuser->acc_num = 12345;
+        $subuser->user_id = $current_userid;
+        $subuser->acc_num = $current_userid."-". $this->get_subacc_count($current_userid);
         $subuser->username = $request->username;
         $subuser->desc = $request->account_desc;
         $subuser->save();
         return json_encode(true);
+    }
+
+    public function change_user($id) {
+        $subuser = Subuser::where('id', $id)->first();
+        session(['subuser' => $subuser]);
+        return redirect('/dashboard')->with('message', 'Login Failed');
+    }
+
+    public function get_subacc_count($user_id) {
+        $subuser = Subuser::where('user_id', '=', $user_id)->get();
+        $count = $subuser->count() + 1;
+        return $count;
     }
 
 

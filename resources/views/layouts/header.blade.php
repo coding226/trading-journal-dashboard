@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+        content="The only trading journal that helps you find your buddy.">
     <meta name="keywords"
         content="trading buddy, trading, buy, sell, long, short, web app">
     <meta name="author" content="pixelstrap">
@@ -82,103 +82,6 @@
                             data-feather="align-center"></i></div>
                 </div>
                 <div class="left-header col horizontal-wrapper ps-0">
-                @empty($url)
-                    {{-- <ul class="horizontal-menu">
-                        <li class="mega-menu outside"><a class="nav-link" href="#!" data-bs-original-title=""
-                                title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
-                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                    <polyline points="2 17 12 22 22 17"></polyline>
-                                    <polyline points="2 12 12 17 22 12"></polyline>
-                                </svg><span>Switch Accounts</span></a>
-                            <div class="mega-menu-container nav-submenu menu-to-be-close header-mega show"
-                                style="display: none;">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col mega-box">
-                                            <div class="link-section">
-                                                <div>
-                                                    <h6>Sub Accounts</h6>
-                                                </div>
-                                                <ul class="svg-icon">
-                                                    <li><a href="comingsoon.html" data-bs-original-title="" title="">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-file">
-                                                                <path
-                                                                    d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
-                                                                </path>
-                                                                <polyline points="13 2 13 9 20 9"></polyline>
-                                                            </svg>Sub Account</a></li>
-                                                    <li><a href="comingsoon-bg-video.html" data-bs-original-title=""                                                            title=""> <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-film">
-                                                                <rect x="2" y="2" width="20" height="20" rx="2.18"
-                                                                    ry="2.18"></rect>
-                                                                <line x1="7" y1="2" x2="7" y2="22"></line>
-                                                                <line x1="17" y1="2" x2="17" y2="22"></line>
-                                                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                                                <line x1="2" y1="7" x2="7" y2="7"></line>
-                                                                <line x1="2" y1="17" x2="7" y2="17"></line>
-                                                                <line x1="17" y1="17" x2="22" y2="17"></line>
-                                                                <line x1="17" y1="7" x2="22" y2="7"></line>
-                                                            </svg>Sub Account</a></li>
-                                                    <li><a href="comingsoon-bg-img.html" data-bs-original-title=""
-                                                            title=""><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-image">
-                                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                                                </rect>
-                                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                                                <polyline points="21 15 16 10 5 21"></polyline>
-                                                            </svg>Sub Account</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="level-menu outside"><a class="nav-link" href="#!"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-inbox">
-                                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg><span>Add New</span></a>
-                            <ul class="header-level-menu menu-to-be-close">
-                                <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-git-pull-request">
-                                            <circle cx="18" cy="18" r="3"></circle>
-                                            <circle cx="6" cy="6" r="3"></circle>
-                                            <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-                                            <line x1="6" y1="9" x2="6" y2="21"></line>
-                                        </svg><span>Add New Trade </span></a></li>
-                                <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-users">
-                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="9" cy="7" r="4"></circle>
-                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                        </svg><span>Add New Account</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul> --}}
                     <ul class="horizontal-menu">
                         <li class="mega-menu outside"><a class="nav-link" href="#!"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -211,7 +114,7 @@
                                                 </div>
                                                 <ul>
                                                     @foreach($subusers as $subuser)
-                                                    <li><a href="#">{{ $subuser-> acc_num }}</a></li>
+                                                        <li><a href="{{ url('/change_user/'.$subuser-> id) }}">{{ $subuser-> acc_num }}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -252,7 +155,6 @@
                             </ul>
                         </li>
                     </ul>
-                @endempty
                 </div>
                 <div class="nav-right col-8 pull-right right-header p-0">
                     <ul class="nav-menus">

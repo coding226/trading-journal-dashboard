@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
     // User start
     Route::get('/account-setting', [UserController::class, 'setting'])->name('user.setting');
     Route::get('/new-account', [UserController::class, 'new_account'])->name('user.newaccount');
+    Route::get('/change_user/{id}', [UserController::class, 'change_user'])->name('user.change_user');
     Route::post('/create_subaccount', [UserController::class, 'create_subaccount'])->name('user.createsub');
 
     Route::post('/mainsetting', [UserController::class, 'mainsetting'])->name('user.mainsetting');
