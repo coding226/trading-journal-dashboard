@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
     // User start
     Route::get('/account-setting', [UserController::class, 'setting'])->name('user.setting');
     Route::get('/new-account', [UserController::class, 'new_account'])->name('user.newaccount');
+    Route::get('/change_user/{id}', [UserController::class, 'change_user'])->name('user.change_user');
     Route::post('/create_subaccount', [UserController::class, 'create_subaccount'])->name('user.createsub');
 
     Route::post('/mainsetting', [UserController::class, 'mainsetting'])->name('user.mainsetting');
@@ -83,7 +84,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::prefix('admin')->group(function () {
-
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admindashboard.index');
     Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
     Route::get('/member', [MemberController::class, 'index'])->name('member.index');

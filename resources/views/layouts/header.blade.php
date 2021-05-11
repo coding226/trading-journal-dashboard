@@ -114,7 +114,7 @@
                                                 </div>
                                                 <ul>
                                                     @foreach($subusers as $subuser)
-                                                    <li><a href="#">{{ $subuser-> acc_num }}</a></li>
+                                                        <li><a href="{{ url('/change_user/'.$subuser-> id) }}">{{ $subuser-> acc_num }}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>

@@ -34334,6 +34334,7 @@ body[class*='dark-'] .for-light {
 .left-header .mega-menu-container.show {
     opacity: 1;
     visibility: visible;
+    overflow-y: auto;
     height: 190px
 }
 

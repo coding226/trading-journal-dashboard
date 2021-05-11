@@ -17,7 +17,7 @@ class DashboardController extends Controller
     
     public function index()
     {
-        $subuser = Subuser::where('acc_num', Auth::user()->id + 10000)->first();
+        $subuser = Subuser::where('acc_num', Auth::user()->id)->first();
         session(['subuser' => $subuser]);
         $url = 'dashboard';
         return view("users.dashboard.index");

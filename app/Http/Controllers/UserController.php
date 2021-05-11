@@ -40,6 +40,12 @@ class UserController extends Controller
         return json_encode(true);
     }
 
+    public function change_user($id) {
+        $subuser = Subuser::where('id', $id)->first();
+        session(['subuser' => $subuser]);
+        return redirect('/dashboard')->with('message', 'Login Failed');
+    }
+
     public function get_subacc_count($user_id) {
         $subuser = Subuser::where('user_id', '=', $user_id)->get();
         $count = $subuser->count() + 1;
