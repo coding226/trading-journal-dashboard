@@ -29,7 +29,7 @@
                     <div class="card-header">
                         <h5>Trade Information</h5>
                     </div>
-                    <form class="form theme-form" method="POST" action="{{ route('newtrade.create') }}">
+                    <form class="form theme-form" onsubmit="return false;" method="POST" action="{{ route('newtrade.create') }}">
                     @csrf
                         <div class="card-body">
                             <div class="row">
@@ -112,12 +112,13 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Before Image Upload</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" name="before_img_link[]" data-bs-original-title="" title="">
-                                            <input class="form-control mt-3" type="file" name="before_img_file[]" data-bs-original-title="" title="">
-                                            <button class="btn btn-success pull-right mt-3 m-l-5" id="add_before"><i class="fa fa-plus"></i></button>
-                                            <button class="btn btn-primary pull-right mt-3" id="remove_before"><i class="fa fa-minus"></i></button>
+                                            <input class="form-control before_img_link" type="text" id="before_img_link_1" name="before_img_link[]">
+                                            <input class="form-control mt-3 before_img_file" type="file" id="before_img_file_1" name="before_img_file[]">
+                                            <a class="btn btn-success pull-right mt-3 m-l-5" id="add_before"><i class="fa fa-plus"></i></a>
+                                            <a class="btn btn-primary pull-right mt-3" id="remove_before"><i class="fa fa-minus"></i></a>
                                         </div>
                                     </div>
+                                    <div class="mb-3 row justify-content-center before_preview"></div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">After Image Upload</label>
                                         <div class="col-sm-9">
@@ -152,4 +153,5 @@
 @section('script')
 <script src="../assets/js/dashboard/default.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>
+<script src="../assets/js/trade/new-trade.js"></script>
 @endsection

@@ -8,7 +8,7 @@
     <meta name="description"
         content="The only trading journal that helps you find your buddy.">
     <meta name="keywords"
-        content="trading journal, admin dashboard, trading,trading web app">
+        content="trading buddy, trading, buy, sell, long, short, web app">
     <meta name="author" content="pixelstrap">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">

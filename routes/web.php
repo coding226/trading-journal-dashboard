@@ -33,7 +33,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm']);
+Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::get('/admin/register', [RegisterController::class, 'showAdminRegisterForm']);
 
 Route::post('/admin/login', [LoginController::class, 'adminLogin']);
