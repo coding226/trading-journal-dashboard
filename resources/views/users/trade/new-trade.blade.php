@@ -112,13 +112,17 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Before Image Upload</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="before_img" name="before_img" data-bs-original-title="" title="">
+                                            <input class="form-control" type="text" name="before_img_link[]" data-bs-original-title="" title="">
+                                            <input class="form-control mt-3" type="file" name="before_img_file[]" data-bs-original-title="" title="">
+                                            <button class="btn btn-success pull-right mt-3 m-l-5" id="add_before"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-primary pull-right mt-3" id="remove_before"><i class="fa fa-minus"></i></button>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">After Image Upload</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="after_img" name="after_img" data-bs-original-title="" title="">
+                                            <input class="form-control" type="text" name="after_img_linlk[]" data-bs-original-title="" title="">
+                                            <input class="form-control" type="text" name="after_img_file[]" data-bs-original-title="" title="">
                                         </div>
                                     </div>
                                     <div class="row">

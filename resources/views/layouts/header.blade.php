@@ -106,13 +106,16 @@
                                                 </svg>
                                             </div>
                                             <div class="link-section icon">
+                                            @php
+                                                $subusers = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
+                                            @endphp
                                                 <div>
                                                     <h6>Sub Accounts</h6>
                                                 </div>
                                                 <ul>
-                                                    <li><a href="#">Account 1</a></li>
-                                                    <li><a href="#">Account 2</a></li>
-                                                    <li><a href="#">Account 3</a></li>
+                                                    @foreach($subusers as $subuser)
+                                                    <li><a href="#">{{ $subuser-> acc_num }}</a></li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
