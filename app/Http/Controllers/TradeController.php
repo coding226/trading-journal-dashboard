@@ -6,6 +6,7 @@ use App\Models\Trade;
 use App\Models\Subuser;
 use App\Models\Image;
 use App\Models\Symbol;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
 
@@ -18,7 +19,8 @@ class TradeController extends Controller
      */
     public function index()
     {
-        return view('users.trade.mytrades');
+        $trades = DB::select('select * from trades');
+        return view('users.trade.mytrades', compact('trades'));
 
     }
 

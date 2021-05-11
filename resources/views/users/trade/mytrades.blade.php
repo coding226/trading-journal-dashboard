@@ -67,6 +67,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($trades as $trade)
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td class="text-center">GBP/USD</td>
@@ -77,36 +78,7 @@
                                         <td class="font-success text-center">Win</td>
                                         <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
-                                    <tr>
-                                        <td class="text-center">2</td>
-                                        <td class="text-center">EUR/USD</td>
-                                        <td class="text-center">Sell</td>
-                                        <td class="text-center">3 Hours 55Mins</td>
-                                        <td class="font-secondary text-center">-$320.00</td>
-                                        <td class="font-secondary text-center">2%</td>
-                                        <td class="font-secondary text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">USD/CAD</td>
-                                        <td class="text-center">Buy</td>
-                                        <td class="text-center">3 Hours 55Mins</td>
-                                        <td class="font-success text-center">+$320.00</td>
-                                        <td class="font-success text-center">2%</td>
-                                        <td class="font-success text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">4</td>
-                                        <td class="text-center">AUD/USD</td>
-                                        <td class="text-center">Sell</td>
-                                        <td class="text-center">3 Hours 55Mins</td>
-                                        <td class="font-secondary text-center">+$320.00</td>
-                                        <td class="font-secondary text-center">2%</td>
-                                        <td class="font-secondary text-center">Win</td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
