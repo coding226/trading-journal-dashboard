@@ -19,9 +19,8 @@ class TradeController extends Controller
      */
     public function index()
     {
-        $trades = DB::select('select * from trades');
+        $trades = DB::select("SELECT t.*, i.*, s.symbol FROM trades as t JOIN images as i ON i.id = t.image_id JOIN symbols as s ON s.id = t.symbol_id WHERE t.subuser_id = 1");
         return view('users.trade.mytrades', compact('trades'));
-
     }
 
     public function addnewtrade()

@@ -70,10 +70,10 @@
                                     @foreach($trades as $trade)
                                     <tr>
                                         <td class="text-center">1</td>
-                                        <td class="text-center">GBP/USD</td>
-                                        <td class="text-center">Buy</td>
+                                        <td class="text-center">{{ $trade->symbol }}</td>
+                                        <td class="text-center">{{ $trade->long_short }}</td>
                                         <td class="text-center">3 Hours 55Mins</td>
-                                        <td class="font-success text-center">+$320.00</td>
+                                        <td class="font-success text-center">+${{ $trade->profit_gl }}</td>
                                         <td class="font-success text-center">2%</td>
                                         <td class="font-success text-center">Win</td>
                                         <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
