@@ -8,9 +8,6 @@ use App\Http\Controllers\TradeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\SymbolanalyticsController;
-use App\Http\Controllers\admin\AdmindashboardController;
-use App\Http\Controllers\admin\TransactionController;
-use App\Http\Controllers\admin\MemberController;
 
 
 /*
@@ -31,17 +28,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
-Route::get('/admin/register', [RegisterController::class, 'showAdminRegisterForm']);
-
-Route::post('/admin/login', [LoginController::class, 'adminLogin']);
-Route::post('/admin/register', [RegisterController::class, 'createAdmin']);
-
-Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin');
-
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -80,13 +66,4 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Contact us
     Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus.index');
-});
-
-
-Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function(){
-
-    Route::get('/dashboard', [AdmindashboardController::class, 'index'])->name('admindashboard.index');
-    Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
-    Route::get('/member', [MemberController::class, 'index'])->name('member.index');
-    Route::get('/create-account', [MemberController::class, 'create_account'])->name('member.create');
 });
