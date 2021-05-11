@@ -33,7 +33,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm']);
+Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::get('/admin/register', [RegisterController::class, 'showAdminRegisterForm']);
 
 Route::post('/admin/login', [LoginController::class, 'adminLogin']);
@@ -82,9 +82,9 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function(){
 
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admindashboard.index');
+    Route::get('/dashboard', [AdmindashboardController::class, 'index'])->name('admindashboard.index');
     Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
     Route::get('/member', [MemberController::class, 'index'])->name('member.index');
     Route::get('/create-account', [MemberController::class, 'create_account'])->name('member.create');
