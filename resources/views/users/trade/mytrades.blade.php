@@ -60,22 +60,23 @@
                                         <th>Symbol:</th>
                                         <th>Long/Short</th>
                                         <th>Trade Duration</th>
-                                        <th>Profit/Loss(In Money Values)</th>
-                                        <th>Profit/Loss(In Percentage Values)</th>
+                                        <th>Profit/Loss($)</th>
+                                        <th>Profit/Loss(%)</th>
                                         <th>Win/Loss/BE</th>
                                         <th>Edit/Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $i = 0;?>
                                     @foreach($trades as $trade)
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">{{ $trade->symbol }}</td>
-                                        <td class="text-center">{{ $trade->long_short }}</td>
-                                        <td class="text-center">3 Hours 55Mins</td>
-                                        <td class="font-success text-center">+${{ $trade->profit_gl }}</td>
-                                        <td class="font-success text-center">2%</td>
-                                        <td class="font-success text-center">Win</td>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $trade->symbol }}</td>
+                                        <td>{{ $trade->long_short }}</td>
+                                        <td>3 Hours 55Mins</td>
+                                        <td class="font-success">+${{ $trade->profit_gl }}</td>
+                                        <td class="font-success">2%</td>
+                                        <td class="font-success">Win</td>
                                         <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
                                     @endforeach

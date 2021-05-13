@@ -275,6 +275,12 @@
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
                                 </li>
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6 class="lan-10">$ 1,599.69</h6>
+                                        <p class="lan-9">ACCOUNT BALANCE</p>
+                                    </div>
+                                </li>
                                 <li class="sidebar-list">
                                     {{-- <label class="badge badge-success">2</label> --}}
                                     <a class="sidebar-link sidebar-title link-nav" href="{{ url('/dashboard') }}"><i

@@ -70,7 +70,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="pips" name="pips" type="text" placeholder="Type here information">
+                                            <input class="form-control" id="pips" name="pips" type="text" placeholder="Type here information" autocomplete="off" >
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -94,19 +94,19 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Open Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="open_price" name="open_price" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="open_price" name="open_price" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Close Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="close_price" name="close_price" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="close_price" name="close_price" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
