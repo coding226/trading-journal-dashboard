@@ -3,6 +3,15 @@
 <title>New Trade | Trading Buddy</title>
 @endsection
 @section('style')
+    <style>
+        .before_preview img, .after_preview img{
+            max-width: 320px;
+            max-height: 240px;
+            border: 1px solid;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    </style>
 @endsection
 @section('content')
 <div class="page-body">
@@ -29,7 +38,7 @@
                     <div class="card-header">
                         <h5>Trade Information</h5>
                     </div>
-                    <form class="form theme-form" onsubmit="return false;" method="POST" action="{{ route('newtrade.create') }}">
+                    <form class="form theme-form" method="POST" action="{{ route('newtrade.create') }}" enctype="multipart/form-data">
                     @csrf
                         <div class="card-body">
                             <div class="row">
@@ -37,19 +46,19 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Start Data and Time</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control digits" id="start_date" name="start_date" type="datetime-local" require>
+                                            <input class="form-control digits" id="start_date" name="start_date" type="datetime-local" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">End Data and Time</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control digits" id="end_date" name="end_date" type="datetime-local" require>
+                                            <input class="form-control digits" id="end_date" name="end_date" type="datetime-local" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Symbol</label>
                                         <div class="col-sm-9">
-                                            <select class="form-select" required="" name="symbol_id">
+                                            <select class="form-select" name="symbol_id" required>
                                                 <option selected="" disabled="" value="">Choose...</option>
                                                 @foreach($symbols as $symbol)
                                                 <option value="{{ $symbol->id }}">{{ $symbol->symbol }}</option>
@@ -60,7 +69,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Long or Short</label>
                                         <div class="col-sm-9">
-                                            <select class="form-select" required="" name="long_short">
+                                            <select class="form-select" name="long_short" required>
                                                 <option selected="" disabled="" value="">Choose...</option>
                                                 <option>LONG</option>
                                                 <option>SHORT</option>
@@ -70,7 +79,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="pips" name="pips" type="text" placeholder="Type here information">
+                                            <input class="form-control" id="pips" name="pips" type="text" placeholder="Type here information" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -78,7 +87,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="number" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" required="" data-bs-original-title="" title="" placeholder="Type here information">
+                                                <input class="form-control" type="number" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
                                             </div>
                                         </div>
                                     </div>
@@ -87,50 +96,54 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="number" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" required="" data-bs-original-title="" title="" placeholder="Type here information">
+                                                <input class="form-control" type="number" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" placeholder="Type here information" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Open Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="open_price" name="open_price" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="open_price" name="open_price" placeholder="Type here information" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Close Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="close_price" name="close_price" placeholder="Type here information">
+                                            <input class="form-control" type="text" id="close_price" name="close_price" placeholder="Type here information" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Before Image Upload</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control before_img_link" type="text" id="before_img_link_1" name="before_img_link[]">
-                                            <input class="form-control mt-3 before_img_file" type="file" id="before_img_file_1" name="before_img_file[]">
+                                        <div class="col-sm-9 before_input">
+                                            <input class="form-control before_img_link" type="text" id="before_img_link_1" name="before_img_link_1">
+                                            <input class="form-control mt-3 before_img_file" type="file" id="before_img_file_1" name="before_img_file_1">
                                             <a class="btn btn-success pull-right mt-3 m-l-5" id="add_before"><i class="fa fa-plus"></i></a>
                                             <a class="btn btn-primary pull-right mt-3" id="remove_before"><i class="fa fa-minus"></i></a>
+                                            <input type="hidden" name="before_img_count" id="before_img_count" value="1">
                                         </div>
                                     </div>
                                     <div class="mb-3 row justify-content-center before_preview"></div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">After Image Upload</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" type="text" name="after_img_linlk[]" data-bs-original-title="" title="">
-                                            <input class="form-control" type="text" name="after_img_file[]" data-bs-original-title="" title="">
+                                        <div class="col-sm-9 after_input">
+                                            <input class="form-control after_img_link" type="text" id="after_img_link_1" name="after_img_link_1">
+                                            <input class="form-control mt-3 after_img_file" type="file" id="after_img_file_1" name="after_img_file_1">
+                                            <a class="btn btn-success pull-right mt-3 m-l-5" id="add_after"><i class="fa fa-plus"></i></a>
+                                            <a class="btn btn-primary pull-right mt-3" id="remove_after"><i class="fa fa-minus"></i></a>
+                                            <input type="hidden" name="after_img_count" id="after_img_count" value="1">
                                         </div>
                                     </div>
+                                    <div class="mb-3 row justify-content-center after_preview"></div>
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description"
-                                                placeholder="Default textarea"></textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Default textarea" required></textarea>
                                         </div>
                                     </div>
                                 </div>

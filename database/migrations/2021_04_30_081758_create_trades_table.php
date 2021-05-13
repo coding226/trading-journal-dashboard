@@ -16,7 +16,6 @@ class CreateTradesTable extends Migration
         Schema::create('trades', function (Blueprint $table) {
             $table->id();
             $table->biginteger('subuser_id');
-            $table->biginteger('image_id');
             $table->biginteger('symbol_id');
             $table->datetime('start_datetime');
             $table->datetime('end_datetime');

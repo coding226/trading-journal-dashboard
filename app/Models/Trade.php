@@ -16,7 +16,6 @@ class Trade extends Model
      */
     protected $fillable = [
         'subuser_id',
-        'image_id',
         'symbol_id',
         'start_datetime',
         'end_datetime',
@@ -43,5 +42,15 @@ class Trade extends Model
     public function symbol()
     {
         return $this->belongsTo(symbol::class);
+    }
+
+    public function beimage()
+    {
+        return $this->hasMany(Beimage::class);
+    }
+
+    public function afimage()
+    {
+        return $this->hasMany(Afimage::class);
     }
 }
