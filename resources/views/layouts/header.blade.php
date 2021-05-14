@@ -107,14 +107,14 @@
                                             </div>
                                             <div class="link-section icon">
                                             @php
-                                                $subusers = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
+                                                $subusers1 = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
                                             @endphp
                                                 <div>
                                                     <h6>Sub Accounts</h6>
                                                 </div>
                                                 <ul>
-                                                    @foreach($subusers as $subuser)
-                                                        <li><a href="{{ url('/change_user/'.$subuser-> id) }}">{{ $subuser-> acc_num }}</a></li>
+                                                    @foreach($subusers1 as $subuser1)
+                                                        <li><a href="{{ url('/change_user/'.$subuser1-> id) }}">{{ $subuser1-> acc_num }}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -220,7 +220,7 @@
                         <li class="profile-nav onhover-dropdown p-0 me-0">
                             <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
                                 <div class="media-body"><span>{{Auth::user()->name}}</span>
-                                    <p class="mb-0 font-roboto">{{ Session::get('subuser')->acc_num }} <i class="middle fa fa-angle-down"></i></p>
+                                    <p class="mb-0 font-roboto">{{ Auth::user()->current_subsuer->acc_num }} <i class="middle fa fa-angle-down"></i></p>
                                 </div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div">

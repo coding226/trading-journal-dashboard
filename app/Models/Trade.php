@@ -15,10 +15,12 @@ class Trade extends Model
      * @var array
      */
     protected $fillable = [
+        'trade_num',
         'subuser_id',
         'symbol_id',
         'start_datetime',
         'end_datetime',
+        'duration',
         'long_short',
         'pips',
         'fees',
@@ -41,7 +43,7 @@ class Trade extends Model
 
     public function symbol()
     {
-        return $this->belongsTo(symbol::class);
+        return $this->belongsTo(Symbol::class);
     }
 
     public function beimage()

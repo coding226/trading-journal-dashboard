@@ -69,13 +69,13 @@
                                 <tbody>
                                     @foreach($trades as $trade)
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">{{ $trade->symbol }}</td>
+                                        <td class="text-center">{{ $trade->trade_num }}</td>
+                                        <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                         <td class="text-center">{{ $trade->long_short }}</td>
-                                        <td class="text-center">3 Hours 55Mins</td>
-                                        <td class="font-success text-center">+${{ $trade->profit_gl }}</td>
-                                        <td class="font-success text-center">2%</td>
-                                        <td class="font-success text-center">Win</td>
+                                        <td class="text-center">{{ $trade->duration }}</td>
+                                        <td class="font-success text-center">{{ $trade->profit_gl }}</td>
+                                        <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                                        <td class="font-success text-center"></td>
                                         <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
                                     @endforeach

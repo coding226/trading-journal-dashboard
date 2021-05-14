@@ -137,6 +137,6 @@
 @endsection
 @section('script')
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
-<script src="../assets/js/analytics/all-chart.js"></script>
+<script src="../assets/js/symbol-analytics/symbol-data.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>
 @endsection

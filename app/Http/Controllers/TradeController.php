@@ -10,6 +10,9 @@ use App\Models\Symbol;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
+use Auth;
+use Carbon\CarbonInterval;
+use Carbon\Carbon;
 
 class TradeController extends Controller
 {
@@ -20,7 +23,7 @@ class TradeController extends Controller
      */
     public function index()
     {
-        $trades = DB::select("SELECT t.*, i.*, s.symbol FROM trades as t JOIN images as i ON i.id = t.image_id JOIN symbols as s ON s.id = t.symbol_id WHERE t.subuser_id = 1");
+        $trades = Trade::where('subuser_id', Auth::user()->current_subuser)->get();
         return view('users.trade.mytrades', compact('trades'));
     }
 
@@ -33,7 +36,8 @@ class TradeController extends Controller
 
     public function activetrades()
     {
-        return view('users.trade.active-trade');
+        $trades = Trade::where('subuser_id', Auth::user()->current_subuser)->whereDate('end_datetime', '>=', Carbon::now())->get();
+        return view('users.trade.active-trade', compact('trades'));
     }
     /**
      * Show the form for creating a new resource.
@@ -44,10 +48,12 @@ class TradeController extends Controller
     {
 
         $trade = new Trade;
-        $trade->subuser_id = Session::get('subuser')->acc_num;
+        $trade->trade_num = count(Trade::where('subuser_id', Auth::user()->current_subuser)->get())+1;
+        $trade->subuser_id = Auth::user()->current_subuser;
         $trade->symbol_id = $request->symbol_id;
         $trade->start_datetime = $request->start_date;
         $trade->end_datetime = $request->end_date;
+        $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
         $trade->long_short = $request->long_short;
         $trade->pips = $request->pips;
         $trade->fees = $request->fees;

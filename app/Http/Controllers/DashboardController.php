@@ -17,14 +17,12 @@ class DashboardController extends Controller
     
     public function index()
     {
-        $subuser = Subuser::where('acc_num', Auth::user()->id)->first();
-        session(['subuser' => $subuser]);
-        $url = 'dashboard';
         return view("users.dashboard.index");
     }
     
     public function contactus()
     {
-        return view('users.contactus.index');
+        $subuser = Subuser::where('id', Auth::user()->current_subuser)->first();
+        return view('users.contactus.index',compact('subuser'));
     }
 }

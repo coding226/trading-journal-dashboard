@@ -82,12 +82,16 @@ class RegisterController extends Controller
             'subscription' => $subscription,
         ]);
 
-        Subuser::create([
+        $subuser = Subuser::create([
             'user_id' => $user->id,
-            'acc_num' => $user->id+10000,
+            'acc_num' => $user->id,
             'username' => 'Main',
             'desc' => 'Main',
         ]);
+
+        $user = User::find($user->id);
+        $user->current_subuser = $subuser->id;
+        $user->save();
 
         return $user;
     }

@@ -16,8 +16,7 @@ class UserController extends Controller
     {
 
     }
-
-
+    
     public function setting()
     {
         return view('users.account.setting');

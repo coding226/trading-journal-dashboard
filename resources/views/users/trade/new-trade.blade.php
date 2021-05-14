@@ -10,6 +10,7 @@
             border: 1px solid;
             padding: 5px;
             border-radius: 10px;
+            margin: 5px;
         }
     </style>
 @endsection

@@ -15,10 +15,12 @@ class CreateTradesTable extends Migration
     {
         Schema::create('trades', function (Blueprint $table) {
             $table->id();
+            $table->string('trade_num');
             $table->biginteger('subuser_id');
             $table->biginteger('symbol_id');
             $table->datetime('start_datetime');
             $table->datetime('end_datetime');
+            $table->string('duration');
             $table->string('long_short');
             $table->string('pips');
             $table->string('fees');

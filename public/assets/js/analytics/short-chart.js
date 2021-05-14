@@ -23,13 +23,13 @@ var winlossmonthly_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
+        name: 'Break Even',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
     }, {
-        name: 'Revenue',
+        name: 'Losses',
         data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
     }, {
-        name: 'Free Cash Flow',
+        name: 'Wins',
         data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
     }],
     xaxis: {
@@ -54,15 +54,17 @@ var winlossmonthly_option = {
     colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25']
 }
 
-var winlossmonth_graph = new ApexCharts(
-    document.querySelector("#winlossmonth-graph"),
+var winlossmonthly_graph = new ApexCharts(
+    document.querySelector("#winlossmonthly-graph"),
     winlossmonthly_option
 );
 
-winlossmonth_graph.render();
+winlossmonthly_graph.render();
 
-// winlossmonthly chart
-var shortgainmonth_option = {
+
+
+// gain per month chart
+var gainpermonth_option = {
     chart: {
         height: 350,
         type: 'bar',
@@ -73,12 +75,11 @@ var shortgainmonth_option = {
     plotOptions: {
         bar: {
             horizontal: false,
-            endingShape: 'rounded',
             columnWidth: '55%',
         },
     },
     dataLabels: {
-        enabled: false
+        enabled: true
     },
     stroke: {
         show: true,
@@ -86,21 +87,15 @@ var shortgainmonth_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
+        name: 'Gain',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-        name: 'Free Cash Flow',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
     }],
     xaxis: {
         categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: '% (Percentage Gain)'
         }
     },
     fill: {
@@ -110,17 +105,16 @@ var shortgainmonth_option = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val + " %"
             }
         }
     },
     colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25']
 }
 
-var shortgainmonth_graph = new ApexCharts(
+var gainpermonth_graph = new ApexCharts(
     document.querySelector("#shortgainmonth-graph"),
-    shortgainmonth_option
+    gainpermonth_option
 );
 
-shortgainmonth_graph.render();
-
+gainpermonth_graph.render();

@@ -19,6 +19,8 @@ class CreateSubusersTable extends Migration
             $table->string('acc_num');
             $table->string('username');
             $table->string('desc');
+            $table->string('currency')->default('USD');
+            $table->string('balance')->default('0');
             $table->timestamps();
         });
     }

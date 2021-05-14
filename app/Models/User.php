@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Subuser::class);
     }
+
+    public function current_subsuer()
+    {
+        return $this->belongsTo(Subuser::class, 'current_subuser');
+    }
 }
