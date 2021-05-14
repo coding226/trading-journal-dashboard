@@ -103,7 +103,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" placeholder="Type here information" required>
+                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" autocomplete="off" placeholder="Type here information" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
