@@ -60,13 +60,14 @@
                                         <th>Symbol:</th>
                                         <th>Long/Short</th>
                                         <th>Trade Duration</th>
-                                        <th>Profit/Loss(In Money Values)</th>
-                                        <th>Profit/Loss(In Percentage Values)</th>
+                                        <th>Profit/Loss($)</th>
+                                        <th>Profit/Loss(%)</th>
                                         <th>Win/Loss/BE</th>
                                         <th>Edit/Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $i = 0;?>
                                     @foreach($trades as $trade)
                                     <tr>
                                         <td class="text-center">{{ $trade->trade_num }}</td>

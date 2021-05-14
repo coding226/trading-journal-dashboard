@@ -142,7 +142,9 @@
                                             <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
                                             <line x1="6" y1="9" x2="6" y2="21"></line>
                                         </svg><span>Add New Trade </span></a></li>
-                                <li><a href="{{ url('/new-account') }}" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
+                                <li><a href="{{ url('/new-account') }}" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Add New Account</span></a>
+                                </li>
+                                <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-users">
@@ -150,7 +152,7 @@
                                             <circle cx="9" cy="7" r="4"></circle>
                                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                        </svg><span>Add New Account</span></a>
+                                        </svg><span>Upgrade Subscription</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -274,6 +276,12 @@
                                             src="../assets/images/logo/logo-icon.png" alt=""></a>
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
+                                </li>
+                                <li class="sidebar-account-balance mb-3">
+                                    <div>
+                                        <h4 class="">$ 1,599.69</h4>
+                                        <p class="">ACCOUNT BALANCE</p>
+                                    </div>
                                 </li>
                                 <li class="sidebar-list">
                                     {{-- <label class="badge badge-success">2</label> --}}

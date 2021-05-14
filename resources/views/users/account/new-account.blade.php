@@ -44,6 +44,18 @@
                                         <input class="form-control" type="text" required id="username" name="username" placeholder="User name">
                                     </div>
                                     <div class="mb-3">
+                                        <label class="form-label">Main Currency</label>
+                                        <select class="form-select" id="currency" name="currency">
+                                            <option value="USD">USD</option>
+                                            <option value="EURO">EURO</option>
+                                            <option value="GBP">GBP</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Starting Capital</label>
+                                        <input class="form-control" type="number" id="startcapital" name="startcapital" placeholder="Starting Capital">
+                                    </div>
+                                    <div class="mb-3">
                                         <label class="form-label">Description</label>
                                             <textarea class="form-control" rows="5" cols="5" id="account_desc" name="account_desc" placeholder="Default textarea"></textarea>
                                     </div>

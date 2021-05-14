@@ -203,14 +203,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Starting Capital</label>
-                                            <input class="form-control" type="text" id="startcapital" name="startcapital" placeholder="Enter Account Starting Capital here for Journal" value="{{ Auth::user()->startcapital }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="mb-3">
                                             <label class="form-label">Currency</label>
-                                            <select class="form-control btn-square" id="currency" name="currency">
+                                            <select class="form-select" id="currency" name="currency">
                                                 <option value="{{ Auth::user()->currency }}">{{ Auth::user()->currency }}</option>
                                                 <option value="GBP">GBP</option>
                                                 <option value="USD">USD</option>
@@ -220,7 +214,16 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Withdrawal Amount</label>
+                                            <label class="form-label">Withdraw/Deposit</label>
+                                            <select class="form-select" id="currency" name="currency">
+                                                <option value="USD">Withdraw</option>
+                                                <option value="EURO">Deposit</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Amount</label>
                                             <input class="form-control" type="number" id="withamount" name="withamount" placeholder="Enter in a withdrawal amount from the account" value="{{ Auth::user()->withamount }}">
                                         </div>
                                     </div>

@@ -34196,7 +34196,7 @@ body[class*='dark-'] .for-light {
     top: 59px;
     background-color: #fff;
     border-radius: 5px;
-    width: 208px;
+    width: 235px;
     height: 0;
     padding: 0.7rem 0.5rem;
     -webkit-box-shadow: 0 0 37px rgba(8, 21, 66, 0.1);
@@ -34212,7 +34212,7 @@ body[class*='dark-'] .for-light {
 .left-header .level-menu .header-level-menu.show {
     opacity: 1;
     visibility: visible;
-    height: 105px
+    height: 142px
 }
 
 .left-header .level-menu .header-level-menu li {
@@ -35966,6 +35966,31 @@ body[class*='dark-'] .for-light {
     text-overflow: ellipsis
 }
 
+.page-wrapper .sidebar-account-balance>div {
+    background-color: rgba(128, 255, 102, 0.8);
+    padding: 15px 17px;
+    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.page-wrapper .sidebar-account-balance h4 {
+    color: black;
+    margin-bottom: 5px;
+    letter-spacing: 0.40px
+}
+
+.page-wrapper .sidebar-account-balance p {
+    color: black;
+    font-size: 11px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    line-height: 1;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
 .page-wrapper .sidebar-main-title h6 {
     color: var(--theme-deafult);
     margin-bottom: 5px;
