@@ -16,6 +16,7 @@ class CreateSymbolsTable extends Migration
         Schema::create('symbols', function (Blueprint $table) {
             $table->id();
             $table->string('symbol');
+            $table->string('category');
             $table->timestamps();
         });
     }

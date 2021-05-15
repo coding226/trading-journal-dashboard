@@ -3,6 +3,7 @@
 <title>New Trade | Trading Buddy</title>
 @endsection
 @section('style')
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/select2.css">
     <style>
         .before_preview img, .after_preview img{
             max-width: 320px;
@@ -58,12 +59,17 @@
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Symbol</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-select" name="symbol_id" required>
-                                                <option selected="" disabled="" value="">Choose...</option>
-                                                @foreach($symbols as $symbol)
-                                                <option value="{{ $symbol->id }}">{{ $symbol->symbol }}</option>
-                                                @endforeach
+                                        <div class="col-sm-9 select2-drpdwn">
+                                            <select class="js-example-basic-single form-select" name="symbol_id" required>
+                                            @foreach($symbols as $key => $symbol)
+                                                @if( $key == 0 || $symbols[$key]->category != $symbols[$key-1]->category)
+                                                    <optgroup label="{{ $symbol->category }}">
+                                                @endif                                                
+                                                    <option value="{{ $symbol->id }}">{{ $symbol->symbol }}</option>
+                                                @if( $key == 107 || $symbols[$key]->category != $symbols[$key+1]->category)
+                                                    </optgroup>
+                                                @endif
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -165,7 +171,9 @@
 </div>
 @endsection
 @section('script')
-<script src="../assets/js/dashboard/default.js"></script>
+<!-- <script src="../assets/js/dashboard/default.js"></script> -->
+<script src="../assets/js/select2/select2.full.min.js"></script>
+<script src="../assets/js/select2/select2-custom.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>
 <script src="../assets/js/trade/new-trade.js"></script>
 @endsection
