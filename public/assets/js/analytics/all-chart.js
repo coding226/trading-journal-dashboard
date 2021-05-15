@@ -109,13 +109,13 @@ var winlossmonthly_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
+        name: 'Break Even',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
     }, {
-        name: 'Revenue',
+        name: 'Losses',
         data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
     }, {
-        name: 'Free Cash Flow',
+        name: 'Wins',
         data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
     }],
     xaxis: {
@@ -148,6 +148,7 @@ var winlossmonthly_graph = new ApexCharts(
 winlossmonthly_graph.render();
 
 
+
 // gain per month chart
 var gainpermonth_option = {
     chart: {
@@ -160,12 +161,11 @@ var gainpermonth_option = {
     plotOptions: {
         bar: {
             horizontal: false,
-            endingShape: 'rounded',
             columnWidth: '55%',
         },
     },
     dataLabels: {
-        enabled: false
+        enabled: true
     },
     stroke: {
         show: true,
@@ -173,21 +173,15 @@ var gainpermonth_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
+        name: 'Gain',
         data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-        name: 'Free Cash Flow',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
     }],
     xaxis: {
         categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: '% (Percentage Gain)'
         }
     },
     fill: {
@@ -197,7 +191,7 @@ var gainpermonth_option = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val + " %"
             }
         }
     },
