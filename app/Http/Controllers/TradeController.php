@@ -283,8 +283,24 @@ class TradeController extends Controller
      * @param  \App\Models\Trade  $trade
      * @return \Illuminate\Http\Response
      */
-    public function delete(Trade $trade)
+    public function delete(Trade $trade, Request $request)
     {
-        dd($request->tradeid);
+        $trade = Trade::find($request->tradeid);
+        $trade->delete();
+        $beimages = Beimage::where('trade_id', $request->tradeid)->get();
+        foreach($beimages as $beimage){
+            if(\File::exists(public_path($beimage->before_file))){
+                \File::delete(public_path($beimage->before_file));
+            }
+            $beimage->delete();
+        }
+        $afimages = Afimage::where('trade_id', $request->tradeid)->get();
+        foreach($afimages as $afimage){
+            if(\File::exists(public_path($afimage->after_file))){
+                \File::delete(public_path($afimage->after_file));
+            }
+            $afimage->delete();
+        }
+        return redirect()->back();
     }
 }
