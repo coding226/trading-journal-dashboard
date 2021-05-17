@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edittrade/{username}', [TradeController::class, 'edit'])->name('trade.edit');
     Route::post('/deltrade/{username}', [TradeController::class, 'delete'])->name('trade.del');
     Route::post('/updatetrade/{tradeid}', [TradeController::class, 'update'])->name('trade.update',['tradeid']);
+    Route::post('/trade-datefilter', [TradeController::class, 'datefilter'])->name('trade.filter');
     // Trade end
 
     // Analytics start

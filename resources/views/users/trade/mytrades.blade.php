@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body table-responsive">
+                        <div class="card-body table-responsive" id="trade-table">
                             <div class="portlet light portlet-fit portlet-datatable bordered">
                                 <div class="portlet-title">
                                     <div class="actions">

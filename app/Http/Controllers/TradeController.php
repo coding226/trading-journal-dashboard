@@ -179,8 +179,8 @@ class TradeController extends Controller
     {
         $trade = Trade::find($tradeid);
         $trade->symbol_id = $request->symbol_id;
-        $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
-        $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+        $trade->start_datetime = Carbon::createFromFormat('M/D/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
+        $trade->end_datetime = Carbon::createFromFormat('M/D/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
         $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
         $trade->long_short = $request->long_short;
         $trade->pips = $request->pips;
@@ -302,5 +302,14 @@ class TradeController extends Controller
             $afimage->delete();
         }
         return redirect()->back();
+    }
+
+    public function datefilter(Request $request){
+
+        $startdate = Carbon::createFromFormat('m/d/Y', $request->startdate)->format("Y-m-d H:i:s");
+        $enddate = Carbon::createFromFormat('m/d/Y', $request->enddate)->format("Y-m-d H:i:s");
+        $trades = Trade::where('start_datetime', '<', $enddate)->where('end_datetime', '>', $startdate)->get();        
+        $returnHTML = view('users.trade.filtered')->with('trades', $trades)->render();
+        return response()->json(array('success' => true, 'html'=>$returnHTML));
     }
 }

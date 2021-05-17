@@ -33,6 +33,8 @@
 
         var start = moment().subtract(29, 'days');
         var end = moment();
+        var start = new Date("1970-01-01T00:00:00");
+        var end = new Date("2100-01-01T00:00:00");
 
         function cb(start, end) {
             $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
