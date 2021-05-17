@@ -104,7 +104,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="number" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
+                                                <input class="form-control" type="text" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="number" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
+                                                <input class="form-control" type="text" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
                                             </div>
                                         </div>
                                     </div>
