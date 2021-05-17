@@ -185,8 +185,8 @@
             console.log('tradeid', tradeid);
             $('#alertmodal form').attr('action', action);
             $('#alertmodal form .modal-body input').attr('name', 'tradeid').val(tradeid);
-            $('#alertmoal form .modal-title').text('Delete');
-            $('#alertmoal form .modal-body p').text('Are you sure to remove this trade?');
+            $('#alertmodal form .modal-title').text('Delete');
+            $('#alertmodal form .modal-body p').text('Are you sure to remove this trade?');
             $('#alertmodal').modal('show');
         });
     </script>
