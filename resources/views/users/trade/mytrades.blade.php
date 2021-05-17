@@ -76,43 +76,6 @@
                             </div>
                         </div>
                         <div class="card-body table-responsive">
-                            {{-- <table class="display" id="advance-12">
-                                <thead>
-                                    <tr>
-                                        <th>Trade No</th>
-                                        <th>Symbol:</th>
-                                        <th>Long/Short</th>
-                                        <th>Trade Duration</th>
-                                        <th>Profit/Loss($)</th>
-                                        <th>Profit/Loss(%)</th>
-                                        <th>Win/Loss/BE</th>
-                                        <th>Edit/Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 0;?>
-                                    @foreach($trades as $trade)
-                                    <tr>
-                                        <td class="text-center">{{ $trade->trade_num }}</td>
-                                        <td class="text-center">{{ $trade->symbol->symbol }}</td>
-                                        <td class="text-center">{{ $trade->long_short }}</td>
-                                        <td class="text-center">{{ $trade->duration }}</td>
-                                        @if($trade->profit_gl>0)
-                                        <td class="font-success text-center">{{ $trade->profit_gl }}</td>
-                                        @else
-                                        <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
-                                        @endif
-                                        @if($trade->percentage_gl)
-                                        <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
-                                        @else
-                                        <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
-                                        @endif
-                                        <td class="font-success text-center"></td>
-                                        <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table> --}}
                             <div class="portlet light portlet-fit portlet-datatable bordered">
                                 <div class="portlet-title">
                                     <div class="actions">
@@ -158,8 +121,16 @@
                                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                                     <td class="text-center">{{ $trade->long_short }}</td>
                                                     <td class="text-center">{{ $trade->duration }}</td>
+                                                    @if( $trade->profit_gl > 0 )
                                                     <td class="font-success text-center">{{ $trade->profit_gl }}</td>
+                                                    @else
+                                                    <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
+                                                    @endif
+                                                    @if( $trade->profit_gl > 0 )
                                                     <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                                                    @else
+                                                    <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
+                                                    @endif
                                                     <td class="font-success text-center"></td>
                                                     <td class="d-flex">
                                                         <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
