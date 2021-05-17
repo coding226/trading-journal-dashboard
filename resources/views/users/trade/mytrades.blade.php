@@ -177,19 +177,6 @@
     </div>
 @endsection
 @section('script')
-    <script>
-        $('.trade-del').on('click', function(e){
-            var action = $(this).attr('data-href');
-            var tradeid = $(this).attr('dataid');
-            console.log('action', action);
-            console.log('tradeid', tradeid);
-            $('#alertmodal form').attr('action', action);
-            $('#alertmodal form .modal-body input').attr('name', 'tradeid').val(tradeid);
-            $('#alertmodal form .modal-title').text('Delete');
-            $('#alertmodal form .modal-body p').text('Are you sure to remove this trade data?');
-            $('#alertmodal').modal('show');
-        });
-    </script>
     <script src="../assets/js/datatable/datatables/datatable.js" type="text/javascript"></script>
     <script src="../assets/js/datatable/datatables/datatables.min.js" type="text/javascript"></script>
     <script src="../assets/js/datatable/datatables/datatables.bootstrap.js" type="text/javascript"></script>
@@ -198,6 +185,7 @@
     <script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
     <!-- <script src="../assets/js/datatable/datatables/scripts/app.min.js" type="text/javascript"></script> -->
     <script src="../assets/js/trade/table-datatables-buttons.min.js" type="text/javascript"></script>
+    <script src="../assets/js/trade/mytrade.js" type="text/javascript"></script>
 
     
 @endsection
