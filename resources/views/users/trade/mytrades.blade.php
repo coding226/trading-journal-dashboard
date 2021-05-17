@@ -97,8 +97,16 @@
                                         <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                         <td class="text-center">{{ $trade->long_short }}</td>
                                         <td class="text-center">{{ $trade->duration }}</td>
+                                        @if($trade->profit_gl>0)
                                         <td class="font-success text-center">{{ $trade->profit_gl }}</td>
+                                        @else
+                                        <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
+                                        @endif
+                                        @if($trade->percentage_gl)
                                         <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                                        @else
+                                        <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
+                                        @endif
                                         <td class="font-success text-center"></td>
                                         <td><a href="#">Edit</a><br/><a href="#">Delete</a></td>
                                     </tr>
