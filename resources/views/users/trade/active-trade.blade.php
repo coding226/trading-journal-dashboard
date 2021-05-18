@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>Active Trades | Trading Buddy</title>
+    <title>Active Trades | The Trading Buddy</title>
 @endsection
 @section('style')
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">

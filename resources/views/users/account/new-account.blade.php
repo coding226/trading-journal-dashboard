@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>New Account | Trading Buddy</title>
+    <title>New Account | The Trading Buddy</title>
 @endsection
 @section('style')
 @endsection

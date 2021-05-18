@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>Analytics | Trading Journal</title>
+<title>Analytics | The Trading Journal</title>
 @endsection
 @section('style')
 @endsection

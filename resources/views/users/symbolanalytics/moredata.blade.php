@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>Symbol Analytics | Trading Buddy</title>
+    <title>Symbol Analytics | The Trading Buddy</title>
 @endsection
 @section('style')
 @endsection
