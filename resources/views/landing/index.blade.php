@@ -57,7 +57,7 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-user"></span></div>
 										<div class="text">
-											<h2>Marketing</h2>
+											<h2>Something</h2>
 											<p>Even the all-powerful Pointing has no control about the blind texts </p>
 										</div>
 									</a>
@@ -68,7 +68,7 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-seo"></span></div>
 										<div class="text">
-											<h2>SEO</h2>
+											<h2>Something</h2>
 											<p>Even the all-powerful Pointing has no control about the blind texts </p>
 										</div>
 									</a>
@@ -79,7 +79,7 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-vector"></span></div>
 										<div class="text">
-											<h2>UI/UX Design</h2>
+											<h2>Something</h2>
 											<p>Even the all-powerful Pointing has no control about the blind texts </p>
 										</div>
 									</a>
@@ -90,7 +90,7 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-business"></span></div>
 										<div class="text">
-											<h2>Creative</h2>
+											<h2>Something</h2>
 											<p>Even the all-powerful Pointing has no control about the blind texts </p>
 										</div>
 									</a>
@@ -101,7 +101,7 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-search-engine"></span></div>
 										<div class="text">
-											<h2>Optimization</h2>
+											<h2>Something</h2>
 											<p>Even the all-powerful Pointing has no control about the blind texts </p>
 										</div>
 									</a>
@@ -112,7 +112,7 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-rocket"></span></div>
 										<div class="text">
-											<h2>Business Strategy</h2>
+											<h2>Something</h2>
 											<p>Even the all-powerful Pointing has no control about the blind texts </p>
 										</div>
 									</a>
@@ -136,7 +136,7 @@
 									<div class="text">
 										<span class="d-block number gradient-text"><span id="count1" class="counter"
 												data-count="900">0</span>+</span>
-										<p>Project Done</p>
+										<p>Something</p>
 									</div>
 								</div>
 							</div>
@@ -146,7 +146,7 @@
 									<div class="text">
 										<span class="d-block number gradient-text"><span id="count2" class="counter"
 												data-count="500">0</span>+</span>
-										<p>Optimize Sites</p>
+										<p>Something</p>
 									</div>
 								</div>
 							</div>
@@ -156,7 +156,7 @@
 									<div class="text">
 										<span class="d-block number gradient-text"><span id="count2" class="counter"
 												data-count="770">0</span>+</span>
-										<p>Coffee Cups</p>
+										<p>Something</p>
 									</div>
 								</div>
 							</div>
