@@ -32,13 +32,8 @@
                                 <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" onsubmit="return false;" id="newsubaccountform">
-                                {{-- <form method="POST" action="{{ Route('user.mainsetting') }}"> --}}
+                                <form method="POST" action="{{ Route('user.createsub') }}">
                                 @csrf
-                                    <!-- <div class="mb-3">
-                                        <label class="form-label">Username</label>
-                                        <input class="form-control" type="text" placeholder="Username">
-                                    </div> -->
                                     <div class="mb-3">
                                         <label class="form-label">Sub User Name</label>
                                         <input class="form-control" type="text" required id="username" name="username" placeholder="User name">
@@ -60,7 +55,7 @@
                                             <textarea class="form-control" rows="5" cols="5" id="account_desc" name="account_desc" placeholder="Default textarea"></textarea>
                                     </div>
                                     <div class="form-footer">
-                                        <button id="new_subaccount" class="btn btn-primary btn-block">Save</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Save</button>
                                     </div>
                                 </form>
                             </div>

@@ -308,7 +308,7 @@ class TradeController extends Controller
 
         $startdate = Carbon::createFromFormat('m/d/Y', $request->startdate)->format("Y-m-d H:i:s");
         $enddate = Carbon::createFromFormat('m/d/Y', $request->enddate)->format("Y-m-d H:i:s");
-        $trades = Trade::where('start_datetime', '<', $enddate)->where('end_datetime', '>', $startdate)->get();        
+        $trades = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $enddate)->where('end_datetime', '>', $startdate)->get();        
         $returnHTML = view('users.trade.filtered')->with('trades', $trades)->render();
         return response()->json(array('success' => true, 'html'=>$returnHTML));
     }

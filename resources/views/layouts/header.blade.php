@@ -279,7 +279,7 @@
                                 </li>
                                 <li class="sidebar-account-balance mb-3">
                                     <div>
-                                        <h4 class="">$ 1,599.69</h4>
+                                        <h4 class="">$ {{ number_format(Auth::user()->current_subsuer->balance) }}</h4>
                                         <p class="">ACCOUNT BALANCE</p>
                                     </div>
                                 </li>
