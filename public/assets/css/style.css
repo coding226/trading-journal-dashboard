@@ -24677,7 +24677,8 @@ footer {
 .login-card .logo {
     display: block;
     margin-bottom: 30px;
-    text-align: center
+    text-align: center;
+    width: 100px;
 }
 
 .login-card .btn-showcase .btn {

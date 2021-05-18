@@ -124,58 +124,6 @@
 			</div>
 		</div>
 	</section>
-	<section class="ftco-section ftco-counter-section ftco-no-pt">
-		<div class="container">
-			<div class="row py-5 g-2">
-				<div class="col-md-12">
-					<div class="counter-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-						<div class="row g-0">
-							<div class="col-lg img border" style="background-image: url(../assets/images/about.jpg);"></div>
-							<div class="col-md-6 col-lg d-flex align-items-stretch">
-								<div class="counter-wrap" data-aos="fade-up" data-aos-duration="1000">
-									<div class="text">
-										<span class="d-block number gradient-text"><span id="count1" class="counter"
-												data-count="900">0</span>+</span>
-										<p>Something</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg d-flex align-items-stretch">
-								<div class="counter-wrap even" data-aos="fade-up" data-aos-delay="100"
-									data-aos-duration="1000">
-									<div class="text">
-										<span class="d-block number gradient-text"><span id="count2" class="counter"
-												data-count="500">0</span>+</span>
-										<p>Something</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg d-flex align-items-stretch">
-								<div class="counter-wrap" data-aos="fade-up" data-aos-delay="200"
-									data-aos-duration="1000">
-									<div class="text">
-										<span class="d-block number gradient-text"><span id="count2" class="counter"
-												data-count="770">0</span>+</span>
-										<p>Something</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg d-flex align-items-stretch">
-								<div class="counter-wrap even" data-aos="fade-up" data-aos-delay="300"
-									data-aos-duration="1000">
-									<div class="text">
-										<span class="d-block number gradient-text"><span id="count2" class="counter"
-												data-count="1000">0</span>+</span>
-										<p>Happy People</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 	<section class="ftco-section ftco-about-section ftco-no-pt ftco-no-pb">
 		<div class="container-xl">
 			<div class="row g-xl-5">
@@ -364,69 +312,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="row justify-content-center mt-md-5 mt-4" data-aos="fade-up" data-aos-delay="100"
-				data-aos-duration="1000">
-				<div class="col-md-8">
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-						live the blind texts. Separated they live in Bookmarksgrove.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="ftco-section">
-		<div class="container-fluid">
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-7 text-center heading-section" data-aos="fade-up" data-aos-duration="1000">
-					<span class="subheading">Our Portfolio</span>
-					<h2 class="mb-3">Our Awesome Work</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-						live the blind texts. Separated they live in Bookmarksgrove.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch">
-					<div class="work-wrap" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
-						<div class="img" style="background-image: url(../assets/images/work-1.jpg);"></div>
-						<div class="text">
-							<span class="category">Branding, Printing</span>
-							<h3><a href="#">High Quality Design Concept</a></h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch">
-					<div class="work-wrap" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
-						<div class="img" style="background-image: url(../assets/images/work-2.jpg);"></div>
-						<div class="text">
-							<span class="category">Graphic Design</span>
-							<h3><a href="#">High Quality Design Concept</a></h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch">
-					<div class="work-wrap" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
-						<div class="img" style="background-image: url(../assets/images/work-3.jpg);"></div>
-						<div class="text">
-							<span class="category">Web Development</span>
-							<h3><a href="#">High Quality Design Concept</a></h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch">
-					<div class="work-wrap" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400">
-						<div class="img" style="background-image: url(../assets/images/work-4.jpg);"></div>
-						<div class="text">
-							<span class="category">Web Development</span>
-							<h3><a href="#">High Quality Design Concept</a></h3>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<p><a href="#" class="btn btn-custom">View More Portfolio <span
-								class="ion-ios-arrow-round-forward"></span></a></p>
-				</div>
-			</div>
 		</div>
 	</section>
 	<hr>
@@ -508,28 +393,56 @@
 			</div>
 		</div>
 	</section>
-	<!-- <section class="ftco-intro py-5 bg-primary">
-		<div class="container">
-			<div class="row d-flex justify-content-center">
-				<div class="col-lg-10">
-					<div class="row g-lg-5">
-						<div class="col-md-7 text-lg-right">
-							<h2 class="mb-0">Newsletter - Stay tune and get the latest update</h2>
-							<p>Far far away, behind the word mountains</p>
-						</div>
-						<div class="col-md-5 border-left d-flex align-items-center">
-							<form action="#" class="subscribe-form">
-								<div class="form-group d-flex align-items-center">
-									<input type="text" class="form-control" placeholder="Enter email address">
-									<a href="#" class="btn-icon"><span class="fa fa-paper-plane"></span></a>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
+	<section class="ftco-section contact-section bg-light">
+      <div class="container-xl">
+          <div class="row d-flex mb-5 contact-info">
+              <div class="col-md-12 mb-4">
+                  <h2 class="h3">Contact Information</h2>
+              </div>
+              <div class="w-100"></div>
+              <div class="col-md-3">
+                  <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+              </div>
+              <div class="col-md-3">
+                  <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+              </div>
+              <div class="col-md-3">
+                  <p><span>Email:</span> <a
+                          href="https://preview.colorlib.com/cdn-cgi/l/email-protection#f79e999198b78e988285849e8392d994989a"><span
+                              class="__cf_email__"
+                              data-cfemail="b0d9ded6dff0c9dfc5c2c3d9c4d59ed3dfdd">[email&#160;protected]</span></a></p>
+              </div>
+              <div class="col-md-3">
+                  <p><span>Website</span> <a href="#">yoursite.com</a></p>
+              </div>
+          </div>
+          <div class="row g-md-0 block-9">
+              <div class="col-md-6 order-md-last d-flex">
+                  <form action="#" class="bg-white p-5 contact-form">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Your Name">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Your Email">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Subject">
+                      </div>
+                      <div class="form-group">
+                          <textarea name="" id="" cols="30" rows="7" class="form-control"
+                              placeholder="Message"></textarea>
+                      </div>
+                      <div class="form-group">
+                          <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                      </div>
+                  </form>
+              </div>
+              <div class="col-md-6 d-flex">
+                  <div id="map" class="bg-white"></div>
+              </div>
+          </div>
+      </div>
+  </section>
 @endsection
 @section('script')
 @endsection
