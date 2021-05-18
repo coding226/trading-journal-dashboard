@@ -462,7 +462,7 @@
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
 						live the blind texts. Separated they live in Bookmarksgrove.</p>
 				</div>
-				<div class="row default-according style-1 faq-accordion" id="accordionoc">
+				<div class="row default-according style-1 faq-accordion" data-aos="fade-up" id="accordionoc">
 				    <div class="col-xl-6 xl-60 col-lg-6 col-md-6">
 						<div class="faq-title">
 				            <h6>Something Property</h6>
