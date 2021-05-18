@@ -28,9 +28,9 @@ class User extends Authenticatable
         'subscription',
         'avatar',
         'status',
-        'startcapital',
         'currency',
-        'withamount'
+        'current_subsuer',
+        'darkmode',
     ];
 
     /**

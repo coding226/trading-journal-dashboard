@@ -90,14 +90,40 @@ class UserController extends Controller
     }
 
 
-    public function othersetting(Request $request)
+    public function depositwithdrawal(Request $request)
     {
-        $user = User::where('id', Auth::user()->id)->first();
-        $user->startcapital = $request->startcapital;
-        $user->currency = $request->currency;
-        $user->withamount = $request->withamount;
-        $user->save();
-        return json_encode(true);
+        $subuser = Subuser::find($request->subuser);
+        if($request->fundtype){
+            if($request->amount > $subuser->balance){
+                $response['status'] = 0;
+                return json_encode($response);
+            }
+            $subuser->balance = $subuser->balance - $request->amount;
+        }
+        else{
+            $subuser->balance = $subuser->balance + $request->amount;
+        }
+        $subuser->save();
+        $response['balance'] = $subuser->balance;
+        if($request->subser == Auth::user()->current_subuser){
+            $response['status'] = 1;
+        }
+        else{
+            $response['status'] = 2;
+        }
+        return json_encode($response);
+        
+    }
+
+    public function darkmode()
+    {
+        if(Auth::user()->darkmode == ''){
+            User::where('id', Auth::user()->id)->update(['darkmode' => 'dark-only']);
+        }
+        else{
+            User::where('id', Auth::user()->id)->update(['darkmode' => '']);
+        }
+        return 1;
     }
 }
 

@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('status')->default('1');
             $table->string('current_subuser')->nullable();
+            $table->string('darkmode')->nullable();
+            $table->string('currency')->default('USD');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -19,7 +19,8 @@ class Subuser extends Model
         'user_id',
         'acc_num',
         'username',
-        'desc'
+        'desc',
+        'balance'
     ];
 
     public function user()

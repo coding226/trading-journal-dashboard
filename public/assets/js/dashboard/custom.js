@@ -54,24 +54,41 @@ $("#change_pass_btn").click(function(e) {
     });
 });
 
-$("#save_other_setting").click(function(e) {
+$("#depwith").click(function(e) {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
         }
     });
     e.preventDefault();
+    var formData = new FormData(document.getElementById("depwithform"));
     $.ajax({
         type: "POST",
-        url: '/othersetting',
+        url: '/depositwithdrawal',
         dataType: 'json',
-        data: {
-            startcapital: $("#startcapital").val(),
-            currency: $("#currency").val(),
-            withamount: $("#withamount").val()
-        },
+        data: formData,
+        processData: false,
+        contentType: false,
         success:function(data) {
-            alert( "Data Saved: " + data );
+            if(data.status){
+                $('#alertmodal form .modal-title').text('Success');
+                $('#alertmodal form .modal-footer button').remove();
+                if(data.status == 1){
+                    $('#alertmodal form .modal-body p').text('Your current blanace is '+data.balance);
+                    $('#current_balance').text(data.balance);
+                }
+                else{
+                    $('#alertmodal form .modal-body p').text('Successfully done');
+                }
+                $('#alertmodal').modal('show');
+                
+            }
+            else{
+                $('#alertmodal form .modal-title').text('Error');
+                $('#alertmodal form .modal-body p').text('Your current balance is not enough to withdrawal requested amount.');
+                $('#alertmodal form .modal-footer button').remove();
+                $('#alertmodal').modal('show');
+            }
         }
     });
 });

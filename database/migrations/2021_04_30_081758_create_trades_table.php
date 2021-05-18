@@ -26,8 +26,8 @@ class CreateTradesTable extends Migration
             $table->string('fees');
             $table->string('profit_gl');
             $table->string('percentage_gl');
-            $table->string('open_price');
-            $table->string('close_price');
+            $table->string('open_price')->nullable();
+            $table->string('close_price')->nullable();
             $table->string('description');
             $table->timestamps();
         });

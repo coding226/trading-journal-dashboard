@@ -109,7 +109,7 @@
                                                 
                                                 <div class="media-body">
                                                     <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                                                    <p>{{ Auth::user()->id + 10000 }}</p>
+                                                    <p>{{ Auth::user()->current_subsuer->acc_num }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,6 +136,15 @@
                                     <div class="mb-3">
                                         <label class="form-label">Location</label>
                                         <input class="form-control" type="text" name="location" placeholder="Your location" value="{{ Auth::user()->location }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Currency</label>
+                                        <select class="form-select" id="currency" name="currency">
+                                            <option value="{{ Auth::user()->currency }}">{{ Auth::user()->currency }}</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="USD">USD</option>
+                                            <option value="EURO">Euro</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
@@ -192,45 +201,51 @@
                         </form>
                     </div>
                     <div class="col-xl-4">
-                        <form method="POST" onsubmit="return false;" class="card">
-                        {{-- <form method="POST" action="{{ Route('user.othersetting') }}" class="card"> --}}
+                        <form method="POST" onsubmit="return false;" class="card" id="depwithform">
+                        {{-- <form method="POST" action="{{ Route('user.depositwithdrawal') }}" class="card"> --}}
                             @csrf
                             <div class="card-header">
-                                <h4 class="card-title mb-0">Other Setting</h4>
+                                <h4 class="card-title mb-0">Deposit/Withdrawal</h4>
                                 <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                             </div>
                             <div class="card-body">
+                                @php
+                                    $subusers1 = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
+                                @endphp
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Currency</label>
-                                            <select class="form-select" id="currency" name="currency">
-                                                <option value="{{ Auth::user()->currency }}">{{ Auth::user()->currency }}</option>
-                                                <option value="GBP">GBP</option>
-                                                <option value="USD">USD</option>
-                                                <option value="EURO">Euro</option>
+                                            <label class="form-label">Subuser</label>
+                                            <select class="form-select" id="subuser" name="subuser">
+                                                @foreach($subusers1 as $subuser1)
+                                                @if($subuser1-> id == Auth::user()->current_subsuer->id)
+                                                <option value="{{ $subuser1-> id }}" selected>{{ $subuser1-> username }}({{ $subuser1-> acc_num }})</option>
+                                                @else
+                                                <option value="{{ $subuser1-> id }}">{{ $subuser1-> username }}({{ $subuser1-> acc_num }})</option>
+                                                @endif
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Withdraw/Deposit</label>
-                                            <select class="form-select" id="currency" name="currency">
-                                                <option value="USD">Withdraw</option>
-                                                <option value="EURO">Deposit</option>
+                                            <select class="form-select" id="fundtype" name="fundtype">
+                                                <option value="1">Withdraw</option>
+                                                <option value="0">Deposit</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Amount</label>
-                                            <input class="form-control" type="number" id="withamount" name="withamount" placeholder="Enter in a withdrawal amount from the account" value="{{ Auth::user()->withamount }}">
+                                            <input class="form-control" type="number" id="amount" name="amount" placeholder="Enter in a withdrawal amount from the account">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-end">
-                                <button class="btn btn-primary" id="save_other_setting">Update</button>
+                                <button class="btn btn-primary" id="depwith">Update</button>
                             </div>
                         </form>
                     </div>

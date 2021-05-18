@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 </head>
 
-<body onload="startTime()">
+<body onload="startTime()" class="{{ Auth::user()->darkmode }}">
     <div class="loader-wrapper">
         <div class="loader-index"><span></span></div>
         <svg>
@@ -279,7 +279,7 @@
                                 </li>
                                 <li class="sidebar-account-balance mb-3">
                                     <div>
-                                        <h4 class="">$ {{ number_format(Auth::user()->current_subsuer->balance) }}</h4>
+                                        <h4 class=""><span id="current_currecny">$</span> <span id="current_balance"> {{ number_format(Auth::user()->current_subsuer->balance) }}</span></h4>
                                         <p class="">ACCOUNT BALANCE</p>
                                     </div>
                                 </li>

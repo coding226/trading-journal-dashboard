@@ -140,9 +140,20 @@ class TradeController extends Controller
      * @param  \App\Models\Trade  $trade
      * @return \Illuminate\Http\Response
      */
-    public function show(Trade $trade)
+    public function show(Trade $trade, $username, Request $request)
     {
-        //
+        $user = User::where('name', $username)->first();
+        if($user){
+            $current_subuser = $user->current_subuser;
+            $trade = Trade::where('subuser_id', $current_subuser)->where('id', $request->tradeid)->first();
+            $symbols = Symbol::get();
+            $beimages = Beimage::where('trade_id', $request->tradeid)->get();
+            $afimages = Afimage::where('trade_id', $request->tradeid)->get();
+            return view('users.trade.edittrade', compact('trade','symbols','beimages','afimages'));
+        }
+        else{
+            return redirect()->back();
+        }
     }
 
     /**
