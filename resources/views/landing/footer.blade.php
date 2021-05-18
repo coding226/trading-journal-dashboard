@@ -118,7 +118,13 @@
 			</div>
 		</div>
 	</footer>
-	<script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js-->
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/theme-customizer/customizer.js"></script>
+	<!-- <script src="../assets/js/bootstrap.bundle.min.js"></script> -->
 	<script src="../assets/js/tiny-slider.js"></script>
 	<script src="../assets/js/glightbox.min.js%2brellax.min.js%2baos.js%2bgoogle-map.js%2bmain.js.pagespeed.jc.WAj16U4E-j.js"></script>
 	@yield('script')
