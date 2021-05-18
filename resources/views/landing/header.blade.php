@@ -23,7 +23,7 @@
 	<nav class="navbar navbar-expand-lg  ftco-navbar-light">
 		<div class="container-xl">
 			<a class="navbar-brand" href="{{ url('/') }}">
-				<img class="logo" src="../assets/images/logo/logo-whitetext.png" alt="logo">
+				<img class="logo" src="../assets/images/logo/whitelogo.png" alt="logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

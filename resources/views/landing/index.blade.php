@@ -127,6 +127,30 @@
 	<section class="ftco-section ftco-about-section ftco-no-pt ftco-no-pb">
 		<div class="container-xl">
 			<div class="row g-xl-5">
+				<div class="col-md-6 py-5 heading-section" data-aos="fade-up" data-aos-delay="200"
+					data-aos-duration="1000">
+					<div class="py-md-5">
+						<span class="subheading">Introduction</span>
+						<h2 class="mb-4">About tradding Buddy</h2>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+							there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+							Semantics, a large language ocean.</p>
+						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
+							It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<p><a href="#" class="btn btn-primary">Learn more</a></p>
+					</div>
+				</div>
+				<div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100"
+					data-aos-duration="1000">
+					<iframe width="100%" height="550" src="https://player.vimeo.com/video/403530213" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+					<!-- <video src="../assets/1.mp4" style="width:100%" controls autoplay loop></video> -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="ftco-section ftco-about-section ftco-no-pt ftco-no-pb">
+		<div class="container-xl">
+			<div class="row g-xl-5">
 				<div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100"
 					data-aos-duration="1000">
 					<img src="../assets/images/about.svg" class="img-fluid" alt="">
