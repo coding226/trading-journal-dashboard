@@ -106,18 +106,18 @@
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
-				<span class="fa fa-bars"></span> Menu
+				<!-- <span class="fa fa-bars"></span> Menu -->
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Sign In</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Sign In</a></li> -->
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<section class="hero-wrap">
 		<div class="overlay"></div>
-		<div class="container">
+		<div class="container hero-section">
 			<div class="row no-gutters slider-text align-items-center justify-content-between align-items-stretch">
 				<div class="col-md-6 col-lg-5 text d-flex align-items-center">
 					<div>
@@ -125,7 +125,7 @@
 						<p>The only tool you need to track your trading progress and data. You can give it a try for FREE!</p>
 						<p class="d-flex">
 							<a href="{{ url('/login') }}" class="btn btn-primary d-flex align-items-center"><span>Try For Free</span></a>
-							<a href="#" class="btn btn-secondary"><span>Sign In</span></a>
+							<a href="{{ url('/login') }}" class="btn btn-secondary"><span>Sign In</span></a>
 						</p>
 						<ul class="ftco-social">
 							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
@@ -152,7 +152,7 @@
 								<span class="subheading">Features</span>
 								<h2 class="mb-4">Take A Look At Some Of The Trading Buddy Features</h2>
 								<p>The Trading Buddy has been designed to provide a smooth user interface to make your experience the best possible whilst you continue to track all of your trading data in one place.</p>
-								<p><a href="#" class="btn btn-secondary">Sign Up</a></p>
+								<p><a href="{{ url('/register') }}" class="btn btn-secondary">Sign Up</a></p>
 							</div>
 						</div>
 						<div class="col-md-12 col-lg-8">
@@ -248,7 +248,7 @@
 							specifically to see how you perform. There is nothing more powerful than data and that is exactly
 							what The Trading Buddy does for you.
 						</p>
-						<p><a href="#" class="btn btn-primary">Sign Up</a></p>
+						<p><a href="{{ url('/register') }}" class="btn btn-primary">Sign Up</a></p>
 					</div>
 				</div>
 				<div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100"
