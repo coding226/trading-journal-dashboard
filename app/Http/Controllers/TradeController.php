@@ -149,7 +149,7 @@ class TradeController extends Controller
             $symbols = Symbol::get();
             $beimages = Beimage::where('trade_id', $request->tradeid)->get();
             $afimages = Afimage::where('trade_id', $request->tradeid)->get();
-            return view('users.trade.edittrade', compact('trade','symbols','beimages','afimages'));
+            return view('users.trade.viewwtrade', compact('trade','symbols','beimages','afimages'));
         }
         else{
             return redirect()->back();
@@ -190,8 +190,8 @@ class TradeController extends Controller
     {
         $trade = Trade::find($tradeid);
         $trade->symbol_id = $request->symbol_id;
-        $trade->start_datetime = Carbon::createFromFormat('M/D/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
-        $trade->end_datetime = Carbon::createFromFormat('M/D/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+        $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
+        $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
         $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
         $trade->long_short = $request->long_short;
         $trade->pips = $request->pips;

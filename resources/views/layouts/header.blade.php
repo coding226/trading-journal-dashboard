@@ -275,12 +275,12 @@
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
                                 </li>
-                                <li class="sidebar-account-balance mb-3">
+                                {{-- <li class="sidebar-account-balance mb-3">
                                     <div>
                                         <h4 class=""><span id="current_currecny">$</span> <span id="current_balance"> {{ number_format(Auth::user()->current_subsuer->balance) }}</span></h4>
                                         <p class="">ACCOUNT BALANCE</p>
                                     </div>
-                                </li>
+                                </li> --}}
                                 <li class="sidebar-list">
                                     {{-- <label class="badge badge-success">2</label> --}}
                                     <a class="sidebar-link sidebar-title link-nav" href="{{ url('/dashboard') }}"><i

@@ -19516,7 +19516,7 @@ footer.blockquote-footer {
     }
 
     .earning-card .card-body>.row>div .chart-left .left_side_earning:nth-child(3) {
-        text-align: right;
+        text-align: left;
         margin-bottom: 30px
     }
 

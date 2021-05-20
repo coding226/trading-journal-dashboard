@@ -32,7 +32,6 @@ $('#reportrange').on('change', function(e) {
         },
         success:function(data) {
             $('#trade-table').html(data.html);
-            TableDatatablesButtons.init();
             $('.trade-del').on('click', function(e){
                 var action = $(this).attr('data-href');
                 var tradeid = $(this).attr('dataid');
@@ -42,6 +41,7 @@ $('#reportrange').on('change', function(e) {
                 $('#alertmodal form .modal-body p').text('Are you sure to remove this trade data?');
                 $('#alertmodal').modal('show');
             });
+            TableDatatablesButtons.init();
         },
         error: function(xhr,textStatus,thrownError) {
             // alert(xhr + "\n" + textStatus + "\n" + thrownError);

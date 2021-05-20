@@ -75,7 +75,6 @@ $("#depwith").click(function(e) {
                 $('#alertmodal form .modal-footer button').remove();
                 if(data.status == 1){
                     $('#alertmodal form .modal-body p').text('Your current blanace is '+data.balance);
-                    $('#current_balance').text(data.balance);
                 }
                 else{
                     $('#alertmodal form .modal-body p').text('Successfully done');

@@ -28,7 +28,8 @@
                         <th>Trade No</th>
                         <th>Symbol:</th>
                         <th>Long/Short</th>
-                        <th>Trade Duration</th>
+                        <th class="text-center">Start Date</th>
+                        <th class="text-center">Trade Duration</th>
                         <th>Profit/Loss($)</th>
                         <th>Profit/Loss(%)</th>
                         <th>Win/Loss/BE</th>
@@ -42,6 +43,7 @@
                         <td class="text-center">{{ $trade->trade_num }}</td>
                         <td class="text-center">{{ $trade->symbol->symbol }}</td>
                         <td class="text-center">{{ $trade->long_short }}</td>
+                        <td class="text-center">{{ $trade->start_datetime }}</td>
                         <td class="text-center">{{ $trade->duration }}</td>
                         @if( $trade->profit_gl > 0 )
                         <td class="font-success text-center">{{ $trade->profit_gl }}</td>
@@ -60,6 +62,9 @@
                             </a>
                             <a data-href="{{ url('/deltrade') }}/{{ auth::user()->name }}" dataid="{{ $trade->id }}" class="trade-del pull-right">
                                 <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></div>
+                            </a>
+                            <a href="{{ url('/viewtrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
+                                <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
                             </a>
                         </td>
                     </tr>

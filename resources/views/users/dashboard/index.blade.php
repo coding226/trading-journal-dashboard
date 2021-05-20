@@ -60,11 +60,11 @@
                             <div class="col-xl-3 earning-content p-0">
                                 <div class="row m-0 chart-left">
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>10001-1</h5>
+                                        <h5>{{ Auth::user()->current_subsuer->acc_num }}</h5>
                                         <p class="font-roboto">Account Number</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>$4055.56 </h5>
+                                        <h5><span id="current_currecny">$</span> {{ number_format(Auth::user()->current_subsuer->balance) }} </h5>
                                         <p class="font-roboto">Account Balance</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
