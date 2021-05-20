@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>Edit Trade | The Trading Buddy</title>
+<title>View Trade | The Trading Buddy</title>
 @endsection
 @section('style')
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/select2.css">
@@ -27,7 +27,7 @@
                 <div class="col-6">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">New Trade</li>
+                        <li class="breadcrumb-item">View Trade</li>
                     </ol>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Trade Information</h5>
+                        <h5>Trade No {{ $trade->trade_num }}</h5>
                     </div>
                     <form class="form theme-form" method="POST" action="{{ route('trade.update', ['tradeid' => $trade->id ]) }}" enctype="multipart/form-data">
                     @csrf

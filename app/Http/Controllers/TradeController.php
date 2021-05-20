@@ -149,7 +149,7 @@ class TradeController extends Controller
             $symbols = Symbol::get();
             $beimages = Beimage::where('trade_id', $request->tradeid)->get();
             $afimages = Afimage::where('trade_id', $request->tradeid)->get();
-            return view('users.trade.viewwtrade', compact('trade','symbols','beimages','afimages'));
+            return view('users.trade.viewtrade', compact('trade','symbols','beimages','afimages'));
         }
         else{
             return redirect()->back();
