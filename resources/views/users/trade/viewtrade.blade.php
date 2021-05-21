@@ -37,12 +37,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header d-flex">
-                        <h5>Trade No: {{ $trade->trade_num }}</h5>
-                        <div class="col-sm-9 offset-sm-2 text-end">
-                            <button class="btn btn-primary export2pdf">Export to PDF</button>
-                        </div>
+                <div class="card" id="topdf">
+                    <div class="card-header">
+                        <h5 class="pull-left">Trade No: {{ $trade->trade_num }}</h5>
+                        <button class="btn btn-primary pull-right export2pdf">Export to PDF</button>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -121,6 +119,21 @@
 </div>
 @endsection
 @section('script')
+
+<script type="text/javascript">
+        $(".export2pdf").on("click", function () {
+            $('.export2pdf').hide();
+            var divContents = $("#topdf").html();
+            var printWindow = window.open('', '', 'height=600,width=900');
+            printWindow.document.write('<html><head><title>The trading Buddy</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+            $('.export2pdf').show();
+        });
+</script>
 
 <!-- <script src="../assets/js/dashboard/default.js"></script> -->
 <script src="../assets/js/select2/select2.full.min.js"></script>
