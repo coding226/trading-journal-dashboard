@@ -21,9 +21,7 @@
                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
-                            facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac,
-                            vestibulum at eros.</p>
+                        <p></p>
                         <input type="hidden">
                     </div>
                     <div class="modal-footer">

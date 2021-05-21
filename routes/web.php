@@ -24,14 +24,10 @@ use App\Http\Controllers\SymbolanalyticsController;
 Route::get('/', function () {
     return view('landing.index');
 });
-
-Route::get('/pricing', function () {
-    return view('landing.pricing');
-});
-
-Route::get('/contact', function () {
-    return view('landing.contactus');
-});
+Route::get('/terms', function () { return view('landing.terms'); });
+Route::get('/privacy', function () { return view('landing.privacy'); });
+Route::get('/cookie', function () { return view('landing.cookie'); });
+Route::get('/usepolicy', function () { return view('landing.usepolicy'); });
 
 Auth::routes();
 

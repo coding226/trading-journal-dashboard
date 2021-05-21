@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The only trading journal that helps you find your buddy.">
-    <meta name="keywords" content="trading buddy, trading, buy, sell, long, short, web app">
-    <meta name="author" content="pixelstrap">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Welcome | The Trading Buddy</title>
-	<link rel="preconnect" href="https://fonts.gstatic.com/">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
-	<link rel="stylesheet" href="../assets/fonts/ionicons/4.5.6/css/ionicons.min.css">
-	<link rel="stylesheet" href="../assets/css/A.animate.css%2bflaticon.css%2btiny-slider.css%2bglightbox.min.css%2baos.css%2bstyle.css%2cMcc.zyAd-cmIB-.css.pagespeed.cf.6s2mMaARr7.css" />
+@extends('landing.layout')
+@section('title')
+	<title>Welcome | The Trading Buddy</title>
+@endsection
+@section('style')
 	<style>
 		.card button{
 			padding: 0;
@@ -95,26 +81,8 @@
 			border-radius: 20px;
 		}
 	</style>
-</head>
-
-<body>
-	<nav class="navbar navbar-expand-lg  ftco-navbar-light">
-		<div class="container-xl">
-			<a class="navbar-brand" href="{{ url('/') }}">
-				<img class="logo" src="../assets/images/logo/whitelogo.png" alt="logo">
-			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<!-- <span class="fa fa-bars"></span> Menu -->
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<!-- <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Sign In</a></li> -->
-				</ul>
-			</div>
-		</div>
-	</nav>
+@endsection
+@section('content')
 	<section class="hero-wrap">
 		<div class="overlay"></div>
 		<div class="container hero-section">
@@ -726,96 +694,4 @@
           </div>
       </div>
   	</section>
-	<footer class="ftco-footer">
-		<div class="container-xl">
-			<div class="row pb-5">
-				<div class="col-md-5">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2 logo d-flex">
-							<a class="navbar-brand" href="index.html">
-								<img class="bottom-logo" src="../assets/images/logo/logo-blacktext.png" alt="logo">
-							</a>
-						</h2>
-						<p>Email Address: Contact@thetradingbuddy.com
-						</p>
-						<ul class="ftco-footer-social list-unstyled mt-4">
-							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-							<li><a href="#"><span class="fa fa-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading">Explore</h2>
-						<ul class="list-unstyled">
-							<li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Terms and Conditions</a></li>
-							<li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Privacy Policy</a></li>
-							<li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Cookie Policy</a></li>
-							<li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Acceptable Use Policy </a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Apps</h2>
-						<div class="block-23 mb-3">
-							<img src="../assets/images/logo/appstore.png" class="app-logo apple-store mb-3">
-							<img src="../assets/images/logo/googlestore.png" class="app-logo google-store mb-3">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid px-0 py-5 bg-wrap">
-			<div class="container-xl">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<p class="mb-0" style="color: rgba(255,255,255,.5); font-size: 13px;">
-							Copyright &copy;<script data-cfasync="false"
-								src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-							<script>
-								document.write(new Date().getFullYear());
-							</script> All rights reserved 
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <!-- feather icon js-->
-    <script src="../assets/js/script.js"></script>
-	<script src="../assets/js/tiny-slider.js"></script>
-	<script src="../assets/js/glightbox.min.js%2brellax.min.js%2baos.js%2bgoogle-map.js%2bmain.js.pagespeed.jc.WAj16U4E-j.js"></script>
-	<script>
-			$('#monthoryear').on('change', function(e) {
-				$('.monthly').toggle();
-				$('.yearly').toggle();
-			})
-	</script>
-	<script>
-		eval(mod_pagespeed_sczcemKaXI);
-	</script>
-	<script>
-		eval(mod_pagespeed_iugTgh5gQT);
-	</script>
-	<script>
-		eval(mod_pagespeed_fwjKd8Uu8i);
-	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false">
-	</script>
-	<script>
-		eval(mod_pagespeed_3lnfIwbzoi);
-	</script>
-	<script>
-		eval(mod_pagespeed_CehiAjdXZP);
-	</script>
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-
-</body>
-
-</html>
+@endsection

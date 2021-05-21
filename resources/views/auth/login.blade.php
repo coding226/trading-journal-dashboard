@@ -26,7 +26,7 @@
                             <p>Enter your email & password to {{ isset($url) ? ucwords($url) : ""}} login</p>
                             <div class="form-group">
                                 <label class="col-form-label">Email Address</label>
-                                <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Test@gmail.com">
+                                <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="example@email.com">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
