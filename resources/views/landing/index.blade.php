@@ -89,8 +89,8 @@
 			<div class="row no-gutters slider-text align-items-center justify-content-between align-items-stretch">
 				<div class="col-md-6 col-lg-5 text d-flex align-items-center">
 					<div>
-						<h1 class="">Your Online Trading Journal</h1>
-						<p>The only tool you need to track your trading progress and data. You can give it a try for FREE!</p>
+						<h1 class="">The Trading Buddy is Your New Online Trading Journal</h1>
+						<p>The Trading Buddy is only tool you’ll ever need to track your trading progress and data. Better still, you can try it now for FREE!</p>
 						<p class="d-flex">
 							<a href="{{ url('/login') }}" class="btn btn-primary d-flex align-items-center"><span>Try For Free</span></a>
 							<a href="{{ url('/login') }}" class="btn btn-secondary"><span>Sign In</span></a>
@@ -118,8 +118,8 @@
 							data-aos-duration="1000">
 							<div class="pe-md-5">
 								<span class="subheading">Features</span>
-								<h2 class="mb-4">Take A Look At Some Of The Trading Buddy Features</h2>
-								<p>The Trading Buddy has been designed to provide a smooth user interface to make your experience the best possible whilst you continue to track all of your trading data in one place.</p>
+								<h4 class="mb-4">Take a look at some of the Trading Buddy’s most popular features</h4>
+								<p>The Trading Buddy has been designed to give you the best possible trading experience. It offers a smooth, professional user interface and gives you a single dashboard on which to view and track all of your trading data.</p>
 								<p><a href="{{ url('/register') }}" class="btn btn-secondary">Sign Up</a></p>
 							</div>
 						</div>
@@ -131,8 +131,8 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-user"></span></div>
 										<div class="text">
-											<h2>Personalised Account</h2>
-											<p>Each user has a personalised account where they can add deposits and withdrawals.</p>
+											<h2>Best in class digital security</h2>
+											<p>Each user has a secure personal account where they can add deposits and make withdrawals mirroring their trading account. Your data has never been in safer hands.</p>
 										</div>
 									</a>
 								</div>
@@ -142,8 +142,8 @@
 										<div class="icon d-flex align-items-center justify-content-center"><span
 												class="flaticon-seo"></span></div>
 										<div class="text">
-											<h2>Account Dashboard</h2>
-											<p>User Friendly Dashboard that provides an overview of the trading account.</p>
+											<h2>Personalised Account Dashboard</h2>
+											<p>Every user – free or paid – gets their own personal dashboard providing an overview of their trading account. This dashboard can be customised to provide exactly the information you need at a glance. </p>
 										</div>
 									</a>
 								</div>
@@ -154,7 +154,7 @@
 												class="flaticon-vector"></span></div>
 										<div class="text">
 											<h2>Account Analytics</h2>
-											<p>Review Detailed Account Analytics for All Trades.</p>
+											<p>Review detailed account analytics for all trades with a single click. Our automated analytics engine can do more than just display your trading data and recent trends, though. It can show you what it all means for you.</p>
 										</div>
 									</a>
 								</div>
@@ -165,7 +165,7 @@
 												class="flaticon-rocket"></span></div>
 										<div class="text">
 											<h2>Refined Account Analytics</h2>
-											<p>Refine your Account Data between Long and Short Positions.</p>
+											<p>The best advice depends on your plans, after all. Our systems can refine your account data between long and short positions, ensuring that your ‘safe’ money stays safe and your riskier positions are easier to keep an eye on. </p>
 										</div>
 									</a>
 								</div>
@@ -176,7 +176,7 @@
 												class="flaticon-business"></span></div>
 										<div class="text">
 											<h2>Symbol Analytics</h2>
-											<p> View your symbol leader board and detailed analytics for each symbol traded.</p>
+											<p>Our detailed, charts and analytics are a trader’s best friends. You can view a personalised symbol leader board and access detailed analytics for each symbol individually.</p>
 										</div>
 									</a>
 								</div>
@@ -187,7 +187,7 @@
 												class="flaticon-search-engine"></span></div>
 										<div class="text">
 											<h2>Import and Export Reports</h2>
-											<p>You can import your trade history and export trade history using .xls and .csv formats.</p>
+											<p>You can import and export your entire trade history, and create bespoke reports in either the .XLS or .CSV  formats. You can export or back-up your entire trading history in the same way.</p>
 										</div>
 									</a>
 								</div>
@@ -205,17 +205,9 @@
 					data-aos-duration="1000">
 					<div class="py-md-5">
 						<span class="subheading">Introduction</span>
-						<h2 class="mb-4">About The Trade Buddy</h2>
-						<p>The Trading Buddy was created by Traders for Traders. We have an incentive to
-							provide you with the necessary tools that can assist you in your performance as a trader, as well
-							as give you better insights in your progress within the markets. The Trading Buddy allows you to
-							review your performance and track your progress, whilst having a full control over your trading
-							data.
-						</p>
-						<p>The Trading Buddy’s refined data analytics it allows you to dive deeper into each market
-							specifically to see how you perform. There is nothing more powerful than data and that is exactly
-							what The Trading Buddy does for you.
-						</p>
+						<h2 class="mb-4">About The Trading Buddy</h2>
+						<p>The Trading Buddy was created by traders for traders. We aim to give you the best available tools and really boost your performance. Our proprietary analytics engine can give you tremendous insight into your progress in the markets, and our personalised dashboard and reporting system helps you review your performance and tracks your progress. All this ensures that you always have complete control over your trading data.</p>
+						<p>The Trading Buddy’s refined data analytics allow you to dive deeper into each market, pulling up the exact information you need to review your trades. There is nothing more powerful than data, and The Trading Buddy makes it easier than ever to use that power.</p>
 						<p><a href="{{ url('/register') }}" class="btn btn-primary">Sign Up</a></p>
 					</div>
 				</div>
@@ -336,7 +328,7 @@
 					data-aos-duration="1000">
 					<span class="subheading">Why Choose Us</span>
 					<h2 class="mb-4">Know Your Trading Account Data Inside Out</h2>
-					<p>From the moment you start using The Trading Buddy you wont look back, detailed analytics right at your finger tips. </p>
+					<p>The Trading Buddy can help you track your trading account or accounts in detail, and lets you apply professional grade analytics to your own trading data. The possibilities are endless. In fact, our customers tell us that once they start using The Trading Buddy they never look back. Try it and see why!</p>
 				</div>
 			</div>
 			<div class="row">
@@ -346,8 +338,7 @@
 								class="flaticon-settings"></span></div>
 						<div class="text">
 							<h2>Getting Started</h2>
-							<p>Getting Started with The Trading Buddy is very simple. You can import your existing
-								data into the system using spreadsheets in .xls and .csv formats.</p>
+							<p>Getting Started with The Trading Buddy is very simple. You can import your existing data into the system using .XLS and/or .CSV spreadsheets in just a few minutes.</p>
 						</div>
 					</div>
 				</div>
@@ -357,9 +348,7 @@
 								class="flaticon-padlock"></span></div>
 						<div class="text">
 							<h2>Tracking Your Data</h2>
-							<p>All you have to do is input your trading data and The Trading Buddy does the rest.
-								Our user-friendly interface will help you to track, analyse and understand the data in the most
-								convenient way for you.</p>
+							<p>All you have to do is input your trading data and The Trading Buddy does the rest. Our user-friendly interface will help you to track, analyse and understand the data.</p>
 						</div>
 					</div>
 				</div>
@@ -368,9 +357,8 @@
 						<div class="icon d-flex align-items-center justify-content-center"><span
 								class="flaticon-secret-file"></span></div>
 						<div class="text">
-							<h2>Exporting Data</h2>
-							<p>The Trading Buddy allows you to create filtered reports and export them in different
-								file formats. The Trading buddy also allows you to export each trade as a PDF report.</p>
+							<h2>Exporting Data and Reports</h2>
+							<p>The Trading Buddy allows you to create filtered reports and export them in different file formats. The Trading buddy also allows you to export each trade as an individualised PDF report.</p>
 						</div>
 					</div>
 				</div>
@@ -380,9 +368,7 @@
 								class="flaticon-help"></span></div>
 						<div class="text">
 							<h2>Trading Buddy Support</h2>
-							<p>The Trading Buddy Offers email and live chat support for users. You can get in touch
-								with us with any queries or issues. 
-							</p>
+							<p>The Trading Buddy Offers email and live chat support for users. You can get in touch with us with any queries or issues, and we’ll get back to you right away – often in just a few hours.</p>
 						</div>
 					</div>
 				</div>
@@ -396,7 +382,7 @@
 				<div class="col-md-7 heading-section text-center mb-3" data-aos="fade-up" data-aos-duration="1000">
 					<span class="subheading">Pricing</span>
 					<h2>Choose Your Pricing Plan</h2>
-					<p>No matter if you have 1 or 10 trading accounts we have the plan for you!</p>
+					<p>When you’re ready to upgrade from your free account, you have a few options. Whether you have a single trading account and you just want to access the best analytics or whether you manage 10 separate accounts each with different goals and trading strategies, we have just the plan for you!</p>
 				</div>
 				<div class="media-body justify-content-center d-flex mb-3" data-aos="fade-up" data-aos-duration="1000">
 					<h4>Yearly</h4>
@@ -549,12 +535,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon" aria-expanded="false" aria-controls="collapseicon"><i
-				                            data-feather="help-circle"></i>What Symbols Do We Include?</button>
+				                            data-feather="help-circle"></i>What symbols do we include?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon" aria-labelledby="collapseicon" data-bs-parent="#accordionoc">
-				                <div class="card-body">We provide a 106 Symbols. 14 Indices, 15 Commodities and 79 Forex Pairs. You can create a
-									free account and see them for yourself.</div>
+				                <div class="card-body">We provide 106 Symbols, 14 Indices, 15 Commodities and 79 Forex Pairs. You can create a free account and see what we have to offer for yourself.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -562,13 +547,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon2" aria-expanded="false" aria-controls="collapseicon2"><i
-				                            data-feather="help-circle"></i> WordPress Site Maintenance ?</button>
+				                            data-feather="help-circle"></i>Can I import my previous trading history?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon2" data-bs-parent="#accordionoc">
-				                <div class="card-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-				                    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-				                    nascetur ridiculus mus.</div>
+				                <div class="card-body">Yes. You can easily import as many trades as you like in spreadsheet format.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -576,11 +559,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon3" aria-expanded="false" aria-controls="collapseicon2"><i
-				                            data-feather="help-circle"></i>Can I import my previous trading history?</button>
+				                            data-feather="help-circle"></i>Do you have videos which show how to use the platform?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon3" data-bs-parent="#accordionoc">
-				                <div class="card-body">Yes, You can import as many trades as you like.</div>
+				                <div class="card-body">Yes. We have a Quick Course which can be accessed directly on the platform.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -588,11 +571,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon4" aria-expanded="false" aria-controls="collapseicon2"><i
-				                            data-feather="help-circle"></i>Do you have videos how to use platform?</button>
+				                            data-feather="help-circle"></i>What payment methods do you accept?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon4" data-bs-parent="#accordionoc">
-				                <div class="card-body">Yes we have a Quick Course located inside the platform.</div>
+				                <div class="card-body">We accept Card  and PayPal. You can choose to pay either monthly or yearly by choosing the appropriate subscription.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -600,12 +583,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon5" aria-expanded="false"><i data-feather="help-circle"></i>
-				                        What payment methods do we accept?</button>
+				                        Can I make suggestions to The Trading Buddy?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon5" aria-labelledby="collapseicon5" data-bs-parent="#accordionoc">
-				                <div class="card-body">We accept Stripe and Paypal. Our payments are reassuring for both Monthly and Yearly
-									Subscriptions.</div>
+				                <div class="card-body">Yes. We’d love to hear your feedback. Please send us an email and you will be heard.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -625,11 +607,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon8" aria-expanded="false" aria-controls="collapseicon2"><i
-				                            data-feather="help-circle"></i> Where do I cancel my subscription?</button>
+				                            data-feather="help-circle"></i>What happens if I cancel my subscription?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon8" data-bs-parent="#accordionoc">
-				                <div class="card-body">You can do this in you account settings. </div>
+				                <div class="card-body">If you cancel your subscription, you will automatically be downgraded to a free account. You can still export your data freely, but you will not be able to import new data.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -637,12 +619,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon9" aria-expanded="false"><i data-feather="help-circle"></i>
-				                        What happens if I cancel my subscription?</button>
+				                        How / where do I cancel my subscription?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon9" aria-labelledby="collapseicon9" data-bs-parent="#accordionoc">
-				                <div class="card-body">You will still be able to view your account as a free account. You can still export the data but
-									you will not be able to import new data.</div>
+				                <div class="card-body">You can cancel or upgrade your subscription in the Account Settings tab.</div>
 				            </div>
 				        </div>
 				        <div class="card">
@@ -650,11 +631,11 @@
 				                <h5 class="mb-0">
 				                    <button class="btn btn-link collapsed ps-0" data-bs-toggle="collapse"
 				                        data-bs-target="#collapseicon10" aria-expanded="false" aria-controls="collapseicon2"><i
-				                            data-feather="help-circle"></i> Can I permanently have my account removed?</button>
+				                            data-feather="help-circle"></i>Can I permanently have my account removed?</button>
 				                </h5>
 				            </div>
 				            <div class="collapse" id="collapseicon10" data-bs-parent="#accordionoc">
-				                <div class="card-body">Yes, of course. You just need to send us an email.</div>
+				                <div class="card-body">Yes, of course. You just need to send us an email instructing us to do so.</div>
 				            </div>
 				        </div>
 				    </div>
