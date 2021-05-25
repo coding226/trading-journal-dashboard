@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentPlatformSeeder::class);
         $this->call(CurrencySeeder::class);
         $this->call(PlanSeeder::class);
+        $this->call(SymbolSeeder::class);
     }
 }
