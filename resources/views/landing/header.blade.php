@@ -9,14 +9,14 @@
     <meta name="keywords" content="trading buddy, trading, buy, sell, long, short, web app">
     <meta name="author" content="pixelstrap">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{{ url('assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" type="image/x-icon">
     @yield('title')
 	<link rel="preconnect" href="https://fonts.gstatic.com/">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
-	<link rel="stylesheet" href="../assets/fonts/ionicons/4.5.6/css/ionicons.min.css">
-	<link rel="stylesheet" href="../assets/css/A.animate.css%2bflaticon.css%2btiny-slider.css%2bglightbox.min.css%2baos.css%2bstyle.css%2cMcc.zyAd-cmIB-.css.pagespeed.cf.6s2mMaARr7.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/font-awesome.css') }}">
+	<link rel="stylesheet" href="{{ url('assets/fonts/ionicons/4.5.6/css/ionicons.min.css') }}">
+	<link rel="stylesheet" href="{{ url('assets/css/A.animate.css%2bflaticon.css%2btiny-slider.css%2bglightbox.min.css%2baos.css%2bstyle.css%2cMcc.zyAd-cmIB-.css.pagespeed.cf.6s2mMaARr7.css') }}" />
 	@yield('style')
 </head>
 
@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-expand-lg  ftco-navbar-light">
 		<div class="container-xl">
 			<a class="navbar-brand" href="{{ url('/') }}">
-				<img class="logo" src="../assets/images/logo/whitelogo.png" alt="logo">
+				<img class="logo" src="{{ url('assets/images/logo/whitelogo.png') }}" alt="logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

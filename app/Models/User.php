@@ -61,4 +61,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Subuser::class, 'current_subuser');
     }
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
+    }
+
+    public function hasActiveSubscription()
+    {
+        // return true;
+        return optional($this->subscription)->isActive() ?? false;
+    }
 }

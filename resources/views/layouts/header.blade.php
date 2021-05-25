@@ -11,32 +11,32 @@
         content="trading buddy, trading, buy, sell, long, short, web app">
     <meta name="author" content="pixelstrap">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{{ url('assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" type="image/x-icon">
     @yield('title')
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/font-awesome.css') }}">
     <!-- ico-font-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/vendors/icofont.css') }}">
     <!-- Themify icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/vendors/themify.css') }}">
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/vendors/flag-icon.css') }}">
     <!-- Feather icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/vendors/feather-icon.css') }}">
     <!-- Plugins css start-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/vendors/scrollbar.css') }}">
     @yield('style')
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/vendors/bootstrap.css') }}">
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/style.css') }}">
+    <link id="color" rel="stylesheet" href="{{ url('assets/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/responsive.css') }}">
 </head>
 
 <body onload="startTime()" class="{{ Auth::user()->darkmode }}">
@@ -75,7 +75,7 @@
                 </form>
                 <div class="header-logo-wrapper col-auto p-0">
                     <div class="logo-wrapper"><a href="{{ url('/dashboard') }}"><img class="img-fluid"
-                                src="../assets/images/logo/logo.png" alt=""></a></div>
+                                src="{{ url('assets/images/logo/logo.png') }}" alt=""></a></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle"
                             data-feather="align-center"></i></div>
                 </div>
@@ -218,7 +218,7 @@
                         <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize"></i></a></li>
                         <li class="profile-nav onhover-dropdown p-0 me-0">
-                            <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
+                            <div class="media profile-media"><img class="b-r-10" src="{{ url('assets/images/dashboard/profile.jpg') }}" alt="">
                                 <div class="media-body"><span>{{Auth::user()->name}}</span>
                                     <p class="mb-0 font-roboto">{{ Auth::user()->current_subsuer->acc_num }} <i class="middle fa fa-angle-down"></i></p>
                                 </div>
@@ -258,20 +258,20 @@
             <div class="sidebar-wrapper">
                 <div>
                     <div class="logo-wrapper"><a href="{{ url('/dashboard') }}"><img class="img-fluid for-light"
-                                src="../assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark"
-                                src="../assets/images/logo/logo_dark.png" alt=""></a>
+                                src="{{ url('assets/images/logo/logo.png') }}" alt=""><img class="img-fluid for-dark"
+                                src="{{ url('assets/images/logo/logo_dark.png') }}" alt=""></a>
                         <div class="back-btn"><i class="fa fa-angle-left"></i></div>
                         <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid">
                             </i></div>
                     </div>
                     <div class="logo-icon-wrapper"><a href="{{ url('/dashboard') }}"><img class="img-fluid"
-                                src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+                                src="{{ url('assets/images/logo/logo-icon.png') }}" alt=""></a></div>
                     <nav class="sidebar-main">
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
                         <div id="sidebar-menu">
                             <ul class="sidebar-links" id="simple-bar">
                                 <li class="back-btn"><a href="{{ url('/dashboard') }}"><img class="img-fluid"
-                                            src="../assets/images/logo/logo-icon.png" alt=""></a>
+                                            src="{{ url('assets/images/logo/logo-icon.png') }}" alt=""></a>
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
                                 </li>

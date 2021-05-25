@@ -10,6 +10,7 @@ use App\Models\Subuser;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -93,8 +94,6 @@ class RegisterController extends Controller
         $user = User::find($user->id);
         $user->current_subuser = $subuser->id;
         $user->save();
-
-        return $user;
     }
 
 }

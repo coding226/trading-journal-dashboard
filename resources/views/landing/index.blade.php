@@ -421,7 +421,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -439,7 +439,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/basicmonthly') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -457,7 +457,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/promonthly') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -475,7 +475,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/premiummonthly') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -493,7 +493,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/basicyearly') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -511,7 +511,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/proyearly') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -529,7 +529,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/subscribe-checkout/premiumyearly') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>

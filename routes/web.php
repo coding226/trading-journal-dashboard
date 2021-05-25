@@ -8,6 +8,7 @@ use App\Http\Controllers\TradeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\SymbolanalyticsController;
+use App\Http\Controllers\SubscriptionController;
 
 
 /*
@@ -75,6 +76,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/darkmode', [UserController::class, 'darkmode'])->name('user.darkmode');
     // User ends
 
+    //Subscription start
+    Route::get('/subscribe-checkout/{plan}', [SubscriptionController::class, 'show'])->name('subscribe.checkout', ['plan']);
+    Route::post('/subscribe-store', [SubscriptionController::class, 'store'])->name('subscribe.store');
+    Route::get('/subscribe-approval', [SubscriptionController::class, 'approval'])->name('subscribe.approval');
+    Route::get('/subscribe-cancelled', [SubscriptionController::class, 'cancelled'])->name('subscribe.cancelled');
+    //Subscription ends
+
     //Contact us
     // Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus.index');
 });
+
+Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
+Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');

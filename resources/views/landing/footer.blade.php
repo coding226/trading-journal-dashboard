@@ -6,7 +6,7 @@
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2 logo d-flex">
 							<a class="navbar-brand" href="index.html">
-								<img class="bottom-logo" src="../assets/images/logo/logo-blacktext.png" alt="logo">
+								<img class="bottom-logo" src="{{ url('assets/images/logo/logo-blacktext.png') }}" alt="logo">
 							</a>
 						</h2>
 						<p>Email Address: Contact@thetradingbuddy.com
@@ -33,8 +33,8 @@
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Apps</h2>
 						<div class="block-23 mb-3">
-							<img src="../assets/images/logo/appstore.png" class="app-logo apple-store mb-3">
-							<img src="../assets/images/logo/googlestore.png" class="app-logo google-store mb-3">
+							<img src="{{ url('assets/images/logo/appstore.png') }}" class="app-logo apple-store mb-3">
+							<img src="{{ url('assets/images/logo/googlestore.png') }}" class="app-logo google-store mb-3">
 						</div>
 					</div>
 				</div>
@@ -56,13 +56,13 @@
 			</div>
 		</div>
 	</footer>
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="{{ url('assets/js/jquery-3.5.1.min.js') }}"></script>
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <!-- feather icon js-->
-    <script src="../assets/js/script.js"></script>
-	<script src="../assets/js/tiny-slider.js"></script>
-	<script src="../assets/js/glightbox.min.js%2brellax.min.js%2baos.js%2bgoogle-map.js%2bmain.js.pagespeed.jc.WAj16U4E-j.js"></script>
+    <script src="{{ url('assets/js/script.js') }}"></script>
+	<script src="{{ url('assets/js/tiny-slider.js') }}"></script>
+	<script src="{{ url('assets/js/glightbox.min.js%2brellax.min.js%2baos.js%2bgoogle-map.js%2bmain.js.pagespeed.jc.WAj16U4E-j.js') }}"></script>
 	<script>
 			$('#monthoryear').on('change', function(e) {
 				$('.monthly').toggle();
