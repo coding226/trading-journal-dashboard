@@ -94,6 +94,8 @@ class RegisterController extends Controller
         $user = User::find($user->id);
         $user->current_subuser = $subuser->id;
         $user->save();
+
+        return $user;
     }
 
 }

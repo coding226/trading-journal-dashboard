@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Dashboard start
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboardinfo', [DashboardController::class, 'getinfoes'])->name('dashboard.getinfoes');
     // Dashboard ends
 
     // Trade start

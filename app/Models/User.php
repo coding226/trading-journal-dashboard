@@ -29,7 +29,7 @@ class User extends Authenticatable
         'avatar',
         'status',
         'currency',
-        'current_subsuer',
+        'current_subuser',
         'darkmode',
     ];
 
@@ -57,7 +57,7 @@ class User extends Authenticatable
         return $this->hasMany(Subuser::class);
     }
 
-    public function current_subsuer()
+    public function current_user()
     {
         return $this->belongsTo(Subuser::class, 'current_subuser');
     }

@@ -133,14 +133,6 @@ class SymbolSeeder extends Seeder
         Symbol::create([
             'symbol' => 'AUDCAD',
             'category' => 'FOREX PAIRS',
-        ]);
-        Symbol::create([
-            'symbol' => 'AUDCHF',
-            'category' => 'FOREX PAIRS',
-        ]);
-        Symbol::create([
-            'symbol' => 'AUDCAD',
-            'category' => 'FOREX PAIRS',
             ]);
         Symbol::create([
             'symbol' => 'AUDCHF',

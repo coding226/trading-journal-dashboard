@@ -35,7 +35,7 @@
                             <div class="badge-groups w-100">
                                 <div class="badge f-12"><i class="me-1" data-feather="clock"></i><span id="txt"></span>
                                 </div>
-                                <div class="badge f-12"><i class="fa fa-spin fa-cog f-14"></i></div>
+                                <div class="badge f-12"><a href="{{ url('/account-setting') }}" class="text-white"><i class="fa fa-spin fa-cog f-14"></i></a></div>
                             </div>
                         </div>
                         <div class="greeting-user text-center">
@@ -44,11 +44,11 @@
                             <h4 class="f-w-600"><span id="greeting">Good Morning</span><span>,
                                     {{Auth::user()->firstname}}</span> <span class="right-circle"><i
                                         class="fa fa-check-circle f-14 middle"></i></span></h4>
-                            <p><span> Todays profit is +3.5% which makes your Total Percentage +12% this month.</span>
+                            <p><span> Todays profit is <span class="daily_percentage_gain">+3.5</span>% which makes your Total Percentage <span class="monthly_percentage_gain">+12</span>% this month.</span>
                             </p>
                             <div class="whatsnew-btn"><a class="btn btn-primary" href="{{ url('/new-trade') }}">Create
                                     New Trade</a></div>
-                            <div class="left-icon"><i class="fa fa-bell"> </i></div>
+                            <!-- <div class="left-icon"><i class="fa fa-bell"> </i></div> -->
                         </div>
                     </div>
                 </div>
@@ -60,19 +60,19 @@
                             <div class="col-xl-3 earning-content p-0">
                                 <div class="row m-0 chart-left">
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>{{ Auth::user()->current_subsuer->acc_num }}</h5>
+                                        <h5>{{ $acc_num }}</h5>
                                         <p class="font-roboto">Account Number</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5><span id="current_currecny">$</span> {{ number_format(Auth::user()->current_subsuer->balance) }} </h5>
+                                        <h5><span id="current_currecny">$</span> {{ number_format(Auth::user()->current_user->balance) }} </h5>
                                         <p class="font-roboto">Account Balance</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>$1004.11</h5>
+                                        <h5>${{ $tprofit }}</h5>
                                         <p class="font-roboto">Total Profit ($)</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>90%</h5>
+                                        <h5>{{ $tpecen }}%</h5>
                                         <p class="font-roboto">Total Percentage Gain</p>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="database"></i></div>
                             <div class="media-body"><span class="m-0">Yearly Percentage Gain</span>
-                                <h4 class="mb-0 counter">6659</h4><i class="icon-bg" data-feather="database"></i>
+                                <h4 class="mb-0 counter"><span class="yearly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="database"></i>
                             </div>
                         </div>
                     </div>
@@ -185,11 +185,11 @@
             </div>
             <div class="col-sm-6 col-xl-3 col-lg-6">
                 <div class="card o-hidden">
-                    <div class="bg-secondary b-r-4 card-body">
+                    <div class="bg-primary b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
                             <div class="media-body"><span class="m-0">Monthly Percentage Gain</span>
-                                <h4 class="mb-0 counter">9856</h4><i class="icon-bg" data-feather="shopping-bag"></i>
+                                <h4 class="mb-0 counter"><span class="monthly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="shopping-bag"></i>
                             </div>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="message-circle"></i></div>
                             <div class="media-body"><span class="m-0">Weekly Percentage Gain</span>
-                                <h4 class="mb-0 counter">893</h4><i class="icon-bg" data-feather="message-circle"></i>
+                                <h4 class="mb-0 counter"><span class="weekly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="message-circle"></i>
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
                             <div class="media-body"><span class="m-0">Daily Percentage Gain</span>
-                                <h4 class="mb-0 counter">45631</h4><i class="icon-bg" data-feather="user-plus"></i>
+                                <h4 class="mb-0 counter"><span class="daily_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="user-plus"></i>
                             </div>
                         </div>
                     </div>
@@ -226,15 +226,6 @@
                         <div class="header-top">
                             <h5 class="m-0">Recent Trades</h5>
                             <div class="card-header-right-icon">
-                                <!-- <div class="dropdown">
-                                    <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Year</button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Day</a>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -246,57 +237,35 @@
                                     <th scope="col">Symbol:</th>
                                     <th scope="col">Long/Short</th>
                                     <th scope="col">Trade Duration</th>
-                                    <th scope="col">Profit/Loss(In Money Values)</th>
-                                    <th scope="col">Profit/Loss(In Percentage Values)</th>
+                                    <th scope="col">Profit/Loss($)</th>
+                                    <th scope="col">Profit/Loss(%)</th>
                                     <th scope="col">Win/Loss/BE</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($recents as $trade)
                                 <tr>
-                                    <td scope="row">1</td>
-                                    <td class="text-center">GBP/USD</td>
-                                    <td class="text-center">Buy</td>
-                                    <td class="text-center">3 Hours 55Mins</td>
-                                    <td class="font-success text-center">+$320.00</td>
-                                    <td class="font-success text-center">2%</td>
+                                    <td class="text-center">{{ $trade->trade_num }}</td>
+                                    <td class="text-center">{{ $trade->symbol->symbol }}</td>
+                                    <td class="text-center">{{ $trade->long_short }}</td>
+                                    <td class="text-center">{{ $trade->duration }}</td>
+                                    @if( $trade->profit_gl > 0 )
+                                    <td class="font-success text-center">{{ $trade->profit_gl }}</td>
+                                    @else
+                                    <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
+                                    @endif
+                                    @if( $trade->percentage_gl > 0 )
+                                    <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                                    @else
+                                    <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
+                                    @endif
+                                    @if( $trade->profit_gl > 0 )
                                     <td class="font-success text-center">Win</td>
+                                    @else
+                                    <td class="font-danger text-center">Loss</td>
+                                    @endif
                                 </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td class="text-center">EUR/USD</td>
-                                    <td class="text-center">Sell</td>
-                                    <td class="text-center">3 Hours 55Mins</td>
-                                    <td class="font-secondary text-center">-$320.00</td>
-                                    <td class="font-secondary text-center">2%</td>
-                                    <td class="font-secondary text-center">Win</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td class="text-center">USD/CAD</td>
-                                    <td class="text-center">Buy</td>
-                                    <td class="text-center">3 Hours 55Mins</td>
-                                    <td class="font-success text-center">+$320.00</td>
-                                    <td class="font-success text-center">2%</td>
-                                    <td class="font-success text-center">Win</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td class="text-center">AUD/USD</td>
-                                    <td class="text-center">Sell</td>
-                                    <td class="text-center">3 Hours 55Mins</td>
-                                    <td class="font-secondary text-center">+$320.00</td>
-                                    <td class="font-secondary text-center">2%</td>
-                                    <td class="font-secondary text-center">Win</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td class="text-center">AUD/USD</td>
-                                    <td class="text-center">Sell</td>
-                                    <td class="text-center">3 Hours 55Mins</td>
-                                    <td class="font-secondary text-center">+$320.00</td>
-                                    <td class="font-secondary text-center">2%</td>
-                                    <td class="font-secondary text-center">Win</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -311,7 +280,6 @@
                     </div>
                     <div class="card-Body apex-chart">
                         <div class="radar-chart">
-                            {{-- <div id="basic-bar"> </div> --}}
                             <div id="profitablility-chart"></div>
                         </div>
                     </div>
@@ -373,8 +341,8 @@
 </div>
 @endsection
 @section('script')
-<script src="../assets/js/chart/chartist/chartist.js"></script>
-<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+<!-- <script src="../assets/js/chart/chartist/chartist.js"></script>
+<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script> -->
 <script src="../assets/js/chart/knob/knob.min.js"></script>
 <script src="../assets/js/chart/knob/knob-chart.js"></script>
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
@@ -382,7 +350,11 @@
 <script src="../assets/js/notify/bootstrap-notify.min.js"></script>
 <script src="../assets/js/dashboard/default.js"></script>
 <script src="../assets/js/notify/index.js"></script>
-<script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
+<!-- <script src="../assets/js/chart/apex-chart/apex-chart.js"></script> -->
+<script>
+    var wins = {!! json_encode($wins_num, JSON_HEX_TAG) !!};
+    var loses = {!! json_encode($loses_num, JSON_HEX_TAG) !!};
+</script>
 <script src="../assets/js/dashboard/chart_dash.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>

@@ -118,7 +118,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $i = 0;?>
                                                 @foreach($trades as $trade)
                                                 <tr>
                                                     <td class="text-center">{{ $trade->trade_num }}</td>
@@ -136,7 +135,11 @@
                                                     @else
                                                     <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
                                                     @endif
-                                                    <td class="font-success text-center"></td>
+                                                    @if( $trade->profit_gl > 0 )
+                                                    <td class="font-success text-center">Win</td>
+                                                    @else
+                                                    <td class="font-danger text-center">Loss</td>
+                                                    @endif
                                                     <td class="d-flex">
                                                         <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
                                                             <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg></div>

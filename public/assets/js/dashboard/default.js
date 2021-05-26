@@ -4,12 +4,17 @@ var curHr = today.getHours()
 
 if (curHr >= 0 && curHr < 4) {
     document.getElementById("greeting").innerHTML = 'Good Night';
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg.jpg")');
+    document.getElementById("profile-greeting").innerHTML = 'Good Night';
 } else if (curHr >= 4 && curHr < 12) {
     document.getElementById("greeting").innerHTML = 'Good Morning';
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/2.jpg")');
 } else if (curHr >= 12 && curHr < 16) {
     document.getElementById("greeting").innerHTML = 'Good Afternoon';
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/5.jpg")');
 } else {
     document.getElementById("greeting").innerHTML = 'Good Evening';
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/3.jpg")');
 }
 // time 
 function startTime() {
@@ -30,6 +35,25 @@ function checkTime(i) {
     if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
     return i;
 }
+
+$(document).ready (function () {
+// $('#testbutton').on('click', function () {
+    var currenttime = (new Date()).toLocaleString();
+    $.ajax({
+        type: 'GET',
+        url: '/dashboardinfo',
+        dataType: 'json',
+        data: {
+            currenttime: currenttime,
+        },
+        success:function(data) {
+            $('.daily_percentage_gain').text(Math.round(data['inadaypercentagegain']*100)/100);
+            $('.weekly_percentage_gain').text(data['inaweekpercentagegain']);
+            $('.monthly_percentage_gain').text(data['inamonthpercentagegain']);
+            $('.yearly_percentage_gain').text(Math.round(data['inayearpercentagegain']*100)/100);
+        }
+    });
+});
 
 // currently sale
 var options = {
@@ -129,154 +153,7 @@ var chart = new ApexCharts(document.querySelector("#chart-currently"), options);
 chart.render();
 
 
-//small chart-1
 
-new Chartist.Bar('.small-chart', {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7'],
-    series: [
-        [400, 900, 800, 1000, 700, 1200, 300],
-        [1000, 500, 600, 400, 700, 200, 1100]
-    ]
-}, {
-    plugins: [
-        Chartist.plugins.tooltip({
-            appendToBody: false,
-            className: "ct-tooltip"
-        })
-    ],
-    stackBars: true,
-    axisX: {
-        showGrid: false,
-        showLabel: false,
-        offset: 0
-    },
-    axisY: {
-        low: 0,
-        showGrid: false,
-        showLabel: false,
-        offset: 0,
-        labelInterpolationFnc: function (value) {
-            return (value / 1000) + 'k';
-        }
-    }
-}).on('draw', function (data) {
-    if (data.type === 'bar') {
-        data.element.attr({
-            style: 'stroke-width: 3px'
-        });
-    }
-});
-
-//small-2
-
-new Chartist.Bar('.small-chart1', {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7'],
-    series: [
-        [400, 600, 900, 800, 1000, 1200, 500],
-        [1000, 800, 500, 600, 400, 200, 900]
-    ]
-}, {
-    plugins: [
-        Chartist.plugins.tooltip({
-            appendToBody: false,
-            className: "ct-tooltip"
-        })
-    ],
-    stackBars: true,
-    axisX: {
-        showGrid: false,
-        showLabel: false,
-        offset: 0
-    },
-    axisY: {
-        low: 0,
-        showGrid: false,
-        showLabel: false,
-        offset: 0,
-        labelInterpolationFnc: function (value) {
-            return (value / 1000) + 'k';
-        }
-    }
-}).on('draw', function (data) {
-    if (data.type === 'bar') {
-        data.element.attr({
-            style: 'stroke-width: 3px'
-        });
-    }
-});
-// small-3
-
-new Chartist.Bar('.small-chart2', {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7'],
-    series: [
-        [1100, 900, 600, 1000, 700, 1200, 300],
-        [300, 500, 800, 400, 700, 200, 1100]
-    ]
-}, {
-    plugins: [
-        Chartist.plugins.tooltip({
-            appendToBody: false,
-            className: "ct-tooltip"
-        })
-    ],
-    stackBars: true,
-    axisX: {
-        showGrid: false,
-        showLabel: false,
-        offset: 0
-    },
-    axisY: {
-        low: 0,
-        showGrid: false,
-        showLabel: false,
-        offset: 0,
-        labelInterpolationFnc: function (value) {
-            return (value / 1000) + 'k';
-        }
-    }
-}).on('draw', function (data) {
-    if (data.type === 'bar') {
-        data.element.attr({
-            style: 'stroke-width: 3px'
-        });
-    }
-});
-// small-4
-new Chartist.Bar('.small-chart3', {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7'],
-    series: [
-        [400, 600, 800, 1000, 700, 1100, 300],
-        [1000, 500, 600, 300, 700, 200, 1100]
-    ]
-}, {
-    plugins: [
-        Chartist.plugins.tooltip({
-            appendToBody: false,
-            className: "ct-tooltip"
-        })
-    ],
-    stackBars: true,
-    axisX: {
-        showGrid: false,
-        showLabel: false,
-        offset: 0
-    },
-    axisY: {
-        low: 0,
-        showGrid: false,
-        showLabel: false,
-        offset: 0,
-        labelInterpolationFnc: function (value) {
-            return (value / 1000) + 'k';
-        }
-    }
-}).on('draw', function (data) {
-    if (data.type === 'bar') {
-        data.element.attr({
-            style: 'stroke-width: 3px'
-        });
-    }
-});
 
 // right-side-small-chart
 

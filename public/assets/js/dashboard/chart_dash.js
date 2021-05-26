@@ -19,7 +19,7 @@ var profitablility_option = {
     }],
     colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25', '#a927f9', '#f8d62b']
 }
-
+profitablility_option['series'] = [wins, loses]
 var profitablility_chart = new ApexCharts(
     document.querySelector("#profitablility-chart"),
     profitablility_option

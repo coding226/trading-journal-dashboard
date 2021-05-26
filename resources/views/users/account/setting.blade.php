@@ -109,7 +109,7 @@
                                                 
                                                 <div class="media-body">
                                                     <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                                                    <p>{{ Auth::user()->current_subsuer->acc_num }}</p>
+                                                    <p>{{ Auth::user()->current_user->acc_num }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,18 +210,18 @@
                             </div>
                             <div class="card-body">
                                 @php
-                                    $subusers1 = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
+                                    $subusers = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
                                 @endphp
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Subuser</label>
                                             <select class="form-select" id="subuser" name="subuser">
-                                                @foreach($subusers1 as $subuser1)
-                                                @if($subuser1-> id == Auth::user()->current_subsuer->id)
-                                                <option value="{{ $subuser1-> id }}" selected>{{ $subuser1-> username }}({{ $subuser1-> acc_num }})</option>
+                                                @foreach($subusers as $subuser)
+                                                @if($subuser-> id == Auth::user()->current_subuser)
+                                                <option value="{{ $subuser-> id }}" selected>{{ $subuser-> username }}({{ $subuser-> acc_num }})</option>
                                                 @else
-                                                <option value="{{ $subuser1-> id }}">{{ $subuser1-> username }}({{ $subuser1-> acc_num }})</option>
+                                                <option value="{{ $subuser-> id }}">{{ $subuser-> username }}({{ $subuser-> acc_num }})</option>
                                                 @endif
                                                 @endforeach
                                             </select>
