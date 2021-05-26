@@ -142,59 +142,169 @@ var profit_pairs_chart = new ApexCharts(
 profit_pairs_chart.render();
 
 
-// monthly gains chart
-var monthly_option = {
+// currently sale
+var growthoptions = {
+    series: [{
+        name: 'Percentage Gain',
+        data: dash_data['growthy']
+    }],
     chart: {
-        height: 350,
-        type: 'bar',
-        toolbar:{
-          show: false
-        }
-    },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            // endingShape: 'rounded',
-            columnWidth: '55%',
+        height: 240,
+        type: 'area',
+        toolbar: {
+            show: false
         },
     },
     dataLabels: {
         enabled: false
     },
     stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent']
+        curve: 'smooth'
     },
-    series: [{
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61]
-    }],
     xaxis: {
-        categories: ['GBP/USD', 'EUR/USD', 'CAD/USD', 'AUD/USD', 'NZD/USD'],
+        type: 'category',
+        low: 0,
+        offsetX: 0,
+        offsetY: 0,
+        show: true,
+        categories: dash_data['growthx'],
+        labels: {
+            low: 0,
+            offsetX: 0,
+            show: true,
+        },
+        axisBorder: {
+            low: 0,
+            offsetX: 0,
+            show: true,
+        },
+    },
+    markers: {
+        strokeWidth: 1,
+        colors: "#ffffff",
+        strokeColors: [ CubaAdminConfig.secondary , CubaAdminConfig.primary ],
+        hover: {
+            size: 5,
+        }
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: '% (Percentage Gain)'
         }
     },
+    grid: {
+        show: true,
+        padding: {
+            left: 0,
+            right: 0,
+            bottom: -15,
+            top: -40
+        }
+    },
+    colors: [ CubaAdminConfig.secondary , CubaAdminConfig.primary ],
     fill: {
-        opacity: 1
-
+        type: 'gradient',
+        gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
+            stops: [0, 80, 100]
+        }
+    },
+    legend: {
+        show: false,
     },
     tooltip: {
-        y: {
-            formatter: function (val) {
-                return "$ " + val + " thousands"
-            }
-        }
+        x: {
+            format: 'MM'
+        },
     },
-    colors:[ CubaAdminConfig.secondary]
-}
+};
 
-var monthly_gains_chart = new ApexCharts(
-    document.querySelector("#monthly-chart"),
-    monthly_option
-);
+var chart = new ApexCharts(document.querySelector("#chart-currently"), growthoptions);
+chart.render();
 
-monthly_gains_chart.render();
+
+$('.growth-chart li').on('click', function(e) {
+    $('.growth-chart li').removeClass('active');
+    $(this).addClass('active');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: '/drawdashchart',
+        dataType: 'json',
+        data: {
+            chart: 'growth',
+            type: $(this).text(),
+        },
+        success:function(data) {
+            console.log(data);
+            growthoptions['series'][0]['data'] = data['growthy'];
+            growthoptions['xaxis']['categories'] = data['growthx'];
+            $('#chart-currently').html('');
+            var chart = new ApexCharts(document.querySelector("#chart-currently"), growthoptions);
+            chart.render();
+        }
+    });
+});
+
+
+$('.tsymbol-chart a').on('click', function(e) {
+    $('#dropdownMenuButton1').text($(this).text());
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: '/drawdashchart',
+        dataType: 'json',
+        data: {
+            chart: 'tsymbol',
+            type: $(this).text(),
+        },
+        success:function(data) {
+            console.log(data);
+            trades_pairs_option['series'][0]['data'] = data['trades'];
+            trades_pairs_option['xaxis']['categories'] = data['symbols'];
+            $('#trades-pairs-chart').html('');
+            var trades_pairs_chart = new ApexCharts(document.querySelector("#trades-pairs-chart"),trades_pairs_option);
+            trades_pairs_chart.render();
+        }
+    });
+});
+
+
+$('.psymbol-chart a').on('click', function(e) {
+    $('#dropdownMenuButton2').text($(this).text());
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: '/drawdashchart',
+        dataType: 'json',
+        data: {
+            chart: 'psymbol',
+            type: $(this).text(),
+        },
+        success:function(data) {
+            console.log(data);
+            profit_pairs_option['series'][0]['data'] = data['sum'];
+            profit_pairs_option['xaxis']['categories'] = data['symbols'];
+            $('#profit-pairs-chart').html('');
+            var profit_pairs_chart = new ApexCharts(document.querySelector("#profit-pairs-chart"),profit_pairs_option);
+            profit_pairs_chart.render();
+        }
+    });
+});

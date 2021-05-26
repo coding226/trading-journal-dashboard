@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Dashboard start
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboardinfo', [DashboardController::class, 'getinfoes'])->name('dashboard.getinfoes');
+    Route::post('/drawdashchart', [DashboardController::class, 'drawdashchart'])->name('dashboard.drawdashchart');
     // Dashboard ends
 
     // Trade start

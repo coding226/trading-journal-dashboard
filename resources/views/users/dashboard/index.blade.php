@@ -7,6 +7,11 @@
 <link rel="stylesheet" type="text/css" href="../assets/css/vendors/chartist.css">
 <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
 <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
+<style>
+    ul.growth-chart li{
+        cursor: pointer;
+    }
+</style>
 @endsection
 @section('content')
 <div class="page-body">
@@ -48,7 +53,7 @@
                             </p>
                             <div class="whatsnew-btn"><a class="btn btn-primary" href="{{ url('/new-trade') }}">Create
                                     New Trade</a></div>
-                            <!-- <div class="left-icon"><i class="fa fa-bell"> </i></div> -->
+                            {{-- <div class="left-icon"><i class="fa fa-bell"> </i></div> --}}
                         </div>
                     </div>
                 </div>
@@ -82,19 +87,11 @@
                                     <div class="row m-0 p-tb">
                                         <div class="col-xl-8 col-md-8 col-sm-8 col-12 p-0">
                                             <div class="inner-top-left">
-                                                <ul class="d-flex list-unstyled">
-                                                    <li>Daily</li>
-                                                    <li class="active">Weekly</li>
-                                                    <li>Monthly</li>
-                                                    <li>Yearly</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-md-4 col-sm-4 col-12 p-0 justify-content-end">
-                                            <div class="inner-top-right">
-                                                <ul class="d-flex list-unstyled justify-content-end">
-                                                    <li>Growth</li>
-                                                    <li>Equity</li>
+                                                <ul class="growth-chart d-flex list-unstyled">
+                                                    <li>This Week</li>
+                                                    <li>This Month</li>
+                                                    <li class="active">This Year</li>
+                                                    <li>All</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -114,7 +111,6 @@
                     </div>
                 </div>
             </div>
-
             {{-- <div class="col-xl-3 xl-50 chart_data_right box-col-12">
                     <div class="card">
                         <div class="card-body">
@@ -292,12 +288,12 @@
                             <h5 class="m-0">Total Amount of Trades Per symbol</h5>
                             <div class="card-header-right-icon">
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Year</button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Day</a>
+                                    <button class="btn dropdown-toggle" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
+                                    <div class="tsymbol-chart dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                        <a class="dropdown-item" href="javascript:;">This Week</a>
+                                        <a class="dropdown-item" href="javascript:;">This Month</a>
+                                        <a class="dropdown-item" href="javascript:;">This Year</a>
+                                        <a class="dropdown-item" href="javascript:;">All</a>
                                     </div>
                                 </div>
                             </div>
@@ -317,12 +313,12 @@
                             <h5 class="m-0">Symbol Profitability</h5>
                             <div class="card-header-right-icon">
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Year</button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Day</a>
+                                    <button class="btn dropdown-toggle" id="dropdownMenuButton2" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
+                                    <div class="psymbol-chart dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                        <a class="dropdown-item" href="javascript:;">This Week</a>
+                                        <a class="dropdown-item" href="javascript:;">This Month</a>
+                                        <a class="dropdown-item" href="javascript:;">This Year</a>
+                                        <a class="dropdown-item" href="javascript:;">All</a>
                                     </div>
                                 </div>
                             </div>
