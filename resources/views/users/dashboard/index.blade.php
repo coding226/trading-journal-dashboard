@@ -289,7 +289,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Trades Pairs</h5>
+                            <h5 class="m-0">Total Amount of Trades Per symbol</h5>
                             <div class="card-header-right-icon">
                                 <div class="dropdown">
                                     <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button"
@@ -352,8 +352,7 @@
 <script src="../assets/js/notify/index.js"></script>
 <!-- <script src="../assets/js/chart/apex-chart/apex-chart.js"></script> -->
 <script>
-    var wins = {!! json_encode($wins_num, JSON_HEX_TAG) !!};
-    var loses = {!! json_encode($loses_num, JSON_HEX_TAG) !!};
+    var dash_data = {!! json_encode($data, JSON_HEX_TAG) !!};
 </script>
 <script src="../assets/js/dashboard/chart_dash.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>

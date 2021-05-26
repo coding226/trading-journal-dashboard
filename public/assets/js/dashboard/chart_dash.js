@@ -5,7 +5,7 @@ var profitablility_option = {
         type: 'pie',
     },
     labels: ['Win', 'Loss'],
-    series: [75, 25],
+    series: [dash_data['win'], dash_data['loss']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -19,7 +19,7 @@ var profitablility_option = {
     }],
     colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25', '#a927f9', '#f8d62b']
 }
-profitablility_option['series'] = [wins, loses]
+
 var profitablility_chart = new ApexCharts(
     document.querySelector("#profitablility-chart"),
     profitablility_option
@@ -53,15 +53,15 @@ var trades_pairs_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        name: 'Number Of Trades',
+        data: dash_data['trades']
     }],
     xaxis: {
-        categories: ['GBP/USD', 'EUR/USD', 'CAD/USD', 'AUD/USD', 'NZD/USD', 'GBP/USD', 'JPY/USD', 'CHY/USD', 'HKD/USD'],
+        categories: dash_data['symbols'],
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: 'Number Of Trades'
         }
     },
     fill: {
@@ -71,13 +71,12 @@ var trades_pairs_option = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val
             }
         }
     },
     colors:[ CubaAdminConfig.primary ]
 }
-
 var trades_pairs_chart = new ApexCharts(
     document.querySelector("#trades-pairs-chart"),
     trades_pairs_option
@@ -110,15 +109,15 @@ var profit_pairs_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61]
+        name: 'Percentage Gain',
+        data: dash_data['sum']
     }],
     xaxis: {
-        categories: ['GBP/USD', 'EUR/USD', 'CAD/USD', 'AUD/USD', 'NZD/USD'],
+        categories: dash_data['sumsymbols'],
     },
     yaxis: {
         title: {
-            text: '% ( Percentage Gain)'
+            text: '% (Percentage Gain)'
         }
     },
     fill: {
@@ -128,7 +127,7 @@ var profit_pairs_option = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val + '%'
             }
         }
     },
