@@ -46,7 +46,7 @@ var short2long_option = {
             }
         }
     }],
-    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
+    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#51bb25', '#f8d62b', '#dc3545', '#a927f9']
 }
 
 var short2long_chart = new ApexCharts(
@@ -76,7 +76,7 @@ var winshort2long_option = {
             }
         }
     }],
-    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
+    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#51bb25', '#f8d62b', '#dc3545', '#a927f9']
 }
 
 var winshort2long_chart = new ApexCharts(
@@ -112,21 +112,21 @@ var winlossmonthly_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Break Even',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        name: 'Wins',
+        data: analytics_all_data['wins']
     }, {
         name: 'Losses',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+        data: analytics_all_data['losses']
     }, {
-        name: 'Wins',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+        name: 'Break Even',
+        data: analytics_all_data['bes']
     }],
     xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: analytics_all_data['month'],
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: 'Number of Trades'
         }
     },
     fill: {
@@ -177,10 +177,10 @@ var gainpermonth_option = {
     },
     series: [{
         name: 'Gain',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        data: analytics_all_data['gain']
     }],
     xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: analytics_all_data['month'],
     },
     yaxis: {
         title: {
