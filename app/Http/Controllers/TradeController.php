@@ -48,14 +48,15 @@ class TradeController extends Controller
      */
     public function create(Request $request)
     {
-
         $trade = new Trade;
         $trade->trade_num = count(Trade::where('subuser_id', Auth::user()->current_subuser)->get())+1;
         $trade->subuser_id = Auth::user()->current_subuser;
         $trade->symbol_id = $request->symbol_id;
         $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
-        $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
-        $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
+        if($request->end_date){
+            $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+            $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
+        }
         $trade->long_short = $request->long_short;
         $trade->pips = $request->pips;
         $trade->fees = $request->fees;
@@ -65,7 +66,11 @@ class TradeController extends Controller
         $trade->close_price = $request->close_price;
         $trade->description = $request->description;
         $trade->save();
-        
+
+        $cuser = Auth::user()->current_user;
+        $cuser->balance += $request->profit_gl;
+        $cuser->save();
+
         $arrContextOptions=array(
             "ssl"=>array(
                 "verify_peer"=>false,
@@ -189,10 +194,14 @@ class TradeController extends Controller
     public function update(Request $request, Trade $trade, $tradeid)
     {
         $trade = Trade::find($tradeid);
+        $cuser = Auth::user()->current_user;
+        $cuser->balance -= $trade->profit_gl;
         $trade->symbol_id = $request->symbol_id;
         $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
-        $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
-        $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
+        if($request->end_date){
+            $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+            $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
+        }
         $trade->long_short = $request->long_short;
         $trade->pips = $request->pips;
         $trade->fees = $request->fees;
@@ -202,7 +211,8 @@ class TradeController extends Controller
         $trade->close_price = $request->close_price;
         $trade->description = $request->description;
         $trade->save();
-        
+        $cuser->balance += $request->profit_gl;
+        $cuser->save();
         $arrContextOptions=array(
             "ssl"=>array(
                 "verify_peer"=>false,

@@ -47,10 +47,10 @@
                             <div class="row">
                                 <div class="col datetime-picker">
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label">Start Date and Time</label>
+                                        <label class="col-sm-3 col-form-label">Start Date and Time <span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <div class="input-group date" id="dt-minimum" data-target-input="nearest">
-                                                <input class="form-control datetimepicker-input digits" type="text" value="{{ date_format(date_create($trade->start_datetime),'m/d/Y H:i A') }}" data-target="#dt-minimum" data-bs-original-title="" title="" id="start_date" name="start_date">
+                                                <input class="form-control datetimepicker-input digits" type="text" value="{{ date_format(date_create($trade->start_datetime),'m/d/Y H:i A') }}" data-target="#dt-minimum" data-bs-original-title="" title="" id="start_date" name="start_date" required>
                                                 <div class="input-group-text" data-target="#dt-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"> </i></div>
                                             </div>
                                             <!-- <div class="input-group">
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="validationTooltip04">Symbol</label>
+                                        <label class="col-sm-3 col-form-label" for="validationTooltip04">Symbol <span class="text-danger">*</span></label>
                                         <div class="col-sm-9 select2-drpdwn">
                                             <select class="js-example-basic-single form-select" name="symbol_id" value="{{ $trade->symbol->symbol }}" required>
                                             @foreach($symbols as $key => $symbol)
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="validationTooltip04">Long or Short</label>
+                                        <label class="col-sm-3 col-form-label" for="validationTooltip04">Long or Short <span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <select class="form-select" name="long_short" required>
                                                 @if($trade->long_short == 'LONG')
@@ -104,7 +104,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="pips" name="pips" type="text" placeholder="Type here information" autocomplete="off" value="{{ $trade->pips }}">
+                                            <input class="form-control" type="number" step="any" id="pips" name="pips" placeholder="Type here information" autocomplete="off" value="{{ $trade->pips }}">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -112,7 +112,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="text" id="fees" name="fees" value="{{ $trade->fees }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
+                                                <input class="form-control" type="number" step="any" id="fees" name="fees" value="{{ $trade->fees }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
                                     </div>
@@ -121,26 +121,26 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">$</span>
-                                                <input class="form-control" type="text" id="profit_gl" name="profit_gl" value="{{ $trade->profit_gl }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information" required>
+                                                <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" value="{{ $trade->profit_gl }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type here information" required>
+                                            <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Open Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="open_price" name="open_price" value="{{ $trade->open_price }}" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="open_price" name="open_price" value="{{ $trade->open_price }}" autocomplete="off" placeholder="Type here information" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Close Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" id="close_price" name="close_price" value="{{ $trade->close_price }}" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="close_price" name="close_price" value="{{ $trade->close_price }}" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -182,7 +182,7 @@
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Default textarea" required>{{ $trade->description }}</textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Default textarea">{{ $trade->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>

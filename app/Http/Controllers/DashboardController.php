@@ -23,16 +23,17 @@ class DashboardController extends Controller
         $tprofit = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('profit_gl');
         $tpecen = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('percentage_gl');
         $recents = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('start_datetime' ,'desc')->take(5)->get();
-        $trades =   Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('end_datetime')->get();
+        $trades =   Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->orderBy('end_datetime')->get();
         $trades_num = count($trades);
         $wins_num = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '>', 0)->count();
-
+        $losses_num = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '<', 0)->count();
         $allsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
         $allsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
         
         $data = [];
         $data['win'] = $wins_num;
-        $data['loss'] = $trades_num-$wins_num;
+        $data['loss'] = $losses_num;
+        $data['break'] = $trades_num - $wins_num - $losses_num;
 
         for($i=0; $i<count($allsymbol_nums); $i++)
         {
@@ -42,12 +43,14 @@ class DashboardController extends Controller
             $data['sum'][$i] = number_format($allsymbol_percents[$i]->sum, 2, '.', '');
         }
         
-        for($i=0; $i<count($trades); $i++)
+        $data['growthx'][0] = '2021-01-07T02:00:00';
+        $data['growthy'][0] = '0';
+        for($i=1; $i<=count($trades); $i++)
         {
-            $data['growthx'][$i] = str_replace(' ', 'T', $trades[$i]->end_datetime);
-            $data['growthy'][$i] = number_format($trades[$i]->percentage_gl, 2, '.', '');
+            $data['growthx'][$i] = str_replace(' ', 'T', $trades[$i-1]->end_datetime);
+            $data['growthy'][$i] = number_format($trades[$i-1]->percentage_gl, 2, '.', '');
         }
-        
+
         return view("users.dashboard.index")->with([
             'acc_num' => $acc_num,
             'tprofit' => $tprofit,

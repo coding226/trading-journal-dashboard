@@ -4,8 +4,8 @@ var profitablility_option = {
         width: 480,
         type: 'pie',
     },
-    labels: ['Win', 'Loss'],
-    series: [dash_data['win'], dash_data['loss']],
+    labels: ['Win', 'Loss', 'Break'],
+    series: [dash_data['win'], dash_data['loss'], dash_data['break']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -17,7 +17,7 @@ var profitablility_option = {
             }
         }
     }],
-    colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#51bb25', '#a927f9', '#f8d62b']
+    colors:[ CubaAdminConfig.primary , CubaAdminConfig.secondary , '#f8d62b', '#51bb25', '#a927f9']
 }
 
 var profitablility_chart = new ApexCharts(
@@ -205,7 +205,7 @@ var growthoptions = {
             format: 'dd/MM/yyyy HH:mm'
         },
     },
-    colors:[ CubaAdminConfig.secondary , CubaAdminConfig.secondary ],
+    colors:[ CubaAdminConfig.secondary ],
     fill: {
         type: 'gradient',
         gradient: {

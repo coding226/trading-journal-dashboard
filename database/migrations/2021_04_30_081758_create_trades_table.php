@@ -19,16 +19,16 @@ class CreateTradesTable extends Migration
             $table->biginteger('subuser_id');
             $table->biginteger('symbol_id');
             $table->datetime('start_datetime');
-            $table->datetime('end_datetime');
-            $table->string('duration');
+            $table->datetime('end_datetime')->nullable();
+            $table->string('duration')->nullable();
             $table->string('long_short');
-            $table->string('pips');
-            $table->string('fees');
-            $table->string('profit_gl');
-            $table->string('percentage_gl');
-            $table->string('open_price')->nullable();
+            $table->string('pips')->nullable();
+            $table->string('fees')->nullable();
+            $table->string('profit_gl')->nullable();
+            $table->string('percentage_gl')->nullable();
+            $table->string('open_price');
             $table->string('close_price')->nullable();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
