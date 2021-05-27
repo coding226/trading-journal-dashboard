@@ -21,10 +21,12 @@ class DashboardController extends Controller
     {
         $acc_num = count(Subuser::where('user_id', Auth::user()->id)->get());
         $tprofit = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('profit_gl');
+        $tfee = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('fees');
         $tpecen = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('percentage_gl');
         $recents = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('created_at' ,'desc')->take(5)->get();
-        $trades =   Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->orderBy('end_datetime')->get();
-        $trades_num = count($trades);
+        // $trades =   Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->orderBy('end_datetime')->get();
+        $trades =   DB::select(DB::raw('SELECT id, percentage_gl, end_datetime, (SELECT SUM(percentage_gl) FROM `trades` WHERE end_datetime <= a.end_datetime and end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.') presum FROM trades a where end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.' ORDER BY end_datetime'));
+        
         $wins_num = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '>', 0)->count();
         $losses_num = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '<', 0)->count();
         $allsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
@@ -42,17 +44,19 @@ class DashboardController extends Controller
             $data['sum'][$i] = number_format($allsymbol_percents[$i]->sum, 2, '.', '');
         }
         
-        $data['growthx'][0] = '2021-01-07T02:00:00';
+        $data['growthx'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $trades[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");
         $data['growthy'][0] = '0';
+        
         for($i=1; $i<=count($trades); $i++)
         {
             $data['growthx'][$i] = str_replace(' ', 'T', $trades[$i-1]->end_datetime);
-            $data['growthy'][$i] = number_format($trades[$i-1]->percentage_gl, 2, '.', '');
+            $data['growthy'][$i] = number_format($trades[$i-1]->presum, 2, '.', '');
         }
 
         return view("users.dashboard.index")->with([
             'acc_num' => $acc_num,
             'tprofit' => $tprofit,
+            'tfee' => $tfee,
             'tpecen' => $tpecen,
             'recents' => $recents,
             'data' => $data,
@@ -67,10 +71,10 @@ class DashboardController extends Controller
         $startmonth = (new Carbon($request->currenttime))->subMonth();
         $startyear = (new Carbon($request->currenttime))->subYear();
 
-        $data['inadaypercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $currenttime)->where('end_datetime', '>', $startday)->sum('percentage_gl');
-        $data['inaweekpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $currenttime)->where('end_datetime', '>', $startweek)->sum('percentage_gl');
-        $data['inamonthpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $currenttime)->where('end_datetime', '>', $startmonth)->sum('percentage_gl');
-        $data['inayearpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $currenttime)->where('end_datetime', '>', $startyear)->sum('percentage_gl');
+        $data['inadaypercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('end_datetime', '<', $currenttime)->where('end_datetime', '>', $startday)->sum('percentage_gl');
+        $data['inaweekpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('end_datetime', '<', $currenttime)->where('end_datetime', '>', $startweek)->sum('percentage_gl');
+        $data['inamonthpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('end_datetime', '<', $currenttime)->where('end_datetime', '>', $startmonth)->sum('percentage_gl');
+        $data['inayearpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('end_datetime', '<', $currenttime)->where('end_datetime', '>', $startyear)->sum('percentage_gl');
 
         echo json_encode($data);
     }

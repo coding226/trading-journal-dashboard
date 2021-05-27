@@ -90,7 +90,6 @@
                                                 <option selected="" disabled="" value="">Choose...</option>
                                                 <option>LONG</option>
                                                 <option>SHORT</option>
-                                                <option>Break</option>
                                             </select>
                                         </div>
                                     </div>

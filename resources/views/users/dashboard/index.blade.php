@@ -69,11 +69,11 @@
                                         <p class="font-roboto">Account Number</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5><span id="current_currecny">$</span> {{ number_format(Auth::user()->current_user->balance) }} </h5>
+                                        <h5><span id="current_currecny">$</span> {{ number_format(Auth::user()->current_user->balance + $tprofit - $tfee, 2, '.', '') }} </h5>
                                         <p class="font-roboto">Account Balance</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>${{ $tprofit }}</h5>
+                                        <h5>${{ $tprofit- $tfee }}</h5>
                                         <p class="font-roboto">Total Profit ($)</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">

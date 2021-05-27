@@ -5,7 +5,7 @@ var total_option = {
         type: 'donut',
     },
     labels: ['Completed', 'Actives'],
-    series: [analytics_all_data['alltrades_count']-analytics_all_data['activetrades_count'], analytics_all_data['activetrades_count']],
+    series: [analytics_all_data['all_count']-analytics_all_data['active_count'], analytics_all_data['active_count']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -17,7 +17,7 @@ var total_option = {
             }
         }
     }],
-    colors:[CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
+    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
 }
 
 var total_chart = new ApexCharts(
@@ -33,7 +33,8 @@ var short2long_option = {
         width: 380,
         type: 'donut',
     },
-    series: [44, 55, 41, 17, 15],
+    labels: ['Short', 'Long', 'Break'],
+    series: [analytics_all_data['short_count'], analytics_all_data['long_count'], analytics_all_data['break_count']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -45,7 +46,7 @@ var short2long_option = {
             }
         }
     }],
-    colors:['#dc3545', '#f8d62b', CubaAdminConfig.primary , '#51bb25', '#a927f9']
+    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
 }
 
 var short2long_chart = new ApexCharts(
@@ -62,7 +63,8 @@ var winshort2long_option = {
         width: 380,
         type: 'donut',
     },
-    series: [44, 55, 41, 17, 15],
+    labels: ['Winning Short', 'Winning Long'],
+    series: [analytics_all_data['winshort_count'], analytics_all_data['winlong_count']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -74,7 +76,7 @@ var winshort2long_option = {
             }
         }
     }],
-    colors:['#dc3545', '#f8d62b', CubaAdminConfig.primary , '#51bb25', '#a927f9']
+    colors:[CubaAdminConfig.primary, CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
 }
 
 var winshort2long_chart = new ApexCharts(

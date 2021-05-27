@@ -67,10 +67,6 @@ class TradeController extends Controller
         $trade->description = $request->description;
         $trade->save();
 
-        $cuser = Auth::user()->current_user;
-        $cuser->balance += $request->profit_gl;
-        $cuser->save();
-
         $arrContextOptions=array(
             "ssl"=>array(
                 "verify_peer"=>false,
@@ -194,8 +190,6 @@ class TradeController extends Controller
     public function update(Request $request, Trade $trade, $tradeid)
     {
         $trade = Trade::find($tradeid);
-        $cuser = Auth::user()->current_user;
-        $cuser->balance -= $trade->profit_gl;
         $trade->symbol_id = $request->symbol_id;
         $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
         if($request->end_date){
@@ -211,8 +205,6 @@ class TradeController extends Controller
         $trade->close_price = $request->close_price;
         $trade->description = $request->description;
         $trade->save();
-        $cuser->balance += $request->profit_gl;
-        $cuser->save();
         $arrContextOptions=array(
             "ssl"=>array(
                 "verify_peer"=>false,
