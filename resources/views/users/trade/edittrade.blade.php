@@ -94,9 +94,15 @@
                                                 @if($trade->long_short == 'LONG')
                                                 <option>LONG</option>
                                                 <option>SHORT</option>
-                                                @else
+                                                <option>BREAK</option>
+                                                @elseif($trade->long_short == 'SHORT')
                                                 <option>SHORT</option>
                                                 <option>LONG</option>
+                                                <option>BREAK</option>
+                                                @else
+                                                <option>BREAK</option>
+                                                <option>LONG</option>
+                                                <option>SHORT</option>
                                                 @endif
                                             </select>
                                         </div>
