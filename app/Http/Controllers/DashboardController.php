@@ -22,18 +22,17 @@ class DashboardController extends Controller
         $acc_num = count(Subuser::where('user_id', Auth::user()->id)->get());
         $tprofit = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('profit_gl');
         $tpecen = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('percentage_gl');
-        $recents = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('start_datetime' ,'desc')->take(5)->get();
+        $recents = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('created_at' ,'desc')->take(5)->get();
         $trades =   Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->orderBy('end_datetime')->get();
         $trades_num = count($trades);
         $wins_num = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '>', 0)->count();
         $losses_num = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '<', 0)->count();
-        $allsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
-        $allsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
+        $allsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
+        $allsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
         
         $data = [];
         $data['win'] = $wins_num;
         $data['loss'] = $losses_num;
-        $data['break'] = $trades_num - $wins_num - $losses_num;
 
         for($i=0; $i<count($allsymbol_nums); $i++)
         {

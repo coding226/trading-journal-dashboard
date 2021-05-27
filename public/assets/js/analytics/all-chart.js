@@ -4,7 +4,8 @@ var total_option = {
         width: 380,
         type: 'donut',
     },
-    series: [44, 55, 41, 17, 15],
+    labels: ['Completed', 'Actives'],
+    series: [analytics_all_data['alltrades_count']-analytics_all_data['activetrades_count'], analytics_all_data['activetrades_count']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -16,7 +17,7 @@ var total_option = {
             }
         }
     }],
-    colors:['#dc3545', '#f8d62b', CubaAdminConfig.primary , '#51bb25', '#a927f9']
+    colors:[CubaAdminConfig.secondary, '#dc3545', '#f8d62b', '#51bb25', '#a927f9']
 }
 
 var total_chart = new ApexCharts(

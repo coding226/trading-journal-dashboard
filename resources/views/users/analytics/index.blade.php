@@ -136,6 +136,9 @@
 </div>
 @endsection
 @section('script')
+<script>
+    var analytics_all_data = {!! json_encode($data, JSON_HEX_TAG) !!};
+</script>
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="../assets/js/analytics/all-chart.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>

@@ -4,8 +4,8 @@ var profitablility_option = {
         width: 480,
         type: 'pie',
     },
-    labels: ['Win', 'Loss', 'Break'],
-    series: [dash_data['win'], dash_data['loss'], dash_data['break']],
+    labels: ['Win', 'Loss'],
+    series: [dash_data['win'], dash_data['loss']],
     responsive: [{
         breakpoint: 480,
         options: {
