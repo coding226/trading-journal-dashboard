@@ -5,7 +5,6 @@ var curHr = today.getHours()
 if (curHr >= 0 && curHr < 4) {
     document.getElementById("greeting").innerHTML = 'Good Night';
     $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg.jpg")');
-    document.getElementById("profile-greeting").innerHTML = 'Good Night';
 } else if (curHr >= 4 && curHr < 12) {
     document.getElementById("greeting").innerHTML = 'Good Morning';
     $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/2.jpg")');
@@ -47,6 +46,7 @@ $(document).ready (function () {
             currenttime: currenttime,
         },
         success:function(data) {
+            console.log(data);
             $('.daily_percentage_gain').text(Math.round(data['inadaypercentagegain']*100)/100);
             $('.weekly_percentage_gain').text(data['inaweekpercentagegain']);
             $('.monthly_percentage_gain').text(data['inamonthpercentagegain']);
