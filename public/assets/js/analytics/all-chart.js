@@ -126,7 +126,7 @@ var winlossmonthly_option = {
     },
     yaxis: {
         title: {
-            text: 'Number of Trades'
+            text: 'Amount of Trades'
         }
     },
     fill: {
@@ -136,7 +136,7 @@ var winlossmonthly_option = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val
             }
         }
     },
