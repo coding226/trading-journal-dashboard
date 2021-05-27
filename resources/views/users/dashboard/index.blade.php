@@ -83,22 +83,10 @@
                                 </div>
                             </div>
                             <div class="col-xl-9 p-0">
-                                <div class="chart-right">
-                                    <div class="row m-0 p-tb">
-                                        <div class="col-xl-8 col-md-8 col-sm-8 col-12 p-0">
-                                            <div class="inner-top-left">
-                                                <ul class="growth-chart d-flex list-unstyled">
-                                                    <li>This Week</li>
-                                                    <li>This Month</li>
-                                                    <li class="active">This Year</li>
-                                                    <li>All</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="chart-right p-0">
                                     <div class="row">
                                         <div class="col-xl-12">
-                                            <div class="card-body p-0">
+                                            <div class="card-body" style="padding-left:0">
                                                 <div class="current-sale-container">
                                                     <div id="chart-currently"></div>
                                                 </div>

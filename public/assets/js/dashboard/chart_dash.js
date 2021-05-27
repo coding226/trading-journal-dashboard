@@ -142,18 +142,44 @@ var profit_pairs_chart = new ApexCharts(
 profit_pairs_chart.render();
 
 
-// currently sale
+// area growth chart
 var growthoptions = {
-    series: [{
-        name: 'Percentage Gain',
-        data: dash_data['growthy']
-    }],
     chart: {
-        height: 240,
+        height: 350,
         type: 'area',
-        toolbar: {
-            show: false
-        },
+        toolbar:{
+            show: true,
+            offsetX: 0,
+            offsetY: 0,
+            tools: {
+                download: true,
+                selection: true,
+                zoom: true,
+                zoomin: true,
+                zoomout: true,
+                pan: true,
+                reset: true | '<img src="/static/icons/reset.png" width="20">',
+                customIcons: []
+            },
+            export: {
+              csv: {
+                filename: undefined,
+                columnDelimiter: ',',
+                headerCategory: 'category',
+                headerValue: 'value',
+                dateFormatter(timestamp) {
+                  return new Date(timestamp).toDateString()
+                }
+              },
+              svg: {
+                filename: undefined,
+              },
+              png: {
+                filename: undefined,
+              }
+            },
+            autoSelected: 'zoom' 
+        }
     },
     dataLabels: {
         enabled: false
@@ -161,47 +187,25 @@ var growthoptions = {
     stroke: {
         curve: 'smooth'
     },
+    series: [{
+        name: 'Percentage Gain',
+        data: dash_data['growthy']
+    }],
     xaxis: {
-        type: 'category',
-        low: 0,
-        offsetX: 0,
-        offsetY: 0,
-        show: true,
+        type: 'datetime',
         categories: dash_data['growthx'],
-        labels: {
-            low: 0,
-            offsetX: 0,
-            show: true,
-        },
-        axisBorder: {
-            low: 0,
-            offsetX: 0,
-            show: true,
-        },
-    },
-    markers: {
-        strokeWidth: 1,
-        colors: "#ffffff",
-        strokeColors: [ CubaAdminConfig.secondary , CubaAdminConfig.primary ],
-        hover: {
-            size: 5,
-        }
     },
     yaxis: {
         title: {
             text: '% (Percentage Gain)'
         }
     },
-    grid: {
-        show: true,
-        padding: {
-            left: 0,
-            right: 0,
-            bottom: -15,
-            top: -40
-        }
+    tooltip: {
+        x: {
+            format: 'dd/MM/yyyy HH:mm'
+        },
     },
-    colors: [ CubaAdminConfig.secondary , CubaAdminConfig.primary ],
+    colors:[ CubaAdminConfig.secondary , CubaAdminConfig.secondary ],
     fill: {
         type: 'gradient',
         gradient: {
@@ -211,47 +215,93 @@ var growthoptions = {
             stops: [0, 80, 100]
         }
     },
-    legend: {
-        show: false,
-    },
-    tooltip: {
-        x: {
-            format: 'MM'
-        },
-    },
-};
+}
 
-var chart = new ApexCharts(document.querySelector("#chart-currently"), growthoptions);
-chart.render();
+var chart1 = new ApexCharts(document.querySelector("#chart-currently"),growthoptions);
 
+chart1.render();
 
-$('.growth-chart li').on('click', function(e) {
-    $('.growth-chart li').removeClass('active');
-    $(this).addClass('active');
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    e.preventDefault();
-    $.ajax({
-        type: "POST",
-        url: '/drawdashchart',
-        dataType: 'json',
-        data: {
-            chart: 'growth',
-            type: $(this).text(),
-        },
-        success:function(data) {
-            console.log(data);
-            growthoptions['series'][0]['data'] = data['growthy'];
-            growthoptions['xaxis']['categories'] = data['growthx'];
-            $('#chart-currently').html('');
-            var chart = new ApexCharts(document.querySelector("#chart-currently"), growthoptions);
-            chart.render();
-        }
-    });
-});
+// currently sale
+// var growthoptions = {
+//     series: [{
+//         name: 'Percentage Gain',
+//         data: dash_data['growthy']
+//     }],
+//     chart: {
+//         height: 240,
+//         type: 'area',
+//         toolbar: {
+//             show: false
+//         },
+//     },
+//     dataLabels: {
+//         enabled: false
+//     },
+//     stroke: {
+//         curve: 'smooth'
+//     },
+//     xaxis: {
+//         type: 'category',
+//         low: 0,
+//         offsetX: 0,
+//         offsetY: 0,
+//         show: true,
+//         categories: dash_data['growthx'],
+//         labels: {
+//             low: 0,
+//             offsetX: 0,
+//             show: true,
+//         },
+//         axisBorder: {
+//             low: 0,
+//             offsetX: 0,
+//             show: true,
+//         },
+//     },
+//     markers: {
+//         strokeWidth: 1,
+//         colors: "#ffffff",
+//         strokeColors: [ CubaAdminConfig.secondary , CubaAdminConfig.primary ],
+//         hover: {
+//             size: 5,
+//         }
+//     },
+//     yaxis: {
+//         title: {
+//             text: '% (Percentage Gain)'
+//         }
+//     },
+//     grid: {
+//         show: true,
+//         padding: {
+//             left: 0,
+//             right: 0,
+//             bottom: -15,
+//             top: -40
+//         }
+//     },
+//     colors: [ CubaAdminConfig.secondary , CubaAdminConfig.primary ],
+//     fill: {
+//         type: 'gradient',
+//         gradient: {
+//             shadeIntensity: 1,
+//             opacityFrom: 0.7,
+//             opacityTo: 0.5,
+//             stops: [0, 80, 100]
+//         }
+//     },
+//     legend: {
+//         show: false,
+//     },
+//     tooltip: {
+//         x: {
+//             format: 'MM'
+//         },
+//     },
+// };
+
+// var chart = new ApexCharts(document.querySelector("#chart-currently"), growthoptions);
+// chart.render();
 
 
 $('.tsymbol-chart a').on('click', function(e) {
