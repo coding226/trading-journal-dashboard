@@ -73,6 +73,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/mainsetting', [UserController::class, 'mainsetting'])->name('user.mainsetting');
     Route::post('/changepassword', [UserController::class, 'changepassword'])->name('user.changepassword');
     Route::post('/depositwithdrawal', [UserController::class, 'depositwithdrawal'])->name('user.depositwithdrawal');
+    Route::post('/setstartingbal', [UserController::class, 'setstartingbal'])->name('user.setstartingbal');
+    Route::get('/getstartingbal', [UserController::class, 'getstartingbal'])->name('user.getstartingbal');
     Route::get('/subuser-setting', [UserController::class, 'subuser_setting'])->name('user.subusersetting');
     Route::post('/change-subsetting', [UserController::class, 'change_subsetting'])->name('user.change_subsetting');
     Route::post('/darkmode', [UserController::class, 'darkmode'])->name('user.darkmode');

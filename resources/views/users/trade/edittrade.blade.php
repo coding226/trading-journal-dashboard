@@ -97,7 +97,7 @@
                                                 @else
                                                 <option>SHORT</option>
                                                 <option>LONG</option>
-                                                @else
+                                                @endif
                                             </select>
                                         </div>
                                     </div>

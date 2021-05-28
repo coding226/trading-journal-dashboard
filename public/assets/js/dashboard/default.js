@@ -46,7 +46,6 @@ $(document).ready (function () {
             currenttime: currenttime,
         },
         success:function(data) {
-            console.log(data);
             $('.daily_percentage_gain').text(Math.round(data['inadaypercentagegain']*100)/100);
             $('.weekly_percentage_gain').text(data['inaweekpercentagegain']);
             $('.monthly_percentage_gain').text(data['inamonthpercentagegain']);

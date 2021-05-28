@@ -20,6 +20,7 @@ class CreateSubusersTable extends Migration
             $table->string('username');
             $table->string('desc');
             $table->string('currency')->default('USD');
+            $table->string('starting_bal')->nullable();
             $table->string('balance')->default('0');
             $table->timestamps();
         });

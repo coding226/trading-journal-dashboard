@@ -20,6 +20,7 @@ class Subuser extends Model
         'acc_num',
         'username',
         'desc',
+        'starting_bal',
         'balance'
     ];
 

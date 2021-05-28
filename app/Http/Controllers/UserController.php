@@ -36,7 +36,7 @@ class UserController extends Controller
         $subuser->username = $request->username;
         $subuser->desc = $request->account_desc;
         $subuser->currency = $request->currency;
-        $subuser->balance = $request->startcapital;
+        $subuser->starting_bal = $request->startcapital;
         $subuser->save();
         User::where('id', Auth::user()->id)->update(['current_subuser'=> $subuser->id]);
         return redirect()->back();
@@ -114,6 +114,26 @@ class UserController extends Controller
         return json_encode($response);
         
     }
+
+
+    public function getstartingbal(Request $request)
+    {
+        $subuser = Subuser::find($request->subuser);
+        return json_encode($subuser->starting_bal);
+    }
+
+
+    public function setstartingbal(Request $request)
+    {
+        $subuser = Subuser::find($request->stsubuser);
+        $subuser->starting_bal = $request->stamount;
+        $subuser->save();
+        $response['starting_bal'] = $subuser->starting_bal;
+        $response['status'] = 1;
+        return json_encode($response);
+        
+    }
+
 
     public function darkmode()
     {

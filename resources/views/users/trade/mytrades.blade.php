@@ -124,7 +124,7 @@
                                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                                     <td class="text-center">{{ $trade->long_short }}</td>
                                                     <td class="text-center">{{ $trade->start_datetime }}</td>
-                                                    <td class="text-center">{{ $trade->duration }}</td>
+                                                    <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
                                                     @if( $trade->profit_gl > 0 )
                                                     <td class="font-success text-center">{{ $trade->profit_gl }}</td>
                                                     @else
@@ -137,8 +137,10 @@
                                                     @endif
                                                     @if( $trade->profit_gl > 0 )
                                                     <td class="font-success text-center">Win</td>
-                                                    @else
+                                                    @elseif( $trade->profit_gl < 0 )
                                                     <td class="font-danger text-center">Loss</td>
+                                                    @else
+                                                    <td class="font-warnning text-center">Break Even</td>
                                                     @endif
                                                     <td class="d-flex">
                                                         <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
@@ -173,9 +175,7 @@
     <script src="../assets/js/datepicker/daterange-picker/moment.min.js"></script>
     <script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
     <script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
-    <!-- <script src="../assets/js/datatable/datatables/scripts/app.min.js" type="text/javascript"></script> -->
+    <script src="../assets/js/datatable/datatables/scripts/app.min.js" type="text/javascript"></script>
     <script src="../assets/js/trade/table-datatables-buttons.min.js" type="text/javascript"></script>
     <script src="../assets/js/trade/mytrade.js" type="text/javascript"></script>
-
-    
 @endsection

@@ -44,13 +44,15 @@ class DashboardController extends Controller
             $data['sum'][$i] = number_format($allsymbol_percents[$i]->sum, 2, '.', '');
         }
         
-        $data['growthx'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $trades[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");
-        $data['growthy'][0] = '0';
-        
-        for($i=1; $i<=count($trades); $i++)
-        {
-            $data['growthx'][$i] = str_replace(' ', 'T', $trades[$i-1]->end_datetime);
-            $data['growthy'][$i] = number_format($trades[$i-1]->presum, 2, '.', '');
+        if(count($trades) > 0){
+            $data['growthx'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $trades[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");
+            $data['growthy'][0] = '0';
+            
+            for($i=1; $i<=count($trades); $i++)
+            {
+                $data['growthx'][$i] = str_replace(' ', 'T', $trades[$i-1]->end_datetime);
+                $data['growthy'][$i] = number_format($trades[$i-1]->presum, 2, '.', '');
+            }
         }
 
         return view("users.dashboard.index")->with([

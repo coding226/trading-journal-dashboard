@@ -64,21 +64,21 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-xl-6">
-                                <p>Starting Balance:</p>
-                                <p>Current Balance:</p>
-                                <p>Account Profit/Loss (£,$,€):</p>
-                                <p>Percentage Account Gain (%):</p>
-                                <p>Total Amount Of Pips:</p>
-                                <p>Total Amount Of Trades:</p>
-                                <p>Total Amount Of Wins:</p>
+                                <p>Starting Balance: {{ number_format(Auth::user()->current_user->starting_bal, 2, '.', '') }}</p>
+                                <p>Current Balance: {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $data['tradesums'][0]->profit_gl_sum - $data['tradesums'][0]->fees_sum, 2, '.', '') }}</p>
+                                <p>Account Profit/Loss (£,$,€): {{ $data['tradesums'][0]->profit_gl_sum }}</p>
+                                <p>Percentage Account Gain (%): {{ $data['tradesums'][0]->percentage_gl_sum }}</p>
+                                <p>Total Amount Of Pips: {{ $data['tradesums'][0]->pips_sum }}</p>
+                                <p>Total Amount Of Trades: {{ $data['all_count'] }}</p>
+                                <p>Total Amount Of Wins: {{ $data['winshort_count']+$data['winlong_count'] }}</p>
                             </div>
                             <div class="col-sm-12 col-xl-6">
-                                <p>Total Amount of Losses:</p>
-                                <p>Total Amount of Break Evens:</p>
-                                <p>Win Rate (%):</p>
-                                <p>Average Daily Gain (%):</p>
-                                <p>Average Monthly Gain (%):</p>
-                                <p>Average Trade Duration (Time):</p>
+                                <p>Total Amount of Losses: {{ $data['lossess_count'] }}</p>
+                                <p>Total Amount of Break Evens: {{ $data['break_count'] }}</p>
+                                <p>Win Rate (%): {{ number_format(($data['winshort_count']+$data['winlong_count'])/($data['all_count'] - $data['active_count'])*100, 2, '.', ',') }}</p>
+                                <p>Average Daily Gain (%): {{ $data['ave_daily'] }}</p>
+                                <p>Average Monthly Gain (%): {{ $data['ave_monthly'] }}</p>
+                                <p>Average Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['ave_duration'])->cascade()->forHumans() }}</p>
                                 <p>Average Entry Time:</p>
                             </div>
                         </div>
@@ -91,13 +91,18 @@
                         <h5>Best Trade(Calculated on Percentage Gain)</h5>
                     </div>
                     <div class="card-body">
-                        <p>Symbol:</p>
-                        <p>Long or Short:</p>
-                        <p>AccountProfit(£,$,€):</p>
-                        <p>Percentage Account Gain (%):</p>
-                        <p>Total Amount Of Pips:</p>
-                        <p>Total Trade Duration:</p>
-                        <p>Entry Time:</p>
+                        <p>Symbol: {{ $besttrade->symbol->symbol }}</p>
+                        <p>Long or Short: {{ $besttrade->long_short }}</p>
+                        <p>AccountProfit(£,$,€): {{ $besttrade->profit_gl }}</p>
+                        <p>Percentage Account Gain (%): {{ $besttrade->percentage_gl }}</p>
+                        <p>Total Amount Of Pips: {{ $besttrade->pips }}</p>
+                        <p>Total Trade Duration: {{ $besttrade->duration }}</p>
+                        <p>Entry Time: {{ $besttrade->created_at }}</p>
+                        <p>After Images:
+                        @foreach($afterimages as $afterimage)
+                            <a class="b-r-15 mt-3" href="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}">Please click here to see After Images</a>, 
+                        @endforeach
+                        </p>
                     </div>
                     </p>
                 </div>

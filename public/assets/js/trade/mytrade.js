@@ -19,7 +19,6 @@ $('#reportrange').on('change', function(e) {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
         }
     });
-    console.log(daterange[0]);
     e.preventDefault();
     $.ajax({
         type: "POST",

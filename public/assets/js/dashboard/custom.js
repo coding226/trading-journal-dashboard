@@ -111,3 +111,50 @@ $(".file-upload").on('change', function(){
 $(".upload-button").on('click', function() {
     $(".file-upload").click();
 });
+
+$('#startingbal').on('click', function(e) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    e.preventDefault();
+    var formData = new FormData(document.getElementById("startingbalform"));
+    $.ajax({
+        type: "POST",
+        url: '/setstartingbal',
+        dataType: 'json',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(data) {
+            if(data.status){
+                $('#alertmodal form .modal-title').text('Success');
+                $('#alertmodal form .modal-footer button').remove();
+                $('#alertmodal form .modal-body p').text('Successfully done');
+                $('#alertmodal').modal('show');
+            }
+            else{
+                $('#alertmodal form .modal-title').text('Error');
+                $('#alertmodal form .modal-body p').text('You have got Error');
+                $('#alertmodal form .modal-footer button').remove();
+                $('#alertmodal').modal('show');
+            }
+        }
+    });
+});
+
+
+$('#stsubuser').on('change', function() {
+    $.ajax({
+        type: "GET",
+        url: '/getstartingbal',
+        dataType: 'json',
+        data:{
+            subuser : $(this).val()
+        },
+        success:function(data) {
+            $('#stamount').val(data);
+        }
+    });
+});
