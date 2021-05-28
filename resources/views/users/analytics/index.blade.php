@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>Analytics | The Trading Journal</title>
+<title>Analytics All | The Trading Journal</title>
 @endsection
 @section('style')
 @endsection
@@ -96,7 +96,7 @@
                         <p>AccountProfit(£,$,€): {{ $besttrade->profit_gl }}</p>
                         <p>Percentage Account Gain (%): {{ $besttrade->percentage_gl }}</p>
                         <p>Total Amount Of Pips: {{ $besttrade->pips }}</p>
-                        <p>Total Trade Duration: {{ $besttrade->duration }}</p>
+                        <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($besttrade->duration)->cascade()->forHumans() }}</p>
                         <p>Entry Time: {{ $besttrade->created_at }}</p>
                         <p>After Images:
                         @foreach($afterimages as $afterimage)

@@ -23,21 +23,21 @@ var winlossmonthly_option = {
         colors: ['transparent']
     },
     series: [{
-        name: 'Break Even',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        name: 'Wins',
+        data: analytics_long_data['wins']
     }, {
         name: 'Losses',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+        data: analytics_long_data['losses']
     }, {
-        name: 'Wins',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+        name: 'Break Even',
+        data: analytics_long_data['bes']
     }],
     xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: analytics_long_data['month'],
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: 'Amount of Trades'
         }
     },
     fill: {
@@ -47,7 +47,7 @@ var winlossmonthly_option = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return val
             }
         }
     },
@@ -88,10 +88,10 @@ var gainpermonth_option = {
     },
     series: [{
         name: 'Gain',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        data: analytics_long_data['gain']
     }],
     xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: analytics_long_data['month'],
     },
     yaxis: {
         title: {
