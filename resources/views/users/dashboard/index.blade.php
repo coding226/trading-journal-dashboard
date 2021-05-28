@@ -232,7 +232,7 @@
                                     <td class="text-center">{{ $trade->trade_num }}</td>
                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                     <td class="text-center">{{ $trade->long_short }}</td>
-                                    <td class="text-center">{{ $trade->duration }}</td>
+                                    <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
                                     @if( $trade->profit_gl > 0 )
                                     <td class="font-success text-center">{{ $trade->profit_gl }}</td>
                                     @else
