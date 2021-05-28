@@ -46,38 +46,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td>1</td>
-                                    <td>GBP/USD</td>
-                                    <td>20.6%</td>
-                                    <td>£3,876</td>
-                                    <td>30</td>
-                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td>2</td>
-                                    <td>EUR/USD</td>
-                                    <td>17.8%</td>
-                                    <td>£2,378</td>
-                                    <td>22</td>
-                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td>3</td>
-                                    <td>USD/CAD</td>
-                                    <td>12.4%</td>
-                                    <td>£1,890</td>
-                                    <td>15</td>
-                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td>4</td>
-                                    <td>AUD/USD</td>
-                                    <td>9.3%</td>
-                                    <td>£4,545</td>
-                                    <td>12</td>
-                                    <td><a href="{{ url('/symbolmore') }}">See More</a></td>
-                                  </tr>
+                                    @foreach($symbols as $key => $symbol)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $symbol->symbol->symbol }}</td>
+                                        <td>{{ $symbol->percentage_gl_sum }}%</td>
+                                        <td>£{{ $symbol->profit_gl_sum  }}</td>
+                                        <td>{{ $symbol->symbol_count }}</td>
+                                        <td><a href="{{ url('/symbolmore') }}/{{$symbol->symbol->id}}">See More</a></td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
