@@ -21,6 +21,11 @@ use App\Http\Controllers\SubscriptionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/cks', function() {
+    Artisan::call('optimize');
+    echo 'DiskFree'.disk_free_space(storage_path());
+    echo 'DiskTotal'.disk_total_space(storage_path());
+});
 
 Route::get('/', function () {
     return view('landing.index');
@@ -52,6 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/deltrade/{username}', [TradeController::class, 'delete'])->name('trade.del');
     Route::post('/updatetrade/{tradeid}', [TradeController::class, 'update'])->name('trade.update',['tradeid']);
     Route::post('/trade-datefilter', [TradeController::class, 'datefilter'])->name('trade.filter');
+    Route::post('/activetrade-datefilter', [TradeController::class, 'activedatefilter'])->name('trade.activefilter');
     // Trade end
 
     // Analytics start

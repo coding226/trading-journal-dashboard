@@ -21,14 +21,6 @@ class AnalyticsController extends Controller
     //all analytics
     public function index()
     {   
-        // $trades = Trade::all();
-        // foreach($trades as $trade)
-        // {
-        //     $startday = $trade->start_datetime;
-        //     $endday = $trade->end_datetime;
-        //     $trade->duration = abs(strtotime($startday)-strtotime($endday));
-        //     $trade->save();
-        // }
         $all_count =  Trade::where('subuser_id', Auth::user()->current_subuser)->count();
         $active_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNull('end_datetime')->count();
         $long_count = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'LONG')->where('profit_gl', '<>', 0)->count();
