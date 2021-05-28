@@ -10,7 +10,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>Analytics Page / GBP/USD </h3>
+                        <h3>Analytics Page / {{ $symbol }} </h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -28,23 +28,23 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="card">
                         <div class="card-header b-l-primary border-3">
-                            <h5>GBP/USD Data Feed</h5>
+                            <h5>{{ $symbol }} Data Feed</h5>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12 col-xl-6">
-                                    <p>Symbol Rank (Calculated on Percentage Gain):</p>
-                                    <p>Total Amount Of Trades:</p>
-                                    <p>Total Amount Of Pips:</p>
-                                    <p>Total Amount Of Long Positions:</p>
-                                    <p>Total Amount Of Short Positions:</p>
-                                    <p>Total Amount Of Wins:</p>
-                                    <p>Total Amount of Losses:</p>
-                                    <p>Total Amount of Break Evens:</p>
-                                    <p>Win Rate (%):</p>
-                                    <p>Percentage Account Gain (%):</p>
-                                    <p>Average Trade Gain (%):</p>
-                                    <p>Average Trade Duration (Time):</p>
+                                    <p>Symbol Rank (Calculated on Percentage Gain): {{ $data['rank'] }}</p>
+                                    <p>Total Amount Of Trades: {{ $data['tradesums']['tcount'] }}</p>
+                                    <p>Total Amount Of Pips: {{ $data['tradesums']['pips_sum'] }}</p>
+                                    <p>Total Amount Of Long Positions: {{ $data['tlong'] }}</p>
+                                    <p>Total Amount Of Short Positions: {{ $data['tshort'] }}</p>
+                                    <p>Total Amount Of Wins: {{ $data['twin'] }}</p>
+                                    <p>Total Amount of Losses: {{ $data['tloss'] }}</p>
+                                    <p>Total Amount of Break Evens: {{ $data['tbe'] }}</p>
+                                    <p>Win Rate (%): {{ number_format($data['twin']/$data['tradesums']['tcount']*100, 2, '.','') }}</p>
+                                    <p>Percentage Account Gain (%): {{ $data['tradesums']['percentage_gl_sum'] }}</p>
+                                    <p>Average Trade Gain (%): {{ $data['tradesums']['percentage_gl_sum']/$data['tradesums']['tcount'] }}</p>
+                                    <p>Average Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['tradesums']['duration_sum']/$data['tradesums']['tcount'])->cascade()->forHumans() }}</p>
                                     <p>Average Entry Time: </p>
                                 </div>
                             </div>
@@ -54,17 +54,17 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="card">
                         <div class="card-header b-l-primary border-3">
-                            <h5>GBP/USD Best Trade(20.6%)</h5>
+                            <h5>{{ $symbol }} Best Trade(20.6%)</h5>
                         </div>
                         <div class="card-body">
-                            <p>Symbol:</p>
-                            <p>Long or Short:</p>
-                            <p>AccountProfit(£,$,€):</p>
-                            <p>Percentage Account Gain (%):</p>
-                            <p>Total Amount Of Pips:</p>
-                            <p>Total Entry Date:</p>
-                            <p>Entry Time:</p>
-                            <p>Total Trade Duration:</p>
+                            <p>Symbol: {{ $symbol }}</p>
+                            <p>Long or Short: {{ $data['besttrade']->long_short }}</p>
+                            <p>AccountProfit(£,$,€): {{ $data['besttrade']->profit_gl }}</p>
+                            <p>Percentage Account Gain (%): {{ $data['besttrade']->percentage_gl }}</p>
+                            <p>Total Amount Of Pips: {{ $data['besttrade']->pips }}</p>
+                            <p>Total Entry Date: {{ $data['besttrade']->created_at }}</p>
+                            <p>Entry Time: {{ $data['besttrade']->created_at }}</p>
+                            <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['besttrade']->duration)->cascade()->forHumans() }}</p>
                         </div>
                         </p>
                     </div>
@@ -73,7 +73,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top">
-                                <h5 class="m-0">GBP/USD Wins/Loss/BE per Month</h5>
+                                <h5 class="m-0">{{ $symbol }} Wins/Loss/BE per Month</h5>
                             </div>
                         </div>
                         <div class="card-Body">
@@ -87,7 +87,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top">
-                                <h5 class="m-0">GBP/USD Gain Per Month</h5>
+                                <h5 class="m-0">{{ $symbol }} Gain Per Month</h5>
                             </div>
                         </div>
                         <div class="card-Body">
@@ -103,6 +103,9 @@
     </div>
 @endsection
 @section('script')
+    <script>
+        var symbol_data = {!! json_encode($data, JSON_HEX_TAG) !!};
+    </script>
     <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
     <script src="../assets/js/symbol-analytics/symbol-data.js"></script>
     <script src="../assets/js/tooltip-init.js"></script>
