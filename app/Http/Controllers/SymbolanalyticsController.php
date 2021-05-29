@@ -18,7 +18,8 @@ class SymbolanalyticsController extends Controller
     
     public function index()
     {
-        $symbols = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as percentage_gl_sum, sum(profit_gl) as profit_gl_sum, count(*) as symbol_count, symbol_id')->orderBy('percentage_gl_sum','desc')->get();
+        $symbols = DB::select(DB::raw('SELECT a.*, b.symbol_count, (SELECT symbol FROM symbols WHERE id = a.symbol_id) symbol FROM (SELECT symbol_id, sum(percentage_gl) as percentage_gl_sum, sum(profit_gl) as profit_gl_sum FROM `trades` GROUP BY symbol_id) a LEFT JOIN (SELECT symbol_id, count(*) symbol_count FROM `trades` WHERE profit_gl > 0 GROUP BY symbol_id) b ON a.symbol_id = b.symbol_id ORDER BY profit_gl_sum DESC'));
+        // Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as percentage_gl_sum, sum(profit_gl) as profit_gl_sum, count(*) as symbol_count, symbol_id')->orderBy('percentage_gl_sum','desc')->get();
         return view('users.symbolanalytics.index')->with([
             'symbols' => $symbols
         ]);

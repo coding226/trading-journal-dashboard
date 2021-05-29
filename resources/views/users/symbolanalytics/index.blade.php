@@ -49,11 +49,11 @@
                                     @foreach($symbols as $key => $symbol)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ $symbol->symbol->symbol }}</td>
+                                        <td>{{ $symbol->symbol }}</td>
                                         <td>{{ $symbol->percentage_gl_sum }}%</td>
                                         <td>£{{ $symbol->profit_gl_sum  }}</td>
                                         <td>{{ $symbol->symbol_count }}</td>
-                                        <td><a href="{{ url('/symbolmore') }}/{{$symbol->symbol->id}}">See More</a></td>
+                                        <td><a href="{{ url('/symbolmore') }}/{{$symbol->symbol_id}}">See More</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
