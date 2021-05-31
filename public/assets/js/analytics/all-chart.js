@@ -337,7 +337,7 @@ var growthoptions = {
         data: analytics_all_data['winrate']
     }],
     xaxis: {
-        type: 'datetime',
+        type: 'number',
         categories: analytics_all_data['winratex'],
     },
     yaxis: {

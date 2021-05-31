@@ -43,6 +43,9 @@ class AnalyticsController extends Controller
         $totalWeeksDiff    = $totalSecondsDiff/60/60/24/7;
         $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
 
+        $data['winrate'][0] = 0;
+        $data['winratex'][0] = 0;
+
         for($i=0; $i<count($trades); $i++)
         {
             $data['wins'][$i] = $trades[$i]->win;
@@ -54,9 +57,6 @@ class AnalyticsController extends Controller
             $data['winratex'][$i+1] = $i+1;
         }
 
-        $data['winrate'][0] = 0;
-        $data['winratex'][0] = 0;
-        
         if(count($equities) > 0){
             $data['equityy'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $equities[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");
             $data['equityx'][0] = '0';
