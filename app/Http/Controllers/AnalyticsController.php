@@ -50,8 +50,12 @@ class AnalyticsController extends Controller
             $data['bes'][$i] = $trades[$i]->be;
             $data['pgain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
             $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
-            $data['winrate'][$i] = number_format($trades[$i]->win/($trades[$i]->win + $trades[$i]->loss + $trades[$i]->be)*100, 2, '.', '');
+            $data['winrate'][$i+1] = number_format($trades[$i]->win/($trades[$i]->win + $trades[$i]->loss + $trades[$i]->be)*100, 2, '.', '');
+            $data['winratex'][$i+1] = $i+1;
         }
+        
+        $data['winrate'][0] = 0
+        $data['winratex'][0] = 0;
         
         if(count($equities) > 0){
             $data['equityy'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $equities[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");

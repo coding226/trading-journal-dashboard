@@ -129,34 +129,6 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Wins/Loss/BE</h5>
-                        </div>
-                    </div>
-                    <div class="card-Body">
-                        <div class="radar-chart">
-                            <div id="winlossmonthly-graph"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 xl-50 appointment box-col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="header-top">
-                            <h5 class="m-0">Percentage Gain</h5>
-                        </div>
-                    </div>
-                    <div class="card-Body">
-                        <div class="radar-chart">
-                            <div id="gainpermonth-graph"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 xl-50 appointment box-col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="header-top">
                             <h5 class="m-0">Equity Gain</h5>
                         </div>
                     </div>
@@ -177,6 +149,34 @@
                     <div class="card-Body">
                         <div class="radar-chart">
                             <div id="winrate-graph"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Wins/Loss/BE</h5>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="winlossmonthly-graph"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Percentage Gain</h5>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="gainpermonth-graph"> </div>
                         </div>
                     </div>
                 </div>
