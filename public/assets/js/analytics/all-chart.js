@@ -338,7 +338,7 @@ var growthoptions = {
     }],
     xaxis: {
         type: 'datetime',
-        categories: analytics_all_data['month'],
+        categories: analytics_all_data['winratex'],
     },
     yaxis: {
         title: {
