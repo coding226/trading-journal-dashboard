@@ -33,8 +33,8 @@ var short2long_option = {
         width: 380,
         type: 'donut',
     },
-    labels: ['Short', 'Long', 'Break'],
-    series: [analytics_all_data['short_count'], analytics_all_data['long_count'], analytics_all_data['break_count']],
+    labels: ['Win', 'Loss', 'Breakeven'],
+    series: [analytics_all_data['win_count'], analytics_all_data['loss_count'], analytics_all_data['break_count']],
     responsive: [{
         breakpoint: 480,
         options: {
@@ -63,7 +63,7 @@ var winshort2long_option = {
         width: 380,
         type: 'donut',
     },
-    labels: ['Winning Short', 'Winning Long'],
+    labels: ['Short', 'Long'],
     series: [analytics_all_data['winshort_count'], analytics_all_data['winlong_count']],
     responsive: [{
         breakpoint: 480,
@@ -177,7 +177,7 @@ var gainpermonth_option = {
     },
     series: [{
         name: 'Gain',
-        data: analytics_all_data['gain']
+        data: analytics_all_data['pgain']
     }],
     xaxis: {
         categories: analytics_all_data['month'],
@@ -207,3 +207,161 @@ var gainpermonth_graph = new ApexCharts(
 );
 
 gainpermonth_graph.render();
+
+// equity-graph chart
+var growthoptions = {
+    chart: {
+        height: 350,
+        type: 'area',
+        toolbar:{
+            show: true,
+            offsetX: 0,
+            offsetY: 0,
+            tools: {
+                download: true,
+                selection: true,
+                zoom: true,
+                zoomin: true,
+                zoomout: true,
+                pan: true,
+                reset: true | '<img src="/static/icons/reset.png" width="20">',
+                customIcons: []
+            },
+            export: {
+              csv: {
+                filename: undefined,
+                columnDelimiter: ',',
+                headerCategory: 'category',
+                headerValue: 'value',
+                dateFormatter(timestamp) {
+                  return new Date(timestamp).toDateString()
+                }
+              },
+              svg: {
+                filename: undefined,
+              },
+              png: {
+                filename: undefined,
+              }
+            },
+            autoSelected: 'zoom' 
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'smooth'
+    },
+    series: [{
+        name: 'Profit Gain',
+        data: analytics_all_data['equityx']
+    }],
+    xaxis: {
+        type: 'datetime',
+        categories: analytics_all_data['equityy'],
+    },
+    yaxis: {
+        title: {
+            text: 'Profit Gain'
+        }
+    },
+    tooltip: {
+        x: {
+            format: 'dd/MM/yyyy HH:mm'
+        },
+    },
+    colors:[ CubaAdminConfig.secondary ],
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
+            stops: [0, 80, 100]
+        }
+    },
+}
+
+var chart1 = new ApexCharts(document.querySelector("#equity-graph"),growthoptions);
+
+chart1.render();
+
+// winrate-graph chart
+var growthoptions = {
+    chart: {
+        height: 350,
+        type: 'area',
+        toolbar:{
+            show: true,
+            offsetX: 0,
+            offsetY: 0,
+            tools: {
+                download: true,
+                selection: true,
+                zoom: true,
+                zoomin: true,
+                zoomout: true,
+                pan: true,
+                reset: true | '<img src="/static/icons/reset.png" width="20">',
+                customIcons: []
+            },
+            export: {
+              csv: {
+                filename: undefined,
+                columnDelimiter: ',',
+                headerCategory: 'category',
+                headerValue: 'value',
+                dateFormatter(timestamp) {
+                  return new Date(timestamp).toDateString()
+                }
+              },
+              svg: {
+                filename: undefined,
+              },
+              png: {
+                filename: undefined,
+              }
+            },
+            autoSelected: 'zoom' 
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'smooth'
+    },
+    series: [{
+        name: 'Win Rate',
+        data: analytics_all_data['winrate']
+    }],
+    xaxis: {
+        type: 'datetime',
+        categories: analytics_all_data['month'],
+    },
+    yaxis: {
+        title: {
+            text: '% (Win Rate)'
+        }
+    },
+    tooltip: {
+        x: {
+            format: 'MM/yyyy HH:mm'
+        },
+    },
+    colors:[ CubaAdminConfig.primary ],
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
+            stops: [0, 80, 100]
+        }
+    },
+}
+
+var chart1 = new ApexCharts(document.querySelector("#winrate-graph"),growthoptions);
+
+chart1.render();
