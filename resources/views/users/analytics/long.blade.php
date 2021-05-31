@@ -3,6 +3,10 @@
 <title>Analytics Long | The Trading Buddy</title>
 @endsection
 @section('style')
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/chartist.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
 @endsection
 @section('content')
 <div class="page-body">
@@ -25,7 +29,7 @@
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-xl-3 box-col-3">
+            {{-- <div class="col-sm-12 col-xl-3 box-col-3">
                 <div class="card o-hidden">
                     <div class="card-body">
                         <div class="ecommerce-widgets media">
@@ -77,7 +81,73 @@
                         </div>
                     </div>
                 </div>
+            </div> --}}
+            
+            <div class="col-xl-3 xl-50 chart_data_right box-col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center">
+                            <div class="media-body right-chart-content">
+                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                            </div>
+                            <div class="knob-block text-center">
+                                <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
+                                    data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
+                                    data-bgcolor="#eef5fb" value="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="col-xl-3 xl-50 chart_data_right box-col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center">
+                            <div class="media-body right-chart-content">
+                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                            </div>
+                            <div class="knob-block text-center">
+                                <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
+                                    data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
+                                    data-bgcolor="#eef5fb" value="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 xl-50 chart_data_right box-col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center">
+                            <div class="media-body right-chart-content">
+                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                            </div>
+                            <div class="knob-block text-center">
+                                <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
+                                    data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
+                                    data-bgcolor="#eef5fb" value="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 xl-50 chart_data_right box-col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center">
+                            <div class="media-body right-chart-content">
+                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                            </div>
+                            <div class="knob-block text-center">
+                                <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
+                                    data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
+                                    data-bgcolor="#eef5fb" value="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-sm-12 col-xl-6">
                 <div class="card">
                     <div class="card-header b-l-primary border-3">
@@ -153,6 +223,11 @@
 <script>
     var analytics_long_data = {!! json_encode($data, JSON_HEX_TAG) !!};
 </script>
+<script src="../assets/js/chart/chartist/chartist.js"></script>
+<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+<script src="../assets/js/chart/knob/knob.min.js"></script>
+<script src="../assets/js/chart/knob/knob-chart.js"></script>
+<script src="../assets/js/dashboard/default.js"></script>
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="../assets/js/analytics/long-chart.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>
