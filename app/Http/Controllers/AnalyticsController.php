@@ -53,8 +53,8 @@ class AnalyticsController extends Controller
             $data['winrate'][$i+1] = number_format($trades[$i]->win/($trades[$i]->win + $trades[$i]->loss + $trades[$i]->be)*100, 2, '.', '');
             $data['winratex'][$i+1] = $i+1;
         }
-        
-        $data['winrate'][0] = 0
+
+        $data['winrate'][0] = 0;
         $data['winratex'][0] = 0;
         
         if(count($equities) > 0){
