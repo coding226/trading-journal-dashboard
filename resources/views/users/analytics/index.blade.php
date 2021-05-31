@@ -116,7 +116,9 @@
                                 <p>Entry Time: {{ $besttrade->created_at }}</p>
                             </div>
                             <div class="col-sm-12 col-xl-6">
+                            @if($afterimage)
                                 <p>After Image: <a class="b-r-15 mt-3" href="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}" target="_blank"><img class="after_img" src="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}"></a></p>
+                            @endif
                             </div>
                         </div>                        
                     </div>

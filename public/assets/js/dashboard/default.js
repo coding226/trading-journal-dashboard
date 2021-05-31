@@ -37,7 +37,6 @@ function checkTime(i) {
 
 $(document).ready (function () {
 // $('#testbutton').on('click', function () {
-    alert("It's for dashboard number showing issue test.")
     var currenttime = (new Date()).toLocaleString();
     $.ajax({
         type: 'GET',
@@ -47,12 +46,10 @@ $(document).ready (function () {
             currenttime: currenttime,
         },
         success:function(data) {
-            alert("Test result 1");
             $('.daily_percentage_gain').text(Math.round(data['inadaypercentagegain']*100)/100);
             $('.weekly_percentage_gain').text(data['inaweekpercentagegain']);
             $('.monthly_percentage_gain').text(data['inamonthpercentagegain']);
             $('.yearly_percentage_gain').text(Math.round(data['inayearpercentagegain']*100)/100);
-            alert("Test result 2")
         }
     });
 });
