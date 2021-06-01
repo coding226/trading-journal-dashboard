@@ -94,7 +94,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-12 col-xl-6">
                 <div class="card">
                     <div class="card-header b-l-primary border-3">
@@ -156,6 +155,56 @@
                     <div class="card-Body">
                         <div class="radar-chart">
                             <div id="longgainmonth-graph"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Total Amount of Long Trades Per symbol</h5>
+                            <div class="card-header-right-icon">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
+                                    <div class="tsymbol-chart dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                        <a class="dropdown-item" href="javascript:;">This Week</a>
+                                        <a class="dropdown-item" href="javascript:;">This Month</a>
+                                        <a class="dropdown-item" href="javascript:;">This Year</a>
+                                        <a class="dropdown-item" href="javascript:;">All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="long-trades-pairs-chart"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 xl-50 appointment box-col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="header-top">
+                            <h5 class="m-0">Long Symbol Profitability</h5>
+                            <div class="card-header-right-icon">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" id="dropdownMenuButton2" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
+                                    <div class="psymbol-chart dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                        <a class="dropdown-item" href="javascript:;">This Week</a>
+                                        <a class="dropdown-item" href="javascript:;">This Month</a>
+                                        <a class="dropdown-item" href="javascript:;">This Year</a>
+                                        <a class="dropdown-item" href="javascript:;">All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-Body">
+                        <div class="radar-chart">
+                            <div id="long-profit-pairs-chart"> </div>
                         </div>
                     </div>
                 </div>

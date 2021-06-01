@@ -119,6 +119,119 @@ var gainpermonth_graph = new ApexCharts(
 
 gainpermonth_graph.render();
 
+// long trades_pairs chart
+var trades_pairs_option = {
+    chart: {
+        height: 350,
+        type: 'bar',
+        toolbar:{
+          show: false
+        }
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            // endingShape: 'rounded',
+            columnWidth: '55%',
+        },
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+    },
+    series: [{
+        name: 'Number Of Trades',
+        data: analytics_long_data['trades']
+    }],
+    xaxis: {
+        categories: analytics_long_data['symbols'],
+    },
+    yaxis: {
+        title: {
+            text: 'Number Of Trades'
+        }
+    },
+    fill: {
+        opacity: 1
+
+    },
+    tooltip: {
+        y: {
+            formatter: function (val) {
+                return val
+            }
+        }
+    },
+    colors:[ CubaAdminConfig.primary ]
+}
+var trades_pairs_chart = new ApexCharts(
+    document.querySelector("#long-trades-pairs-chart"),
+    trades_pairs_option
+);
+
+trades_pairs_chart.render();
+
+// long profitable pairs chart
+var profit_pairs_option = {
+    chart: {
+        height: 350,
+        type: 'bar',
+        toolbar:{
+          show: false
+        }
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            // endingShape: 'rounded',
+            columnWidth: '55%',
+        },
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+    },
+    series: [{
+        name: 'Percentage Gain',
+        data: analytics_long_data['sum']
+    }],
+    xaxis: {
+        categories: analytics_long_data['sumsymbols'],
+    },
+    yaxis: {
+        title: {
+            text: '% (Percentage Gain)'
+        }
+    },
+    fill: {
+        opacity: 1
+
+    },
+    tooltip: {
+        y: {
+            formatter: function (val) {
+                return val + '%'
+            }
+        }
+    },
+    colors:['#51bb25']
+}
+
+var profit_pairs_chart = new ApexCharts(
+    document.querySelector("#long-profit-pairs-chart"),
+    profit_pairs_option
+);
+
+profit_pairs_chart.render();
+
 // right-side-small-chart
 
 (function ($) {

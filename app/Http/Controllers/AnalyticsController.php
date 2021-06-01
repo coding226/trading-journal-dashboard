@@ -45,7 +45,7 @@ class AnalyticsController extends Controller
             $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
             $data['afterimage']  = $afterimage;
         }
-        
+
         for($i=0; $i<count($trades); $i++)
         {
             $data['wins'][$i] = $trades[$i]->win;
@@ -109,6 +109,9 @@ class AnalyticsController extends Controller
         $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
         $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tgain FROM trades WHERE end_datetime is not null AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
 
+        $longsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->where('long_short', 'LONG')->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
+        $longsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->where('long_short', 'LONG')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
+
         for($i=0; $i<count($trades); $i++)
         {
             $data['wins'][$i] = $trades[$i]->win;
@@ -116,6 +119,14 @@ class AnalyticsController extends Controller
             $data['bes'][$i] = $trades[$i]->be;
             $data['gain'][$i] = number_format($gainpermonth[$i]->tgain, 2, '.', '');
             $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
+        }
+
+        for($i=0; $i<count($longsymbol_nums); $i++)
+        {
+            $data['symbols'][$i] = $longsymbol_nums[$i]->symbol->symbol;
+            $data['trades'][$i] = $longsymbol_nums[$i]->total;
+            $data['sumsymbols'][$i] = $longsymbol_percents[$i]->symbol->symbol;
+            $data['sum'][$i] = number_format($longsymbol_percents[$i]->sum, 2, '.', '');
         }
 
         $data['long_tcount'] = $long_tcount;
