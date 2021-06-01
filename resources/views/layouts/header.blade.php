@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/responsive.css') }}">
 </head>
 
-<body onload="startTime()" class="{{ Auth::user()->darkmode }}">
+<body onload = "{{ isset($dashboard) ? 'startTime()' : '' }}" class="{{ Auth::user()->darkmode }}">
     <div class="loader-wrapper">
         <div class="loader-index"><span></span></div>
         <svg>

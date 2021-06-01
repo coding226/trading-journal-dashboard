@@ -88,12 +88,12 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Total Amount of Losses: {{ $data['lossess_count'] }}</p>
                                 <p>Total Amount of Break Evens: {{ $data['break_count'] }}</p>
-                                <p>Win Rate (%): {{ number_format(($data['winshort_count']+$data['winlong_count'])/($data['all_count'] - $data['active_count'])*100, 2, '.', ',') }}</p>
-                                <p>Average Trade Gain (%): {{ $data['ave_percentage_gain'] }}</p>
-                                <p>Average Daily Gain (%): {{ $data['ave_daily'] }}</p>
-                                <p>Average Weekly Gain (%): {{ $data['ave_weekly'] }} </p>
-                                <p>Average Monthly Gain (%): {{ $data['ave_monthly'] }}</p>
-                                <p>Average Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['ave_duration'])->cascade()->forHumans() }}</p>
+                                <p>Win Rate (%): {{ $data['all_count'] ? number_format(($data['winshort_count']+$data['winlong_count'])/($data['all_count'] - $data['active_count'])*100, 2, '.', ',') : 0 }}</p>
+                                <p>Average Trade Gain (%): {{ $data['all_count'] ? $data['ave_percentage_gain'] : 0 }}</p>
+                                <p>Average Daily Gain (%): {{ $data['all_count'] ? $data['ave_daily'] : 0 }}</p>
+                                <p>Average Weekly Gain (%): {{ $data['all_count'] ? $data['ave_weekly'] : 0 }} </p>
+                                <p>Average Monthly Gain (%): {{ $data['all_count'] ? $data['ave_monthly'] : 0 }}</p>
+                                <p>Average Trade Duration (Time): {{ $data['all_count'] ? Carbon\CarbonInterval::seconds($data['ave_duration'])->cascade()->forHumans() : 0}}</p>
                             </div>
                         </div>
                     </div>
@@ -106,6 +106,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                        @if($besttrade)
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $besttrade->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $besttrade->long_short }}</p>
@@ -116,10 +117,11 @@
                                 <p>Entry Time: {{ $besttrade->created_at }}</p>
                             </div>
                             <div class="col-sm-12 col-xl-6">
-                            @if($afterimage)
-                                <p>After Image: <a class="b-r-15 mt-3" href="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}" target="_blank"><img class="after_img" src="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}"></a></p>
+                            @if($data['afterimage'])
+                                <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
                             @endif
                             </div>
+                        @endif
                         </div>                        
                     </div>
                     </p>

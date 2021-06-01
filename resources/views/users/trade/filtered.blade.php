@@ -3,6 +3,7 @@
         <div class="actions">
             <div class="btn-group dropdown-basic mb-5 pull-right">
                 <div class="dropdown mb-5">
+                @isset($complete)
                     <div class="btn-group">
                         <button class="dropbtn btn-secondary btn-round" type="button">Export
                             <span><i class="icofont icofont-airplane"></i></span>
@@ -16,6 +17,7 @@
                             <li><a href="javascript:;" data-action="5" class="tool-action"><i class="icon-refresh"></i> Reload</a></li>
                         </div>
                     </div>
+                @endisset
                 </div>
             </div>
         </div>
@@ -29,10 +31,15 @@
                         <th>Symbol:</th>
                         <th>Long/Short</th>
                         <th class="text-center">Start Date</th>
+                        @isset($complete)
                         <th class="text-center">Trade Duration</th>
                         <th>Profit/Loss($)</th>
                         <th>Profit/Loss(%)</th>
                         <th>Win/Loss/BE</th>
+                        @else
+                        <th class="text-center">Current Duration</th>
+                        <th>Open Price($)</th>
+                        @endisset
                         <th>Edit/Delete</th>
                     </tr>
                 </thead>
@@ -44,24 +51,29 @@
                         <td class="text-center">{{ $trade->symbol->symbol }}</td>
                         <td class="text-center">{{ $trade->long_short }}</td>
                         <td class="text-center">{{ $trade->start_datetime }}</td>
-                        <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
-                        @if( $trade->profit_gl > 0 )
-                        <td class="font-success text-center">{{ $trade->profit_gl }}</td>
+                        @isset($complete)
+                            <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
+                            @if( $trade->profit_gl > 0 )
+                            <td class="font-success text-center">{{ $trade->profit_gl }}</td>
+                            @else
+                            <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
+                            @endif
+                            @if( $trade->profit_gl > 0 )
+                            <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                            @else
+                            <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
+                            @endif
+                            @if( $trade->profit_gl > 0 )
+                            <td class="font-success text-center">Win</td>
+                            @elseif( $trade->profit_gl < 0 )
+                            <td class="font-danger text-center">Loss</td>
+                            @else
+                            <td class="font-warnning text-center">Break Even</td>
+                            @endif
                         @else
-                        <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
-                        @endif
-                        @if( $trade->profit_gl > 0 )
-                        <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
-                        @else
-                        <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
-                        @endif
-                        @if( $trade->profit_gl > 0 )
-                        <td class="font-success text-center">Win</td>
-                        @elseif( $trade->profit_gl < 0 )
-                        <td class="font-danger text-center">Loss</td>
-                        @else
-                        <td class="font-warnning text-center">Break Even</td>
-                        @endif
+                            <td class="text-center">{{ Carbon\CarbonInterval::seconds($currenttime - strtotime($trade->start_datetime))->cascade()->forHumans() }}</td>
+                            <td class="text-center">{{ $trade->open_price }}</td>
+                        @endisset
                         <td class="d-flex">
                             <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
                                 <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg></div>

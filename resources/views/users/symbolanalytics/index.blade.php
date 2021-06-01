@@ -49,7 +49,7 @@
                                     @foreach($symbols as $key => $symbol)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ $symbol->symbol }}</td>
+                                        <td>{{ $symbol->symbol->symbol }}</td>
                                         <td>{{ $symbol->percentage_gl_sum }}%</td>
                                         <td>£{{ $symbol->profit_gl_sum  }}</td>
                                         <td>{{ $symbol->symbol_count }}</td>

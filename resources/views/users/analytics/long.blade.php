@@ -28,72 +28,19 @@
     </div>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
-        <div class="row">
-            {{-- <div class="col-sm-12 col-xl-3 box-col-3">
-                <div class="card o-hidden">
-                    <div class="card-body">
-                        <div class="ecommerce-widgets media">
-                            <div class="media-body">
-                                <p class="f-w-500 font-roboto">Total Amount Of Long Positions
-                                <h4 class="f-w-500 mb-0 f-20"><span class="counter">{{ $data['long_tcount'] }}</span></h4>
-                            </div>
-                            <div class="ecommerce-box light-bg-primary"><i class="fa fa-heart" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xl-3 box-col-3">
-                <div class="card o-hidden">
-                    <div class="card-body">
-                        <div class="ecommerce-widgets media">
-                            <div class="media-body">
-                                <p class="f-w-500 font-roboto">Total Amount Of Winning Long Positions
-                                <h4 class="f-w-500 mb-0 f-20"><span class="counter">{{ $data['winlong_tcount'] }}</span></h4>
-                            </div>
-                            <div class="align-self-center"><i class="font-primary" data-feather="arrow-up"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xl-3 box-col-3">
-                <div class="card o-hidden">
-                    <div class="card-body">
-                        <div class="ecommerce-widgets media">
-                            <div class="media-body">
-                                <p class="f-w-500 font-roboto">Total Amount Of Losing Long Positions
-                                <h4 class="f-w-500 mb-0 f-20"><span class="counter">{{ $data['losslong_tcount'] }}</span></h4>
-                            </div>
-                            <div class="align-self-center"><i class="font-primary" data-feather="arrow-down"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xl-3 box-col-3">
-                <div class="card o-hidden">
-                    <div class="card-body">
-                        <div class="ecommerce-widgets media">
-                            <div class="media-body">
-                                <p class="f-w-500 font-roboto">Total Amount Of Break Even Long Positions
-                                <h4 class="f-w-500 mb-0 f-20"><span class="counter">{{ $data['belong_tcount'] }}</span></h4>
-                            </div>
-                            <div class="align-self-center"><i class="font-primary" data-feather="minus"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            
+        <div class="row">            
             <div class="col-xl-3 xl-50 chart_data_right box-col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="media align-items-center">
                             <div class="media-body right-chart-content">
-                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                                <h4>{{ $data['long_tcount'] }}                                    <!-- <span class="new-box">Hot</span> -->
+                                </h4><span>Total Amount Of Long Positions</span>
                             </div>
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="60">
+                                    data-bgcolor="#eef5fb" value="100">
                             </div>
                         </div>
                     </div>
@@ -104,12 +51,12 @@
                     <div class="card-body">
                         <div class="media align-items-center">
                             <div class="media-body right-chart-content">
-                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                                <h4>{{ $data['winlong_tcount'] }}</h4><span>Total Amount Of Winning Long Positions</span>
                             </div>
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="60">
+                                    data-bgcolor="#eef5fb" value="{{ number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, ',', '') }}">
                             </div>
                         </div>
                     </div>
@@ -120,12 +67,12 @@
                     <div class="card-body">
                         <div class="media align-items-center">
                             <div class="media-body right-chart-content">
-                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                                <h4>{{ $data['losslong_tcount'] }}</h4><span>Total Amount Of Losing Long Positions</span>
                             </div>
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="60">
+                                    data-bgcolor="#eef5fb" value="{{ number_format($data['losslong_tcount']/$data['long_tcount']*100, 2, ',', '') }}">
                             </div>
                         </div>
                     </div>
@@ -136,12 +83,12 @@
                     <div class="card-body">
                         <div class="media align-items-center">
                             <div class="media-body right-chart-content">
-                                <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                                <h4>{{ $data['belong_tcount'] }}</h4><span>Total Amount Of Break Even Long Positions</span>
                             </div>
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="60">
+                                    data-bgcolor="#eef5fb" value="{{ number_format($data['belong_tcount']/$data['long_tcount']*100, 2, ',', '') }}">
                             </div>
                         </div>
                     </div>
@@ -154,12 +101,11 @@
                         <h5>Long Position Data Feed</h5>
                     </div>
                     <div class="card-body">
-                        <p>Long Position Win Rate: {{ number_format($data['winlong_tcount']/$data['long_tcount'], 2, '.', '') }}</p>
+                        <p>Long Position Win Rate: {{ number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, '.', '') }}</p>
                         <p>Long Position Percentage Account Gain (%): {{ $data['longtradesums']['percentage_gl_sum'] }}</p>
                         <p>Total Amount Of Pips from Long Trades: {{ $data['longtradesums']['pips_sum'] }}</p>
                         <p>Average Amount Of Long Positions Per Month: {{ $data['long_ave_per_month'] }}</p>
                         <p>Average Long Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['longtradesums']['duration_sum']/$data['long_tcount'])->cascade()->forHumans() }}</p>
-                        <p>Average Long Trade Entry Time:</p>
                     </div>
                     </p>
                 </div>
@@ -167,7 +113,7 @@
             <div class="col-sm-12 col-xl-6">
                 <div class="card">
                     <div class="card-header b-l-primary border-3">
-                        <h5>Best Trade(Calculated on Percentage Gain)</h5>
+                        <h5>Best Long Position (Calculated on Percentage Gain)</h5>
                     </div>
                     <div class="card-body">
                         <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
@@ -190,7 +136,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Long Trades Wins/Loss/BE Per Month</h5>
+                            <h5 class="m-0">Long Trades Wins/Loss/BE</h5>
                         </div>
                     </div>
                     <div class="card-Body">
@@ -204,7 +150,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Long Trades Percentage Gain Per Month Graph</h5>
+                            <h5 class="m-0">Long Trades Percentage Gain Graph</h5>
                         </div>
                     </div>
                     <div class="card-Body">

@@ -311,10 +311,7 @@ var growthoptions = {
                 filename: undefined,
                 columnDelimiter: ',',
                 headerCategory: 'category',
-                headerValue: 'value',
-                dateFormatter(timestamp) {
-                  return new Date(timestamp).toDateString()
-                }
+                headerValue: 'value'
               },
               svg: {
                 filename: undefined,
@@ -347,7 +344,7 @@ var growthoptions = {
     },
     tooltip: {
         x: {
-            format: 'MM/yyyy HH:mm'
+            format: 'number'
         },
     },
     colors:[ CubaAdminConfig.primary ],

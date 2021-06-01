@@ -14,6 +14,8 @@ $('.trade-del').on('click', function(e){
 
 $('#reportrange').on('change', function(e) {
     var daterange = $(this).val().replace(/\s/g, '').split('-');
+    var currenttime = (new Date()).toLocaleString();
+    console.log(currenttime);
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -28,6 +30,7 @@ $('#reportrange').on('change', function(e) {
         data: {
             startdate: daterange[0],
             enddate: daterange[1],
+            currenttime: currenttime,
         },
         success:function(data) {
             $('#trade-table').html(data.html);

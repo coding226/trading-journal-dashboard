@@ -31,21 +31,21 @@ class AnalyticsController extends Controller
         $lossess_count = Trade::where('subuser_id', Auth::user()->current_subuser)->where('profit_gl', '<', 0)->count();
         $tradesums = Trade::where('subuser_id', Auth::user()->current_subuser)->selectRaw('sum(profit_gl) as profit_gl_sum, sum(pips) as pips_sum, sum(fees) as fees_sum, sum(percentage_gl) as percentage_gl_sum, sum(duration) as duration_sum')->get();
         $besttrade = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('percentage_gl','desc')->first();
-        $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
+        $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
         $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
         $equities = DB::select(DB::raw('SELECT id, percentage_gl, end_datetime, (SELECT SUM(profit_gl) FROM `trades` WHERE end_datetime <= a.end_datetime and end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.') presum FROM trades a where end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.' ORDER BY end_datetime'));
-        $afterimage = Afimage::where('trade_id', $besttrade->id)->first();
-
-        $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('start_datetime')->first()->start_datetime;
-        $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('end_datetime', 'desc')->first()->end_datetime;
-        $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
-        $totalDaysDiff    = $totalSecondsDiff/60/60/24;
-        $totalWeeksDiff    = $totalSecondsDiff/60/60/24/7;
-        $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
-
-        $data['winrate'][0] = 100;
-        $data['winratex'][0] = 0;
-
+        $winrates = DB::select(DB::raw('SELECT id, percentage_gl, end_datetime, (SELECT count(*) FROM `trades` WHERE end_datetime <= a.end_datetime and end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.' and profit_gl > 0) cnt FROM trades a where end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.' ORDER BY end_datetime'));
+        if($all_count){
+            $afterimage = Afimage::where('trade_id', $besttrade->id)->first();
+            $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('start_datetime')->first()->start_datetime;
+            $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('end_datetime', 'desc')->first()->end_datetime;
+            $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
+            $totalDaysDiff    = $totalSecondsDiff/60/60/24;
+            $totalWeeksDiff    = $totalSecondsDiff/60/60/24/7;
+            $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
+            $data['afterimage']  = $afterimage;
+        }
+        
         for($i=0; $i<count($trades); $i++)
         {
             $data['wins'][$i] = $trades[$i]->win;
@@ -53,10 +53,8 @@ class AnalyticsController extends Controller
             $data['bes'][$i] = $trades[$i]->be;
             $data['pgain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
             $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
-            $data['winrate'][$i+1] = number_format($trades[$i]->win/($trades[$i]->win + $trades[$i]->loss + $trades[$i]->be)*100, 2, '.', '');
-            $data['winratex'][$i+1] = $i+1;
         }
-
+        
         if(count($equities) > 0){
             $data['equityy'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $equities[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");
             $data['equityx'][0] = '0';
@@ -65,9 +63,12 @@ class AnalyticsController extends Controller
             {
                 $data['equityy'][$i] = str_replace(' ', 'T', $equities[$i-1]->end_datetime);
                 $data['equityx'][$i] = number_format($equities[$i-1]->presum, 2, '.', '');
+
+                $data['winrate'][$i-1] = number_format(($winrates[$i-1]->cnt/$i)*100, 2, '.', '');
+                $data['winratex'][$i-1] = $i;
             }
         }
-
+        
         $data['all_count'] = $all_count;
         $data['active_count'] = $active_count;
         $data['win_count'] = $win_count;
@@ -77,16 +78,16 @@ class AnalyticsController extends Controller
         $data['winlong_count'] = $winlong_count;
         $data['tradesums'] = $tradesums;
         $data['lossess_count'] = $lossess_count;
-        $data['ave_percentage_gain'] = number_format($tradesums[0]['percentage_gl_sum']/$all_count, 2, '.', '');
-        $data['ave_daily'] = number_format($tradesums[0]['percentage_gl_sum']/$totalDaysDiff, 2, '.', '');
-        $data['ave_weekly'] = number_format($tradesums[0]['percentage_gl_sum']/$totalMonthsDiff, 2, '.', '');
-        $data['ave_monthly'] = number_format($tradesums[0]['percentage_gl_sum']/$totalMonthsDiff, 2, '.', '');
-        $data['ave_duration'] = number_format($tradesums[0]['duration_sum']/($all_count-$active_count), 2, '.', '');
-
+        if($all_count){
+            $data['ave_percentage_gain'] = number_format($tradesums[0]['percentage_gl_sum']/$all_count, 2, '.', '');
+            $data['ave_daily'] = number_format($tradesums[0]['percentage_gl_sum']/$totalDaysDiff, 2, '.', '');
+            $data['ave_weekly'] = number_format($tradesums[0]['percentage_gl_sum']/$totalMonthsDiff, 2, '.', '');
+            $data['ave_monthly'] = number_format($tradesums[0]['percentage_gl_sum']/$totalMonthsDiff, 2, '.', '');
+            $data['ave_duration'] = number_format($tradesums[0]['duration_sum']/($all_count-$active_count), 2, '.', '');
+        }
         return view('users.analytics.index')->with([
             'data' => $data,
-            'besttrade' => $besttrade,
-            'afterimage' => $afterimage,
+            'besttrade' => $besttrade
         ]);
     }
     

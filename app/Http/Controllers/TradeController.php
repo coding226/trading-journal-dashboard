@@ -324,16 +324,19 @@ class TradeController extends Controller
         $startdate = Carbon::createFromFormat('m/d/Y', $request->startdate)->format("Y-m-d H:i:s");
         $enddate = Carbon::createFromFormat('m/d/Y', $request->enddate)->format("Y-m-d H:i:s");
         $trades = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $enddate)->where('end_datetime', '>', $startdate)->get();
-        $returnHTML = view('users.trade.filtered')->with('trades', $trades)->render();
+        $completed = 1;
+        $returnHTML = view('users.trade.filtered')->with(['trades' => $trades, 'completed' => $completed])->render();
         return response()->json(array('success' => true, 'html'=>$returnHTML));
     }
 
     public function activedatefilter(Request $request)
     {
+        $currenttime = new Carbon($request->currenttime);
+        $currenttime = $currenttime->timestamp;
         $startdate = Carbon::createFromFormat('m/d/Y', $request->startdate)->format("Y-m-d H:i:s");
         $enddate = Carbon::createFromFormat('m/d/Y', $request->enddate)->format("Y-m-d H:i:s");
         $trades = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNull('end_datetime')->where('start_datetime', '<', $enddate)->where('start_datetime', '>', $startdate)->get();
-        $returnHTML = view('users.trade.filtered')->with('trades', $trades)->render();
+        $returnHTML = view('users.trade.filtered')->with(['trades' => $trades, 'currenttime' => $currenttime])->render();
         return response()->json(array('success' => true, 'html'=>$returnHTML));
     }
 }
