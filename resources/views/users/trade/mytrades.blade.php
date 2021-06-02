@@ -76,6 +76,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <form action="{{ route('trade.import') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
+                                            <div class="custom-file text-left">
+                                                <input type="file" name="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary">Import data</button>
+                                        <a class="btn btn-success" href="#">Export data</a>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body table-responsive" id="trade-table">
@@ -151,6 +164,9 @@
                                                         </a>
                                                         <a href="{{ url('/viewtrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
                                                             <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+                                                        </a>
+                                                        <a href="{{ url('/downloadpdf') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="pull-left">
+                                                            <i data-feather="download"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

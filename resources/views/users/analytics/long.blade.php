@@ -3,10 +3,15 @@
 <title>Analytics Long | The Trading Buddy</title>
 @endsection
 @section('style')
-<link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/chartist.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
+    <style>
+        .after_img{
+            width: 100%;
+            max-height: 270px;
+            margin-top: 5px;
+        }
+    </style>
 @endsection
 @section('content')
 <div class="page-body">
@@ -123,12 +128,10 @@
                         <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestlongtrade']->duration)->cascade()->forHumans() }}</p>
                         <p>Entry Time: {{ $data['bestlongtrade']->created_at }}</p>
                         <p>After Images:
-                        @foreach($data['afterimages'] as $afterimage)
-                            <a class="b-r-15 mt-3" href="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}">Please click here to see After Images</a>, 
-                        @endforeach
-                        </p>
+                        @if($data['afterimage'])
+                            <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
+                        @endif
                     </div>
-                    </p>
                 </div>
             </div>
             <div class="col-xl-6 xl-50 appointment box-col-6">
@@ -219,7 +222,6 @@
     var analytics_long_data = {!! json_encode($data, JSON_HEX_TAG) !!};
 </script>
 <script src="../assets/js/chart/chartist/chartist.js"></script>
-<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
 <script src="../assets/js/chart/knob/knob.min.js"></script>
 <script src="../assets/js/chart/knob/knob-chart.js"></script>
 <script src="../assets/js/dashboard/default.js"></script>

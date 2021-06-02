@@ -100,7 +100,7 @@ class AnalyticsController extends Controller
         $belong_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'LONG')->where('profit_gl', 0)->count();
         $longtradesums = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'LONG')->selectRaw('sum(pips) as pips_sum, sum(percentage_gl) as percentage_gl_sum, sum(duration) as duration_sum')->first();
         $bestlongtrade = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'LONG')->orderBy('percentage_gl','desc')->first();
-        $afterimages = Afimage::where('trade_id', $bestlongtrade->id)->get();
+        $afterimage = Afimage::where('trade_id', $bestlongtrade->id)->first();
         $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('start_datetime')->first()->start_datetime;
         $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('end_datetime', 'desc')->first()->end_datetime;
         $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
@@ -136,7 +136,7 @@ class AnalyticsController extends Controller
         $data['longtradesums'] = $longtradesums;
         $data['long_ave_per_month'] = number_format($long_tcount/$totalMonthsDiff,2, '.', '');
         $data['bestlongtrade'] = $bestlongtrade;
-        $data['afterimages'] = $afterimages;
+        $data['afterimage'] = $afterimage;
 
         return view('users.analytics.long')->with([
             'data' => $data
@@ -152,7 +152,7 @@ class AnalyticsController extends Controller
         $beshort_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'SHORT')->where('profit_gl', 0)->count();
         $shorttradesums = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'SHORT')->selectRaw('sum(pips) as pips_sum, sum(percentage_gl) as percentage_gl_sum, sum(duration) as duration_sum')->first();
         $bestshorttrade = Trade::where('subuser_id', Auth::user()->current_subuser)->where('long_short', 'SHORT')->orderBy('percentage_gl','desc')->first();
-        $afterimages = Afimage::where('trade_id', $bestshorttrade->id)->get();
+        $afterimage = Afimage::where('trade_id', $bestshorttrade->id)->first();
         $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('start_datetime')->first()->start_datetime;
         $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('end_datetime', 'desc')->first()->end_datetime;
         $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
@@ -160,6 +160,9 @@ class AnalyticsController extends Controller
         $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
         $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
         $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tgain FROM trades WHERE end_datetime is not null AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
+
+        $shortsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->where('long_short', 'SHORT')->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
+        $shortsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->where('long_short', 'SHORT')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
 
         for($i=0; $i<count($trades); $i++)
         {
@@ -170,6 +173,14 @@ class AnalyticsController extends Controller
             $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
         }
 
+        for($i=0; $i<count($shortsymbol_nums); $i++)
+        {
+            $data['symbols'][$i] = $shortsymbol_nums[$i]->symbol->symbol;
+            $data['trades'][$i] = $shortsymbol_nums[$i]->total;
+            $data['sumsymbols'][$i] = $shortsymbol_percents[$i]->symbol->symbol;
+            $data['sum'][$i] = number_format($shortsymbol_percents[$i]->sum, 2, '.', '');
+        }
+
         $data['short_tcount'] = $short_tcount;
         $data['winshort_tcount'] = $winshort_tcount;
         $data['lossshort_tcount'] = $lossshort_tcount;
@@ -177,7 +188,7 @@ class AnalyticsController extends Controller
         $data['shorttradesums'] = $shorttradesums;
         $data['short_ave_per_month'] = number_format($short_tcount/$totalMonthsDiff,2, '.', '');
         $data['bestshorttrade'] = $bestshorttrade;
-        $data['afterimages'] = $afterimages;
+        $data['afterimage'] = $afterimage;
 
         return view('users.analytics.short')->with([
             'data' => $data

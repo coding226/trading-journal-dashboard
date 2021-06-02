@@ -104,7 +104,7 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-7 svg d-flex align-items-center">
-					<img src="../assets/images/bg_2.png" class="img-fluid" alt="">
+					<img src="../assets/images/bg_4.png" class="img-fluid" alt="">
 				</div>
 			</div>
 		</div>
