@@ -85,9 +85,9 @@
 @section('content')
 	<section class="hero-wrap">
 		<div class="overlay"></div>
-		<div class="container hero-section">
+		<div class="container hero-section" style="max-width:100%;padding:100px 100px 0 100px;">
 			<div class="row no-gutters slider-text align-items-center justify-content-between align-items-stretch">
-				<div class="col-md-6 col-lg-5 text d-flex align-items-center">
+				<div class="col-md-6 col-lg-4 text d-flex align-items-center">
 					<div>
 						<h1 class="">The Trading Buddy is Your New Online Trading Journal</h1>
 						<p>The Trading Buddy is only tool you’ll ever need to track your trading progress and data. Better still, you can try it now for FREE!</p>
@@ -103,8 +103,8 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-7 svg d-flex align-items-center">
-					<img src="../assets/images/bg_4.png" class="img-fluid" alt="">
+				<div class="col-md-6 col-lg-8 svg d-flex align-items-center">
+					<img src="../assets/images/bg_5.png" class="img-fluid" alt="">
 				</div>
 			</div>
 		</div>
@@ -132,7 +132,7 @@
 												class="flaticon-user"></span></div>
 										<div class="text">
 											<h2>Best in class digital security</h2>
-											<p>Each user has a secure personal account where they can add deposits and make withdrawals mirroring their trading account. Your data has never been in safer hands.</p>
+											<p>Your account allows you to track your deposits and withdrawals, mirroring your trading account. Your data has never been easier to track.</p>
 										</div>
 									</a>
 								</div>
@@ -143,7 +143,7 @@
 												class="flaticon-seo"></span></div>
 										<div class="text">
 											<h2>Personalised Account Dashboard</h2>
-											<p>Every user – free or paid – gets their own personal dashboard providing an overview of their trading account. This dashboard can be customised to provide exactly the information you need at a glance. </p>
+											<p>Both free and subscribed users will receive their own personal dashboard where they are provided with an overview of their trading account. Customisation of the dashboard will allow every user to monitor the data they need at glance.</p>
 										</div>
 									</a>
 								</div>
@@ -154,7 +154,7 @@
 												class="flaticon-vector"></span></div>
 										<div class="text">
 											<h2>Account Analytics</h2>
-											<p>Review detailed account analytics for all trades with a single click. Our automated analytics engine can do more than just display your trading data and recent trends, though. It can show you what it all means for you.</p>
+											<p>Our account analytics will help to review all your trades with a single click. The in-built account analytics engine will display your account trading performance data in interactive graphs being updated as you enter new data.</p>
 										</div>
 									</a>
 								</div>
@@ -165,7 +165,7 @@
 												class="flaticon-rocket"></span></div>
 										<div class="text">
 											<h2>Refined Account Analytics</h2>
-											<p>The best advice depends on your plans, after all. Our systems can refine your account data between long and short positions, ensuring that your ‘safe’ money stays safe and your riskier positions are easier to keep an eye on. </p>
+											<p>Our refined account analytics engine will help you to dissect your short and long positions, to enable you refine your trading decisions.</p>
 										</div>
 									</a>
 								</div>
@@ -176,7 +176,7 @@
 												class="flaticon-business"></span></div>
 										<div class="text">
 											<h2>Symbol Analytics</h2>
-											<p>Our detailed, charts and analytics are a trader’s best friends. You can view a personalised symbol leader board and access detailed analytics for each symbol individually.</p>
+											<p>Our symbol analytics tool allows you to review each specific symbol you trade and displays all the data you need to know about that market. Symbol analytics is the best friend of every trader.</p>
 										</div>
 									</a>
 								</div>
@@ -187,7 +187,7 @@
 												class="flaticon-search-engine"></span></div>
 										<div class="text">
 											<h2>Import and Export Reports</h2>
-											<p>You can import and export your entire trade history, and create bespoke reports in either the .XLS or .CSV  formats. You can export or back-up your entire trading history in the same way.</p>
+											<p>You can import and export your entire trading history, create reports and all of it can be done in software-friendly .XLS and .CSV formats. By exporting your trading history you will have the ability to create back-ups and customised reports.</p>
 										</div>
 									</a>
 								</div>

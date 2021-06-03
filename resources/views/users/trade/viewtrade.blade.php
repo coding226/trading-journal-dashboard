@@ -6,13 +6,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/select2.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-time-picker.html">
     <style>
-        .before_preview img, .after_preview img{
-            max-width: 320px;
-            max-height: 240px;
-            border: 1px solid;
-            padding: 5px;
-            border-radius: 10px;
-            margin: 5px;
+        .preview img{
+            max-width: 100%;
         }
     </style>
 @endsection
@@ -40,7 +35,8 @@
                 <div class="card" id="topdf">
                     <div class="card-header">
                         <h5 class="pull-left">Trade No: {{ $trade->trade_num }}</h5>
-                        <button class="btn btn-primary pull-right export2pdf">Export to PDF</button>
+                        {{-- <button class="btn btn-primary pull-right export2pdf">Export to PDF</button> --}}
+                        <a href="{{ url('/downloadpdf') }}/{{ Auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="btn btn-primary pull-right export2pdf">Export to PDF</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -93,22 +89,23 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-5 preview">
                             <h6>Before Images</h6>
                             @foreach($beimages as $key => $beimage)
-                                <img class="b-r-15 mt-3" src="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" alt="Unknown Image">
+                                <a href="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" target="_blank"><img class="b-r-15 mt-3" src="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" alt="Unknown Image"></a>
                             @endforeach
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-5 preview">
                             <h6>After Images</h6>
                             @foreach($afimages as $key => $afimage)
-                                <img class="b-r-15 mt-3" src="{{ ($afimage->after_link) ? $afimage->after_link:'/'.$afimage->after_file }}" alt="Unknown Image">
+                                <a href="{{ ($afimage->after_link) ? $afimage->after_link:'/'.$afimage->after_file }}" target="_blank"><img class="b-r-15 mt-3" src="{{ ($afimage->after_link) ? $afimage->after_link:'/'.$afimage->after_file }}" alt="Unknown Image"></a>
                             @endforeach
                         </div>
                     </div>
                     <div class="card-footer text-end">
                         <div class="col-sm-9 offset-sm-3">
                             <button class="btn btn-primary export2pdf">Export to PDF</button>
+                            {{-- <a href="{{ url('/downloadpdf') }}/{{ Auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="btn btn-primary export2pdf">Export to PDF</a> --}}
                         </div>
                     </div>
                 </div>

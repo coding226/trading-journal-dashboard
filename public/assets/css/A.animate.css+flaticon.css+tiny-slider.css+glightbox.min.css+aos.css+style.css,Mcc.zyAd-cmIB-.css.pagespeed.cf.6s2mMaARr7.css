@@ -5963,7 +5963,7 @@ h5,
 }
 
 .hero-wrap .slider-text {
-    height: 800px;
+    height: 700px;
     color: rgba(255, 255, 255, .8);
     z-index: 0;
     position: relative
@@ -6032,7 +6032,7 @@ h5,
 .hero-wrap .slider-text .h1 {
     font-weight: 700;
     color: #fff;
-    font-size: 60px;
+    font-size: 53px;
     line-height: 1.2
 }
 
@@ -6040,7 +6040,7 @@ h5,
 
     .hero-wrap .slider-text h1,
     .hero-wrap .slider-text .h1 {
-        font-size: 40px
+        font-size: 37px
     }
 }
 

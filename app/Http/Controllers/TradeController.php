@@ -130,8 +130,8 @@ class TradeController extends Controller
     }
 
     public function import() 
-    {
-        Excel::import(new TradesImport,request()->file('file'));
+    {        
+        Excel::import(new TradesImport, request()->file('file'));
              
         return back();
     }
@@ -172,18 +172,16 @@ class TradeController extends Controller
     public function createPDF($username, Request $request)
     {
         $user = User::where('name', $username)->first();
+        
         if($user){
             $current_subuser = $user->current_subuser;
-            $trade = Trade::where('subuser_id', $current_subuser)->where('id', $request->tradeid)->first();
-            $symbols = Symbol::get();
-            $beimages = Beimage::where('trade_id', $request->tradeid)->get();
-            $afimages = Afimage::where('trade_id', $request->tradeid)->get();
-            // return view('users.trade.viewtrade', compact('trade','symbols','beimages','afimages'));
-            view()->share('trade',$trade);
-            $pdf = PDF::loadView('pdfview', $trade);
-      
-            // download PDF file with download method
-            return $pdf->download('pdf_file.pdf');
+            $data['trade'] = Trade::where('subuser_id', $current_subuser)->where('id', $request->tradeid)->first();
+            $data['beimages'] = Beimage::where('trade_id', $request->tradeid)->get();
+            $data['afimages'] = Afimage::where('trade_id', $request->tradeid)->get();
+            $filename = $username.'_'.$user->current_user->username.'_'.$data['trade']->trade_num.'.pdf';
+            view()->share('data',$data);
+            $pdf = PDF::loadView('pdfview', $data);
+            return $pdf->download($filename);
         }
         else{
             return redirect()->back();
@@ -356,7 +354,6 @@ class TradeController extends Controller
         $enddate = Carbon::createFromFormat('m/d/Y', $request->enddate)->format("Y-m-d H:i:s");
         $trades = Trade::where('subuser_id', Auth::user()->current_subuser)->where('start_datetime', '<', $enddate)->where('end_datetime', '>', $startdate)->get();
         $completed = 1;
-        echo json_encode($completed);
         $returnHTML = view('users.trade.filtered')->with(['trades' => $trades, 'completed' => $completed])->render();
         return response()->json(array('success' => true, 'html'=>$returnHTML));
     }

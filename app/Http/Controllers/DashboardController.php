@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $tprofit = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('profit_gl');
         $tfee = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('fees');
         $tpecen = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('percentage_gl');
-        $recents = Trade::where('subuser_id', Auth::user()->current_subuser)->orderBy('created_at' ,'desc')->take(5)->get();
+        $recents = Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->orderBy('created_at' ,'desc')->take(5)->get();
         // $trades =   Trade::where('subuser_id', Auth::user()->current_subuser)->whereNotNull('end_datetime')->orderBy('end_datetime')->get();
         $trades =   DB::select(DB::raw('SELECT id, percentage_gl, end_datetime, (SELECT SUM(percentage_gl) FROM `trades` WHERE end_datetime <= a.end_datetime and end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.') presum FROM trades a where end_datetime IS NOT NULL and subuser_id = '.Auth::user()->current_subuser.' ORDER BY end_datetime'));
         

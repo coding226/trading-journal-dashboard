@@ -39,6 +39,16 @@
         .media{
             margin: 0 5px;
         }
+        #importbtn{
+            padding: 12px 35px;
+            border: none;
+            border-radius: 20px 0 0 20px;   
+        }
+        #exportbtn{
+            padding: 12px 35px;
+            border: none;
+            border-radius: 0 20px 20px 0;  
+        }
     </style>
 @endsection
 @section('content')
@@ -77,18 +87,19 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <form action="{{ route('trade.import') }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
-                                            <div class="custom-file text-left">
-                                                <input type="file" name="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-primary">Import data</button>
-                                        <a class="btn btn-success" href="#">Export data</a>
-                                    </form>
                                 </div>
+                            </div>
+                            <div class="row collapse" id="importsectionCollapse" data-bs-parent="#importoggler">
+                                <form action="{{ route('trade.import') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
+                                        <div class="custom-file text-left">
+                                            <input type="file" name="file" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                            <button class="btn btn-primary m-t-l-3">Confirm</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <div class="card-body table-responsive" id="trade-table">
@@ -96,9 +107,12 @@
                                 <div class="portlet-title">
                                     <div class="actions">
                                         <div class="btn-group dropdown-basic mb-5 pull-right">
+                                            <button class="btn btn-primary" id="importbtn" type="button" data-bs-toggle="modal" data-bs-target="#importformmoal">Import
+                                                <span><i class="icofont icofont-upload"></i></span>
+                                            </button>
                                             <div class="dropdown mb-5">
                                                 <div class="btn-group">
-                                                    <button class="dropbtn btn-secondary btn-round" type="button">Export
+                                                    <button class="dropbtn btn btn-secondary" type="button" id="exportbtn">Export
                                                         <span><i class="icofont icofont-airplane"></i></span>
                                                     </button>
                                                     <div class="dropdown-content pull-right" id="sample_3_tools">
@@ -166,7 +180,7 @@
                                                             <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
                                                         </a>
                                                         <a href="{{ url('/downloadpdf') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="pull-left">
-                                                            <i data-feather="download"></i>
+                                                            <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download-cloud"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg></div>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -183,6 +197,31 @@
         </div>
         <!-- Container-fluid Ends-->
     </div>
+
+    <div class="modal fade" id="importformmoal" tabindex="-1" role="dialog" aria-labelledby="importformmoal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form action="{{ route('trade.import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title">Import Trades From Excel or CSV</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="custom-file text-left">
+                            <input type="file" name="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn-primary" type="button">Ok</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('script')
     <script src="../assets/js/datatable/datatables/datatable.js" type="text/javascript"></script>
@@ -191,7 +230,7 @@
     <script src="../assets/js/datepicker/daterange-picker/moment.min.js"></script>
     <script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
     <script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
-    <script src="../assets/js/datatable/datatables/scripts/app.min.js" type="text/javascript"></script>
+    <!-- <script src="../assets/js/datatable/datatables/scripts/app.min.js" type="text/javascript"></script> -->
     <script src="../assets/js/trade/table-datatables-buttons.min.js" type="text/javascript"></script>
     <script src="../assets/js/trade/mytrade.js" type="text/javascript"></script>
 @endsection

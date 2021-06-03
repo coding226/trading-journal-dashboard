@@ -2,10 +2,13 @@
     <div class="portlet-title">
         <div class="actions">
             <div class="btn-group dropdown-basic mb-5 pull-right">
+            @isset($completed)
+                <button class="btn btn-primary" id="importbtn" type="button" data-bs-toggle="modal" data-bs-target="#importformmoal">Import
+                    <span><i class="icofont icofont-upload"></i></span>
+                </button>
                 <div class="dropdown mb-5">
-                @isset($complete)
                     <div class="btn-group">
-                        <button class="dropbtn btn-secondary btn-round" type="button">Export
+                        <button class="dropbtn btn-secondary" type="button" id="exportbtn">Export
                             <span><i class="icofont icofont-airplane"></i></span>
                         </button>
                         <div class="dropdown-content pull-right" id="sample_3_tools">
@@ -17,8 +20,8 @@
                             <li><a href="javascript:;" data-action="5" class="tool-action"><i class="icon-refresh"></i> Reload</a></li>
                         </div>
                     </div>
-                @endisset
                 </div>
+            @endisset
             </div>
         </div>
     </div>
@@ -31,7 +34,7 @@
                         <th>Symbol:</th>
                         <th>Long/Short</th>
                         <th class="text-center">Start Date</th>
-                        @isset($complete)
+                        @isset($completed)
                         <th class="text-center">Trade Duration</th>
                         <th>Profit/Loss($)</th>
                         <th>Profit/Loss(%)</th>
@@ -51,7 +54,7 @@
                         <td class="text-center">{{ $trade->symbol->symbol }}</td>
                         <td class="text-center">{{ $trade->long_short }}</td>
                         <td class="text-center">{{ $trade->start_datetime }}</td>
-                        @isset($complete)
+                        @isset($completed)
                             <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
                             @if( $trade->profit_gl > 0 )
                             <td class="font-success text-center">{{ $trade->profit_gl }}</td>
@@ -83,6 +86,9 @@
                             </a>
                             <a href="{{ url('/viewtrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
                                 <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+                            </a>
+                            <a href="{{ url('/downloadpdf') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="pull-left">
+                                <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download-cloud"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg></div>
                             </a>
                         </td>
                     </tr>
