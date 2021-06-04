@@ -120,17 +120,23 @@
                         <h5>Best Long Position (Calculated on Percentage Gain)</h5>
                     </div>
                     <div class="card-body">
-                        <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
-                        <p>Long or Short: {{ $data['bestlongtrade']->long_short }}</p>
-                        <p>AccountProfit(£,$,€): {{ $data['bestlongtrade']->profit_gl }}</p>
-                        <p>Percentage Account Gain (%): {{ $data['bestlongtrade']->percentage_gl }}</p>
-                        <p>Total Amount Of Pips: {{ $data['bestlongtrade']->pips }}</p>
-                        <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestlongtrade']->duration)->cascade()->forHumans() }}</p>
-                        <p>Entry Time: {{ $data['bestlongtrade']->created_at }}</p>
-                        <p>After Images:
-                        @if($data['afterimage'])
-                            <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
-                        @endif
+                        <div class="row">
+                            <div class="col-sm-12 col-xl-6">
+                                <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
+                                <p>Long or Short: {{ $data['bestlongtrade']->long_short }}</p>
+                                <p>AccountProfit(£,$,€): {{ $data['bestlongtrade']->profit_gl }}</p>
+                                <p>Percentage Account Gain (%): {{ $data['bestlongtrade']->percentage_gl }}</p>
+                                <p>Total Amount Of Pips: {{ $data['bestlongtrade']->pips }}</p>
+                                <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestlongtrade']->duration)->cascade()->forHumans() }}</p>
+                                <p>Entry Time: {{ $data['bestlongtrade']->created_at }}</p>
+                            </div>
+                            <div class="col-sm-12 col-xl-6">
+                                @if($data['afterimage'])
+                                {{-- <p>After Image: <a class="b-r-15 mt-3" href="{{ ($afterimage->after_link) ? $afterimage->after_link:'/'.$afterimage->after_file }}">Please click here to see After Images</a> --}}
+                                <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

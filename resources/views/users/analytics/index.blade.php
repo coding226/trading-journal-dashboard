@@ -10,6 +10,10 @@
         max-height: 270px;
         margin-top: 5px;
     }
+    #reportrange{
+        width: 220px;
+        margin: 0 20px;
+    }
 </style>
 @endsection
 @section('content')
@@ -17,10 +21,12 @@
     <div class="container-fluid">
         <div class="page-title">
             <div class="row">
-                <div class="col-6">
-                    <h3>Analytics Page / All </h3>
+                <div class="col-8 d-flex">
+                    <h3 class="d-flex align-items-center">Analytics Page / All </h3>
+                    <input class="form-control daterangefilter" id="reportrange" type="text">
+                    <p class="m-0 p-3">Please select daterange</p>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"></i></a></li>
                         <li class="breadcrumb-item">Analytics Page</li>
@@ -48,9 +54,6 @@
                     <div class="card-header">
                         <div class="header-top">
                             <h5>Win/Loss/Breakeven</h5>
-                            <div class="card-header-right-icon">
-                                <input class="form-control" id="reportrange" type="text">
-                            </div>
                         </div>
                     </div>
                     <div class="card-body apex-chart">
@@ -191,6 +194,7 @@
 @section('script')
 <script>
     var analytics_all_data = {!! json_encode($data, JSON_HEX_TAG) !!};
+    var daterange2 = {!! json_encode($daterange, JSON_HEX_TAG) !!};
 </script>
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="../assets/js/analytics/all-chart.js"></script>

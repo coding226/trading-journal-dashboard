@@ -362,3 +362,20 @@ var growthoptions = {
 var chart1 = new ApexCharts(document.querySelector("#winrate-graph"),growthoptions);
 
 chart1.render();
+
+$('#reportrange').on('change', function() {
+    if(flag == false){
+        console.log(daterange2);
+        $(this).val(daterange2);
+        return;
+    }
+    var daterange = $(this).val().replace(/\s/g, '').split('-');
+    var baseurl = window.location.origin;
+    var url = baseurl+'/analytics?startdate='+daterange[0]+'&enddate='+daterange[1];
+    window.location.replace(url);
+});
+
+var flag = false;
+window.onload = function() {
+    flag = true;
+}

@@ -36,7 +36,10 @@ class TradeController extends Controller
     public function addnewtrade()
     {
         $symbols = Symbol::get();
-        return view('users.trade.new-trade', compact('symbols'));
+        $tprofit = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('profit_gl');
+        $tfee = Trade::where('subuser_id', Auth::user()->current_subuser)->sum('fees');
+        $account_balance = Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee;
+        return view('users.trade.new-trade', compact('symbols','account_balance'));
     }
 
 

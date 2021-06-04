@@ -30,7 +30,7 @@
 
 //Predefined Ranges
     $(function() {
-
+        
         var start = moment().subtract(1, 'month').startOf('month');
         var end = moment().endOf('month');
 
