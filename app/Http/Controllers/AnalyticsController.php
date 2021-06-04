@@ -114,7 +114,8 @@ class AnalyticsController extends Controller
                 $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val.'_'.$trades[$i]->day_val), 'M Y');
             }
         }
-        // dd($data['month']);
+        
+
         if(count($equities) > 0){
             if($this->range == 'montly'){
                 $data['equityy'][0] = Carbon::createFromFormat('Y-m-d H:i:s', $equities[0]->end_datetime)->subDay()->format("Y-m-d H:i:s");
@@ -152,6 +153,7 @@ class AnalyticsController extends Controller
             $data['ave_monthly'] = number_format($tradesums[0]['percentage_gl_sum']/$totalMonthsDiff, 2, '.', '');
             $data['ave_duration'] = number_format($tradesums[0]['duration_sum']/($all_count-$active_count), 2, '.', '');
         }
+
         if($request->startdate){
             $daterange = $request->startdate.'-'.$request->enddate;
         } else {
@@ -166,7 +168,7 @@ class AnalyticsController extends Controller
     }
     
     // long analytics
-    public function long_index()
+    public function long_index(Request $request)
     {
         $long_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->count();
         $winlong_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->where('profit_gl','>', 0)->count();
@@ -180,21 +182,67 @@ class AnalyticsController extends Controller
         $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
         $totalDaysDiff    = $totalSecondsDiff/60/60/24;
         $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
-        $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
-        $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tgain FROM trades WHERE end_datetime is not null AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
-
+        if($this->range == 'monthly'){
+            $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt
+            FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt
+            FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
+            $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND  "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
+        }
+        else if($this->range == 'weekly'){
+            $trades = DB::select(DB::raw('SELECT year_val, month_val, week_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM ( SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt 
+            FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime) ) a GROUP BY year_val, month_val, week_val'));
+            $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND  "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime)'));
+        }
+        else{
+            $trades = DB::select(DB::raw('SELECT year_val, month_val, day_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM ( SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt 
+            FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime) ) a GROUP BY year_val, month_val, day_val'));
+            $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND long_short = "LONG" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND  "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime)'));
+        }
         $longsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->whereNotNull('end_datetime')->where('long_short', 'LONG')->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
         $longsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->whereNotNull('end_datetime')->where('long_short', 'LONG')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
 
-        for($i=0; $i<count($trades); $i++)
-        {
-            $data['wins'][$i] = $trades[$i]->win;
-            $data['losses'][$i] = $trades[$i]->loss;
-            $data['bes'][$i] = $trades[$i]->be;
-            $data['gain'][$i] = number_format($gainpermonth[$i]->tgain, 2, '.', '');
-            $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
+        if($this->range == 'monthly'){
+            for($i=0; $i<count($trades); $i++)
+            {
+                $data['wins'][$i] = $trades[$i]->win;
+                $data['losses'][$i] = $trades[$i]->loss;
+                $data['bes'][$i] = $trades[$i]->be;
+                $data['gain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
+                $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
+            }
         }
+        else if($this->range == 'weekly'){
 
+            for($i=0; $i<count($trades); $i++)
+            {
+                $data['wins'][$i] = $trades[$i]->win;
+                $data['losses'][$i] = $trades[$i]->loss;
+                $data['bes'][$i] = $trades[$i]->be;
+                $data['gain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
+                if($trades[$i]->week_val < 10){
+                    $weekdate = $trades[$i]->year_val.'W0'.$trades[$i]->week_val;
+                }else{
+                    $weekdate = $trades[$i]->year_val.'W'.$trades[$i]->week_val;
+                }
+                $data['month'][$i] = date('Y W',strtotime($weekdate));
+            }
+        }
+        else{
+            for($i=0; $i<count($trades); $i++)
+            {
+                $data['wins'][$i] = $trades[$i]->win;
+                $data['losses'][$i] = $trades[$i]->loss;
+                $data['bes'][$i] = $trades[$i]->be;
+                $data['gain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
+                $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val.'_'.$trades[$i]->day_val), 'M Y');
+            }
+        }
+        
         for($i=0; $i<count($longsymbol_nums); $i++)
         {
             $data['symbols'][$i] = $longsymbol_nums[$i]->symbol->symbol;
@@ -212,13 +260,20 @@ class AnalyticsController extends Controller
         $data['bestlongtrade'] = $bestlongtrade;
         $data['afterimage'] = $afterimage;
 
+        if($request->startdate){
+            $daterange = $request->startdate.'-'.$request->enddate;
+        } else {
+            $daterange = 'ALL';
+        }
+
         return view('users.analytics.long')->with([
-            'data' => $data
+            'data' => $data,
+            'daterange' => $daterange
         ]);
     }
     
     //short analytics
-    public function short_index()
+    public function short_index(Request $request)
     {
         $short_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->count();
         $winshort_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->where('profit_gl','>', 0)->count();
@@ -232,19 +287,68 @@ class AnalyticsController extends Controller
         $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
         $totalDaysDiff    = $totalSecondsDiff/60/60/24;
         $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
-        $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
-        $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tgain FROM trades WHERE end_datetime is not null AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
+        if($this->range == 'monthly'){
+            $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt
+            FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt
+            FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
+            $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND  "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
+        }
+        else if($this->range == 'weekly'){
+            $trades = DB::select(DB::raw('SELECT year_val, month_val, week_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM ( SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt 
+            FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime) ) a GROUP BY year_val, month_val, week_val'));
+            $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, WEEK(end_datetime) week_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND  "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), WEEK(end_datetime)'));
+        }
+        else{
+            $trades = DB::select(DB::raw('SELECT year_val, month_val, day_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM ( SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl > 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt 
+            FROM trades WHERE profit_gl < 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt 
+            FROM trades WHERE profit_gl = 0 AND end_datetime IS NOT NULL AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime) ) a GROUP BY year_val, month_val, day_val'));
+            $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, DAY(end_datetime) day_val, sum(percentage_gl) tpgain, sum(profit_gl) trgain FROM trades WHERE end_datetime is not null AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' AND end_datetime BETWEEN "'.$this->startdate.'" AND  "'.$this->enddate.'" GROUP BY YEAR(end_datetime), MONTH(end_datetime), DAY(end_datetime)'));
+        }
+        // $trades = DB::select(DB::raw('SELECT year_val, month_val, sum(pos_cnt) win, sum(neg_cnt) loss, sum(zero_cnt) be FROM (SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, count(*) pos_cnt, 0 neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl > 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, count(*) neg_cnt, 0 zero_cnt FROM trades WHERE profit_gl < 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime) UNION ALL SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, 0 pos_cnt, 0 neg_cnt, count(*) zero_cnt FROM trades WHERE profit_gl = 0 AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)) a GROUP BY year_val, month_val'));
+        // $gainpermonth = DB::select(DB::raw('SELECT YEAR(end_datetime) year_val, MONTH(end_datetime) month_val, sum(percentage_gl) tgain FROM trades WHERE end_datetime is not null AND long_short = "SHORT" AND subuser_id = '.Auth::user()->current_subuser.' GROUP BY YEAR(end_datetime), MONTH(end_datetime)'));
 
         $shortsymbol_nums = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->whereNotNull('end_datetime')->where('long_short', 'SHORT')->select('symbol_id', DB::raw('count(*) as total'))->groupBy('symbol_id')->get();
         $shortsymbol_percents = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->whereNotNull('end_datetime')->where('long_short', 'SHORT')->groupBy('symbol_id')->selectRaw('sum(percentage_gl) as sum, symbol_id')->get();
 
-        for($i=0; $i<count($trades); $i++)
-        {
-            $data['wins'][$i] = $trades[$i]->win;
-            $data['losses'][$i] = $trades[$i]->loss;
-            $data['bes'][$i] = $trades[$i]->be;
-            $data['gain'][$i] = number_format($gainpermonth[$i]->tgain, 2, '.', '');
-            $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
+        if($this->range == 'monthly'){
+            for($i=0; $i<count($trades); $i++)
+            {
+                $data['wins'][$i] = $trades[$i]->win;
+                $data['losses'][$i] = $trades[$i]->loss;
+                $data['bes'][$i] = $trades[$i]->be;
+                $data['gain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
+                $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val), 'M Y');
+            }
+        }
+        else if($this->range == 'weekly'){
+
+            for($i=0; $i<count($trades); $i++)
+            {
+                $data['wins'][$i] = $trades[$i]->win;
+                $data['losses'][$i] = $trades[$i]->loss;
+                $data['bes'][$i] = $trades[$i]->be;
+                $data['gain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
+                if($trades[$i]->week_val < 10){
+                    $weekdate = $trades[$i]->year_val.'W0'.$trades[$i]->week_val;
+                }else{
+                    $weekdate = $trades[$i]->year_val.'W'.$trades[$i]->week_val;
+                }
+                $data['month'][$i] = date('Y W',strtotime($weekdate));
+            }
+        }
+        else{
+            for($i=0; $i<count($trades); $i++)
+            {
+                $data['wins'][$i] = $trades[$i]->win;
+                $data['losses'][$i] = $trades[$i]->loss;
+                $data['bes'][$i] = $trades[$i]->be;
+                $data['gain'][$i] = number_format($gainpermonth[$i]->tpgain, 2, '.', '');
+                $data['month'][$i] = date_format(date_create($trades[$i]->year_val.'-'.$trades[$i]->month_val.'_'.$trades[$i]->day_val), 'M Y');
+            }
         }
 
         for($i=0; $i<count($shortsymbol_nums); $i++)
@@ -264,8 +368,15 @@ class AnalyticsController extends Controller
         $data['bestshorttrade'] = $bestshorttrade;
         $data['afterimage'] = $afterimage;
 
+        if($request->startdate){
+            $daterange = $request->startdate.'-'.$request->enddate;
+        } else {
+            $daterange = 'ALL';
+        }
+
         return view('users.analytics.short')->with([
-            'data' => $data
+            'data' => $data,
+            'daterange' => $daterange
         ]);
     }
     

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<title>Analytics All | The Trading Journal</title>
+<title>Analytics All | The Trading Buddy</title>
 @endsection
 @section('style')
 <link rel="stylesheet" type="text/css" href="../assets/css/vendors/daterange-picker.css">

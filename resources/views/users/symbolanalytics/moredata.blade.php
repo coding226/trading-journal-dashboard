@@ -3,11 +3,16 @@
     <title>Symbol Analytics | The Trading Buddy</title>
 @endsection
 @section('style')
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/daterange-picker.css">
 <style>
     .after_img{
         width: 100%;
         max-height: 270px;
         margin-top: 5px;
+    }
+    #reportrange{
+        width: 220px;
+        margin: 0 20px;
     }
 </style>
 @endsection
@@ -17,7 +22,9 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>Analytics Page / {{ $symbol }} </h3>
+                        <h3 class="d-flex align-items-center">Analytics Page / {{ $symbol }} </h3>
+                        <input class="form-control daterangefilter" id="reportrange" type="text">
+                        <p class="m-0 p-3">Please select daterange</p>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -121,8 +128,12 @@
 @section('script')
     <script>
         var symbol_data = {!! json_encode($data, JSON_HEX_TAG) !!};
+        var daterange2 = {!! json_encode($daterange, JSON_HEX_TAG) !!};
     </script>
     <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
     <script src="../assets/js/symbol-analytics/symbol-data.js"></script>
+    <script src="../assets/js/datepicker/daterange-picker/moment.min.js"></script>
+    <script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
+    <script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
     <script src="../assets/js/tooltip-init.js"></script>
 @endsection

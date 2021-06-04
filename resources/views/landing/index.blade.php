@@ -85,7 +85,7 @@
 @section('content')
 	<section class="hero-wrap">
 		<div class="overlay"></div>
-		<div class="container hero-section" style="max-width:100%;padding:100px 100px 0 100px;">
+		<div class="container hero-section" style="max-width:100%;padding:100px 200px 0 200px;">
 			<div class="row no-gutters slider-text align-items-center justify-content-between align-items-stretch">
 				<div class="col-md-6 col-lg-4 text d-flex align-items-center">
 					<div>

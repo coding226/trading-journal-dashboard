@@ -321,3 +321,21 @@ profit_pairs_chart.render();
             }
         });
 })(jQuery);
+
+
+$('#reportrange').on('change', function() {
+    if(flag == false){
+        console.log(daterange2);
+        $(this).val(daterange2);
+        return;
+    }
+    var daterange = $(this).val().replace(/\s/g, '').split('-');
+    var baseurl = window.location.origin;
+    var url = baseurl+'/analytics-short?startdate='+daterange[0]+'&enddate='+daterange[1];
+    window.location.replace(url);
+});
+
+var flag = false;
+window.onload = function() {
+    flag = true;
+}

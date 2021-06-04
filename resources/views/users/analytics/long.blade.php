@@ -4,12 +4,16 @@
 @endsection
 @section('style')
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/chartist.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/daterange-picker.css">
     <style>
         .after_img{
             width: 100%;
             max-height: 270px;
             margin-top: 5px;
+        }
+        #reportrange{
+            width: 220px;
+            margin: 0 20px;
         }
     </style>
 @endsection
@@ -19,7 +23,9 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>Analytics Page / Long </h3>
+                    <h3 class="d-flex align-items-center">Analytics Page / Long </h3>
+                    <input class="form-control daterangefilter" id="reportrange" type="text">
+                    <p class="m-0 p-3">Please select daterange</p>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -173,17 +179,6 @@
                     <div class="card-header">
                         <div class="header-top">
                             <h5 class="m-0">Total Amount of Long Trades Per symbol</h5>
-                            <div class="card-header-right-icon">
-                                <div class="dropdown">
-                                    <button class="btn dropdown-toggle" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
-                                    <div class="tsymbol-chart dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                        <a class="dropdown-item" href="javascript:;">This Week</a>
-                                        <a class="dropdown-item" href="javascript:;">This Month</a>
-                                        <a class="dropdown-item" href="javascript:;">This Year</a>
-                                        <a class="dropdown-item" href="javascript:;">All</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="card-Body">
@@ -198,17 +193,6 @@
                     <div class="card-header">
                         <div class="header-top">
                             <h5 class="m-0">Long Symbol Profitability</h5>
-                            <div class="card-header-right-icon">
-                                <div class="dropdown">
-                                    <button class="btn dropdown-toggle" id="dropdownMenuButton2" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
-                                    <div class="psymbol-chart dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
-                                        <a class="dropdown-item" href="javascript:;">This Week</a>
-                                        <a class="dropdown-item" href="javascript:;">This Month</a>
-                                        <a class="dropdown-item" href="javascript:;">This Year</a>
-                                        <a class="dropdown-item" href="javascript:;">All</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="card-Body">
@@ -226,12 +210,15 @@
 @section('script')
 <script>
     var analytics_long_data = {!! json_encode($data, JSON_HEX_TAG) !!};
+    var daterange2 = {!! json_encode($daterange, JSON_HEX_TAG) !!};
 </script>
 <script src="../assets/js/chart/chartist/chartist.js"></script>
 <script src="../assets/js/chart/knob/knob.min.js"></script>
-<script src="../assets/js/chart/knob/knob-chart.js"></script>
-<script src="../assets/js/dashboard/default.js"></script>
+<!-- <script src="../assets/js/chart/knob/knob-chart.js"></script> -->
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="../assets/js/analytics/long-chart.js"></script>
+<script src="../assets/js/datepicker/daterange-picker/moment.min.js"></script>
+<script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
+<script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>
 @endsection
