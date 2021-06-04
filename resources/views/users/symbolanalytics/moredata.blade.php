@@ -46,6 +46,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
+                            @if($data['tradesums']->tcount)
                                 <div class="col-sm-12 col-xl-6">
                                     <p>Symbol Rank (Calculated on Percentage Gain): {{ $data['rank'] }}</p>
                                     <p>Total Amount Of Trades: {{ $data['tradesums']['tcount'] }}</p>
@@ -62,6 +63,7 @@
                                     <p>Average Trade Gain (%): {{ number_format($data['tradesums']['percentage_gl_sum']/$data['tradesums']['tcount'], 2, '.', '') }}</p>
                                     <p>Average Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['tradesums']['duration_sum']/$data['tradesums']['tcount'])->cascade()->forHumans() }}</p>
                                 </div>
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -73,6 +75,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
+                            @if($data['tradesums']->tcount)
                                 <div class="col-sm-12 col-xl-6">
                                     <p>Symbol: {{ $symbol }}</p>
                                     <p>Long or Short: {{ $data['besttrade']->long_short }}</p>
@@ -88,6 +91,7 @@
                                     <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
                                 @endif
                                 </div>
+                            @endif
                             </div>
                         </div>
                     </div>

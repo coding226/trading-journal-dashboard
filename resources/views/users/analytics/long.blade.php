@@ -51,7 +51,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="100">
+                                    data-bgcolor="#eef5fb" value="{{ $data['long_tcount'] ? 100 : 0}}">
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="{{ number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, ',', '') }}">
+                                    data-bgcolor="#eef5fb" value="{{ $data['long_tcount'] ? number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, ',', '') : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="{{ number_format($data['losslong_tcount']/$data['long_tcount']*100, 2, ',', '') }}">
+                                    data-bgcolor="#eef5fb" value="{{ $data['long_tcount'] ? number_format($data['losslong_tcount']/$data['long_tcount']*100, 2, ',', '') : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="{{ number_format($data['belong_tcount']/$data['long_tcount']*100, 2, ',', '') }}">
+                                    data-bgcolor="#eef5fb" value="{{ $data['long_tcount'] ? number_format($data['belong_tcount']/$data['long_tcount']*100, 2, ',', '') : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -111,13 +111,14 @@
                         <h5>Long Position Data Feed</h5>
                     </div>
                     <div class="card-body">
-                        <p>Long Position Win Rate: {{ number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, '.', '') }}</p>
+                    @if($data['long_tcount'])
+                        <p>Long Position Win Rate: {{ $data['long_tcount'] ? number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, '.', '') : '' }}</p>
                         <p>Long Position Percentage Account Gain (%): {{ $data['longtradesums']['percentage_gl_sum'] }}</p>
                         <p>Total Amount Of Pips from Long Trades: {{ $data['longtradesums']['pips_sum'] }}</p>
-                        <p>Average Amount Of Long Positions Per Month: {{ $data['long_ave_per_month'] }}</p>
-                        <p>Average Long Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['longtradesums']['duration_sum']/$data['long_tcount'])->cascade()->forHumans() }}</p>
+                        <p>Average Amount Of Long Positions Per Month: {{ $data['long_tcount'] ? $data['long_ave_per_month'] : ''}}</p>
+                        <p>Average Long Trade Duration (Time): {{ $data['long_tcount'] ? Carbon\CarbonInterval::seconds($data['longtradesums']['duration_sum']/$data['long_tcount'])->cascade()->forHumans() : '' }}</p>
+                    @endif
                     </div>
-                    </p>
                 </div>
             </div>
             <div class="col-sm-12 col-xl-6">
@@ -127,6 +128,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                        @if($data['long_tcount'])
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestlongtrade']->long_short }}</p>
@@ -142,6 +144,7 @@
                                 <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
                                 @endif
                             </div>
+                        @endif
                         </div>
                     </div>
                 </div>

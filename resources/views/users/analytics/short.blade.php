@@ -51,7 +51,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="100">
+                                    data-bgcolor="#eef5fb" value="{{ $data['short_tcount'] ? 100 : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="{{ number_format($data['winshort_tcount']/$data['short_tcount']*100, 2, ',', '') }}">
+                                    data-bgcolor="#eef5fb" value="{{ $data['short_tcount'] ? number_format($data['winshort_tcount']/$data['short_tcount']*100, 2, ',', '') : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="{{ number_format($data['lossshort_tcount']/$data['short_tcount']*100, 2, ',', '') }}">
+                                    data-bgcolor="#eef5fb" value="{{ $data['short_tcount'] ? number_format($data['lossshort_tcount']/$data['short_tcount']*100, 2, ',', '') : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <div class="knob-block text-center">
                                 <input class="knob1" data-width="10" data-height="70" data-thickness=".3"
                                     data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff"
-                                    data-bgcolor="#eef5fb" value="{{ number_format($data['beshort_tcount']/$data['short_tcount']*100, 2, ',', '') }}">
+                                    data-bgcolor="#eef5fb" value="{{ $data['short_tcount'] ? number_format($data['beshort_tcount']/$data['short_tcount']*100, 2, ',', '') : 0 }}">
                             </div>
                         </div>
                     </div>
@@ -111,13 +111,14 @@
                         <h5>Short Position Data Feed</h5>
                     </div>
                     <div class="card-body">
+                    @if($data['short_tcount'])
                         <p>Short Position Win Rate: {{ number_format($data['winshort_tcount']/$data['short_tcount'], 2, '.', '') }}</p>
                         <p>Short Position Percentage Account Gain (%): {{ $data['shorttradesums']['percentage_gl_sum'] }}</p>
                         <p>Total Amount Of Pips from Short Trades: {{ $data['shorttradesums']['pips_sum'] }}</p>
                         <p>Average Amount Of Short Positions Per Month: {{ $data['short_ave_per_month'] }}</p>
                         <p>Average Short Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['shorttradesums']['duration_sum']/$data['short_tcount'])->cascade()->forHumans() }}</p>
+                    @endif
                     </div>
-                    </p>
                 </div>
             </div>
             <div class="col-sm-12 col-xl-6">
@@ -127,6 +128,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                        @if($data['short_tcount'])
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $data['bestshorttrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestshorttrade']->long_short }}</p>
@@ -142,6 +144,7 @@
                                 <p>After Image: <a class="b-r-15 mt-3" href="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}" target="_blank"><img class="after_img" src="{{ ($data['afterimage']->after_link) ? $data['afterimage']->after_link:'/'.$data['afterimage']->after_file }}"></a></p>
                                 @endif
                             </div>
+                        @endif
                         </div>
                     </div>
                 </div>
