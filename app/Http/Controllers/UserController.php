@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Validator;
 use App\Models\User;
 use App\Models\Subuser;
+use App\Models\Currency;
 use Auth;
 
 class UserController extends Controller
@@ -19,12 +20,14 @@ class UserController extends Controller
     
     public function setting()
     {
-        return view('users.account.setting');
+        $curriences = Currency::all();
+        return view('users.account.setting', compact('curriences'));
     }
 
     public function new_account()
     {
-        return view('users.account.new-account');
+        $curriences = Currency::all();
+        return view('users.account.new-account', compact('curriences'));
     }
     
     public function create_subaccount(Request $request)
@@ -69,9 +72,12 @@ class UserController extends Controller
                 $image = $request->file('avatar_img');
                 $new_name = Auth::user()->id . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('assets/images/avatar'), $new_name);
-                $user->avatar = $new_name;
+                $user->avatar = 'assets/images/avatar/'.$new_name;
             }
             $user->save();
+            $subuser = Subuser::find(Auth::user()->current_subuser);
+            $subuser->currency = $request->currency;
+            $subuser->save();
             return json_encode(true);
         }
         return json_encode(false);

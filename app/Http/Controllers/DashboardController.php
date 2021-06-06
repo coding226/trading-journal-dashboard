@@ -137,10 +137,4 @@ class DashboardController extends Controller
         }
 
     }
-
-    public function contactus()
-    {
-        $subuser = Subuser::where('id', Auth::user()->current_subuser)->first();
-        return view('users.contactus.index',compact('subuser'));
-    }
 }

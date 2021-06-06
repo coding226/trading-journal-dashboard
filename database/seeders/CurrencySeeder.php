@@ -15,15 +15,63 @@ class CurrencySeeder extends Seeder
     public function run()
     {
         $currencies = [
-            'usd',
+            'aud',
+            'gbp',            
+            'cad',
+            'cny',
+            'czk',
+            'dkk',
             'eur',
-            'gbp',
+            'hkd',
             'jpy',
+            'nzd',
+            'nok',
+            'chf',
+            'sgd',
+            'zar',
+            'sek',
+            'usd',
         ];
-
-        foreach ($currencies as $currency) {
+        $descriptions = [
+            'Australian Dollar (AUD)',
+            'British Pound (GBP)',
+            'Canadian Dollar (CAD)',
+            'Chinese Yuan (CNY)',
+            'Czech Koruna (CZK)',
+            'Danish Krone (DKK)',
+            'Euro (EUR)',
+            'Hong Kong Dollar (HKD)',
+            'Japanese Yen (JPY)',
+            'New Zealand Dollar (NZD)',
+            'Norwegian Krone (CHF)',
+            'Singapore Dollar (SGD)',
+            'South African Rand (ZAR)',
+            'Swedish Krona (SEK)',
+            'United States Dollar (USD)',
+        ];
+        $signs = [
+            '$',
+            '£',            
+            '$',
+            '¥',
+            'Kč',
+            'kr',
+            '€',
+            '$',
+            '¥',
+            '$',
+            'kr',
+            'CHF',
+            '$',
+            'R',
+            'kr',
+            '$',
+        ];
+        for( $i=0; $i<count($currencies); $i++ ) {
             Currency::create([
-                'iso' => $currency,
+                'iso' => $currencies[$i],
+                'desc' => $descriptions[$i],
+                'sign' => $signs[$i],
             ]);
         }
     }

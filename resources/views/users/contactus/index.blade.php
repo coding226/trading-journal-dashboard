@@ -36,35 +36,41 @@
                         <div class="card-header-right">
                             <ul class="list-unstyled card-option">
                                 <li><i class="fa fa-spin fa-cog"></i></li>
-                                <li><i class="view-html fa fa-code"></i></li>
-                                <li><i class="icofont icofont-maximize full-card"></i></li>
-                                <li><i class="icofont icofont-minus minimize-card"></i></li>
-                                <li><i class="icofont icofont-refresh reload-card"></i></li>
-                                <li><i class="icofont icofont-error close-card"></i></li>
                             </ul>
                         </div>
                     </div>
                     <div class="contact-form card-body">
-                        <form class="theme-form">
+                        @if(session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <form class="theme-form" name="g-v3-recaptcha-contact-us" id="g-v3-recaptcha-contact-us" method="post" action="{{url('validate-g-recaptcha')}}">
+                        @csrf
                             <div class="form-icon"><i class="icofont icofont-envelope-open"></i></div>
                             <div class="mb-3">
                                 <label for="exampleInputName">Your Name</label>
-                                <input class="form-control" id="exampleInputName" type="text" placeholder="John Dio"
-                                    data-bs-original-title="" title="">
+                                <input class="form-control" name="name" type="text" placeholder="Type here" data-bs-original-title="" title="">
+                                @error('name')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="col-form-label" for="exampleInputEmail1">Email</label>
-                                <input class="form-control" id="exampleInputEmail1" type="email"
-                                    placeholder="Demo@gmail.com" data-bs-original-title="" title="">
+                                <label class="col-form-label">Email</label>
+                                <input class="form-control" name="email" type="email" placeholder="Type here" data-bs-original-title="" title="">
+                                @error('email')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="col-form-label" for="exampleInputEmail1">Message</label>
-                                <textarea class="form-control textarea" rows="3" cols="50"
-                                    placeholder="Your Message"></textarea>
+                                <label class="col-form-label">Message</label>
+                                <textarea class="form-control textarea" rows="3" cols="50" placeholder="Type here" name="message"></textarea>
+                                @error('message')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="text-sm-end">
-                                <button class="btn btn-primary-gradien" data-bs-original-title="" title="">SEND
-                                    IT</button>
+                                <button class="btn btn-primary-gradien" data-bs-original-title="" title="">SEND IT</button>
                             </div>
                         </form>
 
@@ -77,9 +83,23 @@
 </div>
 @endsection
 @section('script')
-<script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
-<script src="../assets/js/datepicker/daterange-picker/moment.min.js"></script>
-<script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
-<script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfEbRQbAAAAAM6FxVdjn-U-92V2iuG7wD0eu3cP"></script>
+    <script>
+             grecaptcha.ready(function() {
+                 grecaptcha.execute('6LfEbRQbAAAAAM6FxVdjn-U-92V2iuG7wD0eu3cP', {action: 'contact'}).then(function(token) {
+                    if (token) {
+                      document.getElementById('recaptcha').value = token;
+                    }
+                 });
+             });
+    </script>
+    <!-- Start of LiveChat (www.livechatinc.com) code -->
+    <script>
+        window.__lc = window.__lc || {};
+        window.__lc.license = 12427134;
+        ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    </script>
+    <noscript><a href="https://www.livechatinc.com/chat-with/12427134/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
 @endsection

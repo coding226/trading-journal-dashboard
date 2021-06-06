@@ -18,8 +18,8 @@ class CreateSubusersTable extends Migration
             $table->Integer('user_id');
             $table->string('acc_num');
             $table->string('username');
-            $table->string('desc');
-            $table->string('currency')->default('USD');
+            $table->string('desc')->nullable();
+            $table->string('currency')->default('usd');
             $table->string('starting_bal')->nullable();
             $table->string('balance')->default('0');
             $table->timestamps();

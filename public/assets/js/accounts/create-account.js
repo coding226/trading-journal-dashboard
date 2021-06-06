@@ -25,7 +25,15 @@ $("#new_subaccount").click(function(e) {
         // },
         data: formData,
         success:function(data) {
-            alert( "Data Saved: " + data );
+            if(data){
+                $('#alertmodal form .modal-title').text('Success');
+                $('#alertmodal form .modal-body p').text('');
+            }
+            else{
+                $('#alertmodal form .modal-title').text('Failed');
+                $('#alertmodal form .modal-body p').text('');
+            }
+            $('#alertmodal').modal('show');
         }
     });
 });

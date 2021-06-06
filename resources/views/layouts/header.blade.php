@@ -322,16 +322,22 @@
                                         </i><span>Create New Trade</span></a></li>
                                 <li class="sidebar-main-title">
                                     <div>
+                                        <h6 class="lan-12">Tools</h6>
+                                        <p class="lan-9">Description</p>
+                                    </div>
+                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/notes') }}"><i data-feather="clipboard"></i><span>My Notes</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/ecocal') }}"><i data-feather="calendar"></i><span>Economic News Calendar</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/nationalcal') }}"><i data-feather="command"></i><span>National Holidays Calendar</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/markethour') }}"><i data-feather="clock"></i><span>Market Hours</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/currency') }}"><i data-feather="dollar-sign"></i><span>Currency Indexes</span></a></li>
+                                <li class="sidebar-main-title"><div>
                                         <h6 class="lan-12">Other</h6>
                                         <p class="lan-9">Description</p>
                                     </div>
                                 </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i
-                                            data-feather="list">
-                                        </i><span>Quick Course</span></a></li>
-                                {{-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/contactus') }}"><i
-                                            data-feather="server">
-                                        </i><span>Contact Us</span></a></li> --}}
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="list"></i><span>Quick Course</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/contactus') }}"><i data-feather="server"></i><span>Contact Us</span></a></li>
                             </ul>
                         </div>
                         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

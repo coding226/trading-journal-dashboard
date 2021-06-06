@@ -89,18 +89,12 @@
                             </div>
                             <div class="card-body">
                                 <form method="POST" onsubmit="return false;" id="mainsettingform">
-                                {{-- <form method="POST" action="{{ Route('user.mainsetting') }}"> --}}
                                 @csrf
                                     <div class="row mb-2">
                                         <div class="profile-title">
                                             <div class="media">
-                                                {{-- <img class="img-70 rounded-circle" alt="" src="../assets/images/user/7.jpg"> --}}
-                                                {{-- <div class="user-image">
-                                                    <div class="avatar"><img alt="" src="../assets/images/user/7.jpg"></div>
-                                                    <div class="icon-wrapper" id="change_avatar"><i class="icofont icofont-pencil-alt-5"></i></div>
-                                                </div> --}}
                                                 <div class="avatar-wrapper">
-                                                    <img class="profile-pic" id="profile-pic" src="" />
+                                                    <img class="profile-pic" id="profile-pic" src="{{ Auth::user()->avatar }}" />
                                                     <div class="upload-button">
                                                         <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                                                     </div>
@@ -114,10 +108,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="mb-3">
-                                        <label class="form-label">Username</label>
-                                        <input class="form-control" type="text" placeholder="Username">
-                                    </div> -->
                                     <div class="mb-3">
                                         <label class="form-label">Real Name</label>
                                         <div class="row g-2">
@@ -140,10 +130,13 @@
                                     <div class="mb-3">
                                         <label class="form-label">Currency</label>
                                         <select class="form-select" id="currency" name="currency">
-                                            <option value="{{ Auth::user()->currency }}">{{ Auth::user()->currency }}</option>
-                                            <option value="GBP">GBP</option>
-                                            <option value="USD">USD</option>
-                                            <option value="EURO">Euro</option>
+                                            @foreach($curriences as $currency)
+                                            @if(Auth::user()->current_user->currency == $currency->iso)
+                                                <option value="{{ $currency->iso }}" selected>{{ $currency->desc }}</option>
+                                            @else
+                                            <option value="{{ $currency->iso }}">{{ $currency->desc }}</option>
+                                            @endif
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -293,6 +286,7 @@
     </div>
 @endsection
 @section('script')
-    <script src="../assets/js/dashboard/custom.js"></script>
+    <script src="../assets/js/accounts/custom.js"></script>
     <script src="../assets/js/tooltip-init.js"></script>
+    <script src="{{ url('assets/js/theme-customizer/customizer.js') }}"></script>
 @endsection

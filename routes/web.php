@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\SymbolanalyticsController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\ToolsController;
 
 
 /*
@@ -36,8 +38,7 @@ Route::get('/cookie', function () { return view('landing.cookie'); });
 Route::get('/usepolicy', function () { return view('landing.usepolicy'); });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -95,10 +96,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/subscribe-cancelled', [SubscriptionController::class, 'cancelled'])->name('subscribe.cancelled');
     //Subscription ends
 
-    //Contact us
-    // Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus.index');
+    //Tools part start
+    Route::get('/notes', [ToolsController::class, 'notes'])->name('tools.notes');
+    Route::get('/ecocal', [ToolsController::class, 'ecocal'])->name('tools.ecocal');
+    Route::get('/nationalcal', [ToolsController::class, 'nationalcal'])->name('tools.nationalcal');
+    Route::get('/markethour', [ToolsController::class, 'markethour'])->name('tools.markethour');
+    Route::get('/currency', [ToolsController::class, 'currency'])->name('tools.currency');
+    //Tools part ends
 });
 
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
 Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
 Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
+
+//Contact us
+Route::get('/course', [HomeController::class, 'course'])->name('course.index');
+Route::get('/contactus', [HomeController::class, 'contactus'])->name('contactus.index');
+Route::post('validate-g-recaptcha', [HomeController::class, 'validateGCaptch']);
