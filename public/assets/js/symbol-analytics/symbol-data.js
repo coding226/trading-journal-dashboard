@@ -119,6 +119,8 @@ var gainpermonth_graph = new ApexCharts(
 
 gainpermonth_graph.render();
 
+var flag = false;
+
 $('#reportrange').on('change', function() {
     if(flag == false){
         console.log(daterange2);
@@ -132,7 +134,8 @@ $('#reportrange').on('change', function() {
     window.location.replace(url);
 });
 
-var flag = false;
 window.onload = function() {
-    flag = true;
+    setTimeout(function(){
+        flag = true;
+    }, 200);
 }
