@@ -3,6 +3,16 @@
 <title>My Note | Trading Buddy</title>
 @endsection
 @section('style')
+<style>
+    .job-search .card-body{
+        height: 360px;
+    }
+    .job-search .card-body img{
+        width: 100%;
+        max-height: 180px;
+        margin-top: 30px;
+    }
+</style>
 @endsection
 @section('content')
 <div class="page-body">
@@ -11,6 +21,7 @@
             <div class="row">
                 <div class="col-6">
                     <h3>My Note</h3>
+                    <a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i data-feather="plus-circle"></i>Add New</a>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -59,6 +70,23 @@
         </div>
     </div>
     <!-- Container-fluid Ends-->
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('script')
