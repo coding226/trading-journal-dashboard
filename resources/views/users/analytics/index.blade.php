@@ -204,7 +204,9 @@
 <script src="../assets/js/tooltip-init.js"></script>
 <script>
     window.onload = function() {
-        flag = true;
+        setTimeout(function(){
+            flag = true;
+        }, 200);
     }
 </script>
 @endsection
