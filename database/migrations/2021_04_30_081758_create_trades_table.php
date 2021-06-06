@@ -22,10 +22,12 @@ class CreateTradesTable extends Migration
             $table->datetime('end_datetime')->nullable();
             $table->string('duration')->nullable();
             $table->string('long_short');
+            $table->string('positionsize')->nullable();
             $table->string('pips')->nullable();
             $table->string('fees')->nullable();
             $table->string('profit_gl')->nullable();
             $table->string('percentage_gl')->nullable();
+            $table->string('stoplossval')->nullable();
             $table->string('open_price');
             $table->string('close_price')->nullable();
             $table->string('description')->nullable();

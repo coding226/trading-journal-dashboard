@@ -94,6 +94,12 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Position Size</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="number" step="any" id="positionsize" name="positionsize" placeholder="Type here information" autocomplete="off" >
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="number" step="any" id="pips" name="pips" placeholder="Type here information" autocomplete="off" >
@@ -121,6 +127,12 @@
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" autocomplete="off" placeholder="Type here information">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Stop Loss Value</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="number" step="any" id="stoplossval" name="stoplossval" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -160,7 +172,7 @@
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Default textarea"></textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Type here information"></textarea>
                                         </div>
                                     </div>
                                 </div>

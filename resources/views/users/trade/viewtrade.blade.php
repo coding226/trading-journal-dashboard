@@ -64,16 +64,22 @@
                                             <td>{{ $trade->long_short }}</td>
                                         </tr>
                                         <tr>
+                                            <th scope="row">Position Size</th>
+                                            <td>{{ $trade->positionsize }}</td>
                                             <th scope="row">Pips Profit or Loss</th>
                                             <td>{{ $trade->pips }}</td>
-                                            <th scope="row">Fees</th>
-                                            <td>{{ $trade->fees }}</td>
                                         </tr>
                                         <tr>
+                                            <th scope="row">Fees</th>
+                                            <td>{{ $trade->fees }}</td>
                                             <th scope="row">Profit Gain/Loss</th>
                                             <td>{{ $trade->profit_gl }}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Percentage Gain/Loss On Account</th>
                                             <td>{{ $trade->percentage_gl }}</td>
+                                            <th scope="row">Stop Loss Value</th>
+                                            <td>{{ $trade->stoplossval }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Open Price</th>

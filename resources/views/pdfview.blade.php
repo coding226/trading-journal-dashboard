@@ -25,7 +25,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="float-right">Trade No: date_create($data['trade']->trade_num</h5>
+                        <h5 class="float-right">Trade No: {{ $data['trade']->trade_num }}</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -55,8 +55,12 @@
                                             <td>{{ $data['trade']->long_short }}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">Pips Profit or Loss</th>
+                                            <th scope="row">Position Size</th>
                                             <td>{{ $data['trade']->pips }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pips Profit or Loss</th>
+                                            <td>{{ $data['trade']->positionsize }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Fees</th>
@@ -69,6 +73,10 @@
                                         <tr>
                                             <th scope="row">Percentage Gain/Loss On Account</th>
                                             <td>{{ $data['trade']->percentage_gl }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Stop Loss Value</th>
+                                            <td>{{ $data['trade']->stoplossval }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Open Price</th>

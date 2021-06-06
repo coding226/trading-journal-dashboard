@@ -22,10 +22,12 @@ class Trade extends Model
         'end_datetime',
         'duration',
         'long_short',
+        'positionsize',
         'pips',
         'fees',
         'profit_gl',
         'percentage_gl',
+        'stoplossval',
         'open_price',
         'close_price',
         'description'

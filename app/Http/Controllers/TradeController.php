@@ -66,10 +66,12 @@ class TradeController extends Controller
             $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
         }
         $trade->long_short = $request->long_short;
+        $trade->positionsize = $request->positionsize;
         $trade->pips = $request->pips;
         $trade->fees = $request->fees;
         $trade->profit_gl = $request->profit_gl;
         $trade->percentage_gl = $request->percentage_gl;
+        $trade->stoplossval = $request->stoplossval;
         $trade->open_price = $request->open_price;
         $trade->close_price = $request->close_price;
         $trade->description = $request->description;
@@ -231,11 +233,13 @@ class TradeController extends Controller
             $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
         }
         $trade->long_short = $request->long_short;
+        $trade->positionsize = $request->positionsize;
         $trade->pips = $request->pips;
         $trade->fees = $request->fees;
         $trade->profit_gl = $request->profit_gl;
         $trade->percentage_gl = $request->percentage_gl;
         $trade->open_price = $request->open_price;
+        $trade->stoplossval = $request->stoplossval;
         $trade->close_price = $request->close_price;
         $trade->description = $request->description;
         $trade->save();
