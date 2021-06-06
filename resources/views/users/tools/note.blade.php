@@ -1,11 +1,8 @@
 @extends('layouts.app')
 @section('title')
-<title>Contact Us | Trading Buddy</title>
+<title>My Note | Trading Buddy</title>
 @endsection
 @section('style')
-<link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
-<link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
-<link rel="stylesheet" type="text/css" href="../assets/css/vendors/daterange-picker.css">
 @endsection
 @section('content')
 <div class="page-body">
@@ -13,14 +10,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>Contact Us</h3>
+                    <h3>My Note</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">
                                 <i data-feather="home"></i></a>
                         </li>
-                        <li class="breadcrumb-item">Contact Us</li>
+                        <li class="breadcrumb-item">My Note</li>
                     </ol>
                 </div>
             </div>
@@ -29,51 +26,33 @@
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-lg-6 col-xl-8 xl-50 col-md-12 box-col-6">
-                <div class="card height-equal" style="min-height: 633px;">
-                    <div class="card-header">
-                        <h5>Contact Us</h5>
-                        <div class="card-header-right">
-                            <ul class="list-unstyled card-option">
-                                <li><i class="fa fa-spin fa-cog"></i></li>
-                            </ul>
+            <div class="col-xl-3 xl-100">
+                <div class="card">
+                    <div class="job-search">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p>23 June, 2021<span class="badge badge-primary pull-right">New</span></p>
+                                    <h6 class="f-w-600"><a href="#">The monkey-rope</a></h6>                                    
+                                </div>
+                            </div>
+                            <p>We are looking for an experienced and Cuba designer and/or frontend engineer with expertise in accessibility to join our team , 3+ years of experience working in as a Frontend Engineer or comparable role. You won’t be a team of one though — you’ll be collaborating closely with other...</p>
                         </div>
                     </div>
-                    <div class="contact-form card-body">
-                        @if(session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
+                </div>
+            </div>
+            <div class="col-xl-3 xl-100">
+                <div class="card">
+                    <div class="job-search">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p>23 June, 2021<span class="badge badge-primary pull-right">New</span></p>
+                                    <h6 class="f-w-600"><a href="#">The monkey-rope</a></h6>                                    
+                                </div>
                             </div>
-                        @endif
-                        <form class="theme-form" name="g-v3-recaptcha-contact-us" id="g-v3-recaptcha-contact-us" method="post" action="{{url('validate-g-recaptcha')}}">
-                        @csrf
-                            <div class="form-icon"><i class="icofont icofont-envelope-open"></i></div>
-                            <div class="mb-3">
-                                <label for="exampleInputName">Your Name</label>
-                                <input class="form-control" name="name" type="text" placeholder="Type here" data-bs-original-title="" title="">
-                                @error('name')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">Email</label>
-                                <input class="form-control" name="email" type="email" placeholder="Type here" data-bs-original-title="" title="">
-                                @error('email')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">Message</label>
-                                <textarea class="form-control textarea" rows="3" cols="50" placeholder="Type here" name="message"></textarea>
-                                @error('message')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="text-sm-end">
-                                <button class="btn btn-primary-gradien" data-bs-original-title="" title="">SEND IT</button>
-                            </div>
-                        </form>
-
+                            <img src="{{ url('/assets/images/lightgallry/04.jpg') }}">
+                        </div>
                     </div>
                 </div>
             </div>
