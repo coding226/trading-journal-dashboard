@@ -12,8 +12,13 @@
         max-height: 180px;
         margin-top: 30px;
     }
+    .addnewnote{
+        cursor: pointer;
+        margin-right: 30px;
+    }
     .addnewnote svg{
         vertical-align: middle;
+        cursor: pointer;
     }
 </style>
 @endsection
@@ -24,15 +29,15 @@
             <div class="row">
                 <div class="col-6">
                     <h3>My Note</h3>
-                    <a class="addnewnote" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i data-feather="plus-circle"></i> Add New</a>
                 </div>
                 <div class="col-6">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="index.html">
                                 <i data-feather="home"></i></a>
                         </li>
                         <li class="breadcrumb-item">My Note</li>
                     </ol>
+                    <a class="addnewnote pull-right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i data-feather="plus-circle"></i> Add New</a>
                 </div>
             </div>
         </div>
