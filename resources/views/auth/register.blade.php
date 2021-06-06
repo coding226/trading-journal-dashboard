@@ -75,7 +75,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-form-label">Contact Number</label>
                                             <div class="form-input position-relative">
@@ -87,7 +87,7 @@
                                             @enderror
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">

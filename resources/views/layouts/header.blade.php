@@ -287,7 +287,7 @@
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6 class="lan-10">Analytics</h6>
-                                        <p class="lan-9">Description</p>
+                                        <!-- <p class="lan-9">Description</p> -->
                                     </div>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
@@ -308,7 +308,7 @@
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6 class="lan-11">Trades</h6>
-                                        <p class="lan-9">Description</p>
+                                        <!-- <p class="lan-9">Description</p> -->
                                     </div>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/activetrades') }}"><i
@@ -323,7 +323,7 @@
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6 class="lan-12">Tools</h6>
-                                        <p class="lan-9">Description</p>
+                                        <!-- <p class="lan-9">Description</p> -->
                                     </div>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/notes') }}"><i data-feather="clipboard"></i><span>My Notes</span></a></li>
@@ -332,8 +332,8 @@
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/markethour') }}"><i data-feather="clock"></i><span>Market Hours</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/currency') }}"><i data-feather="dollar-sign"></i><span>Currency Indexes</span></a></li>
                                 <li class="sidebar-main-title"><div>
-                                        <h6 class="lan-12">Other</h6>
-                                        <p class="lan-9">Description</p>
+                                        <h6 class="lan-12">Help</h6>
+                                        <!-- <p class="lan-9">Description</p> -->
                                     </div>
                                 </li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/course') }}"><i data-feather="list"></i><span>Quick Course</span></a></li>
