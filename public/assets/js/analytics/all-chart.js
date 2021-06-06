@@ -376,3 +376,9 @@ $('#reportrange').on('change', function() {
     var url = baseurl+'/analytics?startdate='+daterange[0]+'&enddate='+daterange[1];
     window.location.replace(url);
 });
+
+window.onload = function() {
+    setTimeout(function(){
+        flag = true;
+    }, 200);
+}

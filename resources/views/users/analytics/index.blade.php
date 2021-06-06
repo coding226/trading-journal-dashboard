@@ -202,11 +202,4 @@
 <script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
 <script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
 <script src="../assets/js/tooltip-init.js"></script>
-<script>
-    window.onload = function() {
-        setTimeout(function(){
-            flag = true;
-        }, 200);
-    }
-</script>
 @endsection

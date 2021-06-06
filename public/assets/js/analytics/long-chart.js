@@ -293,6 +293,7 @@ profit_pairs_chart.render();
     });
 })(jQuery);
 
+var flag = false;
 
 $('#reportrange').on('change', function() {
     if(flag == false){
@@ -306,7 +307,8 @@ $('#reportrange').on('change', function() {
     window.location.replace(url);
 });
 
-var flag = false;
 window.onload = function() {
-    flag = true;
+    setTimeout(function(){
+        flag = true;
+    }, 200);
 }
