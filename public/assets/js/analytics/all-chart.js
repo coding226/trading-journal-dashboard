@@ -363,6 +363,8 @@ var chart1 = new ApexCharts(document.querySelector("#winrate-graph"),growthoptio
 
 chart1.render();
 
+var flag = false;
+
 $('#reportrange').on('change', function() {
     if(flag == false){
         console.log(daterange2);
@@ -375,7 +377,7 @@ $('#reportrange').on('change', function() {
     window.location.replace(url);
 });
 
-var flag = false;
+
 window.onload = function() {
     flag = true;
 }
