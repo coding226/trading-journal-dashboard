@@ -12,6 +12,9 @@
         max-height: 180px;
         margin-top: 30px;
     }
+    .addnewnote svg{
+        vertical-align: middle;
+    }
 </style>
 @endsection
 @section('content')
@@ -21,7 +24,7 @@
             <div class="row">
                 <div class="col-6">
                     <h3>My Note</h3>
-                    <a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i data-feather="plus-circle"></i>Add New</a>
+                    <a class="addnewnote" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i data-feather="plus-circle"></i> Add New</a>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
