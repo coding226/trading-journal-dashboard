@@ -3,6 +3,7 @@
 <title>My Note | Trading Buddy</title>
 @endsection
 @section('style')
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
 <style>
     .job-search .card-body{
         height: 360px;
@@ -83,38 +84,55 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                <h4 class="modal-title" id="myLargeModalLabel">Add New Note</h4>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <div class="modal-body date-picker">
+                <form class="theme-form">
+                    <div class="mb-3 row g-3">
+                        <label class="col-sm-3 col-form-label text-sm-end">Date</label>
+                        <div class="col-xl-5 col-sm-9">
+                            <div class="input-group">
+                                <input class="datepicker-here form-control digits" type="text" data-language="en">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row g-3">
+                        <label class="col-sm-3 col-form-label text-sm-end">Title</label>
+                        <div class="col-xl-6 col-sm-9">
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row g-3">
+                        <label class="col-sm-3 col-form-label text-sm-end">Description</label>
+                        <div class="col-xl-6 col-sm-9">
+                            <div class="input-group">
+                                <textarea class="form-control" type="text" name="description" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row g-3">
+                        <label class="col-sm-3 col-form-label text-sm-end">Image</label>
+                        <div class="col-xl-6 col-sm-9">
+                            <div class="input-group">
+                                <input class="form-control" type="file" name="image">
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button">Save changes</button>
+                <a class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</a>
+                <button class="btn btn-primary" type="button">Add</button>
             </div>
         </div>
     </div>
 </div>
 @endsection
 @section('script')
-
-    <script src="https://www.google.com/recaptcha/api.js?render=6LfEbRQbAAAAAM6FxVdjn-U-92V2iuG7wD0eu3cP"></script>
-    <script>
-             grecaptcha.ready(function() {
-                 grecaptcha.execute('6LfEbRQbAAAAAM6FxVdjn-U-92V2iuG7wD0eu3cP', {action: 'contact'}).then(function(token) {
-                    if (token) {
-                      document.getElementById('recaptcha').value = token;
-                    }
-                 });
-             });
-    </script>
-    <!-- Start of LiveChat (www.livechatinc.com) code -->
-    <script>
-        window.__lc = window.__lc || {};
-        window.__lc.license = 12427134;
-        ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-    </script>
-    <noscript><a href="https://www.livechatinc.com/chat-with/12427134/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
-    <!-- End of LiveChat code -->
+    <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
 @endsection

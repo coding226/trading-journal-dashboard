@@ -6,7 +6,7 @@
 <script>
 frame.addEventListener("load", ev => {
     const new_style_element = document.createElement("style");
-    new_style_element.textContent = "#ad { width: 0; }"
+    new_style_element.textContent = "#ad { width: 0 !important; }"
     ev.target.contentDocument.head.appendChild(new_style_element);
 });
 </script>
