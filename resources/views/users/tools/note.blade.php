@@ -83,17 +83,17 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">Add New Note</h4>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body date-picker">
-                <form class="theme-form">
+            <form class="theme-form" method="post" action="">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">Add New Note</h4>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body date-picker">
                     <div class="mb-3 row g-3">
                         <label class="col-sm-3 col-form-label text-sm-end">Date</label>
                         <div class="col-xl-5 col-sm-9">
                             <div class="input-group">
-                                <input class="datepicker-here form-control digits" type="text" data-language="en">
+                                <input class="datepicker-here form-control digits" type="text" data-language="en" required>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         <label class="col-sm-3 col-form-label text-sm-end">Title</label>
                         <div class="col-xl-6 col-sm-9">
                             <div class="input-group">
-                                <input class="form-control" type="text" name="title">
+                                <input class="form-control" type="text" name="title" required>
                             </div>
                         </div>
                     </div>
@@ -121,12 +121,12 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</a>
-                <button class="btn btn-primary" type="button">Add</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                    <button class="btn btn-primary" type="submit">Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
