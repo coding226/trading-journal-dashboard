@@ -3,6 +3,15 @@
 <title>Economic News Calendar | Trading Buddy</title>
 @endsection
 @section('style')
+<script>
+        function test() {
+            var myIFrame = document.getElementById("ora");
+            var links = myIFrame.contentWindow.document.getElementsByTagName("a");
+            for (var index = 0; index < links.length; index++) {
+                links[index].removeAttribute('href');
+            }
+        }
+</script>
 @endsection
 @section('content')
 <div class="page-body">
@@ -39,12 +48,5 @@
 </div>
 @endsection
 @section('script')
-<script>
-$("iframe").load(function() {
-    // note the use o .each, you need to bind all elements
-    $(this).contents().find("a").each(function() {
-        $(this).click(function(e){e.preventDefault(); alert("click blocked")});
-    });
-});
-</script>
+<script src="../assets/js/tools/ecocal.js"></script>
 @endsection
