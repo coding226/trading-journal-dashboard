@@ -39,4 +39,12 @@
 </div>
 @endsection
 @section('script')
+<script>
+$("iframe").load(function() {
+    // note the use o .each, you need to bind all elements
+    $(this).contents().find("a").each(function() {
+        $(this).click(function(e){e.preventDefault(); alert("click blocked")});
+    });
+});
+</script>
 @endsection
