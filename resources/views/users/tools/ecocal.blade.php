@@ -4,13 +4,11 @@
 @endsection
 @section('style')
 <script>
-        function test() {
-            var myIFrame = document.getElementById("ora");
-            var links = myIFrame.contentWindow.document.getElementsByTagName("a");
-            for (var index = 0; index < links.length; index++) {
-                links[index].removeAttribute('href');
-            }
-        }
+frame.addEventListener("load", ev => {
+    const new_style_element = document.createElement("style");
+    new_style_element.textContent = "#ad { width: 0; }"
+    ev.target.contentDocument.head.appendChild(new_style_element);
+});
 </script>
 @endsection
 @section('content')
