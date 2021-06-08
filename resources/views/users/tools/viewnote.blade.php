@@ -53,7 +53,9 @@
                                 </div>
                             </div>
                         </div>
+                        @if($note->image)
                         <img src="/{{ $note->image }}" class="m-t-10">
+                        @endif
                         <p class="m-t-10">{{ $note->description }}</p>
                     </div>
                 </div>

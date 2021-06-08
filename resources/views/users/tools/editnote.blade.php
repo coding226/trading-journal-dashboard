@@ -96,7 +96,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                    @if($note->image)
                                         <img class="noteimageshow" src="/{{ $note->image }}"/>
+                                    @endif
                                     </div>
                                 </div>
                             </div>
