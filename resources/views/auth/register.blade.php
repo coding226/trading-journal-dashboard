@@ -10,11 +10,7 @@
                     <div>
                         <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
                         <div class="login-main">
-                        @isset($url)
-                        <form class="theme-form" method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
-                        @else
-                        <form class="theme-form" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
-                        @endisset
+                        <form class="theme-form" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" onsubmit="return validateprivacy();">
                             @csrf
                                 <h4>Create your account</h4>
                                 <p>Enter your personal details to create account</p>
@@ -128,21 +124,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="d-block" for="chk-ani">
-                                        <input class="checkbox_animated mb-3" id="chk-ani1" name="subscription" type="checkbox" checked="">You want to get subscription?
-                                    </label>
                                     <label class="d-block" for="chk-ani1">
-                                        <input class="checkbox_animated mb-3" id="chk-ani2" type="checkbox">Agree with<a class="ms-2" href="#">Privacy Policy</a>
+                                        <input class="checkbox_animated" id="chk-ani1" name="subscription" type="checkbox" checked="">You want to get subscription?
+                                    </label>
+                                    <label class="d-block p-t-10" for="chk-ani2">
+                                        <input class="checkbox_animated mb-3" id="chk-ani2" type="checkbox" name="privacy">Agree with<a class="ms-2" href="{{ url('/privacy') }}">Privacy Policy</a>
                                     </label>
                                     <button class="btn btn-primary btn-block w-100" type="submit">Create Account</button>
                                 </div>
-                                <!-- <div class="form-group mb-0">
-                                    <div class="checkbox p-0">
-                                        <input id="checkbox2" type="checkbox">
-                                        <label class="text-muted" for="checkbox1">Agree with<a class="ms-2" href="#">Privacy Policy</a></label>
-                                    </div>
-                                    <button class="btn btn-primary btn-block w-100" type="submit">Create Account</button>
-                                </div> -->
                                 <p class="mt-4 mb-0 text-center">Already have an account?<a class="ms-2" href="{{ route('login') }}">Sign in</a></p>
                             </form>
                         </div>

@@ -371,4 +371,24 @@ $("#flip-btn").click(function(){
 
 $("#flip-back").click(function(){
     $(".flip-card-inner").removeClass("flipped")
-})
+});
+
+$('.mode').on('click', function(e) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        cache: false,
+        url: '/darkmode',
+        dataType: 'json',
+        data: {
+            mode: 1
+        },
+        success:function(data) {
+        }
+    });
+});

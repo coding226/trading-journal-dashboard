@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"><i data-feather="home"></i></a></li>
                             <li class="breadcrumb-item active"> Account Setting</li>
                         </ol>
                     </div>
@@ -103,7 +103,7 @@
                                                 
                                                 <div class="media-body">
                                                     <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                                                    <p>{{ Auth::user()->current_user->acc_num }}</p>
+                                                    <p>{{ $acc_num }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -208,7 +208,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Subuser</label>
+                                            <label class="form-label">Account</label>
                                             <select class="form-select" id="subuser" name="subuser">
                                                 @foreach($subusers as $subuser)
                                                 @if($subuser-> id == Auth::user()->current_subuser)
@@ -254,7 +254,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Subuser</label>
+                                            <label class="form-label">Account</label>
                                             <select class="form-select" id="stsubuser" name="stsubuser">
                                                 @foreach($subusers as $subuser)
                                                 @if($subuser-> id == Auth::user()->current_subuser)

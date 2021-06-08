@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb pull-right">
-                        <li class="breadcrumb-item"><a href="index.html">
+                        <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">
                                 <i data-feather="home"></i></a>
                         </li>
                         <li class="breadcrumb-item">My Note</li>

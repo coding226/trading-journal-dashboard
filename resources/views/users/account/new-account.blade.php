@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"><i data-feather="home"></i></a></li>
                             <li class="breadcrumb-item active">New Account</li>
                         </ol>
                     </div>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Starting Capital</label>
-                                        <input class="form-control" type="number" id="startcapital" name="startcapital" placeholder="Starting Capital">
+                                        <input class="form-control" type="number" id="startcapital" step="any" name="startcapital" placeholder="Starting Capital">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Description</label>

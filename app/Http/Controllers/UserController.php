@@ -21,7 +21,8 @@ class UserController extends Controller
     public function setting()
     {
         $curriences = Currency::all();
-        return view('users.account.setting', compact('curriences'));
+        $acc_num = count(Subuser::where('user_id', Auth::user()->id)->get());
+        return view('users.account.setting', compact('curriences','acc_num'));
     }
 
     public function new_account()

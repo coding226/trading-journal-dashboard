@@ -59,6 +59,21 @@
     <script src="../assets/js/script.js"></script>
     <!-- login js-->
     <!-- Plugin used-->
+    <script>
+        function validateprivacy() {
+            if(!$('#chk-ani2').is(':checked')){
+                $('label[for="chk-ani2"]').css('border', '1px solid red');
+                return false;
+            }   
+            return false;
+        }
+        
+        $('#chk-ani2').on('change', function() {
+            if($(this).is(':checked')){
+                $('label[for="chk-ani2"]').css('border', '1px solid green');
+            }
+        });
+    </script>
 </body>
 
 </html>

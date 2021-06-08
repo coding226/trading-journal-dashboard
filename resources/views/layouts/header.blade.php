@@ -35,6 +35,18 @@
     <link id="color" rel="stylesheet" href="{{ url('assets/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/responsive.css') }}">
+    <style>
+        .profile-media img{
+            width: 37px;
+            height: 37px;
+        }
+        .profile-vector img{
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border: 5px solid #fff;
+        }
+    </style>
 </head>
 
 <body onload = "{{ isset($dashboard) ? 'startTime()' : '' }}" class="{{ Auth::user()->darkmode }}">
@@ -110,7 +122,7 @@
                                                 </div>
                                                 <ul>
                                                     @foreach($subusers1 as $subuser1)
-                                                        <li><a href="{{ url('/change_user/'.$subuser1-> id) }}">{{ $subuser1-> acc_num }}</a></li>
+                                                        <li><a href="{{ url('/change_user/'.$subuser1-> id) }}">{{ $subuser1->username }}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -216,9 +228,9 @@
                         <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize"></i></a></li>
                         <li class="profile-nav onhover-dropdown p-0 me-0">
-                            <div class="media profile-media"><img class="b-r-10" src="{{ url('assets/images/dashboard/profile.jpg') }}" alt="">
+                            <div class="media profile-media"><img class="b-r-10" src="{{ Auth::user()->avatar == '' ? url('assets/images/dashboard/profile.jpg') : Auth::user()->avatar }}" alt="profile-image">
                                 <div class="media-body"><span>{{Auth::user()->name}}</span>
-                                    <p class="mb-0 font-roboto">{{ Auth::user()->current_user->acc_num }} <i class="middle fa fa-angle-down"></i></p>
+                                    <p class="mb-0 font-roboto">{{ Auth::user()->current_user->username }} <i class="middle fa fa-angle-down"></i></p>
                                 </div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
@@ -268,10 +280,8 @@
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
                         <div id="sidebar-menu">
                             <ul class="sidebar-links" id="simple-bar">
-                                <li class="back-btn"><a href="{{ url('/dashboard') }}"><img class="img-fluid"
-                                            src="{{ url('assets/images/logo/logo-icon.png') }}" alt=""></a>
-                                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
-                                            aria-hidden="true"></i></div>
+                                <li class="back-btn"><a href="{{ url('/dashboard') }}"><img class="img-fluid" src="{{ url('assets/images/logo/logo-icon.png') }}" alt=""></a>
+                                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                 </li>
                                 {{-- <li class="sidebar-account-balance mb-3">
                                     <div>

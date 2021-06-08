@@ -62,6 +62,11 @@ class User extends Authenticatable
         return $this->belongsTo(Subuser::class, 'current_subuser');
     }
 
+    public function current_currency()
+    {
+        return $this->belongsTo(Currency::class, 'currency', 'iso');
+    }
+
     public function subscription()
     {
         return $this->hasOne(Subscription::class);

@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"> <i data-feather="home"></i></a></li>
                         <li class="breadcrumb-item">Dashboard</li>
                     </ol>
                 </div>
@@ -44,8 +44,7 @@
                             </div>
                         </div>
                         <div class="greeting-user text-center">
-                            <div class="profile-vector"><img class="img-fluid"
-                                    src="../assets/images/dashboard/welcome.png" alt=""></div>
+                            <div class="profile-vector"><img class="img-fluid" src="{{ Auth::user()->avatar == '' ? '../assets/images/dashboard/welcome.png' : Auth::user()->avatar }}" alt=""></div>
                             <h4 class="f-w-600"><span id="greeting">Good Morning</span><span>,
                                     {{Auth::user()->firstname}}</span> <span class="right-circle"><i
                                         class="fa fa-check-circle f-14 middle"></i></span></h4>
@@ -53,7 +52,6 @@
                             </p>
                             <div class="whatsnew-btn"><a class="btn btn-primary" href="{{ url('/new-trade') }}">Create
                                     New Trade</a></div>
-                            {{-- <div class="left-icon"><i class="fa fa-bell"> </i></div> --}}
                         </div>
                     </div>
                 </div>
