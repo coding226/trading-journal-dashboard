@@ -70,6 +70,9 @@ class UserController extends Controller
             $user->location = $request->location;
             $user->subscription = $subscription;
             if($request->has('avatar_img')) {
+                if(\File::exists(public_path($user->avatar))){
+                    \File::delete(public_path($user->avatar));
+                }
                 $image = $request->file('avatar_img');
                 $new_name = Auth::user()->id . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('assets/images/avatar'), $new_name);
