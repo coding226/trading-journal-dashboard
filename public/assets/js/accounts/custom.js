@@ -1,11 +1,50 @@
 
 $("#save_account_setting").click(function(e) {
+    if($('#firstname').val() == '' || $('#lastname').val() == '' || $('#email').val() == ''){
+        $('#alertmodal form .modal-title').text('Failed');
+        $('#alertmodal form .modal-footer button').remove();
+        $('#alertmodal form .modal-footer a').text('Ok');
+        if($('#modalpassword').length > 0){
+            $('#modalpassword').remove();
+            $('#alertmodal form .modal-footer a').removeAttr('onclick');
+        }
+        if($('#firstname').val() == ''){
+            $('#alertmodal form .modal-body p').text('You should input FirstName');
+        }
+        else if($('#lastname').val() == ''){
+            $('#alertmodal form .modal-body p').text('You should input LastName');
+        }
+        else if($('#email').val() == ''){
+            $('#alertmodal form .modal-body p').text('You should input Email');
+        }
+        $('#alertmodal').modal('show');
+        return false;
+    }
+    else{
+        $('#alertmodal form .modal-title').text('Password Confirmation');
+        $('#alertmodal form .modal-body p').text('Please Enter your password to save your changes.');
+        $('#alertmodal form .modal-footer button').remove();
+        if($('#modalpassword').length == 0){
+            $('#alertmodal form .modal-body').append('<input type="password" class="form-control" id="modalpassword"/>');
+            $('#alertmodal form .modal-footer a').attr('onclick', 'submitform()');
+        }
+        $('#alertmodal form .modal-footer a').text('Ok');
+        $('#alertmodal').modal('show');
+    }
+    return false;
+});
+
+
+function submitform() {
+    $('#password').val($('#modalpassword').val());
+    $('#modalpassword').remove();
+    $('#alertmodal form .modal-footer a').removeAttr('onclick');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
         }
     });
-    e.preventDefault();
+    // e.preventDefault();
     var formData = new FormData(document.getElementById("mainsettingform"));
     $.ajax({
         type: "POST",
@@ -40,7 +79,8 @@ $("#save_account_setting").click(function(e) {
             $('#alertmodal').modal('show');
         }
     });
-});
+}
+
 
 $("#change_pass_btn").click(function(e) {
     if ($("#newpassword").val() != $("#newpasswordconfirm").val())

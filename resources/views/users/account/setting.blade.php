@@ -125,7 +125,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Location</label>
-                                        <input class="form-control" type="text" name="location" placeholder="Your location" value="{{ Auth::user()->location }}">
+                                        <input class="form-control" type="text" id="location" name="location" placeholder="Your location" value="{{ Auth::user()->location }}">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Currency</label>
@@ -139,7 +139,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3 d-none">
                                         <label class="form-label">Password</label>
                                         <input class="form-control" type="password" id="password" name="password" value="password">
                                     </div>
