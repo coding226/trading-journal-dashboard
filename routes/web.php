@@ -98,6 +98,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Tools part start
     Route::get('/notes', [ToolsController::class, 'notes'])->name('tools.notes');
+    Route::post('/addnote', [ToolsController::class, 'addnote'])->name('tools.note.add');
+    Route::get('/editnotes', [ToolsController::class, 'editnotes'])->name('tools.note.edit');
+    Route::post('/updatenote', [ToolsController::class, 'updatenote'])->name('tools.note.update');
+    Route::post('/delnote', [ToolsController::class, 'delnote'])->name('tools.note.del');
     Route::get('/ecocal', [ToolsController::class, 'ecocal'])->name('tools.ecocal');
     Route::get('/nationalcal', [ToolsController::class, 'nationalcal'])->name('tools.nationalcal');
     Route::get('/markethour', [ToolsController::class, 'markethour'])->name('tools.markethour');

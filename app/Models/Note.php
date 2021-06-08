@@ -19,6 +19,8 @@ class Note extends Model
         'title',
         'description',
         'image',
+        'index',
+        'indexcolor',
     ];
 
 }
