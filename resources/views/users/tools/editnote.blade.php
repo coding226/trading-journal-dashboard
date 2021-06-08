@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <img class="noteimageshow" src="{{ $note->image }}"/>
+                                        <img class="noteimageshow" src="/{{ $note->image }}"/>
                                     </div>
                                 </div>
                             </div>

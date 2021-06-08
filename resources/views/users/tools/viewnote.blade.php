@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="{{ $note->image }}" class="m-t-10">
+                        <img src="/{{ $note->image }}" class="m-t-10">
                         <p class="m-t-10">{{ $note->description }}</p>
                     </div>
                 </div>

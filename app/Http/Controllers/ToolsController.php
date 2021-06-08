@@ -40,7 +40,7 @@ class ToolsController extends Controller
         if($request->file('image')) {
             $file = $request->file('image');
             $filename = time().'_'.$file->getClientOriginalName();
-            $location = '/assets/images/note';
+            $location = 'assets/images/note';
             $file->move($location,$filename);
             $note->image = $location.'/'.$filename;
         }
@@ -92,7 +92,7 @@ class ToolsController extends Controller
             }
             $file = $request->file('image');
             $filename = time().'_'.$file->getClientOriginalName();
-            $location = '/assets/images/note';
+            $location = 'assets/images/note';
             $file->move($location,$filename);
             $note->image = $location.'/'.$filename;
         }
