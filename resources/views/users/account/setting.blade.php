@@ -212,9 +212,9 @@
                                             <select class="form-select" id="subuser" name="subuser">
                                                 @foreach($subusers as $subuser)
                                                 @if($subuser-> id == Auth::user()->current_subuser)
-                                                <option value="{{ $subuser-> id }}" selected>{{ $subuser-> username }}({{ $subuser-> acc_num }})</option>
+                                                <option value="{{ $subuser-> id }}" selected>{{ $subuser-> username }}</option>
                                                 @else
-                                                <option value="{{ $subuser-> id }}">{{ $subuser-> username }}({{ $subuser-> acc_num }})</option>
+                                                <option value="{{ $subuser-> id }}">{{ $subuser-> username }}</option>
                                                 @endif
                                                 @endforeach
                                             </select>
@@ -258,9 +258,9 @@
                                             <select class="form-select" id="stsubuser" name="stsubuser">
                                                 @foreach($subusers as $subuser)
                                                 @if($subuser-> id == Auth::user()->current_subuser)
-                                                <option value="{{ $subuser-> id }}" selected>{{ $subuser-> username }}({{ $subuser-> acc_num }})</option>
+                                                <option value="{{ $subuser-> id }}" selected>{{ $subuser-> username }}</option>
                                                 @else
-                                                <option value="{{ $subuser-> id }}">{{ $subuser-> username }}({{ $subuser-> acc_num }})</option>
+                                                <option value="{{ $subuser-> id }}">{{ $subuser-> username }}</option>
                                                 @endif
                                                 @endforeach
                                             </select>
