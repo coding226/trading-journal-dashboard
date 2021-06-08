@@ -69,7 +69,7 @@
         }
         
         $('#chk-ani2').on('change', function() {
-            if($(this).is(':checked')){
+            if($(this).is(':checked') && $('label[for="chk-ani2"]').attr('style')){
                 $('label[for="chk-ani2"]').css('border', '1px solid green');
             }
         });
