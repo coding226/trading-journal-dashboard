@@ -21,6 +21,15 @@
         vertical-align: middle;
         cursor: pointer;
     }
+    .job-search .dropdown-basic .dropdown .dropdown-content{
+        top: 15px;
+    }
+    .job-search .media-body p{
+        display: contents;
+    }
+    .job-search .dropdown-content{
+        cursor: pointer;
+    }
 </style>
 @endsection
 @section('content')
@@ -53,8 +62,21 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <p>{{ date_format(date_create($note->datetime), "j F, Y") }}<span class="badge {{ $note->indexcolor }} pull-right">{{ $note->index }}</span></p>
-                                    <h6 class="f-w-600"><a href="#">{{ strlen($note->title) < 30 ? $note->title : substr($note->title, 0, 30).'...' }}</a></h6>                                    
+                                    <div class="mb-3">
+                                        <p>{{ date_format(date_create($note->datetime), "j F, Y") }}</p>
+                                        <div class="dropdown-basic pull-right m-l-5">
+                                            <div class="dropdown m-0">
+                                                <div class="btn-group m-0">
+                                                    <button class="dropbtn p-0 bg-transparent text-dark" type="button"><span><i class="icon-more"></i></i></span></button>
+                                                    <div class="dropdown-content"><a href="{{ url('/editnote') }}/{{ $note->id }}">Edit</a><a data-href="{{ url('/delnote') }}" dataid="{{ $note->id }}" class="notedel">Delete</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="badge {{ $note->indexcolor }} pull-right">{{ $note->index }}</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="f-w-600"><a href="{{ url('/viewnote') }}/{{ $note->id }}">{{ strlen($note->title) < 30 ? $note->title : substr($note->title, 0, 30).'...' }}</a></h6>
+                                    </div>                              
                                 </div>
                             </div>
                             @if($note->image)
@@ -144,9 +166,5 @@
     <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
     <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
     <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
-    <script>
-        $('#indexcolor').on('change', function() {
-            $(this).removeClass().addClass('form-control text-light '+$(this).val());
-        });
-    </script>
+    <script src="../assets/js/tools/note.js"></script>
 @endsection

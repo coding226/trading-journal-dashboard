@@ -99,7 +99,8 @@ Route::group(['middleware' => ['auth']], function () {
     //Tools part start
     Route::get('/notes', [ToolsController::class, 'notes'])->name('tools.notes');
     Route::post('/addnote', [ToolsController::class, 'addnote'])->name('tools.note.add');
-    Route::get('/editnotes', [ToolsController::class, 'editnotes'])->name('tools.note.edit');
+    Route::get('/viewnote/{noteid}', [ToolsController::class, 'viewnote'])->name('tools.viewnote', ['noteid']);
+    Route::get('/editnote/{noteid}', [ToolsController::class, 'editnote'])->name('tools.note.edit', ['noteid']);
     Route::post('/updatenote', [ToolsController::class, 'updatenote'])->name('tools.note.update');
     Route::post('/delnote', [ToolsController::class, 'delnote'])->name('tools.note.del');
     Route::get('/ecocal', [ToolsController::class, 'ecocal'])->name('tools.ecocal');

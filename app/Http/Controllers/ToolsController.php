@@ -40,7 +40,7 @@ class ToolsController extends Controller
         if($request->file('image')) {
             $file = $request->file('image');
             $filename = time().'_'.$file->getClientOriginalName();
-            $location = 'assets/images/note';
+            $location = '/assets/images/note';
             $file->move($location,$filename);
             $note->image = $location.'/'.$filename;
         }
@@ -54,6 +54,65 @@ class ToolsController extends Controller
         $note->indexcolor = str_replace('bg', 'badge', $request->indexcolor);
         $note->save();
 
+        return redirect()->back();
+    }
+
+    public function viewnote($noteid)
+    {
+        $note = Note::where('user_id', Auth::user()->id)->where('id', $noteid)->first();
+        if($note){
+            return view('users.tools.viewnote')->with('note', $note);
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function editnote($noteid)
+    {
+        $note = Note::where('user_id', Auth::user()->id)->where('id', $noteid)->first();
+        if($note){
+            return view('users.tools.editnote')->with('note', $note);
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function updatenote(Request $request)
+    {
+        $request->validate([
+            'image' => 'mimes:png,jpg,jpeg,csv,txt,pdf|max:2048'
+        ]);
+        $note = Note::find($request->noteid);
+
+        if($request->file('image')) {
+            if(\File::exists(public_path($note->image))){
+                \File::delete(public_path($note->image));
+            }
+            $file = $request->file('image');
+            $filename = time().'_'.$file->getClientOriginalName();
+            $location = '/assets/images/note';
+            $file->move($location,$filename);
+            $note->image = $location.'/'.$filename;
+        }
+        $note->datetime = Carbon::createFromFormat('m/d/Y', $request->datetime)->format("Y-m-d");
+        $note->title = $request->title;
+        $note->description = $request->description;
+        $note->index = $request->index;
+        $note->indexcolor = str_replace('bg', 'badge', $request->indexcolor);
+        $note->save();
+
+        return redirect()->route('tools.notes');
+    }
+
+    public function delnote(Request $request)
+    {
+        $note = Note::find($request->noteid);
+        if(\File::exists(public_path($note->image))){
+            \File::delete(public_path($note->image));
+        }
+        $note->delete();
         return redirect()->back();
     }
 
