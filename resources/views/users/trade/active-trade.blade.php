@@ -90,7 +90,7 @@
                                                     <th>Long/Short</th>
                                                     <th class="text-center">Start Date</th>
                                                     <th class="text-center">current Duration</th>
-                                                    <th>Open Price($)</th>
+                                                    <th>Open Price({{ Auth::user()->current_user->current_currency->sign }})</th>
                                                     <th>Edit/Delete</th>
                                                 </tr>
                                             </thead>

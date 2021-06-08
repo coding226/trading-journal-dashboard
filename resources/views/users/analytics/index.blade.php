@@ -81,7 +81,7 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Starting Balance: {{ number_format(Auth::user()->current_user->starting_bal, 2, '.', '') }}</p>
                                 <p>Current Balance: {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $data['tradesums'][0]->profit_gl_sum - $data['tradesums'][0]->fees_sum, 2, '.', '') }}</p>
-                                <p>Account Profit/Loss (£,$,€): {{ $data['tradesums'][0]->profit_gl_sum }}</p>
+                                <p>Account Profit/Loss ({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['tradesums'][0]->profit_gl_sum }}</p>
                                 <p>Total Amount Of Fees: {{ $data['tradesums'][0]->fees_sum }}</p>
                                 <p>Percentage Account Gain (%): {{ $data['tradesums'][0]->percentage_gl_sum }}</p>
                                 <p>Total Amount Of Pips: {{ $data['tradesums'][0]->pips_sum }}</p>
@@ -113,7 +113,7 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $besttrade->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $besttrade->long_short }}</p>
-                                <p>AccountProfit(£,$,€): {{ $besttrade->profit_gl }}</p>
+                                <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $besttrade->profit_gl }}</p>
                                 <p>Percentage Account Gain (%): {{ $besttrade->percentage_gl }}</p>
                                 <p>Total Amount Of Pips: {{ $besttrade->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($besttrade->duration)->cascade()->forHumans() }}</p>

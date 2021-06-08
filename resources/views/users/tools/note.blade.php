@@ -38,14 +38,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>My Note</h3>
+                    <h3>My Notes</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">
                                 <i data-feather="home"></i></a>
                         </li>
-                        <li class="breadcrumb-item">My Note</li>
+                        <li class="breadcrumb-item">My Notes</li>
                     </ol>
                     <a class="addnewnote pull-right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i data-feather="plus-circle"></i> Add New</a>
                 </div>

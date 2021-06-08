@@ -145,9 +145,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($trades as $trade)
+                                                @foreach($trades as $key => trade)
                                                 <tr>
-                                                    <td class="text-center">{{ $trade->trade_num }}</td>
+                                                    <td class="text-center">{{ $key+1 }}</td>
                                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                                     <td class="text-center">{{ $trade->long_short }}</td>
                                                     <td class="text-center">{{ $trade->start_datetime }}</td>
@@ -167,7 +167,7 @@
                                                     @elseif( $trade->profit_gl < 0 )
                                                     <td class="font-danger text-center">Loss</td>
                                                     @else
-                                                    <td class="font-warnning text-center">Break Even</td>
+                                                    <td class="font-warning text-center">Break Even</td>
                                                     @endif
                                                     <td class="d-flex">
                                                         <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">

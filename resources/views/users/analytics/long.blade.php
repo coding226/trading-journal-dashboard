@@ -132,7 +132,7 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestlongtrade']->long_short }}</p>
-                                <p>AccountProfit(£,$,€): {{ $data['bestlongtrade']->profit_gl }}</p>
+                                <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestlongtrade']->profit_gl }}</p>
                                 <p>Percentage Account Gain (%): {{ $data['bestlongtrade']->percentage_gl }}</p>
                                 <p>Total Amount Of Pips: {{ $data['bestlongtrade']->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestlongtrade']->duration)->cascade()->forHumans() }}</p>

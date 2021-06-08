@@ -33,4 +33,9 @@ class Subuser extends Model
     {
         return $this->hasMany(Trade::class);
     }
+
+    public function current_currency()
+    {
+        return $this->belongsTo(Currency::class, 'currency', 'iso');
+    }
 }

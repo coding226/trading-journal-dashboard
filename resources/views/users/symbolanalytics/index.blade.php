@@ -40,7 +40,7 @@
                                         <th>Rank #</th>
                                         <th>Symbol:</th>
                                         <th>Total % Gain:</th>
-                                        <th>Total £ Gain:</th>
+                                        <th>Total {{ Auth::user()->current_user->current_currency->sign }} Gain:</th>
                                         <th>Total Amount Of<br/> Wins</th>
                                         <th></th>
                                     </tr>
@@ -51,7 +51,7 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $symbol->symbol->symbol }}</td>
                                         <td>{{ $symbol->percentage_gl_sum }}%</td>
-                                        <td>£{{ $symbol->profit_gl_sum  }}</td>
+                                        <td>{{ Auth::user()->current_user->current_currency->sign }} {{ $symbol->profit_gl_sum  }}</td>
                                         <td>{{ $symbol->symbol_count }}</td>
                                         <td><a href="{{ url('/symbolmore') }}/{{$symbol->symbol_id}}">See More</a></td>
                                     </tr>

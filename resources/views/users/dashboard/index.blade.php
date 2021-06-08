@@ -67,12 +67,12 @@
                                         <p class="font-roboto">Account Number</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5><span id="current_currecny">$</span> {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee, 2, '.', '') }} </h5>
+                                        <h5><span id="current_currecny">{{ Auth::user()->current_user->current_currency->sign }}</span> {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee, 2, '.', '') }} </h5>
                                         <p class="font-roboto">Account Balance</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>${{ $tprofit- $tfee }}</h5>
-                                        <p class="font-roboto">Total Profit ($)</p>
+                                        <h5>{{ Auth::user()->current_user->current_currency->sign }} {{ $tprofit- $tfee }}</h5>
+                                        <p class="font-roboto">Total Profit ({{ Auth::user()->current_user->current_currency->sign }})</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5>{{ Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance == 0 ? 0 : number_format(($tprofit- $tfee)/(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee)*100, 2, '.', '') }}%</h5>
@@ -219,15 +219,15 @@
                                     <th scope="col">Symbol:</th>
                                     <th scope="col">Long/Short</th>
                                     <th scope="col">Trade Duration</th>
-                                    <th scope="col">Profit/Loss($)</th>
+                                    <th scope="col">Profit/Loss({{ Auth::user()->current_user->current_currency->sign }})</th>
                                     <th scope="col">Profit/Loss(%)</th>
                                     <th scope="col">Win/Loss/BE</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($recents as $trade)
+                                @foreach($recents as $key => $trade)
                                 <tr>
-                                    <td class="text-center">{{ $trade->trade_num }}</td>
+                                    <td class="text-center">{{ $key+1 }}</td>
                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                     <td class="text-center">{{ $trade->long_short }}</td>
                                     <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
@@ -243,8 +243,10 @@
                                     @endif
                                     @if( $trade->profit_gl > 0 )
                                     <td class="font-success text-center">Win</td>
-                                    @else
+                                    @elseif( $trade->profit_gl < 0 )
                                     <td class="font-danger text-center">Loss</td>
+                                    @else
+                                    <td class="font-warning text-center">Break Even</td>
                                     @endif
                                 </tr>
                                 @endforeach

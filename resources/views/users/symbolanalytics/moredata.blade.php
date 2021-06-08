@@ -79,7 +79,7 @@
                                 <div class="col-sm-12 col-xl-6">
                                     <p>Symbol: {{ $symbol }}</p>
                                     <p>Long or Short: {{ $data['besttrade']->long_short }}</p>
-                                    <p>AccountProfit(£,$,€): {{ $data['besttrade']->profit_gl }}</p>
+                                    <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['besttrade']->profit_gl }}</p>
                                     <p>Percentage Account Gain (%): {{ $data['besttrade']->percentage_gl }}</p>
                                     <p>Total Amount Of Pips: {{ $data['besttrade']->pips }}</p>
                                     <p>Total Entry Date: {{ $data['besttrade']->created_at }}</p>

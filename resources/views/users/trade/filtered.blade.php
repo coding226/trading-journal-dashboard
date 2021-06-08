@@ -36,21 +36,21 @@
                         <th class="text-center">Start Date</th>
                         @isset($completed)
                         <th class="text-center">Trade Duration</th>
-                        <th>Profit/Loss($)</th>
+                        <th>Profit/Loss({{ Auth::user()->current_user->current_currency->sign }})</th>
                         <th>Profit/Loss(%)</th>
                         <th>Win/Loss/BE</th>
                         @else
                         <th class="text-center">Current Duration</th>
-                        <th>Open Price($)</th>
+                        <th>Open Price({{ Auth::user()->current_user->current_currency->sign }})</th>
                         @endisset
                         <th>Edit/Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 0;?>
-                    @foreach($trades as $trade)
+                    @foreach($trades as $key => $trade)
                     <tr>
-                        <td class="text-center">{{ $trade->trade_num }}</td>
+                        <td class="text-center">{{ $key+1 }}</td>
                         <td class="text-center">{{ $trade->symbol->symbol }}</td>
                         <td class="text-center">{{ $trade->long_short }}</td>
                         <td class="text-center">{{ $trade->start_datetime }}</td>
@@ -71,7 +71,7 @@
                             @elseif( $trade->profit_gl < 0 )
                             <td class="font-danger text-center">Loss</td>
                             @else
-                            <td class="font-warnning text-center">Break Even</td>
+                            <td class="font-warning text-center">Break Even</td>
                             @endif
                         @else
                             <td class="text-center">{{ Carbon\CarbonInterval::seconds($currenttime - strtotime($trade->start_datetime))->cascade()->forHumans() }}</td>
