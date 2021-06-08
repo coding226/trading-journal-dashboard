@@ -47,7 +47,7 @@
     <div class="container-fluid">
         <div class="row">
         @foreach($notes as $note)
-            <div class="col-xl-3 xl-30">
+            <div class="col-xl-3 col-sm-6 xl-4">
                 <div class="card">
                     <div class="job-search">
                         <div class="card-body">
