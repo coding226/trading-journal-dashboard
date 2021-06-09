@@ -75,7 +75,7 @@
                             @endif
                         @else
                             <td class="text-center">{{ Carbon\CarbonInterval::seconds($currenttime - strtotime($trade->start_datetime))->cascade()->forHumans() }}</td>
-                            <td class="text-center">{{ $trade->open_price }}</td>
+                            <td class="text-center">{{ number_format($trade->open_price, 2, '.', '') }}</td>
                         @endisset
                         <td class="d-flex">
                             <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
