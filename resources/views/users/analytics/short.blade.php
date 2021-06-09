@@ -113,7 +113,7 @@
                     <div class="card-body">
                     @if($data['short_tcount'])
                         <p>Short Position Win Rate: {{ number_format($data['winshort_tcount']/$data['short_tcount'], 2, '.', '') }}</p>
-                        <p>Short Position Percentage Account Gain (%): {{ $data['shorttradesums']['percentage_gl_sum'] }}</p>
+                        <p>Short Position Percentage Account Gain (%): {{ number_format($data['shorttradesums']['percentage_gl_sum'], 2, '.', '') }}</p>
                         <p>Total Amount Of Pips from Short Trades: {{ $data['shorttradesums']['pips_sum'] }}</p>
                         <p>Average Amount Of Short Positions Per Month: {{ $data['short_ave_per_month'] }}</p>
                         <p>Average Short Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['shorttradesums']['duration_sum']/$data['short_tcount'])->cascade()->forHumans() }}</p>
@@ -133,7 +133,7 @@
                                 <p>Symbol: {{ $data['bestshorttrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestshorttrade']->long_short }}</p>
                                 <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestshorttrade']->profit_gl }}</p>
-                                <p>Percentage Account Gain (%): {{ $data['bestshorttrade']->percentage_gl }}</p>
+                                <p>Percentage Account Gain (%): {{ number_format($data['bestshorttrade']->percentage_gl, 2, '.', '') }}</p>
                                 <p>Total Amount Of Pips: {{ $data['bestshorttrade']->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestshorttrade']->duration)->cascade()->forHumans() }}</p>
                                 <p>Entry Time: {{ $data['bestshorttrade']->created_at }}</p>

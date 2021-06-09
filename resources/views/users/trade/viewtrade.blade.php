@@ -77,7 +77,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Percentage Gain/Loss On Account</th>
-                                            <td>{{ $trade->percentage_gl }}</td>
+                                            <td>{{ number_format($trade->percentage_gl, 2, '.', '') }}</td>
                                             <th scope="row">Stop Loss Value</th>
                                             <td>{{ $trade->stoplossval }}</td>
                                         </tr>

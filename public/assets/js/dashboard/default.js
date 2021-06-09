@@ -47,8 +47,8 @@ $(document).ready (function () {
         },
         success:function(data) {
             $('.daily_percentage_gain').text(Math.round(data['inadaypercentagegain']*100)/100);
-            $('.weekly_percentage_gain').text(data['inaweekpercentagegain']);
-            $('.monthly_percentage_gain').text(data['inamonthpercentagegain']);
+            $('.weekly_percentage_gain').text(Math.round(data['inaweekpercentagegain']*100)/100);
+            $('.monthly_percentage_gain').text(Math.round(data['inamonthpercentagegain']*100)/100);
             $('.yearly_percentage_gain').text(Math.round(data['inayearpercentagegain']*100)/100);
         }
     });

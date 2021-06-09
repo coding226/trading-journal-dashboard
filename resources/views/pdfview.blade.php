@@ -72,7 +72,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Percentage Gain/Loss On Account</th>
-                                            <td>{{ $data['trade']->percentage_gl }}</td>
+                                            <td>{{ number_format($data['trade']->percentage_gl, 2, '.', '') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Stop Loss Value</th>
@@ -80,11 +80,11 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Open Price</th>
-                                            <td>{{ $data['trade']->open_price }}</td>
+                                            <td>{{ number_format($data['trade']->open_price, 2, '.', '') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Close Price</th>
-                                            <td>{{ $data['trade']->close_price }}</td>
+                                            <td>{{ number_format($data['trade']->close_price, 2, '.', '') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Description</th>

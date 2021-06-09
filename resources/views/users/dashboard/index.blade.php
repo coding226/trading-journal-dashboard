@@ -97,62 +97,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-xl-3 xl-50 chart_data_right box-col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center">
-                                <div class="media-body right-chart-content">
-                                    <h4>$95,900</h4><span>Yearly Percentage Gain</span>
-                                </div>
-                                <div class="knob-block text-center">
-                                    <input class="knob1" data-width="10" data-height="70" data-thickness=".3" data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff" data-bgcolor="#eef5fb" value="60">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 xl-50 chart_data_right box-col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center">
-                                <div class="media-body right-chart-content">
-                                    <h4>$95,900</h4><span>Monthly Percentage Gain</span>
-                                </div>
-                                <div class="knob-block text-center">
-                                    <input class="knob1" data-width="10" data-height="70" data-thickness=".3" data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff" data-bgcolor="#eef5fb" value="60">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 xl-50 chart_data_right box-col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center">
-                                <div class="media-body right-chart-content">
-                                    <h4>$95,900</h4><span>Weekly Percentage Gain</span>
-                                </div>
-                                <div class="knob-block text-center">
-                                    <input class="knob1" data-width="10" data-height="70" data-thickness=".3" data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff" data-bgcolor="#eef5fb" value="60">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 xl-50 chart_data_right box-col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center">
-                                <div class="media-body right-chart-content">
-                                    <h4>$95,900</h4><span>Daily Percentage Gain</span>
-                                </div>
-                                <div class="knob-block text-center">
-                                    <input class="knob1" data-width="10" data-height="70" data-thickness=".3" data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff" data-bgcolor="#eef5fb" value="60">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             <div class="col-sm-6 col-xl-3 col-lg-6">
                 <div class="card o-hidden">
                     <div class="bg-primary b-r-4 card-body">
@@ -237,9 +181,9 @@
                                     <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
                                     @endif
                                     @if( $trade->percentage_gl > 0 )
-                                    <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                                    <td class="font-success text-center">{{ number_format($trade->percentage_gl, 2, '.', '') }}</td>
                                     @else
-                                    <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
+                                    <td class="font-danger text-center">{{ number_format($trade->percentage_gl, 2, '.', '') }}</td>
                                     @endif
                                     @if( $trade->profit_gl > 0 )
                                     <td class="font-success text-center">Win</td>

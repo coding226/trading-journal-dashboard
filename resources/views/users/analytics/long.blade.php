@@ -113,7 +113,7 @@
                     <div class="card-body">
                     @if($data['long_tcount'])
                         <p>Long Position Win Rate: {{ $data['long_tcount'] ? number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, '.', '') : '' }}</p>
-                        <p>Long Position Percentage Account Gain (%): {{ $data['longtradesums']['percentage_gl_sum'] }}</p>
+                        <p>Long Position Percentage Account Gain (%): {{ number_format($data['longtradesums']['percentage_gl_sum'], 2, '.', '') }}</p>
                         <p>Total Amount Of Pips from Long Trades: {{ $data['longtradesums']['pips_sum'] }}</p>
                         <p>Average Amount Of Long Positions Per Month: {{ $data['long_tcount'] ? $data['long_ave_per_month'] : ''}}</p>
                         <p>Average Long Trade Duration (Time): {{ $data['long_tcount'] ? Carbon\CarbonInterval::seconds($data['longtradesums']['duration_sum']/$data['long_tcount'])->cascade()->forHumans() : '' }}</p>
@@ -133,7 +133,7 @@
                                 <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestlongtrade']->long_short }}</p>
                                 <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestlongtrade']->profit_gl }}</p>
-                                <p>Percentage Account Gain (%): {{ $data['bestlongtrade']->percentage_gl }}</p>
+                                <p>Percentage Account Gain (%): {{ number_format($data['bestlongtrade']->percentage_gl, 2, '.', '') }}</p>
                                 <p>Total Amount Of Pips: {{ $data['bestlongtrade']->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestlongtrade']->duration)->cascade()->forHumans() }}</p>
                                 <p>Entry Time: {{ $data['bestlongtrade']->created_at }}</p>

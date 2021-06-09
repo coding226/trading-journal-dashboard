@@ -158,9 +158,9 @@
                                                     <td class="font-danger text-center">{{ $trade->profit_gl }}</td>
                                                     @endif
                                                     @if( $trade->profit_gl > 0 )
-                                                    <td class="font-success text-center">{{ $trade->percentage_gl }}</td>
+                                                    <td class="font-success text-center">{{ number_format($trade->percentage_gl, 2, '.', '') }}</td>
                                                     @else
-                                                    <td class="font-danger text-center">{{ $trade->percentage_gl }}</td>
+                                                    <td class="font-danger text-center">{{ number_format($trade->percentage_gl, 2, '.', '') }}</td>
                                                     @endif
                                                     @if( $trade->profit_gl > 0 )
                                                     <td class="font-success text-center">Win</td>

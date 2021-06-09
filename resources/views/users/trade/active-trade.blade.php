@@ -102,7 +102,7 @@
                                                     <td class="text-center">{{ $trade->long_short }}</td>
                                                     <td class="text-center">{{ $trade->start_datetime }}</td>
                                                     <td class="text-center"></td>
-                                                    <td class="text-center">{{ $trade->open_price }}</td>
+                                                    <td class="text-center">{{ number_format($trade->open_price, 2, '.', '') }}</td>
                                                     <td class="d-flex">
                                                         <a href="{{ url('/edittrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="pull-left">
                                                             <div class="media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg></div>

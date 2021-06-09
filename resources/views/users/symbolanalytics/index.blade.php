@@ -50,7 +50,7 @@
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $symbol->symbol->symbol }}</td>
-                                        <td>{{ $symbol->percentage_gl_sum }}%</td>
+                                        <td>{{ number_format($symbol->percentage_gl_sum, 2, '.', '') }}%</td>
                                         <td>{{ Auth::user()->current_user->current_currency->sign }} {{ $symbol->profit_gl_sum  }}</td>
                                         <td>{{ $symbol->symbol_count }}</td>
                                         <td><a href="{{ url('/symbolmore') }}/{{$symbol->symbol_id}}">See More</a></td>

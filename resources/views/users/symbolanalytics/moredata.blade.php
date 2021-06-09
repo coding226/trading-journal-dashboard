@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-sm-12 col-xl-6">
                                     <p>Win Rate (%): {{ number_format($data['twin']/$data['tradesums']['tcount']*100, 2, '.','') }}</p>
-                                    <p>Percentage Account Gain (%): {{ $data['tradesums']['percentage_gl_sum'] }}</p>
+                                    <p>Percentage Account Gain (%): {{ number_format($data['tradesums']['percentage_gl_sum'], 2, '.', '') }}</p>
                                     <p>Average Trade Gain (%): {{ number_format($data['tradesums']['percentage_gl_sum']/$data['tradesums']['tcount'], 2, '.', '') }}</p>
                                     <p>Average Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['tradesums']['duration_sum']/$data['tradesums']['tcount'])->cascade()->forHumans() }}</p>
                                 </div>
@@ -80,7 +80,7 @@
                                     <p>Symbol: {{ $symbol }}</p>
                                     <p>Long or Short: {{ $data['besttrade']->long_short }}</p>
                                     <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['besttrade']->profit_gl }}</p>
-                                    <p>Percentage Account Gain (%): {{ $data['besttrade']->percentage_gl }}</p>
+                                    <p>Percentage Account Gain (%): {{ number_format($data['besttrade']->percentage_gl, 2, '.', '') }}</p>
                                     <p>Total Amount Of Pips: {{ $data['besttrade']->pips }}</p>
                                     <p>Total Entry Date: {{ $data['besttrade']->created_at }}</p>
                                     <p>Entry Time: {{ $data['besttrade']->created_at }}</p>
