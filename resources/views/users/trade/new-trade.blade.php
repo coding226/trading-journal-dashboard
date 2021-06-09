@@ -92,6 +92,7 @@
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Long or Short <span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <select class="form-select" name="long_short">
+                                                <option selected="" disabled="" value="">Choose...</option>
                                                 <option>LONG</option>
                                                 <option>SHORT</option>
                                             </select>
