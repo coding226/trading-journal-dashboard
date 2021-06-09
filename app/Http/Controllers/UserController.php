@@ -145,15 +145,20 @@ class UserController extends Controller
     }
 
 
-    public function darkmode()
+    public function darkmode(Request $request)
     {
-        if(Auth::user()->darkmode == ''){
-            User::where('id', Auth::user()->id)->update(['darkmode' => 'dark-only']);
+        if($request->mode == 1){
+            if(Auth::user()->darkmode == ''){
+                User::where('id', Auth::user()->id)->update(['darkmode' => 'dark-only']);
+            }
+            else{
+                User::where('id', Auth::user()->id)->update(['darkmode' => '']);
+            }
         }
         else{
-            User::where('id', Auth::user()->id)->update(['darkmode' => '']);
+            User::where('id', Auth::user()->id)->update(['darkmode' => $request->mode]);
         }
-        return 1;
+
     }
 }
 

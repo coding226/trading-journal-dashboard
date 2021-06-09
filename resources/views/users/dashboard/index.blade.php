@@ -11,6 +11,9 @@
     ul.growth-chart li{
         cursor: pointer;
     }
+    .appointment .card .card-body{
+        min-height: 370px;
+    }
 </style>
 @endsection
 @section('content')

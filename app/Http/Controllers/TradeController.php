@@ -95,6 +95,7 @@ class TradeController extends Controller
                 $image->move('assets/images/before_images', $imagename);
                 $before_image->before_file = 'assets/images/before_images/'.$imagename;
                 $before_image->before_link = '';
+                $before_image->save();
             }
             else {
                 $url = $request->input('before_img_link_'.$i); 
@@ -102,9 +103,11 @@ class TradeController extends Controller
                 // $imagename = strtotime(date('Y-m-d H:i:s')).".". substr($namey, strpos($namey, '.')+1);
                 // file_put_contents( 'assets/images/before_images/'.$imagename, file_get_contents($url, false, stream_context_create($arrContextOptions)));
                 $before_image->before_file = '';
-                $before_image->before_link = $url;
+                if($url){
+                    $before_image->before_link = $url;
+                    $before_image->save();
+                }
             }
-            $before_image->save();
         }
 
         for($i=1; $i<=$request->after_img_count; $i++)
@@ -118,6 +121,7 @@ class TradeController extends Controller
                 $image->move('assets/images/after_images', $imagename);
                 $after_image->after_file = 'assets/images/after_images/'.$imagename;
                 $after_image->after_link = '';
+                $after_image->save();
             }
             else {
                 $url = $request->input('after_img_link_'.$i); 
@@ -125,12 +129,15 @@ class TradeController extends Controller
                 // $imagename = strtotime(date('Y-m-d H:i:s')).".". substr($namey, strpos($namey, '.')+1);
                 // file_put_contents( 'assets/images/after_images/'.$imagename, file_get_contents($url, false, stream_context_create($arrContextOptions)));
                 $after_image->after_file = '';
-                $after_image->after_link = $url;
+                if($url){
+                    $after_image->after_link = $url;
+                    $after_image->save();
+                }
             }
-            $after_image->save();
+            
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'New trade stored successfully.');
 
     }
 
@@ -278,6 +285,7 @@ class TradeController extends Controller
                 }
                 $before_image->before_file = 'assets/images/before_images/'.$imagename;
                 $before_image->before_link = '';
+                $before_image->save();
             }
             else {
                 $url = $request->input('before_img_link_'.$i); 
@@ -285,9 +293,12 @@ class TradeController extends Controller
                 // $imagename = strtotime(date('Y-m-d H:i:s')).".". substr($namey, strpos($namey, '.')+1);
                 // file_put_contents( 'assets/images/before_images/'.$imagename, file_get_contents($url, false, stream_context_create($arrContextOptions)));
                 $before_image->before_file = '';
-                $before_image->before_link = $url;
+                if($url){
+                    $before_image->before_link = $url;
+                    $before_image->save();
+                }
             }
-            $before_image->save();
+            
         }
 
         for($i=1; $i<=$request->after_img_count; $i++)
@@ -313,6 +324,7 @@ class TradeController extends Controller
                 }
                 $after_image->after_file = 'assets/images/after_images/'.$imagename;
                 $after_image->after_link = '';
+                $after_image->save();
             }
             else {
                 $url = $request->input('after_img_link_'.$i); 
@@ -320,9 +332,12 @@ class TradeController extends Controller
                 // $imagename = strtotime(date('Y-m-d H:i:s')).".". substr($namey, strpos($namey, '.')+1);
                 // file_put_contents( 'assets/images/after_images/'.$imagename, file_get_contents($url, false, stream_context_create($arrContextOptions)));
                 $after_image->after_file = '';
-                $after_image->after_link = $url;
+                if($url){
+                    $after_image->after_link = $url;
+                    $after_image->save();
+                }
             }
-            $after_image->save();
+            
         }
 
         return redirect()->route('mytrades.index');

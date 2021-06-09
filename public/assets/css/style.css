@@ -28660,7 +28660,9 @@ body.dark-only .apexcharts-canvas svg .apexcharts-subtitle-text {
 body.dark-only .apexcharts-canvas svg .apexcharts-yaxis .apexcharts-yaxis-texts-g .apexcharts-yaxis-label {
     fill: #fff
 }
-
+body.dark-only .apexcharts-canvas svg .apexcharts-yaxis .apexcharts-yaxis-title .apexcharts-yaxis-title-text {
+    fill: #bbb
+}
 body.dark-only .apexcharts-canvas svg .apexcharts-xaxis .apexcharts-xaxis-texts-g .apexcharts-xaxis-label {
     fill: #fff
 }
@@ -30076,7 +30078,7 @@ body.dark-only .page-wrapper .page-body-wrapper .page-body .custom-card .card-fo
     border-left: 1px solid #323846
 }
 
-body.dark-only .page-wrapper .page-body-wrapper .page-body .form-control {
+body.dark-only .page-wrapper .page-body-wrapper .form-control {
     background-color: #1d1e26;
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid #1d1e26

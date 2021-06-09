@@ -78,11 +78,35 @@ $(document).ready(function () {
     });
 
 
-    $(".customizer-mix li").on('click', function () {
+    $(".customizer-mix li").on('click', function (e) {
         $(".customizer-mix li").removeClass('active');
         $(this).addClass("active");
         var mixLayout = $(this).attr("data-attr");
+        if(mixLayout == 'dark-only'){
+            $('.mode i').removeClass().toggleClass("fa fa-lightbulb-o");
+        }
+        else{
+            $('.mode i').removeClass().toggleClass("fa fa-moon-o");
+        }        
         $("body").attr("class", mixLayout);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            cache: false,
+            url: '/darkmode',
+            dataType: 'json',
+            data: {
+                mode: mixLayout,
+            },
+            success:function(data) {
+            }
+        });
     });
 
 

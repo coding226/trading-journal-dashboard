@@ -15,6 +15,9 @@
             width: 220px;
             margin: 0 20px;
         }
+        .card .card-body p:first-child {
+            margin-top: 1rem;
+        }
     </style>
 @endsection
 @section('content')  

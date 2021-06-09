@@ -44,6 +44,11 @@
                     <form class="form theme-form" method="POST" action="{{ route('newtrade.create') }}" enctype="multipart/form-data">
                     @csrf
                         <div class="card-body">
+                            @if(session()->has('message'))
+                                <div class="alert alert-success" role="alert">
+                                        {{ session()->get('message') }} Go to <a href="{{ url('/mytrades') }}">My Trades</a> to view added trades
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col datetime-picker">
                                     <div class="mb-3 row">

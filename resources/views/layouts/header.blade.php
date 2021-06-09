@@ -223,7 +223,7 @@
                             </ul>
                         </li> --}}
                         <li>
-                            <div class="mode"><i class="fa fa-moon-o"></i></div>
+                            <div class="mode"><i class="{{ Auth::user()->darkmode == 'dark-only' ? 'fa fa-lightbulb-o' : 'fa fa-moon-o' }}"></i></div>
                         </li>
                         <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize"></i></a></li>

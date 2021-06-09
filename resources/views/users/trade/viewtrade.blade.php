@@ -98,13 +98,17 @@
                         <div class="row mt-5 preview">
                             <h6>Before Images</h6>
                             @foreach($beimages as $key => $beimage)
+                            @if($beimage->before_link || $beimage->before_file)
                                 <a href="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" target="_blank"><img class="b-r-15 mt-3" src="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" alt="Unknown Image"></a>
+                            @endif
                             @endforeach
                         </div>
                         <div class="row mt-5 preview">
                             <h6>After Images</h6>
                             @foreach($afimages as $key => $afimage)
+                            @if($afimage->after_link || $afimage->after_file)
                                 <a href="{{ ($afimage->after_link) ? $afimage->after_link:'/'.$afimage->after_file }}" target="_blank"><img class="b-r-15 mt-3" src="{{ ($afimage->after_link) ? $afimage->after_link:'/'.$afimage->after_file }}" alt="Unknown Image"></a>
+                            @endif
                             @endforeach
                         </div>
                     </div>
