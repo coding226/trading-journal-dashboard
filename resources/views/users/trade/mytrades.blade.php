@@ -145,7 +145,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($trades as $key => trade)
+                                                @foreach($trades as $key => $trade)
                                                 <tr>
                                                     <td class="text-center">{{ $key+1 }}</td>
                                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
