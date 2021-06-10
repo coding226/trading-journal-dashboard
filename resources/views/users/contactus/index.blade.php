@@ -32,11 +32,11 @@
                 <div class="card height-equal" style="min-height: 633px;">
                     <div class="card-header">
                         <h5>Contact Us</h5>
-                        <div class="card-header-right">
+                        <!-- <div class="card-header-right">
                             <ul class="list-unstyled card-option">
                                 <li><i class="fa fa-spin fa-cog"></i></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="contact-form card-body">
                         @if(session('status'))

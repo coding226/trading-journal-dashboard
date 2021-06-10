@@ -34,13 +34,13 @@
                             <div class="card-body">
                                 @if(session()->has('message'))
                                     <div class="alert alert-success" role="alert">
-                                            {{ session()->get('message') }} Go to <a href="{{ url('/new-trade') }}">Create New Trade</a> to reocrd your trades
+                                            {{ session()->get('message') }} Go to <a href="{{ url('/new-trade') }}">Create New Trade</a> to record your trades
                                     </div>
                                 @endif
                                 <form method="POST" action="{{ Route('user.createsub') }}">
                                 @csrf
                                     <div class="mb-3">
-                                        <label class="form-label">Sub User Name</label>
+                                        <label class="form-label">Account Name</label>
                                         <input class="form-control" type="text" required id="username" name="username" placeholder="User name">
                                     </div>
                                     <div class="mb-3">
