@@ -200,7 +200,7 @@
                             <div class="card-body">
                                 @if(session()->has('message'))
                                     <div class="alert alert-success" role="alert">
-                                            {{ session()->get('message') }} Go to <a href="{{ url('/new-account') }}">here</a> to view added trades
+                                            {{ session()->get('message') }}
                                     </div>
                                 @endif
                                 @php

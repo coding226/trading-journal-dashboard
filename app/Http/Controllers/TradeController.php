@@ -141,11 +141,31 @@ class TradeController extends Controller
 
     }
 
-    public function import() 
-    {        
-        Excel::import(new TradesImport, request()->file('file'));
-             
-        return back();
+    public function import(Request $request) 
+    {   
+        $request->validate([
+            "file" => "required",
+        ]);
+
+        $file = $request->file('file');
+        $filename = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $fileSize = $file->getSize();
+
+        $valid_extension = array("csv");
+        $maxFileSize = 2097152; 
+        if(in_array(strtolower($extension),$valid_extension)){
+            if($fileSize <= $maxFileSize){
+                Excel::import(new TradesImport, $file);
+                return back();
+            }
+            else{
+                return redirect()->back()->with('message', 'File too large. File must be less than 2MB.');
+            }
+        }
+        else{
+            return redirect()->back()->with('message', 'Invalid File Extension.');
+        }
     }
 
     /**

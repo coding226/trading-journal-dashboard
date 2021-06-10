@@ -88,6 +88,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
+                            @if(session()->has('message'))
+                                <div class="alert alert-danger" role="alert">
+                                        {{ session()->get('message') }}
+                                </div>
+                            @endif
                         <div class="card-header pb-3">
                             <h5 class="mb-3">Trade Page</h5><span>Select Daterange to view specific date data.</span>
                             <div class="row form theme-form mt-3">
@@ -220,7 +225,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="custom-file text-left">
-                            <input type="file" name="file" class="custom-file-input" id="customFile">
+                            <input type="file" name="file" class="custom-file-input" id="customFile" required>
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
