@@ -7313,6 +7313,10 @@ table.dataTable.display tbody tr.odd>.sorting_1 {
     cursor: pointer
 }
 
+.dark-only .dropdown-basic .dropdown .dropbtn {
+    color: white !important;
+}
+
 .dropdown-basic .dropdown .dropdown-content {
     display: none;
     position: absolute;

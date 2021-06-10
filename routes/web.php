@@ -87,6 +87,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/subuser-setting', [UserController::class, 'subuser_setting'])->name('user.subusersetting');
     Route::post('/change-subsetting', [UserController::class, 'change_subsetting'])->name('user.change_subsetting');
     Route::post('/darkmode', [UserController::class, 'darkmode'])->name('user.darkmode');
+    Route::get('/editsubaccount/{subaccountid}', [UserController::class, 'editsubaccount'])->name('user.subaccount.edit', ['subaccountid']);
+    Route::post('/updatesubaccount', [UserController::class, 'updatesubaccount'])->name('user.subaccount.update');
+    Route::get('/del-subaccount/{subaccountid}', [UserController::class, 'delsubaccount'])->name('user.subaccount.del', ['subaccountid']);
+
     // User ends
 
     //Subscription start

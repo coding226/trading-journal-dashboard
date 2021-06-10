@@ -91,11 +91,21 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Long or Short <span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-select" name="long_short">
+                                            <div class="m-t-15 m-checkbox-inline custom-radio-ml">
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline1" type="radio" name="long_short" checked value="long">
+                                                    <label class="form-check-label mb-0" for="radioinline1">Long</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline2" type="radio" name="long_short" value="short">
+                                                    <label class="form-check-label mb-0" for="radioinline2">Short</label>
+                                                </div>
+                                            </div>
+                                            <!-- <select class="form-select" name="long_short">
                                                 <option selected="" disabled="" value="">Choose...</option>
                                                 <option>LONG</option>
                                                 <option>SHORT</option>
-                                            </select>
+                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="mb-3 row">

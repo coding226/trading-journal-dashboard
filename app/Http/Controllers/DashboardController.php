@@ -62,7 +62,7 @@ class DashboardController extends Controller
             'tpecen' => $tpecen,
             'recents' => $recents,
             'data' => $data,
-            'dashbaord' => 1
+            'dashboard' => 1
         ]);
     }
     

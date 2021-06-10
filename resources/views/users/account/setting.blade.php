@@ -103,7 +103,6 @@
                                                 
                                                 <div class="media-body">
                                                     <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                                                    <p>{{ $acc_num }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,6 +189,51 @@
                             </div>
                             <div class="card-footer text-end">
                                 <button class="btn btn-primary" id="change_pass_btn">Update</button>
+                            </div>
+                        </form>
+                        <form method="POST" onsubmit="return false;" class="card" id="accounteditform">
+                            @csrf
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">Edit/Delete Accounts</h4>
+                                <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
+                            </div>
+                            <div class="card-body">
+                                @if(session()->has('message'))
+                                    <div class="alert alert-success" role="alert">
+                                            {{ session()->get('message') }} Go to <a href="{{ url('/new-account') }}">here</a> to view added trades
+                                    </div>
+                                @endif
+                                @php
+                                    $subusers = DB::table('subusers')->where('user_id', Auth::user()->id)->where('username','<>','Main')->get();
+                                @endphp
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Account</label>
+                                            <select class="form-select" id="actionsubuser">
+                                                @foreach($subusers as $subuser)
+                                                @if($subuser-> id == Auth::user()->current_subuser)
+                                                <option value="{{ $subuser-> id }}" selected>{{ $subuser-> username }}</option>
+                                                @else
+                                                <option value="{{ $subuser-> id }}">{{ $subuser-> username }}</option>
+                                                @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Action</label>
+                                            <select class="form-select" id="action" name="action">
+                                                <option value="edit">Edit</option>
+                                                <option value="delete">Delete</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-end">
+                                <button class="btn btn-primary" id="continue">Continue</button>
                             </div>
                         </form>
                     </div>

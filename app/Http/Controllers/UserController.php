@@ -9,6 +9,9 @@ use Validator;
 use App\Models\User;
 use App\Models\Subuser;
 use App\Models\Currency;
+use App\Models\Trade;
+use App\Models\Beimage;
+use App\Models\Afimage;
 use Auth;
 
 class UserController extends Controller
@@ -21,8 +24,7 @@ class UserController extends Controller
     public function setting()
     {
         $curriences = Currency::all();
-        $acc_num = count(Subuser::where('user_id', Auth::user()->id)->get());
-        return view('users.account.setting', compact('curriences','acc_num'));
+        return view('users.account.setting', compact('curriences'));
     }
 
     public function new_account()
@@ -43,7 +45,7 @@ class UserController extends Controller
         $subuser->starting_bal = $request->startcapital;
         $subuser->save();
         User::where('id', Auth::user()->id)->update(['current_subuser'=> $subuser->id]);
-        return redirect()->back();
+        return redirect()->back()->with('message', 'New Sub Account Created Successfully.');
     }
 
     public function change_user($id) {
@@ -159,6 +161,70 @@ class UserController extends Controller
             User::where('id', Auth::user()->id)->update(['darkmode' => $request->mode]);
         }
 
+    }
+
+
+    public function editsubaccount($subaccountid)
+    {
+        $subaccount = Subuser::where('user_id', Auth::user()->id)->where('id', $subaccountid)->first();
+        $curriences = Currency::all();
+        if($subaccount){
+            return view('users.account.editsubaccount', compact('subaccount', 'curriences'));
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function updatesubaccount(Request $request)
+    {
+        $subuser = Subuser::find($request->subuserid);
+        $subuser->username = $request->username;
+        $subuser->desc = $request->account_desc;
+        $subuser->currency = $request->currency;
+        $subuser->starting_bal = $request->startcapital;
+        $subuser->save();
+        User::where('id', Auth::user()->id)->update(['current_subuser'=> $subuser->id]);
+        return redirect()->back();
+    }
+
+    public function delsubaccount($subaccountid)
+    {
+        $subaccount = Subuser::where('user_id', Auth::user()->id)->where('username', '<>', 'Main')->where('id', $subaccountid)->first();
+        $user = User::find(Auth::user()->id);
+        if($subaccount->id == $user->current_subuser){
+            $user->current_subuser = Subuser::where('user_id', $user->id)->where('username', 'Main')->first()->id;
+            $user->save();
+        }
+        if($subaccount){
+            $trades = Trade::where('subuser_id', $subaccount->id)->get();
+            foreach($trades as $trade){
+                $beimages = Beimage::where('trade_id', $trade->id)->get();
+                foreach($beimages as $beimage){
+                    if($beimage->before_file){
+                        if(\File::exists(public_path($before_image->before_file))){
+                            \File::delete(public_path($before_image->before_file));
+                        }
+                    }
+                    $beimage->delete();
+                }
+                $afimages = Afimage::where('trade_id', $trade->id)->get();
+                foreach($afimages as $afimage){
+                    if($afimage->after_file){
+                        if(\File::exists(public_path($after_image->after_file))){
+                            \File::delete(public_path($after_image->after_file));
+                        }
+                    }
+                    $afimage->delete();
+                }
+                $trade->delete();
+            }
+            $subaccount->delete();
+            return redirect()->back()->with('message', 'Sub account was deleted successfully, you can add new one.');
+        }
+        else{
+            return redirect()->back();
+        }
     }
 }
 

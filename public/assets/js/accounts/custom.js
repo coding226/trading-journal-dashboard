@@ -83,6 +83,10 @@ function submitform() {
 
 
 $("#change_pass_btn").click(function(e) {
+    if($('#modalpassword').length > 0){
+        $('#modalpassword').remove();
+        $('#alertmodal form .modal-footer a').removeAttr('onclick');
+    }
     if ($("#newpassword").val() != $("#newpasswordconfirm").val())
         alert("password not matched!")
     $.ajaxSetup({
@@ -118,6 +122,10 @@ $("#change_pass_btn").click(function(e) {
 });
 
 $("#depwith").click(function(e) {
+    if($('#modalpassword').length > 0){
+        $('#modalpassword').remove();
+        $('#alertmodal form .modal-footer a').removeAttr('onclick');
+    }
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -176,6 +184,12 @@ $(".upload-button").on('click', function() {
 });
 
 $('#startingbal').on('click', function(e) {
+    if($('#modalpassword').length > 0){
+        $('#modalpassword').remove();
+        $('#alertmodal form .modal-footer a').removeAttr('onclick');
+    }
+    if($('#stamount').val() == '')
+    return false;
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -220,4 +234,38 @@ $('#stsubuser').on('change', function() {
             $('#stamount').val(data);
         }
     });
+});
+
+
+$('#continue').on('click', function() {
+    if($('#modalpassword').length > 0){
+        $('#modalpassword').remove();
+        $('#alertmodal form .modal-footer a').removeAttr('onclick');
+    }
+    if($('#action').val() == 'edit'){
+        var url = window.location.origin + '/editsubaccount/' + $('#actionsubuser').val();
+        window.location.replace(url);
+    }
+    else{
+        var url = window.location.origin + '/del-subaccount/' + $('#actionsubuser').val();
+        $('#alertmodal form .modal-title').text('Delete Sub Account');
+        $('#alertmodal form .modal-body p').text('If you delete your sub account, all related data will be removed. Are you sure to remove them?');
+        if($('#alertmodal form .modal-footer button').length < 1){
+            $('#alertmodal form .modal-footer').append('<button type="submit" class="btn btn-primary" type="button">Ok</button>')
+        }else{
+            $('#alertmodal form .modal-footer button').text('Ok');
+        }
+        if($('#modalpassword').length > 0){
+            $('#modalpassword').remove();
+            $('#alertmodal form .modal-footer a').removeAttr('onclick');
+        }
+        $('#alertmodal form').attr('action', url);
+        $('#alertmodal form').attr('method', 'GET');
+        $('#alertmodal form .modal-footer a').text('Cancel');
+        $('#alertmodal').modal('show');
+
+        return false;
+        
+        window.location.replace(url);
+    }
 });
