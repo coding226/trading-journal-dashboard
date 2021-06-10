@@ -112,7 +112,7 @@
                                         <label class="col-sm-3 col-form-label">Fees</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <span class="input-group-text">$</span>
+                                                <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
                                                 <input class="form-control" type="number" step="any" id="fees" name="fees" value="{{ $trade->fees }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
                                         <label class="col-sm-3 col-form-label">Profit Gain/Loss</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <span class="input-group-text">$</span>
+                                                <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
                                                 <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" value="{{ $trade->profit_gl }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
@@ -210,8 +210,8 @@
 <script src="../assets/js/select2/select2-custom.js"></script>
 
 <script src="../assets/js/datepicker/date-time-picker/moment.min.js"></script>
-    <script src="../assets/js/datepicker/date-time-picker/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="../assets/js/datepicker/date-time-picker/datetimepicker.custom.js"></script>
+<script src="../assets/js/datepicker/date-time-picker/tempusdominus-bootstrap-4.min.js"></script>
+<script src="../assets/js/datepicker/date-time-picker/datetimepicker.custom.js"></script>
 
 <script src="../assets/js/tooltip-init.js"></script>
 <script src="../assets/js/trade/new-trade.js"></script>

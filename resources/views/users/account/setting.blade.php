@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>Account Setting | The Trading Buddy</title>
+    <title>Account Settings | The Trading Buddy</title>
 @endsection
 @section('style')
 <style>
@@ -66,12 +66,12 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>Account Setting</h3>
+                        <h3>Account Settings</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"><i data-feather="home"></i></a></li>
-                            <li class="breadcrumb-item active"> Account Setting</li>
+                            <li class="breadcrumb-item active"> Account Settings</li>
                         </ol>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                                 <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" onsubmit="return false;" id="mainsettingform">
+                                <form method="POST" onsubmit="return false;" id="mainsettingsform">
                                 @csrf
                                     <div class="row mb-2">
                                         <div class="profile-title">
@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
                                     <div class="form-footer">
-                                        <button id="save_account_setting" class="btn btn-primary btn-block">Save</button>
+                                        <button id="save_account_settings" class="btn btn-primary btn-block">Save</button>
                                     </div>
                                 </form>
                             </div>

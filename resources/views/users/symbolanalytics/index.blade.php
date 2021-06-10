@@ -41,7 +41,7 @@
                                         <th>Symbol:</th>
                                         <th>Total % Gain:</th>
                                         <th>Total {{ Auth::user()->current_user->current_currency->sign }} Gain:</th>
-                                        <th>Total Amount Of<br/> Wins</th>
+                                        <th>Total Amount Of<br/> Trades</th>
                                         <th></th>
                                     </tr>
                                 </thead>

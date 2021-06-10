@@ -124,7 +124,7 @@
                                         <label class="col-sm-3 col-form-label">Fees</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <span class="input-group-text">$</span>
+                                                <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
                                                 <input class="form-control" type="number" step="any" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                         <label class="col-sm-3 col-form-label">Profit Gain/Loss</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <span class="input-group-text">$</span>
+                                                <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
                                                 <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
                                             </div>
                                         </div>
@@ -222,7 +222,7 @@
 
     function set_percentage() {
         var profit = $('#profit_gl').val() - $('#fees').val();
-        var percentage = profit/balance*100;
+        var percentage = (profit/balance*100).toFixed(2);
         $('#percentage_gl').val(percentage);
     };
 

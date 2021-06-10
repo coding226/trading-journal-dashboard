@@ -30,6 +30,11 @@
     .job-search .dropdown-content{
         cursor: pointer;
     }
+    .note-description{
+        max-height: 200px;
+        white-space: pre-line;
+        overflow: hidden;
+    }
 </style>
 @endsection
 @section('content')
@@ -82,7 +87,7 @@
                             @if($note->image)
                             <img src="{{ $note->image }}">
                             @else
-                            <p>{{ strlen($note->description) < 270 ? $note->description : substr($note->description, 0, 270).'...' }}</p>
+                            <p class="note-description">{{ strlen($note->description) < 270 ? $note->description : substr($note->description, 0, 270).'...' }}</p>
                             @endif
                         </div>
                     </div>

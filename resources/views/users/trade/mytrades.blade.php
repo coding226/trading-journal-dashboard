@@ -49,6 +49,19 @@
             border: none;
             border-radius: 0 20px 20px 0;  
         }
+        @media (max-width: 991px){
+            #trade-table{
+                margin-top: -110px;
+            }
+            .action .dropdown-basic{
+                margin-bottom: 30px !important;
+            }
+        }
+        @media (max-width: 767px){
+            .card .theme-form .datefilter{
+                margin-bottom: 70px;
+            }
+        }
     </style>
 @endsection
 @section('content')
@@ -78,15 +91,13 @@
                         <div class="card-header pb-3">
                             <h5 class="mb-3">Trade Page</h5><span>Select Daterange to view specific date data.</span>
                             <div class="row form theme-form mt-3">
-                                <div class="col">
+                                <div class="datefilter col-md-8 col-sm-12">
                                     <div class="mb-3 row">
-                                        <p class="col-sm-3 text-end pt-3 mt-0">Date Filter:</p>
-                                        <div class="col-sm-5">
+                                        <p class="col-md-3 col-sm-6 xl-4 text-end pt-3 mt-0">Date Filter:</p>
+                                        <div class="col-md-5 col-sm-6 xl-4">
                                             <input class="form-control" id="reportrange" type="text">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col">
                                 </div>
                             </div>
                             <div class="row collapse" id="importsectionCollapse" data-bs-parent="#importoggler">
