@@ -55,7 +55,6 @@ class TradeController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request->all());
         $trade = new Trade;
         $trade->trade_num = count(Trade::where('subuser_id', Auth::user()->current_subuser)->get())+1;
         $trade->subuser_id = Auth::user()->current_subuser;
