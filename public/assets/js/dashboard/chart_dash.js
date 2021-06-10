@@ -145,7 +145,7 @@ profit_pairs_chart.render();
 // area growth chart
 var growthoptions = {
     chart: {
-        height: 350,
+        height: 405,
         type: 'area',
         toolbar:{
             show: true,

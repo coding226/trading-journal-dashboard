@@ -30,7 +30,7 @@ class AnalyticsController extends Controller
     public function index(Request $request)
     {   
         $all_count =  Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->count();
-        $active_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->whereNull('end_datetime')->count();
+        $active_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('start_datetime', [$this->startdate, $this->enddate])->whereNull('end_datetime')->count();
         $win_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('profit_gl', '>', 0)->count();
         $loss_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('profit_gl', '<', 0)->count();
         $break_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('profit_gl', '0')->count();

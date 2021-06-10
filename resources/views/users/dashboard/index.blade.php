@@ -66,8 +66,8 @@
                             <div class="col-xl-3 earning-content p-0">
                                 <div class="row m-0 chart-left">
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>{{ $acc_num }}</h5>
-                                        <p class="font-roboto">Account Number</p>
+                                        <h5>{{ Auth::user()->current_user->username }}</h5>
+                                        <p class="font-roboto">Account Username</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5><span id="current_currecny">{{ Auth::user()->current_user->current_currency->sign }}</span> {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee, 2, '.', '') }} </h5>
