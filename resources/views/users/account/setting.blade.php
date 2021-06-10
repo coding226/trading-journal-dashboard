@@ -88,7 +88,7 @@
                                 <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" onsubmit="return false;" id="mainsettingsform">
+                                <form method="POST" onsubmit="return false;" id="mainsettingform">
                                 @csrf
                                     <div class="row mb-2">
                                         <div class="profile-title">
@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
                                     <div class="form-footer">
-                                        <button id="save_account_settings" class="btn btn-primary btn-block">Save</button>
+                                        <button id="save_account_setting" class="btn btn-primary btn-block">Save</button>
                                     </div>
                                 </form>
                             </div>

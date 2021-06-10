@@ -152,7 +152,7 @@ class TradeController extends Controller
         $extension = $file->getClientOriginalExtension();
         $fileSize = $file->getSize();
 
-        $valid_extension = array("csv");
+        $valid_extension = array("csv", "xlsx");
         $maxFileSize = 2097152; 
         if(in_array(strtolower($extension),$valid_extension)){
             if($fileSize <= $maxFileSize){

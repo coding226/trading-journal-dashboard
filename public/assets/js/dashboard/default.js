@@ -4,16 +4,16 @@ var curHr = today.getHours()
 
 if (curHr >= 0 && curHr < 4) {
     document.getElementById("greeting").innerHTML = 'Good Night';
-    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg.jpg")');
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg-3.jpg")');
 } else if (curHr >= 4 && curHr < 12) {
     document.getElementById("greeting").innerHTML = 'Good Morning';
-    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/2.jpg")');
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg-1.jpg")');
 } else if (curHr >= 12 && curHr < 16) {
     document.getElementById("greeting").innerHTML = 'Good Afternoon';
-    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/5.jpg")');
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg-2.jpg")');
 } else {
     document.getElementById("greeting").innerHTML = 'Good Evening';
-    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/3.jpg")');
+    $('.profile-greeting').css('background-image', 'url("../assets/images/dashboard/bg-3.jpg")');
 }
 // time 
 function startTime() {

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/daterange-picker.css">
     <style>
         .card-body.table-responsive{
-            margin-top: -130px;
+            margin-top: -140px;
         }
         #sample_3_tools li{
             list-style-type: none;

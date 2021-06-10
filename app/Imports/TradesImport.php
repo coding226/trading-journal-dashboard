@@ -46,33 +46,37 @@ class TradesImport implements ToCollection, WithStartRow
                 $end_datetime = $this->transformDate($row[4])->format("Y-m-d H:i:s");
                 $duration = abs(strtotime($start_datetime) - strtotime($end_datetime));
             }
+            if($symbol){
+                $newimported = Trade::create([
+                    'trade_num' => $row[0],
+                    'subuser_id' => Auth::user()->current_subuser,
+                    'symbol_id' => $symbol->id,
+                    'start_datetime' => $start_datetime,
+                    'end_datetime' => $end_datetime,
+                    'duration' => $duration,
+                    'long_short' => $row[2],
+                    'pips' => $row[5],
+                    'fees' => $row[6],
+                    'profit_gl' => $row[7],
+                    'percentage_gl' => $row[8],
+                    'open_price' => $row[9],
+                    'close_price' => $row[10],
+                    'description' => $row[13]
+                ]);
+                
+                Beimage::create([
+                    'trade_id' => $newimported->id,
+                    'before_link' => $row[11]
+                ]);
 
-            $newimported = Trade::create([
-                'trade_num' => $row[0],
-                'subuser_id' => Auth::user()->current_subuser,
-                'symbol_id' => $symbol->id,
-                'start_datetime' => $start_datetime,
-                'end_datetime' => $end_datetime,
-                'duration' => $duration,
-                'long_short' => $row[2],
-                'pips' => $row[5],
-                'fees' => $row[6],
-                'profit_gl' => $row[7],
-                'percentage_gl' => $row[8],
-                'open_price' => $row[9],
-                'close_price' => $row[10],
-                'description' => $row[13]
-            ]);
-            
-            Beimage::create([
-                'trade_id' => $newimported->id,
-                'before_link' => $row[11]
-            ]);
-
-            Afimage::create([
-                'trade_id' => $newimported->id,
-                'after_link' => $row[12]
-            ]);
+                Afimage::create([
+                    'trade_id' => $newimported->id,
+                    'after_link' => $row[12]
+                ]);
+            }
+            else{
+                return redirect()->back()->with('message', 'Fields are not matched');
+            }
         }
     }
 }
