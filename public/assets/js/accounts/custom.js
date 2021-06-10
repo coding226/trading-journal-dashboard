@@ -1,5 +1,7 @@
 
 $("#save_account_setting").click(function(e) {
+    $('#alertmodal form').removeAttr('action');
+    $('#alertmodal form').removeAttr('method');
     if($('#firstname').val() == '' || $('#lastname').val() == '' || $('#email').val() == ''){
         $('#alertmodal form .modal-title').text('Failed');
         $('#alertmodal form .modal-footer button').remove();
@@ -36,6 +38,8 @@ $("#save_account_setting").click(function(e) {
 
 
 function submitform() {
+    $('#alertmodal form').removeAttr('action');
+    $('#alertmodal form').removeAttr('method');
     $('#password').val($('#modalpassword').val());
     $('#modalpassword').remove();
     $('#alertmodal form .modal-footer a').removeAttr('onclick');
@@ -83,6 +87,8 @@ function submitform() {
 
 
 $("#change_pass_btn").click(function(e) {
+    $('#alertmodal form').removeAttr('action');
+    $('#alertmodal form').removeAttr('method');
     if($('#modalpassword').length > 0){
         $('#modalpassword').remove();
         $('#alertmodal form .modal-footer a').removeAttr('onclick');
@@ -122,6 +128,8 @@ $("#change_pass_btn").click(function(e) {
 });
 
 $("#depwith").click(function(e) {
+    $('#alertmodal form').removeAttr('action');
+    $('#alertmodal form').removeAttr('method');
     if($('#modalpassword').length > 0){
         $('#modalpassword').remove();
         $('#alertmodal form .modal-footer a').removeAttr('onclick');
@@ -184,6 +192,8 @@ $(".upload-button").on('click', function() {
 });
 
 $('#startingbal').on('click', function(e) {
+    $('#alertmodal form').removeAttr('action');
+    $('#alertmodal form').removeAttr('method');
     if($('#modalpassword').length > 0){
         $('#modalpassword').remove();
         $('#alertmodal form .modal-footer a').removeAttr('onclick');
@@ -238,6 +248,8 @@ $('#stsubuser').on('change', function() {
 
 
 $('#continue').on('click', function() {
+    $('#alertmodal form').removeAttr('action');
+    $('#alertmodal form').removeAttr('method');
     if($('#modalpassword').length > 0){
         $('#modalpassword').remove();
         $('#alertmodal form .modal-footer a').removeAttr('onclick');
