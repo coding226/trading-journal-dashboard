@@ -37,6 +37,7 @@ $(document).ready(function () {
     if(localStorage.getItem("secondary") != null) {
         document.documentElement.style.setProperty('--theme-secondary', localStorage.getItem("secondary"));
     }
+    
     $(".customizer-links #c-pills-home-tab, .customizer-links #c-pills-layouts-tab").click(function () {
         $(".customizer-contain").addClass("open");
         $(".customizer-links").addClass("open");

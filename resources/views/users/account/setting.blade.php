@@ -331,6 +331,5 @@
 @endsection
 @section('script')
     <script src="../assets/js/accounts/custom.js"></script>
-    <script src="../assets/js/tooltip-init.js"></script>
     <script src="{{ url('assets/js/theme-customizer/customizer.js') }}"></script>
 @endsection

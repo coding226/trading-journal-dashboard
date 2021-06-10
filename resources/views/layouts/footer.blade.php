@@ -47,9 +47,18 @@
     <!-- Plugins JS start-->
     <script src="{{ url('assets/js/sidebar-menu.js') }}"></script>
     @yield('script')
+    <script src="../assets/js/tooltip-init.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ url('assets/js/script.js') }}"></script>
+    <script>
+        if(localStorage.getItem("primary") != null) {
+            document.documentElement.style.setProperty('--theme-deafult', localStorage.getItem("primary"));
+        }
+        if(localStorage.getItem("secondary") != null) {
+            document.documentElement.style.setProperty('--theme-secondary', localStorage.getItem("secondary"));
+        }
+    </script>
     <!-- login js-->
     <!-- Plugin used-->
     <!-- GTranslate: https://gtranslate.io/ -->
