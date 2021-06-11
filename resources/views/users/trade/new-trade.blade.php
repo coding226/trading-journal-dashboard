@@ -93,11 +93,11 @@
                                         <div class="col-sm-9">
                                             <div class="m-t-15 m-checkbox-inline custom-radio-ml">
                                                 <div class="form-check form-check-inline radio radio-primary">
-                                                    <input class="form-check-input" id="radioinline1" type="radio" name="long_short" checked value="long">
+                                                    <input class="form-check-input" id="radioinline1" type="radio" name="long_short" checked value="LONG">
                                                     <label class="form-check-label mb-0" for="radioinline1">Long</label>
                                                 </div>
                                                 <div class="form-check form-check-inline radio radio-primary">
-                                                    <input class="form-check-input" id="radioinline2" type="radio" name="long_short" value="short">
+                                                    <input class="form-check-input" id="radioinline2" type="radio" name="long_short" value="SHORT">
                                                     <label class="form-check-label mb-0" for="radioinline2">Short</label>
                                                 </div>
                                             </div>

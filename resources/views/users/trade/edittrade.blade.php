@@ -92,14 +92,20 @@
                                         <div class="col-sm-9">
                                             <div class="m-t-15 m-checkbox-inline custom-radio-ml">
                                                 <div class="form-check form-check-inline radio radio-primary">
-                                                    <input class="form-check-input" id="radioinline1" type="radio" name="long_short" {{$trade->long_short == 'LONG' ? 'checked' : ''}} value="long">
+                                                    <input class="form-check-input" id="radioinline1" type="radio" name="long_short" {{$trade->long_short == 'LONG' ? 'checked' : ''}} value="LONG">
                                                     <label class="form-check-label mb-0" for="radioinline1">Long</label>
                                                 </div>
                                                 <div class="form-check form-check-inline radio radio-primary">
-                                                    <input class="form-check-input" id="radioinline2" type="radio" name="long_short" {{$trade->long_short == 'SHORT' ? 'checked' : ''}} value="short">
+                                                    <input class="form-check-input" id="radioinline2" type="radio" name="long_short" {{$trade->long_short == 'SHORT' ? 'checked' : ''}} value="SHORT">
                                                     <label class="form-check-label mb-0" for="radioinline2">Short</label>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Position Size</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="number" step="any" id="positionsize" name="positionsize" value="{{ $trade->positionsize }}" placeholder="Type here information" autocomplete="off" >
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -130,6 +136,12 @@
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type here information">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Stop Loss Value</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="number" step="any" id="stoplossval" name="stoplossval" value="{{ $trade->stoplossval }}" autocomplete="off" placeholder="Type here information">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
