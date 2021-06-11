@@ -51,7 +51,7 @@ class ToolsController extends Controller
         $note->title = $request->title;
         $note->description = $request->description;
         $note->index = $request->index;
-        $note->indexcolor = str_replace('bg', 'badge', $request->indexcolor);
+        $note->indexcolor = $request->indexcolor;
         $note->save();
 
         return redirect()->back();
@@ -100,7 +100,7 @@ class ToolsController extends Controller
         $note->title = $request->title;
         $note->description = $request->description;
         $note->index = $request->index;
-        $note->indexcolor = str_replace('bg', 'badge', $request->indexcolor);
+        $note->indexcolor = $request->indexcolor;
         $note->save();
 
         return redirect()->route('tools.notes');

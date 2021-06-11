@@ -35,6 +35,9 @@
         white-space: pre-line;
         overflow: hidden;
     }
+    input[type="color"]{
+        height: 47px;
+    }
 </style>
 @endsection
 @section('content')
@@ -77,7 +80,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <span class="badge {{ $note->indexcolor }} pull-right">{{ $note->index }}</span>
+                                        <span class="badge pull-right" style="background:{{ $note->indexcolor }}">{{ $note->index }}</span>
                                     </div>
                                     <div>
                                         <h6 class="f-w-600"><a href="{{ url('/viewnote') }}/{{ $note->id }}">{{ strlen($note->title) < 30 ? $note->title : substr($note->title, 0, 30).'...' }}</a></h6>

@@ -45,7 +45,7 @@
                             <div class="media-body">
                                 <div class="mb-3">
                                     <p>{{ date_format(date_create($note->datetime), "j F, Y") }}</p>
-                                    <span class="badge {{ $note->indexcolor }} pull-right">{{ $note->index }}</span>
+                                    <span class="badge pull-right" style="background: {{ $note->indexcolor }}">{{ $note->index }}</span>
                                 </div>
                                 <div>
                                     <h6 class="f-w-600"><a href="#">{{ $note->title }}</a></h6>
