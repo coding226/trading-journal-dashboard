@@ -151,7 +151,10 @@ $toggle_nav_top.click(function () {
     $nav.toggleClass('close_icon');
     $header.toggleClass('close_icon');
     $(window).trigger('overlay');
-    $toggle_nav_top.hide().show();
+    if($('.sidebar-wrapper').hasClass('close_icon')){
+        $('.sidebar-wrapper').hide();
+        setTimeout(function(){ $('.sidebar-wrapper').show(); }, 1);
+    }
 });
 
 // $(window).resize(function () {
