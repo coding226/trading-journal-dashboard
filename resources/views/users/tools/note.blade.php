@@ -145,7 +145,8 @@
                         <div class="col-xl-6 col-sm-9">
                             <div class="input-group">
                                 <input class="form-control" type="text" name="index">
-                                <select class="form-control bg-primary text-light" name="indexcolor" id="indexcolor">
+                                <input type="color" class="form-control" name="indexcolor">
+                                <!-- <select class="form-control bg-primary text-light" name="indexcolor" id="indexcolor">
                                     <option class="bg-primary text-light" value="bg-primary"></option>
                                     <option class="bg-secondary text-light" value="bg-secondary"></option>
                                     <option class="bg-success text-light" value="bg-success"></option>
@@ -153,7 +154,7 @@
                                     <option class="bg-warning text-light" value="bg-warning"></option>
                                     <option class="bg-danger text-light" value="bg-danger"></option>
                                     <option class="bg-dark text-light" value="bg-dark"></option>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
                     </div>
