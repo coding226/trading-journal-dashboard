@@ -23,14 +23,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>View My Note</h3>
+                    <h3>My Note</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb pull-right">
-                        <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">
-                                <i data-feather="home"></i></a>
-                        </li>
-                        <li class="breadcrumb-item">View My Note</li>
+                        <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('/notes') }}">My Notes</a></li>
+                        <li class="breadcrumb-item">{{ $note->title }}</li>
                     </ol>
                 </div>
             </div>
@@ -56,7 +55,7 @@
                         @if($note->image)
                         <img src="/{{ $note->image }}" class="m-t-10">
                         @endif
-                        <p class="m-t-10">{{ $note->description }}</p>
+                        <p class="m-t-10" style="white-space: pre-line">{{ $note->description }}</p>
                     </div>
                 </div>
             </div>

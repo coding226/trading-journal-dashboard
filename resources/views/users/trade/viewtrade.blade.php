@@ -17,12 +17,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>New Trade</h3>
+                    <h3>Trade Report</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">View Trade</li>
+                        <li class="breadcrumb-item"><a href="{{ url('/mytrades') }}">My Trades</a></li>
+                        <li class="breadcrumb-item">No.{{ $trade->trade_num }} Trade</li>
                     </ol>
                 </div>
             </div>
@@ -36,7 +37,7 @@
                     <div class="card-header">
                         <h5 class="pull-left">Trade No: {{ $trade->trade_num }}</h5>
                         {{-- <button class="btn btn-primary pull-right export2pdf">Export to PDF</button> --}}
-                        <a href="{{ url('/downloadpdf') }}/{{ Auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="btn btn-primary pull-right export2pdf">Export to PDF</a>
+                        <a href="{{ url('/downloadpdf') }}/{{ Auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="btn btn-primary pull-right">Export to PDF</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -114,8 +115,8 @@
                     </div>
                     <div class="card-footer text-end">
                         <div class="col-sm-9 offset-sm-3">
-                            <button class="btn btn-primary export2pdf">Export to PDF</button>
-                            {{-- <a href="{{ url('/downloadpdf') }}/{{ Auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="btn btn-primary export2pdf">Export to PDF</a> --}}
+                            {{-- <button class="btn btn-primary export2pdf">Export to PDF</button> --}}
+                            <a href="{{ url('/downloadpdf') }}/{{ Auth::user()->name }}?tradeid={{ $trade->id }}" target="_blank" class="btn btn-primary">Export to PDF</a>
                         </div>
                     </div>
                 </div>
