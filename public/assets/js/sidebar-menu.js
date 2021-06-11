@@ -151,6 +151,7 @@ $toggle_nav_top.click(function () {
     $nav.toggleClass('close_icon');
     $header.toggleClass('close_icon');
     $(window).trigger('overlay');
+    $toggle_nav_top.hide().show();
 });
 
 // $(window).resize(function () {

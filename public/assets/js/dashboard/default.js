@@ -35,6 +35,7 @@ function checkTime(i) {
     return i;
 }
 
+// $(window).load()
 $(document).ready (function () {
 // $('#testbutton').on('click', function () {
     var currenttime = (new Date()).toLocaleString();
