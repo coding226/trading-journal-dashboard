@@ -41,10 +41,9 @@ class HomeController extends Controller
         return view('users.contactus.index',compact('subuser'));
     }
 
-    public function validateGCaptch(Request $request)
+    public function sendcontactmail (Request $request)
     {
         $input = $request->all();
-
         $validator = Validator::make($input,[
             'name' => 'required',
             'email' => 'required',
@@ -57,14 +56,11 @@ class HomeController extends Controller
             $details = [
                 'name' => $input->name,
                 'message' => $input->message
-
             ];
 
             \Mail::to($input->email)->send(new \App\Mail\ContactMail($details));
-
             return redirect('/contactus')->with('status', 'Out support team will contact to you soon.');
         }
-
         return redirect()->back()->withErrors($validator)->withInput();
     }
 }
