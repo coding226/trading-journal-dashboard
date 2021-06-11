@@ -91,7 +91,7 @@
                 </div>
                 <div class="left-header col horizontal-wrapper ps-0">
                     <ul class="horizontal-menu">
-                        <li class="mega-menu outside"><a class="nav-link" href="#!"><svg
+                        {{-- <li class="mega-menu outside"><a class="nav-link" href="#!"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-layers">
@@ -130,6 +130,23 @@
                                     </div>
                                 </div>
                             </div>
+                        </li> --}}
+                        <li class="level-menu outside"><a class="nav-link" href="#!"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-layers">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg><span>Switch Accounts</span></a>
+                            <ul class="header-level-menu menu-to-be-close">
+                                @php
+                                    $subusers1 = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
+                                @endphp
+                                @foreach($subusers1 as $subuser1)
+                                    <li><a href="{{ url('/change_user/'.$subuser1-> id) }}" data-original-title="" title=""><span>{{ $subuser1->username }}</span></a></li>
+                                @endforeach
+                            </ul>
                         </li>
                         <li class="level-menu outside"><a class="nav-link" href="#!"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -141,7 +158,7 @@
                                     </path>
                                 </svg><span>Add New</span></a>
                             <ul class="header-level-menu menu-to-be-close">
-                                <li><a href="{{ url('new-trade') }}" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
+                                <li><a href="{{ url('new-trade') }}" data-original-title="" title=""><svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-git-pull-request">
@@ -150,7 +167,7 @@
                                             <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
                                             <line x1="6" y1="9" x2="6" y2="21"></line>
                                         </svg><span>Add New Trade </span></a></li>
-                                <li><a href="{{ url('/new-account') }}" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Add New Account</span></a>
+                                <li><a href="{{ url('/new-account') }}" data-original-title="" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Add New Account</span></a>
                                 </li>
                                 <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -279,7 +296,7 @@
                     <nav class="sidebar-main">
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
                         <div id="sidebar-menu">
-                            <ul class="sidebar-links" id="simple-bar">
+                            <ul class="sidebar-links pb-5" id="simple-bar">
                                 <li class="back-btn"><a href="{{ url('/dashboard') }}"><img class="img-fluid" src="{{ url('assets/images/logo/logo-icon.png') }}" alt=""></a>
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                 </li>
@@ -291,61 +308,27 @@
                                 </li> --}}
                                 <li class="sidebar-list">
                                     {{-- <label class="badge badge-success">2</label> --}}
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('/dashboard') }}"><i
-                                            data-feather="home"></i><span class="lan-3">Dashboard </span></a>
-                                </li>
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6 class="lan-10">Analytics</h6>
-                                        <!-- <p class="lan-9">Description</p> -->
-                                    </div>
-                                </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="#"><i data-feather="pie-chart">
-                                        </i><span>Analytics</span></a>
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('/dashboard') }}"><i data-feather="home"></i><span class="lan-3">Dashboard </span></a></li>
+                                <li class="sidebar-main-title"><div><h6 class="lan-10">Analytics</h6><!-- <p class="lan-9">Description</p> --></div></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="pie-chart"></i><span>Analytics</span></a>
                                     <ul class="sidebar-submenu" style="">
-                                        <li><a class="" href="{{ url('/analytics') }}" data-bs-original-title=""
-                                                title="">All</a></li>
-                                        <li><a class="" href="{{ url('/analytics-long') }}" data-bs-original-title=""
-                                                title="">Long</a></li>
-                                        <li><a class="" href="{{ url('/analytics-short') }}" data-bs-original-title=""
-                                                title="">Short</a></li>
+                                        <li><a class="" href="{{ url('/analytics') }}" data-bs-original-title="" title="">All</a></li>
+                                        <li><a class="" href="{{ url('/analytics-long') }}" data-bs-original-title="" title="">Long</a></li>
+                                        <li><a class="" href="{{ url('/analytics-short') }}" data-bs-original-title="" title="">Short</a></li>
                                     </ul>
                                 </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/symbolanalytics') }}"><i
-                                            data-feather="bar-chart">
-                                        </i><span>Symbol Analytics</span></a></li>
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6 class="lan-11">Trades</h6>
-                                        <!-- <p class="lan-9">Description</p> -->
-                                    </div>
-                                </li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/activetrades') }}"><i
-                                            data-feather="activity">
-                                        </i><span>Active Trades</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="{{ url('/mytrades') }}"><i data-feather="trending-up">
-                                        </i><span>My Trades</span></a></li>
-                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                                        href="{{ url('/new-trade') }}"><i data-feather="plus">
-                                        </i><span>Create New Trade</span></a></li>
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6 class="lan-12">Tools</h6>
-                                        <!-- <p class="lan-9">Description</p> -->
-                                    </div>
-                                </li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/symbolanalytics') }}"><i data-feather="bar-chart"></i><span>Symbol Analytics</span></a></li>
+                                <li class="sidebar-main-title"><div><h6 class="lan-11">Trades</h6><!-- <p class="lan-9">Description</p> --></div></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/activetrades') }}"><i data-feather="activity"></i><span>Active Trades</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/mytrades') }}"><i data-feather="trending-up"></i><span>My Trades</span></a></li>
+                                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/new-trade') }}"><i data-feather="plus"></i><span>Create New Trade</span></a></li>
+                                <li class="sidebar-main-title"><div><h6 class="lan-12">Tools</h6><!-- <p class="lan-9">Description</p> --></div></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/notes') }}"><i data-feather="clipboard"></i><span>My Notes</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/ecocal') }}"><i data-feather="calendar"></i><span>Economic News Calendar</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/nationalcal') }}"><i data-feather="command"></i><span>National Holidays Calendar</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/markethour') }}"><i data-feather="clock"></i><span>Market Hours</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/currency') }}"><i data-feather="dollar-sign"></i><span>Currency Indexes</span></a></li>
-                                <li class="sidebar-main-title"><div>
-                                        <h6 class="lan-12">Help</h6>
-                                        <!-- <p class="lan-9">Description</p> -->
-                                    </div>
-                                </li>
+                                <li class="sidebar-main-title"><div><h6 class="lan-12">Help</h6><!-- <p class="lan-9">Description</p> --></div></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/course') }}"><i data-feather="list"></i><span>Quick Course</span></a></li>
                                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{ url('/contactus') }}"><i data-feather="server"></i><span>Contact Us</span></a></li>
                             </ul>

@@ -34180,11 +34180,20 @@ body[class*='dark-'] .for-light {
     margin-left: 10px
 }
 
+.left-header .level-menu:first-child .nav-link {
+    color: var(--theme-deafult);
+    background-color: rgba(115, 102, 255, 0.15);
+}
+
 .left-header .level-menu .nav-link.active {
     background-color: var(--theme-secondary);
     color: #fff;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease
+}
+
+.left-header .level-menu:first-child .nav-link.active {
+    background-color: var(--theme-deafult);
 }
 
 .left-header .level-menu .nav-link.active svg {
@@ -34198,6 +34207,9 @@ body[class*='dark-'] .for-light {
     stroke: var(--theme-secondary)
 }
 
+.left-header .level-menu:first-child .nav-link svg {
+    stroke: var(--theme-deafult)
+}
 .left-header .level-menu .header-level-menu {
     position: absolute;
     top: 59px;
