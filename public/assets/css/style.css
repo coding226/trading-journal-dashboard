@@ -30082,7 +30082,7 @@ body.dark-only .page-wrapper .page-body-wrapper .page-body .custom-card .card-fo
     border-left: 1px solid #323846
 }
 
-body.dark-only .page-wrapper .page-body-wrapper .form-control {
+body.dark-only .page-wrapper .page-body-wrapper .form-control, body.dark-only .modal .form-control {
     background-color: #1d1e26;
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid #1d1e26

@@ -4,7 +4,7 @@ var total_option = {
         width: 380,
         type: 'donut',
     },
-    labels: ['Completed', 'Actives'],
+    labels: ['Completed', 'Active'],
     series: [analytics_all_data['all_count']-analytics_all_data['active_count'], analytics_all_data['active_count']],
     responsive: [{
         breakpoint: 480,

@@ -208,3 +208,8 @@ var chart1 = new ApexCharts(
 );
 
 chart1.render();
+
+
+$('.recent-item').on('click', function() {
+    window.location.replace($(this).attr('data-href'));
+});

@@ -14,6 +14,9 @@
     .appointment .card .card-body{
         min-height: 370px;
     }
+    .recent-item{
+        cursor: pointer;
+    }
 </style>
 @endsection
 @section('content')
@@ -173,7 +176,7 @@
                             </thead>
                             <tbody>
                                 @foreach($recents as $key => $trade)
-                                <tr>
+                                <tr data-href="{{ url('/viewtrade') }}/{{ auth::user()->name }}?tradeid={{ $trade->id }}" class="recent-item">
                                     <td class="text-center">{{ $key+1 }}</td>
                                     <td class="text-center">{{ $trade->symbol->symbol }}</td>
                                     <td class="text-center">{{ $trade->long_short }}</td>

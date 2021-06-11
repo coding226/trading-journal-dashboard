@@ -277,7 +277,5 @@ $('#continue').on('click', function() {
         $('#alertmodal').modal('show');
 
         return false;
-        
-        window.location.replace(url);
     }
 });

@@ -204,5 +204,4 @@
 <script src="../assets/js/datepicker/daterange-picker/moment.min.js"></script>
 <script src="../assets/js/datepicker/daterange-picker/daterangepicker.js"></script>
 <script src="../assets/js/datepicker/daterange-picker/daterange-picker.custom.js"></script>
-<script src="../assets/js/tooltip-init.js"></script>
 @endsection
