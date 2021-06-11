@@ -90,7 +90,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/editsubaccount/{subaccountid}', [UserController::class, 'editsubaccount'])->name('user.subaccount.edit', ['subaccountid']);
     Route::post('/updatesubaccount', [UserController::class, 'updatesubaccount'])->name('user.subaccount.update');
     Route::get('/del-subaccount/{subaccountid}', [UserController::class, 'delsubaccount'])->name('user.subaccount.del', ['subaccountid']);
-
     // User ends
 
     //Subscription start
@@ -121,4 +120,4 @@ Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelle
 //Contact us
 Route::get('/course', [HomeController::class, 'course'])->name('course.index');
 Route::get('/contactus', [HomeController::class, 'contactus'])->name('contactus.index');
-Route::post('validate-g-recaptcha', [HomeController::class, 'validateGCaptch']);
+Route::post('/sendcontactmail', [HomeController::class, 'sendcontactmail'])->name('contactus.sendemail');

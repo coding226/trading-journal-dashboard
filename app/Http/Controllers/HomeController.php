@@ -54,7 +54,15 @@ class HomeController extends Controller
 
         if ($validator->passes()){
             ContactUs::create($input);
-            return redirect('/contactus')->with('status', 'Google V3 Recaptcha has been validated form');
+            $details = [
+                'name' => $input->name,
+                'message' => $input->message
+
+            ];
+
+            \Mail::to($input->email)->send(new \App\Mail\ContactMail($details));
+
+            return redirect('/contactus')->with('status', 'Out support team will contact to you soon.');
         }
 
         return redirect()->back()->withErrors($validator)->withInput();

@@ -44,7 +44,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form class="theme-form" name="g-v3-recaptcha-contact-us" id="g-v3-recaptcha-contact-us" method="post" action="{{url('validate-g-recaptcha')}}">
+                        <form class="theme-form" name="contactusform" id="contactusform" method="post" action="{{url('/sendcontactmail')}}">
                         @csrf
                             <div class="form-icon"><i class="icofont icofont-envelope-open"></i></div>
                             <div class="mb-3">
