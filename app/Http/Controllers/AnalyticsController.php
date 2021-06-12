@@ -70,9 +70,9 @@ class AnalyticsController extends Controller
             $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->orderBy('start_datetime')->first()->start_datetime;
             $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->orderBy('end_datetime', 'desc')->first()->end_datetime;
             $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
-            $totalDaysDiff    = $totalSecondsDiff/60/60/24;
-            $totalWeeksDiff    = $totalSecondsDiff/60/60/24/7;
-            $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
+            $totalDaysDiff    = ceil($totalSecondsDiff/60/60/24);
+            $totalWeeksDiff    = ceil($totalSecondsDiff/60/60/24/7);
+            $totalMonthsDiff  = ceil($totalSecondsDiff/60/60/24/30);
             $data['afterimage']  = $afterimage;
         }
 
@@ -205,11 +205,11 @@ class AnalyticsController extends Controller
             $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->orderBy('start_datetime')->first()->start_datetime;
             $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->orderBy('end_datetime', 'desc')->first()->end_datetime;
             $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
-            $totalDaysDiff    = $totalSecondsDiff/60/60/24;
-            $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
+            $totalDaysDiff    = ceil($totalSecondsDiff/60/60/24);
+            $totalMonthsDiff  = ceil($totalSecondsDiff/60/60/24/30);
 
             dd($totalMonthsDiff);
-            
+
             $data['afterimage'] = $afterimage;
             $data['long_ave_per_month'] = number_format($long_tcount/$totalMonthsDiff,2, '.', '');
             $data['bestlongtrade'] = $bestlongtrade;
@@ -319,8 +319,8 @@ class AnalyticsController extends Controller
             $startday = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->orderBy('start_datetime')->first()->start_datetime;
             $endday = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->orderBy('end_datetime', 'desc')->first()->end_datetime;
             $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
-            $totalDaysDiff    = $totalSecondsDiff/60/60/24;
-            $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
+            $totalDaysDiff    = ceil($totalSecondsDiff/60/60/24);
+            $totalMonthsDiff  = ceil($totalSecondsDiff/60/60/24/30);
             $data['short_ave_per_month'] = number_format($short_tcount/$totalMonthsDiff,2, '.', '');
             $data['bestshorttrade'] = $bestshorttrade;
             $data['afterimage'] = $afterimage;
