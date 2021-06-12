@@ -33,6 +33,22 @@ class TradeController extends Controller
         return view('users.trade.mytrades', compact('trades'));
     }
 
+    public function viewpdf($username, Request $request)
+    {
+        $user = User::where('name', $username)->first();
+        
+        if($user){
+            $current_subuser = $user->current_subuser;
+            $data['trade'] = Trade::where('subuser_id', $current_subuser)->where('id', $request->tradeid)->first();
+            $data['beimages'] = Beimage::where('trade_id', $request->tradeid)->get();
+            $data['afimages'] = Afimage::where('trade_id', $request->tradeid)->get();
+            return view('users.trade.pdfview')->with('data', $data);
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
     public function addnewtrade()
     {
         $symbols = Symbol::get();
@@ -212,7 +228,7 @@ class TradeController extends Controller
             $data['afimages'] = Afimage::where('trade_id', $request->tradeid)->get();
             $filename = $username.'_'.$user->current_user->username.'_'.$data['trade']->trade_num.'.pdf';
             view()->share('data',$data);
-            $pdf = PDF::loadView('pdfview', $data);
+            $pdf = PDF::loadView('users.trade.pdfview', $data);
             return $pdf->download($filename);
         }
         else{

@@ -85,13 +85,13 @@
 @section('content')
 	<section class="hero-wrap">
 		<div class="overlay"></div>
-		<div class="container hero-section" style="max-width:100%;padding:100px 200px 0 200px;">
-			<div class="row no-gutters slider-text align-items-center justify-content-between align-items-stretch">
+		<div class="container hero-section" style="">
+			<div class="row no-gutters slider-text align-items-center justify-content-between align-items-stretch pt-5">
 				<div class="col-md-6 col-lg-4 text d-flex align-items-center">
 					<div>
 						<h1 class="">The Trading Buddy is Your New Online Trading Journal</h1>
 						<p>The Trading Buddy is only tool you’ll ever need to track your trading progress and data. Better still, you can try it now for FREE!</p>
-						<p class="d-flex">
+						<p class="d-flex mb-3">
 							<a href="{{ url('/login') }}" class="btn btn-primary d-flex align-items-center"><span>Try For Free</span></a>
 							<a href="{{ url('/login') }}" class="btn btn-secondary"><span>Sign In</span></a>
 						</p>
@@ -377,7 +377,7 @@
 	</section>
 	<hr>
 	<section class="ftco-section">
-		<div class="container">
+		<div class="container-xl">
 			<div class="row justify-content-center">
 				<div class="col-md-7 heading-section text-center mb-3" data-aos="fade-up" data-aos-duration="1000">
 					<span class="subheading">Pricing</span>

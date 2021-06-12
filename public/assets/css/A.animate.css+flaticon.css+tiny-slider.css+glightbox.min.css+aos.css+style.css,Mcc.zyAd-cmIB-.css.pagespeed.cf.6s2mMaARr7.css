@@ -5891,7 +5891,7 @@ h5,
 }
 
 .hero-wrap {
-    height: 800px;
+    height: 700px;
     position: relative;
     overflow: hidden;
     z-index: 0;
@@ -5908,6 +5908,9 @@ h5,
 @media (max-width:1199.98px) {
     .hero-wrap {
         height: 600px
+    }
+    .block-7 .price .number {
+        font-size: 47px;
     }
 }
 
@@ -5987,14 +5990,17 @@ h5,
 }
 
 .hero-wrap .slider-text .ftco-social {
-    position: absolute;
-    bottom: 70px;
+    /* position: absolute; */
+    /* bottom: 20px; */
     padding: 0
 }
 
 @media (max-width:575.98px) {
     .hero-wrap .slider-text .ftco-social {
         bottom: 0
+    }
+    .hero-wrap .slider-text{
+        height: 500px;
     }
 }
 
@@ -6594,6 +6600,12 @@ textarea.form-control {
     -webkit-transition: all .3s ease;
     -ms-transition: all .3s ease;
     transition: all .3s ease
+}
+
+@media (max-width:1199px) {
+    .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1{
+        font-size: 32px;
+    }
 }
 
 @media (max-width:767.98px) {

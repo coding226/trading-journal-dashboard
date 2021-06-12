@@ -56,6 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/import', [TradeController::class, 'import'])->name('trade.import');
     Route::get('/viewtrade/{username}', [TradeController::class, 'show'])->name('trade.show');
     Route::get('/downloadpdf/{username}', [TradeController::class, 'createPDF'])->name('trade.createPDF');
+    Route::get('/viewpdf/{username}', [TradeController::class, 'viewpdf'])->name('trade.viewpdf');
     Route::get('/edittrade/{username}', [TradeController::class, 'edit'])->name('trade.edit');
     Route::post('/deltrade/{username}', [TradeController::class, 'delete'])->name('trade.del');
     Route::post('/updatetrade/{tradeid}', [TradeController::class, 'update'])->name('trade.update',['tradeid']);
