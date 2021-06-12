@@ -29,7 +29,7 @@ class AnalyticsController extends Controller
     //all analytics
     public function index(Request $request)
     {   
-        $all_count =  Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->count();
+        $all_count =  Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('start_datetime', [$this->startdate, $this->enddate])->count();
         $active_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('start_datetime', [$this->startdate, $this->enddate])->whereNull('end_datetime')->count();
         $win_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('profit_gl', '>', 0)->count();
         $loss_count = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('profit_gl', '<', 0)->count();
@@ -170,7 +170,7 @@ class AnalyticsController extends Controller
     // long analytics
     public function long_index(Request $request)
     {
-        $long_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->count();
+        $long_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('start_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->count();
         $winlong_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->where('profit_gl','>', 0)->count();
         $losslong_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->where('profit_gl','<', 0)->count();
         $belong_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'LONG')->where('profit_gl', 0)->count();
@@ -279,7 +279,7 @@ class AnalyticsController extends Controller
     //short analytics
     public function short_index(Request $request)
     {
-        $short_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->count();
+        $short_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('start_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->count();
         $winshort_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->where('profit_gl','>', 0)->count();
         $lossshort_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->where('profit_gl','<', 0)->count();
         $beshort_tcount = Trade::where('subuser_id', Auth::user()->current_subuser)->whereBetween('end_datetime', [$this->startdate, $this->enddate])->where('long_short', 'SHORT')->where('profit_gl', 0)->count();
