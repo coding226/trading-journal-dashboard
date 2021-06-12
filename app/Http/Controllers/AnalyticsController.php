@@ -207,6 +207,9 @@ class AnalyticsController extends Controller
             $totalSecondsDiff = abs(strtotime($startday)-strtotime($endday));
             $totalDaysDiff    = $totalSecondsDiff/60/60/24;
             $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
+
+            dd($totalMonthsDiff);
+            
             $data['afterimage'] = $afterimage;
             $data['long_ave_per_month'] = number_format($long_tcount/$totalMonthsDiff,2, '.', '');
             $data['bestlongtrade'] = $bestlongtrade;

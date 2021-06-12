@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="{{ url('assets/css/vendors/bootstrap.css') }}"> -->
     <style>
+        body{
+            padding: 20px;
+        }
         .preview img{
             max-width: 100%;
             margin-top: 20px;
@@ -17,6 +20,10 @@
         }
         .card-header{
             border: none;
+            padding-bottom: 30px;
+        }
+        .card-header h5{
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -26,7 +33,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="float-right">Trade No: {{ $data['trade']->trade_num }}</h5>
+                        <h5 class="">Trade No: {{ $data['trade']->trade_num }}</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -87,13 +94,13 @@
                                             <th scope="row">Close Price</th>
                                             <td>{{ number_format($data['trade']->close_price, 2, '.', '') }}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">Description</th>
-                                            <td colspan="3">{{ $data['trade']->description }}</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class="row mt-4 d-block">
+                            <h6>Description</h6><br />
+                            <p class="pl-4" style="white-space: pre-line">{{ $data['trade']->description }}</p>
                         </div>
                         @if($data['beimages'])
                         <div class="row mt-5 preview">

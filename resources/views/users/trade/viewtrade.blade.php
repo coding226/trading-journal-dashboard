@@ -88,13 +88,13 @@
                                             <th scope="row">Close Price</th>
                                             <td>{{ $trade->close_price }}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">Description</th>
-                                            <td colspan="3">{{ $trade->description }}</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class="row mt-4 preview">
+                            <h6>Description</h6>
+                            <p class="p-l-20" style="white-space: pre-line">{{ $trade->description }}</p>
                         </div>
                         <div class="row mt-5 preview">
                             <h6>Before Images</h6>
