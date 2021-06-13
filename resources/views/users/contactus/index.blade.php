@@ -49,21 +49,21 @@
                             <div class="form-icon"><i class="icofont icofont-envelope-open"></i></div>
                             <div class="mb-3">
                                 <label for="exampleInputName">Your Name</label>
-                                <input class="form-control" name="name" type="text" placeholder="Type here" data-bs-original-title="" title="">
+                                <input class="form-control" name="name" type="text"  value="{{ old('name') }}"  placeholder="Type here" data-bs-original-title="" title="">
                                 @error('name')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="col-form-label">Email</label>
-                                <input class="form-control" name="email" type="email" placeholder="Type here" data-bs-original-title="" title="">
+                                <input class="form-control" name="email" type="email" value="{{ old('email') }}" placeholder="Type here" data-bs-original-title="" title="">
                                 @error('email')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="col-form-label">Message</label>
-                                <textarea class="form-control textarea" rows="3" cols="50" placeholder="Type here" name="message"></textarea>
+                                <textarea class="form-control textarea" rows="3" cols="50" value="{{ old('message') }}" placeholder="Type here" name="message"></textarea>
                                 @error('message')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
