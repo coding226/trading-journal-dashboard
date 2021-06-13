@@ -79,7 +79,8 @@ class TradeController extends Controller
         if($request->end_date){
             $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
             // $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
-            $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
+            if(abs(strtotime($request->start_date) - strtotime($request->end_date)) <  630720000)
+                $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
         }
         $trade->long_short = $request->long_short;
         $trade->positionsize = $request->positionsize;
@@ -273,7 +274,8 @@ class TradeController extends Controller
         if($request->end_date){
             $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
             // $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
-            $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
+            if(abs(strtotime($request->start_date) - strtotime($request->end_date)) <  630720000)
+                $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
         }
         $trade->long_short = $request->long_short;
         $trade->positionsize = $request->positionsize;
