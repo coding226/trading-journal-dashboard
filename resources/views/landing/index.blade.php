@@ -659,6 +659,7 @@
 						</div>
 					@endif
 					<form action="{{url('/sendcontactmail')}}" method="post" class="bg-white p-5 contact-form">
+					@csrf
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Your Name">
 							@error('name')
