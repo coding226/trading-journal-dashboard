@@ -69,7 +69,11 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="hidden" name="g-recaptcha-response" id="recaptcha">
+                            {!! RecaptchaV3::initJs() !!}
+                            {!! RecaptchaV3::field('contact-us') !!}
+                            @error('g-recaptcha-response')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="text-sm-end">
                                 <button class="btn btn-primary-gradien" data-bs-original-title="" title="">SEND IT</button>
