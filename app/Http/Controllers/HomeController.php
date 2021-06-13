@@ -48,7 +48,7 @@ class HomeController extends Controller
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
-            // 'g-recaptcha-response' => 'required',
+            'g-recaptcha-response' => 'required',
         ]);
 
         if ($validator->passes()){
