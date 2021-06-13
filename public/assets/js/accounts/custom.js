@@ -258,6 +258,26 @@ $('#continue').on('click', function() {
         var url = window.location.origin + '/editsubaccount/' + $('#actionsubuser').val();
         window.location.replace(url);
     }
+    else if($('#action').val() == 'reset'){
+        var url = window.location.origin + '/reset-subaccount/' + $('#actionsubuser').val();
+        $('#alertmodal form .modal-title').text('Reset Sub Account');
+        $('#alertmodal form .modal-body p').text('If you reset your sub account, all data will be removed. Are you sure to reset them?');
+        if($('#alertmodal form .modal-footer button').length < 1){
+            $('#alertmodal form .modal-footer').append('<button type="submit" class="btn btn-primary" type="button">Ok</button>')
+        }else{
+            $('#alertmodal form .modal-footer button').text('Ok');
+        }
+        if($('#modalpassword').length > 0){
+            $('#modalpassword').remove();
+            $('#alertmodal form .modal-footer a').removeAttr('onclick');
+        }
+        $('#alertmodal form').attr('action', url);
+        $('#alertmodal form').attr('method', 'GET');
+        $('#alertmodal form .modal-footer a').text('Cancel');
+        $('#alertmodal').modal('show');
+
+        return false;
+    }
     else{
         var url = window.location.origin + '/del-subaccount/' + $('#actionsubuser').val();
         $('#alertmodal form .modal-title').text('Delete Sub Account');

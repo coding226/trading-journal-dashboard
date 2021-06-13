@@ -62,7 +62,7 @@
                                         <label class="col-sm-3 col-form-label">End Date and Time</label>
                                         <div class="col-sm-9">
                                             <div class="input-group date" id="dt-minimum1" data-target-input="nearest">
-                                                <input class="form-control datetimepicker-input digits" type="text" value="{{ date_format(date_create($trade->end_datetime),'m/d/Y H:i A') }}" data-target="#dt-minimum1" data-bs-original-title="" title="" id="end_date" name="end_date">
+                                                <input class="form-control datetimepicker-input digits" type="text" value="{{ $trade->end_datetime == '' ? '' : date_format(date_create($trade->end_datetime),'m/d/Y H:i A') }}" data-target="#dt-minimum1" data-bs-original-title="" title="" id="end_date" name="end_date">
                                                 <div class="input-group-text" data-target="#dt-minimum1" data-toggle="datetimepicker"><i class="fa fa-calendar"> </i></div>
                                             </div>
                                         </div>
@@ -226,5 +226,8 @@
 <script src="../assets/js/datepicker/date-time-picker/datetimepicker.custom.js"></script>
 
 <script src="../assets/js/tooltip-init.js"></script>
+<script>
+    var balance = {!! json_encode($account_balance, JSON_HEX_TAG) !!};
+</script>
 <script src="../assets/js/trade/new-trade.js"></script>
 @endsection

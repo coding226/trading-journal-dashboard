@@ -185,17 +185,13 @@ class UserController extends Controller
         $subuser->starting_bal = $request->startcapital;
         $subuser->save();
         User::where('id', Auth::user()->id)->update(['current_subuser'=> $subuser->id]);
-        return redirect()->back();
+        return redirect()->route('user.setting');
     }
 
     public function delsubaccount($subaccountid)
     {
-        $subaccount = Subuser::where('user_id', Auth::user()->id)->where('username', '<>', 'Main')->where('id', $subaccountid)->first();
+        $subaccount = Subuser::where('user_id', Auth::user()->id)->where('acc_num', '<>', Auth::user()->id)->where('id', $subaccountid)->first();
         $user = User::find(Auth::user()->id);
-        if($subaccount->id == $user->current_subuser){
-            $user->current_subuser = Subuser::where('user_id', $user->id)->where('username', 'Main')->first()->id;
-            $user->save();
-        }
         if($subaccount){
             $trades = Trade::where('subuser_id', $subaccount->id)->get();
             foreach($trades as $trade){
@@ -220,10 +216,55 @@ class UserController extends Controller
                 $trade->delete();
             }
             $subaccount->delete();
+            if($subaccount->id == $user->current_subuser){
+                $user->current_subuser = Subuser::where('user_id', $user->id)->where('acc_num', Auth::user()->id)->first()->id;
+                $user->save();
+            }
             return redirect()->back()->with('message', 'Sub account was deleted successfully, you can add new one.');
         }
         else{
-            return redirect()->back();
+            return redirect()->back()->with("error", "You can't delete this account.");
+        }
+    }
+
+    public function resetsubaccount($subaccountid)
+    {
+        $subaccount = Subuser::where('user_id', Auth::user()->id)->where('id', $subaccountid)->first();
+        if($subaccount){
+            $trades = Trade::where('subuser_id', $subaccount->id)->get();
+            foreach($trades as $trade){
+                $beimages = Beimage::where('trade_id', $trade->id)->get();
+                foreach($beimages as $beimage){
+                    if($beimage->before_file){
+                        if(\File::exists(public_path($before_image->before_file))){
+                            \File::delete(public_path($before_image->before_file));
+                        }
+                    }
+                    $beimage->delete();
+                }
+                $afimages = Afimage::where('trade_id', $trade->id)->get();
+                foreach($afimages as $afimage){
+                    if($afimage->after_file){
+                        if(\File::exists(public_path($after_image->after_file))){
+                            \File::delete(public_path($after_image->after_file));
+                        }
+                    }
+                    $afimage->delete();
+                }
+                $trade->delete();
+            }
+
+            $subaccount->username = 'New Sub Account';
+            $subaccount->desc = ' ';
+            $subaccount->currency = 'usd';
+            $subaccount->starting_bal = 0;
+            $subaccount->balance = 0;
+            $subaccount->save();
+
+            return redirect()->back()->with('message', 'Reseted Successfully');
+        }
+        else{
+            return redirect()->back()->with("error", "You can't reset this account.");
         }
     }
 }

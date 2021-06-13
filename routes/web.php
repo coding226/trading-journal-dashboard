@@ -91,6 +91,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/editsubaccount/{subaccountid}', [UserController::class, 'editsubaccount'])->name('user.subaccount.edit', ['subaccountid']);
     Route::post('/updatesubaccount', [UserController::class, 'updatesubaccount'])->name('user.subaccount.update');
     Route::get('/del-subaccount/{subaccountid}', [UserController::class, 'delsubaccount'])->name('user.subaccount.del', ['subaccountid']);
+    Route::get('/reset-subaccount/{subaccountid}', [UserController::class, 'resetsubaccount'])->name('user.subaccount.reset', ['subaccountid']);
     // User ends
 
     //Subscription start

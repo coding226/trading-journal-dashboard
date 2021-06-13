@@ -56,7 +56,7 @@
                                             <th scope="row">Start Date and Time</th>
                                             <td>{{ date_format(date_create($trade->start_datetime),'m/d/Y H:i A') }}</td>
                                             <th scope="row">End Date and Time</th>
-                                            <td>{{ date_format(date_create($trade->end_datetime),'m/d/Y H:i A') }}</td>
+                                            <td>{{ $trade->end_datetime == '' ? '' : date_format(date_create($trade->end_datetime),'m/d/Y H:i A') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Symbol</th>

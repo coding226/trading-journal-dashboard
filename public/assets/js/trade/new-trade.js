@@ -157,3 +157,18 @@ $('#remove_after').on('click', function (e) {
         console.log($('#after_img_count').val());
     }
 });
+
+
+function set_percentage() {
+    var profit = $('#profit_gl').val() - $('#fees').val();
+    var percentage = (profit/balance*100).toFixed(2);
+    $('#percentage_gl').val(percentage);
+};
+
+$('#profit_gl').on('change', function() {
+    set_percentage();
+});
+
+$('#fees').on('change', function() {
+    set_percentage();
+});

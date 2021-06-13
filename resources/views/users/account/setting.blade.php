@@ -203,8 +203,13 @@
                                             {{ session()->get('message') }}
                                     </div>
                                 @endif
+                                @if(session()->has('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                            {{ session()->get('error') }}
+                                    </div>
+                                @endif
                                 @php
-                                    $subusers = DB::table('subusers')->where('user_id', Auth::user()->id)->where('username','<>','Main')->get();
+                                    $subusers = DB::table('subusers')->where('user_id', Auth::user()->id)->get();
                                 @endphp
                                 <div class="row">
                                     <div class="col-md-12">
@@ -226,6 +231,7 @@
                                             <label class="form-label">Action</label>
                                             <select class="form-select" id="action" name="action">
                                                 <option value="edit">Edit</option>
+                                                <option value="reset">Reset</option>
                                                 <option value="delete">Delete</option>
                                             </select>
                                         </div>

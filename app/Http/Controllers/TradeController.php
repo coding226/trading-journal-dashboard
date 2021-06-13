@@ -248,10 +248,13 @@ class TradeController extends Controller
         if($user){
             $current_subuser = $user->current_subuser;
             $trade = Trade::where('subuser_id', $current_subuser)->where('id', $request->tradeid)->first();
+            $tprofit = Trade::where('subuser_id', $current_subuser)->sum('profit_gl');
+            $tfee = Trade::where('subuser_id', $current_subuser)->sum('fees');
+            $account_balance = Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee;
             $symbols = Symbol::get();
             $beimages = Beimage::where('trade_id', $request->tradeid)->get();
             $afimages = Afimage::where('trade_id', $request->tradeid)->get();
-            return view('users.trade.edittrade', compact('trade','symbols','beimages','afimages'));
+            return view('users.trade.edittrade', compact('trade','symbols','beimages','afimages', 'account_balance'));
         }
         else{
             return redirect()->back();

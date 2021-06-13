@@ -65,7 +65,7 @@
                 $('label[for="chk-ani2"]').css('border', '1px solid red');
                 return false;
             }   
-            return false;
+            return true;
         }
         
         $('#chk-ani2').on('change', function() {

@@ -215,23 +215,8 @@
 <script src="../assets/js/datepicker/date-time-picker/moment.min.js"></script>
 <script src="../assets/js/datepicker/date-time-picker/tempusdominus-bootstrap-4.min.js"></script>
 <script src="../assets/js/datepicker/date-time-picker/datetimepicker.custom.js"></script>
-<script src="../assets/js/tooltip-init.js"></script>
-<script src="../assets/js/trade/new-trade.js"></script>
 <script>
     var balance = {!! json_encode($account_balance, JSON_HEX_TAG) !!};
-
-    function set_percentage() {
-        var profit = $('#profit_gl').val() - $('#fees').val();
-        var percentage = (profit/balance*100).toFixed(2);
-        $('#percentage_gl').val(percentage);
-    };
-
-    $('#profit_gl').on('change', function() {
-        set_percentage();
-    });
-    
-    $('#fees').on('change', function() {
-        set_percentage();
-    });
 </script>
+<script src="../assets/js/trade/new-trade.js"></script>
 @endsection
