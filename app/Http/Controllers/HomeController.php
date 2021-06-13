@@ -43,8 +43,7 @@ class HomeController extends Controller
 
     public function sendcontactmail (Request $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input,[
+        $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
@@ -52,7 +51,17 @@ class HomeController extends Controller
         ]);
 
         if ($validator->passes()){
-            ContactUs::create($input);
+
+            $contactus = new ContactUs;
+            if (Auth::check()) {
+                $contactus->type = 'contactus';
+            }else{
+                $contactus->type = 'sales';
+            }
+            $contactus->name = $request->name;
+            $contactus->email = $request->email;
+            $contactus->message = $request->message;
+
             $details = [
                 'name' => $request->name,
                 'message' => $request->message

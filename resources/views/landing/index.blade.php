@@ -653,26 +653,49 @@
           </div>
           <div class="row justify-content-center g-md-0 block-9">
               <div class="col-md-9 order-md-last d-flex">
-                  <form action="#" class="bg-white p-5 contact-form">
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Your Name">
-                      </div>
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Your Email">
-                      </div>
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Subject">
-                      </div>
-                      <div class="form-group">
-                          <textarea name="" id="" cols="30" rows="7" class="form-control"
-                              placeholder="Message"></textarea>
-                      </div>
-                      <div class="form-group">
-                          <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                      </div>
-                  </form>
+			  		@if(session('status'))
+						<div class="alert alert-success">
+							{{ session('status') }}
+						</div>
+					@endif
+					<form action="{{url('/sendcontactmail')}}" method="post" class="bg-white p-5 contact-form">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Your Name">
+							@error('name')
+								<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+							@enderror
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Your Email">
+							@error('email')
+								<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+							@enderror
+						</div>
+						<div class="form-group">
+							<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+							@error('message')
+								<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+							@enderror
+						</div>
+						<div class="form-group">
+							<input type="hidden" name="g-recaptcha-response" id="recaptcha">
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+						</div>
+					</form>
               </div>
           </div>
       </div>
+	  	<script src="https://www.google.com/recaptcha/api.js?render=6LfEbRQbAAAAAM6FxVdjn-U-92V2iuG7wD0eu3cP"></script>
+		<script>
+				grecaptcha.ready(function() {
+					grecaptcha.execute('6LfEbRQbAAAAAM6FxVdjn-U-92V2iuG7wD0eu3cP', {action: 'contact'}).then(function(token) {
+						if (token) {
+						document.getElementById('recaptcha').value = token;
+						}
+					});
+				});
+		</script>
   	</section>
 @endsection
