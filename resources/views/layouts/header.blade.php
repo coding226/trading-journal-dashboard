@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The only trading journal that helps you find your buddy.">
     <meta name="keywords" content="trading buddy, trading, buy, sell, long, short, web app">
-    <meta name="author" content="Milos">
+    <meta name="author" content="James">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ url('assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" type="image/x-icon">
@@ -169,7 +169,7 @@
                                         </svg><span>Add New Trade </span></a></li>
                                 <li><a href="{{ url('/new-account') }}" data-original-title="" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Add New Account</span></a>
                                 </li>
-                                <li><a href="#" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
+                                <li><a href="{{ url('/upgrade-subscription') }}" data-original-title="" title=""> <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-users">

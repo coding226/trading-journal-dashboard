@@ -28,8 +28,10 @@ Route::get('/cks', function() {
     echo 'DiskFree'.disk_free_space(storage_path());
     echo 'DiskTotal'.disk_total_space(storage_path());
 });
-
 Route::get('/', function () {
+    return view('landing.coomingsoon');
+});
+Route::get('/secrethome', function () {
     return view('landing.index');
 });
 Route::get('/terms', function () { return view('landing.terms'); });
@@ -38,7 +40,7 @@ Route::get('/cookie', function () { return view('landing.cookie'); });
 Route::get('/usepolicy', function () { return view('landing.usepolicy'); });
 
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -96,6 +98,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Subscription start
     Route::get('/subscribe-checkout/{plan}', [SubscriptionController::class, 'show'])->name('subscribe.checkout', ['plan']);
+    Route::get('/upgrade-subscription', [SubscriptionController::class, 'upgradesub'])->name('subscribe.upgrade');
     Route::post('/subscribe-store', [SubscriptionController::class, 'store'])->name('subscribe.store');
     Route::get('/subscribe-approval', [SubscriptionController::class, 'approval'])->name('subscribe.approval');
     Route::get('/subscribe-cancelled', [SubscriptionController::class, 'cancelled'])->name('subscribe.cancelled');
@@ -123,3 +126,5 @@ Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelle
 Route::get('/course', [HomeController::class, 'course'])->name('course.index');
 Route::get('/contactus', [HomeController::class, 'contactus'])->name('contactus.index');
 Route::post('/sendcontactmail', [HomeController::class, 'sendcontactmail'])->name('contactus.sendemail');
+
+Route::post('/colletemail', [HomeController::class, 'colletemail'])->name('colletemail.index');

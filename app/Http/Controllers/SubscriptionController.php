@@ -29,6 +29,11 @@ class SubscriptionController extends Controller
         ]);
     }
 
+    public function upgradesub(Request $request)
+    {
+        return view('subscribe.upgrade');
+    }
+
     public function store(Request $request)
     {
         $rules = [

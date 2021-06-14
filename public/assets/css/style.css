@@ -25220,7 +25220,7 @@ footer {
 }
 
 .pricingtable .price-value .amount {
-    font-size: 58px;
+    font-size: 37px;
     font-weight: 700;
     line-height: 45px;
     display: inline-block
@@ -25282,7 +25282,7 @@ footer {
     }
 
     .pricing-block>div:nth-child(n+2) {
-        margin-top: 20px
+        /* margin-top: 20px */
     }
 }
 
@@ -28554,8 +28554,8 @@ body.dark-only .pricing-simple {
 }
 
 body.dark-only .pricing-block {
-    -webkit-box-shadow: 0 0 10px 5px rgba(115, 102, 255, 0.05) !important;
-    box-shadow: 0 0 10px 5px rgba(115, 102, 255, 0.05) !important
+    /* -webkit-box-shadow: 0 0 10px 5px rgba(115, 102, 255, 0.05) !important;
+    box-shadow: 0 0 10px 5px rgba(115, 102, 255, 0.05) !important */
 }
 
 body.dark-only .search-page ul.search-info li+li {

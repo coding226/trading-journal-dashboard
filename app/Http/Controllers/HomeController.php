@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Subuser;
 use App\Models\ContactUs;
+use App\Models\Emaillist;
 use Validator;
 use Auth;
 
@@ -72,4 +73,13 @@ class HomeController extends Controller
         }
         return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    public function colletemail(Request $request)
+    {
+        $newemail = new Emaillist;
+        $newemail->email = $request->comingsoonemail;
+        $newemail->save();
+        return redirect()->back()->with('status', 'success');
+    }
+
 }
