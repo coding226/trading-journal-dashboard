@@ -14,6 +14,10 @@
             border-radius: 10px;
             margin: 5px;
         }
+        .theme-form .card-body input:disabled, .theme-form .card-body input[readonly], body.dark-only .page-wrapper .page-body-wrapper input:disabled, body.dark-only .page-wrapper .page-body-wrapper input[readonly] {
+            background-color: #e9ecef;
+            opacity: 1;
+        }
     </style>
 @endsection
 @section('content')

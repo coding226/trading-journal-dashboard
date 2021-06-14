@@ -8,7 +8,7 @@
             <div class="col-xl-7 p-0">
                 <div class="login-card">
                     <div>
-                        <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
+                        <div><a class="logo" href="{{ url('/') }}"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
                         <div class="login-main">
                         <form class="theme-form" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" onsubmit="return validateprivacy();">
                             @csrf

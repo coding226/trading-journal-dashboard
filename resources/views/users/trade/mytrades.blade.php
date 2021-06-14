@@ -105,18 +105,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row collapse" id="importsectionCollapse" data-bs-parent="#importoggler">
-                                <form action="{{ route('trade.import') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
-                                        <div class="custom-file text-left">
-                                            <input type="file" name="file" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                            <button class="btn btn-primary m-t-l-3">Confirm</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
                         <div class="card-body table-responsive" id="trade-table">
                             <div class="portlet light portlet-fit portlet-datatable bordered">

@@ -54,7 +54,7 @@
                             <h4 class="f-w-600"><span id="greeting">Good Morning</span><span>,
                                     {{Auth::user()->firstname}}</span> <span class="right-circle"><i
                                         class="fa fa-check-circle f-14 middle"></i></span></h4>
-                            <p><span> Todays profit is <span class="daily_percentage_gain">+3.5</span>% which makes your Total Percentage <span class="monthly_percentage_gain">+12</span>% this month.</span>
+                            <p><span> Todays profit is <span class="daily_percentage_gain">0</span>% which makes your Total Percentage <span class="monthly_percentage_gain">0</span>% this month.</span>
                             </p>
                             <div class="whatsnew-btn"><a class="btn btn-primary" href="{{ url('/new-trade') }}">Create
                                     New Trade</a></div>
@@ -275,10 +275,10 @@
 </div>
 @endsection
 @section('script')
-<!-- <script src="../assets/js/chart/chartist/chartist.js"></script>
-<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script> -->
-<script src="../assets/js/chart/knob/knob.min.js"></script>
-<script src="../assets/js/chart/knob/knob-chart.js"></script>
+<script src="../assets/js/chart/chartist/chartist.js"></script>
+<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+<!-- <script src="../assets/js/chart/knob/knob.min.js"></script>
+<script src="../assets/js/chart/knob/knob-chart.js"></script> -->
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="../assets/js/chart/apex-chart/stock-prices.js"></script>
 <script src="../assets/js/notify/bootstrap-notify.min.js"></script>
@@ -292,12 +292,12 @@
 <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
 <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
-<script src="../assets/js/typeahead/handlebars.js"></script>
+<!-- <script src="../assets/js/typeahead/handlebars.js"></script>
 <script src="../assets/js/typeahead/typeahead.bundle.js"></script>
-<script src="../assets/js/typeahead/typeahead.custom.js"></script>
-<script src="../assets/js/general-widget.js"></script>
-<script src="../assets/js/typeahead-search/handlebars.js"></script>
-<script src="../assets/js/typeahead-search/typeahead-custom.js"></script>
+<script src="../assets/js/typeahead/typeahead.custom.js"></script> -->
+<!-- <script src="../assets/js/general-widget.js"></script> -->
+<!-- <script src="../assets/js/typeahead-search/handlebars.js"></script>
+<script src="../assets/js/typeahead-search/typeahead-custom.js"></script> -->
 <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
 @endsection

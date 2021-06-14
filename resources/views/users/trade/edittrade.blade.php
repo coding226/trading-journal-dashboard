@@ -14,6 +14,10 @@
             border-radius: 10px;
             margin: 5px;
         }
+        .theme-form .card-body input:disabled, .theme-form .card-body input[readonly], body.dark-only .page-wrapper .page-body-wrapper input:disabled, body.dark-only .page-wrapper .page-body-wrapper input[readonly] {
+            background-color: #b3b6b9;
+            opacity: 1;
+        }
     </style>
 @endsection
 @section('content')
@@ -135,7 +139,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type here information" readonly>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">

@@ -47,7 +47,7 @@
     <!-- Plugins JS start-->
     <script src="{{ url('assets/js/sidebar-menu.js') }}"></script>
     @yield('script')
-    <script src="../assets/js/tooltip-init.js"></script>
+    <!-- <script src="../assets/js/tooltip-init.js"></script> -->
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ url('assets/js/script.js') }}"></script>
