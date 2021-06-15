@@ -109,10 +109,10 @@
                             <h6>Description</h6><br />
                             <p class="pl-4" style="white-space: pre-line">{{ $data['trade']->description }}</p>
                         </div>
-                        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                        <br /><br /><br /><br /><br /><br />
                         @if($data['beimages'])
                         <div class="row mt-5 preview">
-                            <h6>Before Images</h6>
+                            <h6>Before Images</h6><br />
                             @foreach($data['beimages'] as $beimage)
                                 <img class="b-r-15 mt-3" src="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" alt="Unknown Image">
                             @endforeach
@@ -120,7 +120,7 @@
                         @endif
                         @if($data['afimages'])
                         <div class="row mt-5 preview">
-                            <h6 class="mb-5">After Images</h6>
+                            <h6 class="mb-5">After Images</h6><br />
                             @foreach($data['afimages'] as $afimage)
                                 <img class="b-r-15 mt-3" src="{{ ($afimage->after_link) ? $afimage->after_link:'/'.$afimage->after_file }}" alt="Unknown Image">
                             @endforeach
