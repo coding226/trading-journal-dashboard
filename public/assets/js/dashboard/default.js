@@ -38,12 +38,12 @@ function checkTime(i) {
 // $(window).load()
 $(document).ready (function () {
 // $('#testbutton').on('click', function () {
-    var currenttime = (new Date()).toLocaleString();
+    var currenttime = (new Date()).toISOString().slice(0, 10);
     $.ajax({
         type: 'GET',
         url: 'dashboardinfo',
         async: true,
-        cache: true,
+        cache: false,
         dataType: 'json',
         data: {
             currenttime: currenttime,
