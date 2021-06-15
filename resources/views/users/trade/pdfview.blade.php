@@ -25,6 +25,13 @@
         .card-header h5{
             margin-bottom: 30px;
         }
+        td, th, p, h6{
+            font-size: 18px !important;
+            font-weight: 300 !important;
+        }
+        .table td, .table th{
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -102,6 +109,7 @@
                             <h6>Description</h6><br />
                             <p class="pl-4" style="white-space: pre-line">{{ $data['trade']->description }}</p>
                         </div>
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br />
                         @if($data['beimages'])
                         <div class="row mt-5 preview">
                             <h6>Before Images</h6>
