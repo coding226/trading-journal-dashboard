@@ -140,13 +140,13 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Position Size</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="positionsize" name="positionsize" placeholder="Type here information" autocomplete="off" >
+                                            <input class="form-control" type="number" step="any" id="positionsize" name="positionsize" placeholder="Type information here" autocomplete="off" >
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="pips" name="pips" placeholder="Type here information" autocomplete="off" >
+                                            <input class="form-control" type="number" step="any" id="pips" name="pips" placeholder="Type information here" autocomplete="off" >
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -154,7 +154,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
-                                                <input class="form-control" type="number" step="any" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
+                                                <input class="form-control" type="number" step="any" id="fees" name="fees" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type information here">
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
-                                                <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
+                                                <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type information here">
                                             </div>
                                         </div>
                                     </div>
@@ -176,19 +176,19 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Stop Loss Value</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="stoplossval" name="stoplossval" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="stoplossval" name="stoplossval" autocomplete="off" placeholder="Type information here">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Open Price <span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="open_price" name="open_price" autocomplete="off" placeholder="Type here information" required>
+                                            <input class="form-control" type="number" step="any" id="open_price" name="open_price" autocomplete="off" placeholder="Type information here" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Close Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="close_price" name="close_price" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="close_price" name="close_price" autocomplete="off" placeholder="Type information here">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -216,7 +216,7 @@
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Type here information"></textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Type information here"></textarea>
                                         </div>
                                     </div>
                                 </div>

@@ -114,13 +114,13 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Position Size</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="positionsize" name="positionsize" value="{{ $trade->positionsize }}" placeholder="Type here information" autocomplete="off" >
+                                            <input class="form-control" type="number" step="any" id="positionsize" name="positionsize" value="{{ $trade->positionsize }}" placeholder="Type information here" autocomplete="off" >
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Pips Profit or Loss</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="pips" name="pips" placeholder="Type here information" autocomplete="off" value="{{ $trade->pips }}">
+                                            <input class="form-control" type="number" step="any" id="pips" name="pips" placeholder="Type information here" autocomplete="off" value="{{ $trade->pips }}">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -128,7 +128,7 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
-                                                <input class="form-control" type="number" step="any" id="fees" name="fees" value="{{ $trade->fees }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
+                                                <input class="form-control" type="number" step="any" id="fees" name="fees" value="{{ $trade->fees }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type information here">
                                             </div>
                                         </div>
                                     </div>
@@ -137,32 +137,32 @@
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <span class="input-group-text">{{ Auth::user()->current_user->current_currency->sign }}</span>
-                                                <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" value="{{ $trade->profit_gl }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type here information">
+                                                <input class="form-control" type="number" step="any" id="profit_gl" name="profit_gl" value="{{ $trade->profit_gl }}" aria-describedby="validationTooltipUsernamePrepend" data-bs-original-title="" title="" placeholder="Type information here">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type here information" readonly>
+                                            <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" value="{{ $trade->percentage_gl }}" autocomplete="off" placeholder="Type information here" readonly>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Stop Loss Value</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="stoplossval" name="stoplossval" value="{{ $trade->stoplossval }}" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="stoplossval" name="stoplossval" value="{{ $trade->stoplossval }}" autocomplete="off" placeholder="Type information here">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Open Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="open_price" name="open_price" value="{{ $trade->open_price }}" autocomplete="off" placeholder="Type here information" required>
+                                            <input class="form-control" type="number" step="any" id="open_price" name="open_price" value="{{ $trade->open_price }}" autocomplete="off" placeholder="Type information here" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Close Price</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="close_price" name="close_price" value="{{ $trade->close_price }}" autocomplete="off" placeholder="Type here information">
+                                            <input class="form-control" type="number" step="any" id="close_price" name="close_price" value="{{ $trade->close_price }}" autocomplete="off" placeholder="Type information here">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -204,7 +204,7 @@
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Type here information">{{ $trade->description }}</textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Type information here">{{ $trade->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>
