@@ -127,7 +127,7 @@
                         <label class="col-sm-3 col-form-label text-sm-end">Time</label>
                         <div class="col-xl-4 col-sm-4">
                             <div class="input-group">
-                                <input class="form-control" type="time">
+                                <input class="form-control" type="time" name="time1">
                             </div>
                         </div>
                         <div class="col-xl-4 col-sm-4">

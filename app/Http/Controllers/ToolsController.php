@@ -47,13 +47,13 @@ class ToolsController extends Controller
 
         
         $note->user_id = Auth::user()->id;
-        $note->datetime = Carbon::createFromFormat('m/d/Y', $request->datetime)->format("Y-m-d");
+        $note->datetime = Carbon::createFromFormat('m/d/Y', $request->datetime)->format("Y-m-d").' '.$request->time1;
         $note->title = $request->title;
         $note->description = $request->description;
         $note->index = $request->index;
         $note->indexcolor = $request->indexcolor;
         if($request->isnoti == 'on'){
-            $note->isnoti = $request->isnoti;
+            $note->isnoti = 1;
         }
         $note->save();
 
@@ -99,7 +99,7 @@ class ToolsController extends Controller
             $file->move($location,$filename);
             $note->image = $location.'/'.$filename;
         }
-        $note->datetime = Carbon::createFromFormat('m/d/Y', $request->datetime)->format("Y-m-d");
+        $note->datetime = Carbon::createFromFormat('m/d/Y', $request->datetime)->format("Y-m-d").' '.$request->time1;
         $note->title = $request->title;
         $note->description = $request->description;
         $note->index = $request->index;
