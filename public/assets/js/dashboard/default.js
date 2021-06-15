@@ -57,6 +57,9 @@ $(document).ready (function () {
     });
 });
 
+$('.recent-item').on('click', function() {
+    window.location.replace($(this).attr('data-href'));
+});
 
 // // right-side-small-chart
 
@@ -211,8 +214,3 @@ $(document).ready (function () {
 // );
 
 // chart1.render();
-
-
-// $('.recent-item').on('click', function() {
-//     window.location.replace($(this).attr('data-href'));
-// });
