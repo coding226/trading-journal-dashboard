@@ -52,6 +52,9 @@ class ToolsController extends Controller
         $note->description = $request->description;
         $note->index = $request->index;
         $note->indexcolor = $request->indexcolor;
+        if($request->isnoti == 'on'){
+            $note->isnoti = $request->isnoti;
+        }
         $note->save();
 
         return redirect()->back();
@@ -101,6 +104,12 @@ class ToolsController extends Controller
         $note->description = $request->description;
         $note->index = $request->index;
         $note->indexcolor = $request->indexcolor;
+        if($request->isnoti == 'on'){
+            $note->isnoti = 1;
+        }
+        else{
+            $note->isnoti = '';
+        }
         $note->save();
 
         return redirect()->route('tools.notes');

@@ -82,6 +82,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'payment' => $payment,
             'subscription' => $subscription,
+            'ipaddress' => \Request::ip(),
+            'timezone' => json_decode(file_get_contents('http://ip-api.com/json/' . \Request::ip()))->timezone
         ]);
 
         $subuser = Subuser::create([

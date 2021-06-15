@@ -50,9 +50,15 @@
                                     <div class="col-md-8">
                                         <div class="mb-3 row g-3">
                                             <label class="col-sm-3 col-form-label text-sm-end">Date</label>
-                                            <div class="col-xl-5 col-sm-9">
+                                            <div class="col-xl-4 col-sm-4">
                                                 <div class="input-group">
                                                     <input class="datepicker-here form-control digits" name="datetime" type="text" data-language="en" required value="{{ date_format(date_create($note->datetime), 'm/d/Y') }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-sm-4">
+                                                <div class="form-check checkbox checkbox-solid-primary">
+                                                    <input class="form-check-input" id="some" type="checkbox" name="isnoti" {{ $note->isnoti ? 'checked' : ''}}>
+                                                    <label class="form-check-label" for="some">Email Noti</label>
                                                 </div>
                                             </div>
                                         </div>

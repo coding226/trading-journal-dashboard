@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="card-body row pricing-block justify-content-center">
-                        <div class="col-lg-3 col-md-6">
+                        <!-- <div class="col-lg-3 col-md-6">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Free</h3>
@@ -61,10 +61,10 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/downgrade') }}">Downgrade</a></div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 month">
+                        </div> -->
+                        <div class="col-lg-4 col-md-6 month">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Basic</h3>
@@ -80,10 +80,10 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/basicmonthly') }}">Upgrade</a></div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 month">
+                        <div class="col-lg-4 col-md-6 month">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Professional</h3>
@@ -99,10 +99,10 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/promonthly') }}">Upgrade</a></div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 month">
+                        <div class="col-lg-4 col-md-6 month">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Premium</h3>
@@ -118,10 +118,10 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/premiummonthly') }}">Upgrade</a></div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 yearly">
+                        <div class="col-lg-4 col-md-6 yearly">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Basic</h3>
@@ -137,10 +137,10 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/basicyearly') }}">Upgrade</a></div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 yearly">
+                        <div class="col-lg-4 col-md-6 yearly">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Professional</h3>
@@ -156,10 +156,10 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/proyearly') }}">Upgrade</a></div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 yearly">
+                        <div class="col-lg-4 col-md-6 yearly">
                             <div class="pricingtable">
                                 <div class="pricingtable-header">
                                     <h3 class="title">Premium</h3>
@@ -175,7 +175,7 @@
                                     <li>Import/Export Data</li>
                                     <li>Trading Buddy Support</li>
                                 </ul>
-                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="#">Upgrade</a></div>
+                                <div class="pricingtable-signup"><a class="btn btn-primary btn-lg" href="{{ url('/subscribe-checkout/premiumyearly') }}">Upgrade</a></div>
                             </div>
                         </div>
                     </div>

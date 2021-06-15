@@ -22,6 +22,7 @@ class CreateNotesTable extends Migration
             $table->string('image')->nullable();
             $table->string('index')->nullable();
             $table->string('indexcolor')->nullable();
+            $table->string('isnoti')->nullable();
             $table->timestamps();
         });
     }

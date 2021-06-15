@@ -31,6 +31,8 @@ class User extends Authenticatable
         'currency',
         'current_subuser',
         'darkmode',
+        'ipaddress',
+        'timezone',
     ];
 
     /**

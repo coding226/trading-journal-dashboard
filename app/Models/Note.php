@@ -21,6 +21,7 @@ class Note extends Model
         'image',
         'index',
         'indexcolor',
+        'isnoti',
     ];
 
 }

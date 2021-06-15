@@ -246,6 +246,16 @@
                                     data-feather="maximize"></i></a></li>
                         <li class="profile-nav onhover-dropdown p-0 me-0">
                             <div class="media profile-media"><img class="b-r-10" src="{{ Auth::user()->avatar == '' ? url('assets/images/dashboard/profile.jpg') : url('/').'/'.Auth::user()->avatar }}" alt="profile-image">
+                            @php $subscribe = \App\Models\Subscription::find(Auth::user()->id) @endphp
+                            @if($subscribe && $subscribe->isActive())
+                                @if($subscribe->plan_id < 3)
+                                    <span class="badge rounded-pill badge-primary"><i class="icon-star"></i></span>
+                                @elseif($subscribe->plan_id < 5)
+                                    <span class="badge rounded-pill badge-danger"><i class="icon-star"></i></span>
+                                @else
+                                    <span class="badge rounded-pill badge-warning"><i class="icon-star"></i></span>
+                                @endif
+                            @endif
                                 <div class="media-body"><span>{{Auth::user()->name}}</span>
                                     <p class="mb-0 font-roboto">{{ Auth::user()->current_user->username }} <i class="middle fa fa-angle-down"></i></p>
                                 </div>

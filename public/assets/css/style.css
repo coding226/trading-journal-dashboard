@@ -7258,7 +7258,7 @@ table.dataTable.display tbody tr.odd>.sorting_1 {
     border: none;
     -webkit-box-shadow: 0 0 20px rgba(8, 21, 66, 0.05);
     box-shadow: 0 0 20px rgba(8, 21, 66, 0.05);
-    z-index: 7
+    z-index: 9999;
 }
 
 .clockpicker-popover .popover-content {

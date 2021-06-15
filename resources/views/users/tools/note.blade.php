@@ -4,6 +4,7 @@
 @endsection
 @section('style')
 <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/vendors/timepicker.css">
 <style>
     .job-search .card-body{
         height: 360px;
@@ -72,6 +73,9 @@
                                 <div class="media-body">
                                     <div class="mb-3">
                                         <p>{{ date_format(date_create($note->datetime), "j F, Y") }}</p>
+                                        @if($note->isnoti == 1)
+                                            <i class="fa fa-bell"></i>
+                                        @endif
                                         <div class="dropdown-basic pull-right m-l-5">
                                             <div class="dropdown m-0">
                                                 <div class="btn-group m-0">
@@ -113,9 +117,23 @@
                 <div class="modal-body date-picker">
                     <div class="mb-3 row g-3">
                         <label class="col-sm-3 col-form-label text-sm-end">Date</label>
-                        <div class="col-xl-5 col-sm-9">
+                        <div class="col-xl-4 col-sm-4">
                             <div class="input-group">
                                 <input class="datepicker-here form-control digits" name="datetime" type="text" data-language="en" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row g-3">
+                        <label class="col-sm-3 col-form-label text-sm-end">Time</label>
+                        <div class="col-xl-4 col-sm-4">
+                            <div class="input-group">
+                                <input class="form-control" type="time">
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-sm-4">
+                            <div class="form-check checkbox checkbox-solid-primary">
+                                <input class="form-check-input" id="some" type="checkbox" name="isnoti">
+                                <label class="form-check-label" for="some">Email Noti</label>
                             </div>
                         </div>
                     </div>
@@ -149,15 +167,6 @@
                             <div class="input-group">
                                 <input class="form-control" type="text" name="index">
                                 <input type="color" class="form-control" name="indexcolor">
-                                <!-- <select class="form-control bg-primary text-light" name="indexcolor" id="indexcolor">
-                                    <option class="bg-primary text-light" value="bg-primary"></option>
-                                    <option class="bg-secondary text-light" value="bg-secondary"></option>
-                                    <option class="bg-success text-light" value="bg-success"></option>
-                                    <option class="bg-info text-light" value="bg-info"></option>
-                                    <option class="bg-warning text-light" value="bg-warning"></option>
-                                    <option class="bg-danger text-light" value="bg-danger"></option>
-                                    <option class="bg-dark text-light" value="bg-dark"></option>
-                                </select> -->
                             </div>
                         </div>
                     </div>
@@ -175,5 +184,8 @@
     <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
     <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
     <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+    <script src="../assets/js/time-picker/jquery-clockpicker.min.js"></script>
+    <script src="../assets/js/time-picker/highlight.min.js"></script>
+    <script src="../assets/js/time-picker/clockpicker.js"></script>
     <script src="../assets/js/tools/note.js"></script>
 @endsection

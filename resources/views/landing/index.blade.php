@@ -407,7 +407,7 @@
 								<li><span class="fa fa-check me-2"></span>Import/Export Data</li>
 								<li><span class="fa fa-check me-2"></span>Trading Buddy Support</li>
 							</ul>
-							<a href="{{ url('/subscribe-checkout/') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+							<a href="{{ url('/register') }}" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -522,7 +522,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="ftco-section faq-section" style="padding-top: 0">
+	<section class="ftco-section faq-section" style="padding: 0">
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 				<div class="col-md-7 heading-section text-center pb-5" data-aos="fade-up" data-aos-duration="1000">

@@ -16,6 +16,7 @@ class PlanSeeder extends Seeder
     {
         Plan::create([
             'slug' => 'basicmonthly',
+            'desc' => 'Basic Monthly',
             'acc_num' => '1',
             'price' => 799, //7.99
             'duration_in_days' => 30
@@ -23,6 +24,7 @@ class PlanSeeder extends Seeder
 
         Plan::create([
             'slug' => 'basicyearly',
+            'desc' => 'Pro Monthly',
             'acc_num' => '1',
             'price' => 7600, //76.00
             'duration_in_days' => 365
@@ -30,6 +32,7 @@ class PlanSeeder extends Seeder
 
         Plan::create([
             'slug' => 'promonthly',
+            'desc' => 'Premium Monthly',
             'acc_num' => '3',
             'price' => 1199, //11.99
             'duration_in_days' => 30
@@ -37,6 +40,7 @@ class PlanSeeder extends Seeder
 
         Plan::create([
             'slug' => 'proyearly',
+            'desc' => 'Basic Yearly',
             'acc_num' => '3',
             'price' => 11500, //115.00
             'duration_in_days' => 365
@@ -44,6 +48,7 @@ class PlanSeeder extends Seeder
 
         Plan::create([
             'slug' => 'premiummonthly',
+            'desc' => 'Pro Yearly',
             'acc_num' => 'UNLIMITED',
             'price' => 1999, //19.99
             'duration_in_days' => 30
@@ -51,6 +56,7 @@ class PlanSeeder extends Seeder
 
         Plan::create([
             'slug' => 'premiumyearly',
+            'desc' => 'Premium Yearly',
             'acc_num' => 'UNLIMITED',
             'price' => 19100, //191.00
             'duration_in_days' => 365

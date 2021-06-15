@@ -11,6 +11,7 @@ class Plan extends Model
 
     protected $fillable = [
         'slug',
+        'desc',
         'acc_num',
         'price',
         'duration_in_days',

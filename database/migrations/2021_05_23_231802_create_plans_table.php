@@ -16,6 +16,7 @@ class CreatePlansTable extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
+            $table->string('desc');
             $table->string('acc_num');
             $table->integer('price')->unsigned(); //Without decimals
             $table->integer('duration_in_days')->unsigned();
