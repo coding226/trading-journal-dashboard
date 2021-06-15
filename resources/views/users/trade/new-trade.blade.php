@@ -71,10 +71,10 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label">End Date and Time <span class="text-danger">*</span></label>
+                                        <label class="col-sm-3 col-form-label">End Date and Time</label>
                                         <div class="col-sm-5">
                                             <div class="input-group">
-                                                <input class="datepicker-here form-control digits" name="end_date" type="text" data-language="en" required>
+                                                <input class="datepicker-here form-control digits" name="end_date" type="text" data-language="en">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
