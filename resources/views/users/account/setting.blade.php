@@ -146,7 +146,7 @@
                                         <label class="col-form-label m-r-10">Subscription</label>
                                         <div class="media-body" style="display:flow-root;">
                                             @php $subscribe = \App\Models\Subscription::find(Auth::user()->id) @endphp
-                                            <p style="float:left"> Current Plan: {{ $subscribe ? $subscribe->plan->desc }}</p>
+                                            <p style="float:left"> Current Plan: {{ $subscribe ? $subscribe->plan->desc : 'Free'}}</p>
                                             <label class="switch" style="float:right">
                                                 <input type="checkbox" id="subscription" name="subscription" @if (Auth::user()->subscription) checked @endif><span class="switch-state"></span>
                                             </label>
