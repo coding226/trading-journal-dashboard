@@ -70,9 +70,9 @@ class DashboardController extends Controller
     {
         $currenttime = new Carbon($request->currenttime);
         $startday = (new Carbon($request->currenttime))->subDay();
-        $startweek = (new Carbon($request->currenttime))->subWeek();
-        $startmonth = (new Carbon($request->currenttime))->subMonth();
-        $startyear = (new Carbon($request->currenttime))->subYear();
+        $startweek = (new Carbon($request->currenttime))->startOfWeek();
+        $startmonth = (new Carbon($request->currenttime))->firstOfMonth();
+        $startyear = (new Carbon($request->currenttime))->startOfYear();
 
         $data['inadaypercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('end_datetime', '<', $currenttime)->where('end_datetime', '>', $startday)->sum('percentage_gl');
         $data['inaweekpercentagegain'] = Trade::where('subuser_id', Auth::user()->current_subuser)->where('end_datetime', '<', $currenttime)->where('end_datetime', '>', $startweek)->sum('percentage_gl');
