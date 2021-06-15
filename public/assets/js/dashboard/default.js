@@ -41,7 +41,9 @@ $(document).ready (function () {
     var currenttime = (new Date()).toLocaleString();
     $.ajax({
         type: 'GET',
-        url: '/dashboardinfo',
+        url: 'dashboardinfo',
+        async: true,
+        cache: true,
         dataType: 'json',
         data: {
             currenttime: currenttime,
