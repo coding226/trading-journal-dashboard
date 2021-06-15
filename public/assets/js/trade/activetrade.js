@@ -12,7 +12,7 @@ $('.trade-del').on('click', function(e){
 
 $('#reportrange').on('change', function(e) {
     var daterange = $(this).val().replace(/\s/g, '').split('-');
-    var currenttime = (new Date()).toLocaleString();
+    var currenttime = (new Date()).toISOString().slice(0, 10);
     console.log(currenttime);
     $.ajaxSetup({
         headers: {
