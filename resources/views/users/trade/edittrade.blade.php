@@ -77,15 +77,6 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label">End Date and Time</label>
-                                        <div class="col-sm-9">
-                                            <div class="input-group date" id="dt-minimum1" data-target-input="nearest">
-                                                <input class="form-control datetimepicker-input digits" type="text" value="{{ $trade->end_datetime == '' ? '' : date_format(date_create($trade->end_datetime),'m/d/Y H:i A') }}" data-target="#dt-minimum1" data-bs-original-title="" title="" id="end_date" name="end_date">
-                                                <div class="input-group-text" data-target="#dt-minimum1" data-toggle="datetimepicker"><i class="fa fa-calendar"> </i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Symbol <span class="text-danger">*</span></label>
                                         <div class="col-sm-9 select2-drpdwn">
                                             <select class="js-example-basic-single form-select" name="symbol_id" value="{{ $trade->symbol->symbol }}" required>
