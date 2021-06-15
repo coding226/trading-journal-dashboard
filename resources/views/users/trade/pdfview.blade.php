@@ -112,7 +112,7 @@
                         <br /><br /><br /><br /><br /><br />
                         @if($data['beimages'])
                         <div class="row mt-5 preview">
-                            <h6>Before Images</h6><br />
+                            <h6 class="mb-5">Before Images</h6><br />
                             @foreach($data['beimages'] as $beimage)
                                 <img class="b-r-15 mt-3" src="{{ ($beimage->before_link) ? $beimage->before_link:'/'.$beimage->before_file }}" alt="Unknown Image">
                             @endforeach
