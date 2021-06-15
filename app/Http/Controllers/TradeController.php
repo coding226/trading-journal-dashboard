@@ -75,9 +75,9 @@ class TradeController extends Controller
         $trade->trade_num = count(Trade::where('subuser_id', Auth::user()->current_subuser)->get())+1;
         $trade->subuser_id = Auth::user()->current_subuser;
         $trade->symbol_id = $request->symbol_id;
-        $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
+        $trade->start_datetime = Carbon::createFromFormat('m/d/Y', $request->start_date)->format("Y-m-d").' '.$request->start_time;
         if($request->end_date){
-            $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+            $trade->end_datetime = Carbon::createFromFormat('m/d/Y', $request->end_date)->format("Y-m-d").' '.$request->end_time;
             // $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
             if(abs(strtotime($request->start_date) - strtotime($request->end_date)) <  630720000)
                 $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));
@@ -273,9 +273,11 @@ class TradeController extends Controller
     {
         $trade = Trade::find($tradeid);
         $trade->symbol_id = $request->symbol_id;
-        $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
+        // $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
+        $trade->start_datetime = Carbon::createFromFormat('m/d/Y', $request->start_date)->format("Y-m-d").' '.$request->start_time;
         if($request->end_date){
-            $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+            // $trade->end_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->end_date)->format("Y-m-d H:i:s");
+            $trade->end_datetime = Carbon::createFromFormat('m/d/Y', $request->end_date)->format("Y-m-d").' '.$request->end_time;
             // $trade->duration = CarbonInterval::seconds(strtotime($request->start_date) - strtotime($request->end_date))->cascade()->forHumans();
             if(abs(strtotime($request->start_date) - strtotime($request->end_date)) <  630720000)
                 $trade->duration = abs(strtotime($request->start_date) - strtotime($request->end_date));

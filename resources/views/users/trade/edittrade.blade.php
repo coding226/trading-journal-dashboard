@@ -49,17 +49,31 @@
                     @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col datetime-picker">
+                                <div class="col">
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Start Date and Time <span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <div class="input-group date" id="dt-minimum" data-target-input="nearest">
-                                                <input class="form-control datetimepicker-input digits" type="text" value="{{ date_format(date_create($trade->start_datetime),'m/d/Y H:i A') }}" data-target="#dt-minimum" data-bs-original-title="" title="" id="start_date" name="start_date" required>
-                                                <div class="input-group-text" data-target="#dt-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"> </i></div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group">
+                                                <input class="datepicker-here form-control digits" name="start_date" type="text" value="{{ date_format(date_create($trade->start_datetime),'m/d/Y') }}" data-language="en" required>
                                             </div>
-                                            <!-- <div class="input-group">
-                                                <input class="datepicker-here form-control digits" type="text" data-language="en" id="start_date" name="start_date">
-                                            </div> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
+                                                <input class="form-control" type="text" name="start_time" value="{{ substr($trade->start_datetime, 11, 5) }}" ><span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">End Date and Time <span class="text-danger">*</span></label>
+                                        <div class="col-sm-5">
+                                            <div class="input-group">
+                                                <input class="datepicker-here form-control digits" name="end_date" type="text" value="{{ $trade->end_datetime == '' ? '' : date_format(date_create($trade->end_datetime),'m/d/Y') }}" data-language="en" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
+                                                <input class="form-control" type="text" name="end_time" value="{{ $trade->end_datetime == '' ? '' : substr($trade->end_datetime, 11, 5) }}" ><span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -199,7 +213,7 @@
                                     <div class="row">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Default textarea">{{ $trade->description }}</textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="description" name="description" placeholder="Type here information">{{ $trade->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>

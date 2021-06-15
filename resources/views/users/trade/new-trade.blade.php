@@ -5,6 +5,8 @@
 @section('style')
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/select2.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-time-picker.html">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/timepicker.css">
     <style>
         .before_preview img, .after_preview img{
             max-width: 320px;
@@ -54,17 +56,40 @@
                                 </div>
                             @endif
                             <div class="row">
-                                <div class="col datetime-picker">
+                                <div class="col">
                                     <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Start Date and Time <span class="text-danger">*</span></label>
+                                        <div class="col-sm-5">
+                                            <div class="input-group">
+                                                <input class="datepicker-here form-control digits" name="start_date" type="text" data-language="en" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
+                                                <input class="form-control" type="text" name="start_time"><span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">End Date and Time <span class="text-danger">*</span></label>
+                                        <div class="col-sm-5">
+                                            <div class="input-group">
+                                                <input class="datepicker-here form-control digits" name="end_date" type="text" data-language="en" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
+                                                <input class="form-control" type="text" name="end_time"><span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Start Date and Time <span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <div class="input-group date" id="dt-minimum" data-target-input="nearest">
                                                 <input class="form-control datetimepicker-input digits" type="text" data-target="#dt-minimum" data-bs-original-title="" title="" id="start_date" name="start_date" required>
                                                 <div class="input-group-text" data-target="#dt-minimum" data-toggle="datetimepicker"><i class="fa fa-calendar"> </i></div>
                                             </div>
-                                            <!-- <div class="input-group">
-                                                <input class="datepicker-here form-control digits" type="text" data-language="en" id="start_date" name="start_date">
-                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -75,7 +100,7 @@
                                                 <div class="input-group-text" data-target="#dt-minimum1" data-toggle="datetimepicker"><i class="fa fa-calendar"> </i></div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="validationTooltip04">Symbol <span class="text-danger">*</span></label>
                                         <div class="col-sm-9 select2-drpdwn">
@@ -219,6 +244,12 @@
 <script src="../assets/js/datepicker/date-time-picker/moment.min.js"></script>
 <script src="../assets/js/datepicker/date-time-picker/tempusdominus-bootstrap-4.min.js"></script>
 <script src="../assets/js/datepicker/date-time-picker/datetimepicker.custom.js"></script>
+<script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
+<script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
+<script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+<script src="../assets/js/time-picker/jquery-clockpicker.min.js"></script>
+<script src="../assets/js/time-picker/highlight.min.js"></script>
+<script src="../assets/js/time-picker/clockpicker.js"></script>
 <script>
     var balance = {!! json_encode($account_balance, JSON_HEX_TAG) !!};
 </script>
