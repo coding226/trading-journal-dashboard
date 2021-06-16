@@ -81,7 +81,7 @@
                                         <p class="font-roboto">Total Profit ({{ Auth::user()->current_user->current_currency->sign }})</p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
-                                        <h5>{{ Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance == 0 ? 0 : number_format(($tprofit- $tfee)/(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee)*100, 2, '.', '') }}%</h5>
+                                        <h5>{{ Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance == 0 ? 0 : number_format(($tprofit- $tfee)/(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance)*100, 2, '.', '') }}%</h5>
                                         <p class="font-roboto">Total Percentage Gain</p>
                                     </div>
                                 </div>
