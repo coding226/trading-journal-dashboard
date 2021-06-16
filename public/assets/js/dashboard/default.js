@@ -38,7 +38,7 @@ function checkTime(i) {
 // $(window).load()
 $(document).ready (function () {
 // $('#testbutton').on('click', function () {
-    var currenttime = (new Date()).toISOString().slice(0, 10);
+    var currenttime = (new Date()).toISOString().slice(0, 19);
     console.log(currenttime);
     $.ajax({
         type: 'GET',
