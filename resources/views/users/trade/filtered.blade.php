@@ -14,10 +14,10 @@
                         <div class="dropdown-content pull-right" id="sample_3_tools">
                             <li><a href="javascript:;" data-action="0" class="tool-action"><i class="icon-printer"></i> Print</a></li>
                             <li><a href="javascript:;" data-action="1" class="tool-action"><i class="icon-check"></i> Copy</a></li>
-                            <li><a href="javascript:;" data-action="2" class="tool-action"><i class="icon-doc"></i> PDF</a></li>
+                            <!-- <li><a href="javascript:;" data-action="2" class="tool-action"><i class="icon-doc"></i> PDF</a></li> -->
                             <li><a href="javascript:;" data-action="3" class="tool-action"><i class="icon-paper-clip"></i> Excel</a></li>
                             <li><a href="javascript:;" data-action="4" class="tool-action"><i class="icon-cloud-upload"></i> CSV</a></li>
-                            <li><a href="javascript:;" data-action="5" class="tool-action"><i class="icon-refresh"></i> Reload</a></li>
+                            <!-- <li><a href="javascript:;" data-action="5" class="tool-action"><i class="icon-refresh"></i> Reload</a></li> -->
                         </div>
                     </div>
                 </div>
@@ -35,9 +35,16 @@
                         <th>Long/Short</th>
                         <th class="text-center">Start Date</th>
                         @isset($completed)
+                        <th class="d-none">End Date</th>
                         <th class="text-center">Trade Duration</th>
+                        <th class="d-none">Position Size</th>
+                        <th class="d-none">Pips</th>
+                        <th class="d-none">Fees</th>
                         <th>Profit/Loss({{ Auth::user()->current_user->current_currency->sign }})</th>
                         <th>Profit/Loss(%)</th>
+                        <th class="d-none">Stop Loss Val</th>
+                        <th class="d-none">Open Price</th>
+                        <th class="d-none">Close Price</th>
                         <th>Win/Loss/BE</th>
                         @else
                         <th class="text-center">Current Duration</th>
@@ -55,7 +62,11 @@
                         <td class="text-center">{{ $trade->long_short }}</td>
                         <td class="text-center">{{ $trade->start_datetime }}</td>
                         @isset($completed)
+                            <td class="d-none">{{ $trade->end_datetime }}</td>
                             <td class="text-center">{{ Carbon\CarbonInterval::seconds($trade->duration)->cascade()->forHumans() }}</td>
+                            <td class="d-none">{{ $trade->positionsize }}</td>
+                            <td class="d-none">{{ $trade->pips }}</td>
+                            <td class="d-none">{{ $trade->fees }}</td>
                             @if( $trade->profit_gl > 0 )
                             <td class="font-success text-center">{{ $trade->profit_gl }}</td>
                             @else
@@ -66,6 +77,9 @@
                             @else
                             <td class="font-danger text-center">{{ number_format($trade->percentage_gl, 2, '.', '') }}</td>
                             @endif
+                            <td class="d-none">{{ $trade->stoplossval }}</td>
+                            <td class="d-none">{{ $trade->open_price }}</td>
+                            <td class="d-none">{{ $trade->close_price }}</td>
                             @if( $trade->profit_gl > 0 )
                             <td class="font-success text-center">Win</td>
                             @elseif( $trade->profit_gl < 0 )
