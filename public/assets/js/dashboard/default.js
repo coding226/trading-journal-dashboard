@@ -39,6 +39,7 @@ function checkTime(i) {
 $(document).ready (function () {
 // $('#testbutton').on('click', function () {
     var currenttime = (new Date()).toISOString().slice(0, 10);
+    console.log(currenttime);
     $.ajax({
         type: 'GET',
         url: 'dashboardinfo',
@@ -49,6 +50,7 @@ $(document).ready (function () {
             currenttime: currenttime,
         },
         success:function(data) {
+            console.log(data);
             $('.daily_percentage_gain').text(Math.round(data['inadaypercentagegain']*100)/100);
             $('.weekly_percentage_gain').text(Math.round(data['inaweekpercentagegain']*100)/100);
             $('.monthly_percentage_gain').text(Math.round(data['inamonthpercentagegain']*100)/100);
