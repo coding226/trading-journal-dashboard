@@ -272,6 +272,11 @@ class TradeController extends Controller
     public function update(Request $request, Trade $trade, $tradeid)
     {
         $trade = Trade::find($tradeid);
+
+        $tprofit = Trade::where('subuser_id', $current_subuser)->sum('profit_gl');
+        $tfee = Trade::where('subuser_id', $current_subuser)->sum('fees');
+        $account_balance = Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee;
+
         $trade->symbol_id = $request->symbol_id;
         // $trade->start_datetime = Carbon::createFromFormat('m/d/Y H:i A', $request->start_date)->format("Y-m-d H:i:s");
         $trade->start_datetime = Carbon::createFromFormat('m/d/Y', $request->start_date)->format("Y-m-d").' '.$request->start_time;
@@ -287,7 +292,7 @@ class TradeController extends Controller
         $trade->pips = $request->pips;
         $trade->fees = $request->fees;
         $trade->profit_gl = $request->profit_gl;
-        $trade->percentage_gl = $request->percentage_gl;
+        $trade->percentage_gl = ($request->profit_gl - $request->fees)*100/$account_balance;
         $trade->open_price = $request->open_price;
         $trade->stoplossval = $request->stoplossval;
         $trade->close_price = $request->close_price;
