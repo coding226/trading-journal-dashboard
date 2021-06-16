@@ -101,7 +101,7 @@ class AnalyticsController extends Controller
                 }else{
                     $weekdate = $trades[$i]->year_val.'W'.$trades[$i]->week_val;
                 }
-                $data['month'][$i] = date('Y W',strtotime($weekdate));
+                $data['month'][$i] = str_replace(" ", ' Week No.', date('Y W',strtotime($weekdate)));
             }
         }
         else{
@@ -236,7 +236,7 @@ class AnalyticsController extends Controller
                 }else{
                     $weekdate = $trades[$i]->year_val.'W'.$trades[$i]->week_val;
                 }
-                $data['month'][$i] = date('Y W',strtotime($weekdate));
+                $data['month'][$i] = str_replace(" ", ' Week No.', date('Y W',strtotime($weekdate)));
             }
         }
         else{
@@ -347,7 +347,7 @@ class AnalyticsController extends Controller
                 }else{
                     $weekdate = $trades[$i]->year_val.'W'.$trades[$i]->week_val;
                 }
-                $data['month'][$i] = date('Y W',strtotime($weekdate));
+                $data['month'][$i] = str_replace(" ", ' Week No.', date('Y W',strtotime($weekdate)));
             }
         }
         else{
