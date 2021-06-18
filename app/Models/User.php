@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $this->hasMany(Subuser::class);
     }
 
+    public function note()
+    {
+        return $this->hasMany(Note::class);
+    }
+
     public function current_user()
     {
         return $this->belongsTo(Subuser::class, 'current_subuser');

@@ -24,4 +24,8 @@ class Note extends Model
         'isnoti',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

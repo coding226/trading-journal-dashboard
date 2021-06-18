@@ -55,7 +55,7 @@
                     <tbody>
                         <tr>
                         <td><img src="{{ url('assets/images/logo/logo-blacktext.png') }}" alt=""></td>
-                        <td style="text-align: right; color:#999"><span>Some Description</span></td>
+                        <td style="text-align: right; color:#999"><span>Email Notification</span></td>
                         </tr>
                     </tbody>
                     </table>
@@ -67,12 +67,11 @@
             <tbody>
                 <tr>
                 <td style="padding: 30px"> 
-                    <p>Hi, {{ $details['name'] }}</p>
-                    <p>{{ $details['message'] }}</p>
-                    {{-- <p style="text-align: center"><a href="#" style="padding: 10px; background-color: #7366ff; color: #fff; display: inline-block; border-radius: 4px">Reset Password</a></p> --}}
-                    <p>Thanks</p>
-                    <p style="margin-bottom: 0">
-                    Regards,<br>Support Team</p>
+                    <p>Hi, {{ $details['user'] }}</p>
+                    <h6 style="font-weight: 600">{{ $details['title'] }</h6>
+                    <h6 style="font-weight: 600">{{ $details['datetime'] }</h6>
+                    <p>{{ $details['description'] }}</p>
+                    <p style="text-align: center"><a href="#" style="padding: 10px; background-color: #7366ff; color: #fff; display: inline-block; border-radius: 4px">View</a></p>
                 </td>
                 </tr>
             </tbody>
