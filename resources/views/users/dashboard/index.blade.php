@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5><span id="current_currecny">{{ Auth::user()->current_user->current_currency->sign }}</span> {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee, 2, '.', '') }} </h5>
-                                        <p class="font-roboto" data-bs-toggle="tooltip" data-bs-placement="top" title="Account Balance">Account Balance</p>
+                                        <p class="font-roboto d-flex align-items-center">Account Balance <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Account Balance"></i></p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5>{{ Auth::user()->current_user->current_currency->sign }} {{ $tprofit- $tfee }}</h5>
