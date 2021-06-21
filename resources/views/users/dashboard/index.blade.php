@@ -276,7 +276,7 @@
 @endsection
 @section('script')
 <script src="../assets/js/chart/chartist/chartist.js"></script>
-<script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+<!-- <script src="../assets/js/chart/chartist/chartist-plugin-tooltip.js"></script> -->
 <!-- <script src="../assets/js/chart/knob/knob.min.js"></script>
 <script src="../assets/js/chart/knob/knob-chart.js"></script> -->
 <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>

@@ -3,7 +3,7 @@
 $(document).ready(function() {
 	var tooltip_init = {
 		init: function() {
-			$("button").tooltip();
+			// $("button").tooltip();
 			$("a").tooltip();
 			$("input").tooltip();
 		}

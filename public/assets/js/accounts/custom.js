@@ -299,3 +299,12 @@ $('#continue').on('click', function() {
         return false;
     }
 });
+
+$('#fundtype').on('change', function() {
+    if($(this).val() == 1){
+        $('#amount').attr('placeholder', 'Enter in a withdrawal amount from the account');
+    }
+    else{
+        $('#amount').attr('placeholder', 'Enter in a deposit amount from the account');
+    }
+});

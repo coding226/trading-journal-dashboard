@@ -41,7 +41,7 @@
                                 @csrf
                                     <div class="mb-3">
                                         <label class="form-label">Account Name</label>
-                                        <input class="form-control" type="text" required id="username" name="username" placeholder="User name">
+                                        <input class="form-control" type="text" required id="username" name="username" placeholder="Enter Account Name">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Main Currency</label>
@@ -57,14 +57,14 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Starting Capital</label>
-                                        <input class="form-control" type="number" id="startcapital" step="any" name="startcapital" placeholder="Starting Capital">
+                                        <input class="form-control" type="number" id="startcapital" step="any" name="startcapital" placeholder="Enter Account Starting Amount">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Description</label>
-                                            <textarea class="form-control" rows="5" cols="5" id="account_desc" name="account_desc" placeholder="Type Information"></textarea>
+                                            <textarea class="form-control" rows="5" cols="5" id="account_desc" name="account_desc" placeholder="Enter Account Description"></textarea>
                                     </div>
                                     <div class="form-footer">
-                                        <button type="submit" class="btn btn-primary btn-block">Save</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Create</button>
                                     </div>
                                 </form>
                             </div>

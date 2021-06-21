@@ -311,7 +311,10 @@ var growthoptions = {
                 filename: undefined,
                 columnDelimiter: ',',
                 headerCategory: 'category',
-                headerValue: 'value'
+                headerValue: 'value',
+                dateFormatter(timestamp) {
+                    return new Date(timestamp).toDateString()
+                  }
               },
               svg: {
                 filename: undefined,
@@ -334,7 +337,7 @@ var growthoptions = {
         data: analytics_all_data['winrate']
     }],
     xaxis: {
-        type: 'number',
+        type: 'numeric',
         categories: analytics_all_data['winratex'],
     },
     yaxis: {
@@ -344,8 +347,13 @@ var growthoptions = {
     },
     tooltip: {
         x: {
-            format: 'number'
+            format: 'numeric'
         },
+        y: {
+            formatter: function (val) {
+                return val + '%'
+            }
+        }
     },
     colors:[ CubaAdminConfig.primary ],
     fill: {

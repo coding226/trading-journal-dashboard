@@ -126,7 +126,7 @@
                                 <div class="pricingtable-header">
                                     <h3 class="title">Basic</h3>
                                 </div>
-                                <div class="price-value"><span class="currency">£</span><span class="amount">76</span><span class="duration">/PM</span></div>
+                                <div class="price-value"><span class="currency">£</span><span class="amount">76</span><span class="duration">/PY</span></div>
                                 <ul class="pricing-content">
                                     <li>1 Trading Account</li>
                                     <li>Unlimited Trade Entries</li>
@@ -145,7 +145,7 @@
                                 <div class="pricingtable-header">
                                     <h3 class="title">Professional</h3>
                                 </div>
-                                <div class="price-value"><span class="currency">£</span><span class="amount">115</span><span class="duration">/PM</span></div>
+                                <div class="price-value"><span class="currency">£</span><span class="amount">115</span><span class="duration">/PY</span></div>
                                 <ul class="pricing-content">
                                     <li>3 Trading Accounts</li>
                                     <li>Unlimited Trade Entries</li>
@@ -164,7 +164,7 @@
                                 <div class="pricingtable-header">
                                     <h3 class="title">Premium</h3>
                                 </div>
-                                <div class="price-value"><span class="currency">£</span><span class="amount">191</span><span class="duration">/PM</span></div>
+                                <div class="price-value"><span class="currency">£</span><span class="amount">191</span><span class="duration">/PY</span></div>
                                 <ul class="pricing-content">
                                     <li>Unlimited Trading Accounts</li>
                                     <li>Unlimited Trade Entries</li>
