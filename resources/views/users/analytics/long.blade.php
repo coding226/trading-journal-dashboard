@@ -28,7 +28,7 @@
                 <div class="col-6">
                     <h3 class="d-flex align-items-center">Analytics Page / Long </h3>
                     <input class="form-control daterangefilter" id="reportrange" type="text">
-                    <p class="m-0 p-3">Please select daterange</p>
+                    <p class="m-0 p-3">Please select date range</p>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xl-6">
-                <div class="card">
+                <div class="card longPosData-Card">
                     <div class="card-header b-l-primary border-3">
                         <h5>Long Position Data Feed</h5>
                     </div>
@@ -117,7 +117,9 @@
                     @if($data['long_tcount'])
                         <p>Long Position Win Rate: {{ $data['long_tcount'] ? number_format($data['winlong_tcount']/$data['long_tcount']*100, 2, '.', '') : '' }}</p>
                         <p>Long Position Percentage Account Gain (%): {{ number_format($data['longtradesums']['percentage_gl_sum'], 2, '.', '') }}</p>
+                        <p>Average Long Position Percentage Gain Per Trade (%): </p>
                         <p>Total Amount Of Pips from Long Trades: {{ $data['longtradesums']['pips_sum'] }}</p>
+                        <p>Average Long Positions Per Week: </p>
                         <p>Average Amount Of Long Positions Per Month: {{ $data['long_tcount'] ? $data['long_ave_per_month'] : ''}}</p>
                         <p>Average Long Trade Duration (Time): {{ $data['long_tcount'] ? Carbon\CarbonInterval::seconds($data['longtradesums']['duration_sum']/$data['long_tcount'])->cascade()->forHumans() : '' }}</p>
                     @endif
@@ -135,8 +137,8 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $data['bestlongtrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestlongtrade']->long_short }}</p>
-                                <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestlongtrade']->profit_gl }}</p>
-                                <p>Percentage Account Gain (%): {{ number_format($data['bestlongtrade']->percentage_gl, 2, '.', '') }}</p>
+                                <p>Account Profit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestlongtrade']->profit_gl }}</p>
+                                <p>Account Percentage Gain (%): {{ number_format($data['bestlongtrade']->percentage_gl, 2, '.', '') }}</p>
                                 <p>Total Amount Of Pips: {{ $data['bestlongtrade']->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestlongtrade']->duration)->cascade()->forHumans() }}</p>
                                 <p>Entry Time: {{ $data['bestlongtrade']->created_at }}</p>
@@ -156,7 +158,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Long Trades Wins/Loss/BE</h5>
+                            <h5 class="m-0">Total Long Wins/Losses/Breakeven Trades</h5>
                         </div>
                     </div>
                     <div class="card-Body">
@@ -170,7 +172,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Long Trades Percentage Gain Graph</h5>
+                            <h5 class="m-0">Long Trades Percentage Gain </h5>
                         </div>
                     </div>
                     <div class="card-Body">

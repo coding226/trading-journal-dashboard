@@ -2,6 +2,7 @@
 var total_option = {
     chart: {
         width: 380,
+        height: 268.54,
         type: 'donut',
     },
     labels: ['Completed', 'Active'],
@@ -31,6 +32,7 @@ total_chart.render();
 var short2long_option = {
     chart: {
         width: 380,
+        height: 268.54,
         type: 'donut',
     },
     labels: ['Win', 'Loss', 'Breakeven'],
@@ -40,6 +42,7 @@ var short2long_option = {
         options: {
             chart: {
                 width: 200
+                
             },
             legend: {
                 position: 'bottom'
@@ -334,7 +337,7 @@ var growthoptions = {
         data: analytics_all_data['winrate']
     }],
     xaxis: {
-        type: 'number',
+        type: 'numeric',
         categories: analytics_all_data['winratex'],
     },
     yaxis: {

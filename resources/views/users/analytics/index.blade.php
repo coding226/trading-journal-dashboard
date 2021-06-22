@@ -27,7 +27,7 @@
                 <div class="col-8 d-flex">
                     <h3 class="d-flex align-items-center">Analytics Page / All </h3>
                     <input class="form-control daterangefilter" id="reportrange" type="text">
-                    <p class="m-0 p-3">Please select daterange</p>
+                    <p class="m-0 p-3">Please select date range</p>
                 </div>
                 <div class="col-4">
                     <ol class="breadcrumb">
@@ -42,8 +42,8 @@
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-xl-4 box-col-4">
-                <div class="card">
+            <div class="col-sm-12 col-xl-4  col-md-12 col-cus-12 box-col-4">
+                <div class="card totalTrades-Card">
                     <div class="card-header">
                         <h5>Total Trades </h5>
                     </div>
@@ -52,11 +52,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-xl-4 box-col-4">
-                <div class="card">
+            <div class="col-sm-12 col-xl-4 col-md-12 col-cus-12 box-col-4">
+                <div class="card winLoss-Card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5>Win/Loss/Breakeven</h5>
+                            <h5>Total Wins/Losses/Breakeven Trades</h5>
                         </div>
                     </div>
                     <div class="card-body apex-chart">
@@ -64,8 +64,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-xl-4 box-col-4">
-                <div class="card">
+            <div class="col-sm-12 col-xl-4 col-md-12 col-cus-12 box-col-4">
+                <div class="card winShort2Long-Card">
                     <div class="card-header">
                         <h5>Winning Short To Winning Long Positions</h5>
                     </div>
@@ -75,17 +75,18 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xl-6">
-                <div class="card">
+                <div class="card bestTrade-card">
                     <div class="card-header b-l-primary border-3">
                         <h5>Account Data</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-xl-6">
-                                <p>Starting Balance: {{ number_format(Auth::user()->current_user->starting_bal, 2, '.', '') }}</p>
-                                <p>Current Balance: {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $data['tradesums'][0]->profit_gl_sum - $data['tradesums'][0]->fees_sum, 2, '.', '') }}</p>
+                                <!-- <p>Starting Balance: {{ number_format(Auth::user()->current_user->starting_bal, 2, '.', '') }}</p> -->
+                                <p>Starting Balance ({{ Auth::user()->current_user->current_currency->sign }}): {{ number_format(Auth::user()->current_user->starting_bal, 2, '.', '') }}</p>
+                                <p>Current Balance ({{ Auth::user()->current_user->current_currency->sign }}): {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $data['tradesums'][0]->profit_gl_sum - $data['tradesums'][0]->fees_sum, 2, '.', '') }}</p>
                                 <p>Account Profit/Loss ({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['tradesums'][0]->profit_gl_sum }}</p>
-                                <p>Total Amount Of Fees: {{ $data['tradesums'][0]->fees_sum }}</p>
+                                <p>Total Amount Of Fees ({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['tradesums'][0]->fees_sum }}</p>
                                 <p>Percentage Account Gain (%): {{ number_format($data['tradesums'][0]->percentage_gl_sum, 2, '.', '') }}</p>
                                 <p>Total Amount Of Pips: {{ $data['tradesums'][0]->pips_sum }}</p>
                                 <p>Total Amount Of Trades: {{ $data['all_count'] }}</p>
@@ -106,9 +107,9 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xl-6">
-                <div class="card">
+                <div class="card bestTrade-card">
                     <div class="card-header b-l-primary border-3">
-                        <h5>Best Trade(Calculated on Percentage Gain)</h5>
+                        <h5>Best Trade( Calculated on Percentage Gain)</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -116,8 +117,8 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $besttrade->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $besttrade->long_short }}</p>
-                                <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $besttrade->profit_gl }}</p>
-                                <p>Percentage Account Gain (%): {{ number_format($besttrade->percentage_gl, 2, '.', '') }}</p>
+                                <p>AccountProfit ({{ Auth::user()->current_user->current_currency->sign }}): {{ $besttrade->profit_gl }}</p>
+                                <p>Account Percentage Gain (%): {{ number_format($besttrade->percentage_gl, 2, '.', '') }}</p>
                                 <p>Total Amount Of Pips: {{ $besttrade->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($besttrade->duration)->cascade()->forHumans() }}</p>
                                 <p>Entry Time: {{ $besttrade->created_at }}</p>
@@ -165,7 +166,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Wins/Loss/BE</h5>
+                            <h5 class="m-0">Total Wins/Losses/Breakeven Trades</h5>
                         </div>
                     </div>
                     <div class="card-Body">

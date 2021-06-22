@@ -48,7 +48,7 @@
                         <th>Win/Loss/BE</th>
                         @else
                         <th class="text-center">Current Duration</th>
-                        <th>Open Price({{ Auth::user()->current_user->current_currency->sign }})</th>
+                        <th>Open Price</th>
                         @endisset
                         <th>Edit/Delete</th>
                     </tr>

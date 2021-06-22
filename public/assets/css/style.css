@@ -16760,10 +16760,12 @@ p.data-attributes svg {
     }
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1400px) {
     .offer-box .offer-slider .selling-slide .d-flex {
-        height: 81%
+        height: 81%        
     }
+
+
 }
 
 @media only screen and (max-width: 1366px) {
@@ -42589,3 +42591,49 @@ html[dir="rtl"] body.dark-only .page-wrapper .page-body-wrapper .page-body .card
         display: none !important
     }
 }
+
+.bestTrade-card{
+    min-height: 547px;
+}
+.totalTrades-Card{
+    min-height: 505px;
+}
+.winLoss-Card{
+    min-height: 505px;
+}
+.winShort2Long-Card{
+    min-height: 505px   ;
+}
+.dark-only .apexcharts-menu {
+    background-color: black;    
+} 
+.dark-only .apexcharts-menu-item.exportSVG{
+    background-color: rgb(17,17,17);
+    color: rgb(213,213,213);
+}
+
+.dark-only .apexcharts-menu-item.exportPNG{
+    background-color: rgb(17,17,17);
+ 
+    color: rgb(213, 213, 213);
+} 
+.dark-only #reportrange.form-control.daterangefilter{
+    border-color: rgb(49,47,43);
+}
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+    .col-cus-12  {
+        width: 100%;
+    }
+}
+.longPosData-Card{
+    height: 457px;
+}
+.shortPosData-Card{
+    height: 457px;
+}
+/* 
+.dark-only .form-control.percentageGainLoss{
+    background-color: #1D1E26;
+    color: #767676;
+} */

@@ -66,7 +66,7 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header pb-3">
-                            <h5 class="mb-3">Trade Page</h5><span>Select Daterange to view specific date data.</span>
+                            <h5 class="mb-3">Trade Page</h5><span>Select date range to view specific data.</span>
                             <div class="row form theme-form mt-3">
                                 <div class="col">
                                     <div class="mb-3 row">
@@ -90,7 +90,7 @@
                                                     <th>Long/Short</th>
                                                     <th class="text-center">Start Date</th>
                                                     <th class="text-center">current Duration</th>
-                                                    <th>Open Price({{ Auth::user()->current_user->current_currency->sign }})</th>
+                                                    <th>Open Price</th>
                                                     <th>Edit/Delete</th>
                                                 </tr>
                                             </thead>

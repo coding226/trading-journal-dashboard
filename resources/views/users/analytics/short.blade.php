@@ -28,7 +28,7 @@
                 <div class="col-6">
                     <h3 class="d-flex align-items-center">Analytics Page / Short </h3>
                     <input class="form-control daterangefilter" id="reportrange" type="text">
-                    <p class="m-0 p-3">Please select daterange</p>
+                    <p class="m-0 p-3">Please select date range</p>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xl-6">
-                <div class="card">
+                <div class="card shortPosData-Card">
                     <div class="card-header b-l-primary border-3">
                         <h5>Short Position Data Feed</h5>
                     </div>
@@ -117,7 +117,9 @@
                     @if($data['short_tcount'])
                         <p>Short Position Win Rate: {{ number_format($data['winshort_tcount']/$data['short_tcount'], 2, '.', '') }}</p>
                         <p>Short Position Percentage Account Gain (%): {{ number_format($data['shorttradesums']['percentage_gl_sum'], 2, '.', '') }}</p>
+                        <p>Average Short Position Percentage Gain Per Trade (%): </p>
                         <p>Total Amount Of Pips from Short Trades: {{ $data['shorttradesums']['pips_sum'] }}</p>
+                        <p>Average Short Positions Per Week: </p>
                         <p>Average Amount Of Short Positions Per Month: {{ $data['short_ave_per_month'] }}</p>
                         <p>Average Short Trade Duration (Time): {{ Carbon\CarbonInterval::seconds($data['shorttradesums']['duration_sum']/$data['short_tcount'])->cascade()->forHumans() }}</p>
                     @endif
@@ -127,7 +129,7 @@
             <div class="col-sm-12 col-xl-6">
                 <div class="card">
                     <div class="card-header b-l-primary border-3">
-                        <h5>Best Short Trade(Calculated on Percentage Gain)</h5>
+                        <h5>Best Short Trade( Calculated on Percentage Gain)</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -135,8 +137,8 @@
                             <div class="col-sm-12 col-xl-6">
                                 <p>Symbol: {{ $data['bestshorttrade']->symbol->symbol }}</p>
                                 <p>Long or Short: {{ $data['bestshorttrade']->long_short }}</p>
-                                <p>AccountProfit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestshorttrade']->profit_gl }}</p>
-                                <p>Percentage Account Gain (%): {{ number_format($data['bestshorttrade']->percentage_gl, 2, '.', '') }}</p>
+                                <p>Account Profit({{ Auth::user()->current_user->current_currency->sign }}): {{ $data['bestshorttrade']->profit_gl }}</p>
+                                <p>Account Percentage Gain (%): {{ number_format($data['bestshorttrade']->percentage_gl, 2, '.', '') }}</p>
                                 <p>Total Amount Of Pips: {{ $data['bestshorttrade']->pips }}</p>
                                 <p>Total Trade Duration: {{ Carbon\CarbonInterval::seconds($data['bestshorttrade']->duration)->cascade()->forHumans() }}</p>
                                 <p>Entry Time: {{ $data['bestshorttrade']->created_at }}</p>
@@ -156,7 +158,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Short Trades Wins/Loss/BE</h5>
+                            <h5 class="m-0">Total Short Wins/Losses/Breakeven Trades</h5>
                         </div>
                     </div>
                     <div class="card-Body">
@@ -170,7 +172,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Short Trades Percentage Gain Graph</h5>
+                            <h5 class="m-0">Short Trades Percentage Gain</h5>
                         </div>
                     </div>
                     <div class="card-Body">

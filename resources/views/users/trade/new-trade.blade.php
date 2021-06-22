@@ -28,12 +28,12 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>New Trade</h3>
+                    <h3>Edit Trade </h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">New Trade</li>
+                        <li class="breadcrumb-item">New Trade </li>
                     </ol>
                 </div>
             </div>
@@ -169,8 +169,8 @@
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Percentage Gain/Loss On Account</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" type="number" step="any" id="percentage_gl" name="percentage_gl" autocomplete="off" placeholder="Automatic Percentage" readonly>
+                                        <div class="col-sm-9 " >
+                                            <input class="form-control percentageGainLoss" type="number" step="any" id="percentage_gl" name="percentage_gl" autocomplete="off" placeholder="Automatic Percentage">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
