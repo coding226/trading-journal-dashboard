@@ -74,15 +74,15 @@
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5><span id="current_currecny">{{ Auth::user()->current_user->current_currency->sign }}</span> {{ number_format(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance + $tprofit - $tfee, 2, '.', '') }} </h5>
-                                        <p class="font-roboto d-flex align-items-center">Account Balance <i class="p-l-3" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Account Balance"></i></p>
+                                        <p class="font-roboto d-flex align-items-center">Account Balance <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Current account balance including all deposits/withdrawals and profit/loss."></i></p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5>{{ Auth::user()->current_user->current_currency->sign }} {{ $tprofit- $tfee }}</h5>
-                                        <p class="font-roboto">Total Profit ({{ Auth::user()->current_user->current_currency->sign }})</p>
+                                        <p class="font-roboto d-flex align-items-center">Total Profit ({{ Auth::user()->current_user->current_currency->sign }}) <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Total Profit or Loss of account in currency value."></i></p>
                                     </div>
                                     <div class="col-xl-12 p-0 left_side_earning">
                                         <h5>{{ Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance == 0 ? 0 : number_format(($tprofit- $tfee)/(Auth::user()->current_user->starting_bal + Auth::user()->current_user->balance)*100, 2, '.', '') }}%</h5>
-                                        <p class="font-roboto">Total Percentage Gain</p>
+                                        <p class="font-roboto d-flex align-items-center">Total Percentage Gain <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Account Absolute Percentage Growth."></i></p>
                                     </div>
                                 </div>
                             </div>
@@ -93,6 +93,7 @@
                                             <div class="card-body" style="padding-left:0">
                                                 <div class="current-sale-container">
                                                     <div id="chart-currently"></div>
+                                                    <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Account Cumulative Growth over time." style="position:absolute;top:0px;right:-15px"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,8 +109,8 @@
                     <div class="bg-primary b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="database"></i></div>
-                            <div class="media-body"><span class="m-0">Yearly Percentage Gain</span>
-                                <h4 class="mb-0 counter"><span class="yearly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="database"></i>
+                            <div class="media-body"><span class="m-0 d-flex align-items-center">Yearly Percentage Gain <i class="p-l-5" data-feather="help-circle"></i></span>
+                                <h4 class="mb-0 counter"><span class="yearly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="database" data-bs-toggle="tooltip" data-bs-placement="right" title="Total Account Cumulative Growth for the current Year. Data resets at the start of each Year."></i>
                             </div>
                         </div>
                     </div>
@@ -120,8 +121,8 @@
                     <div class="bg-primary b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
-                            <div class="media-body"><span class="m-0">Monthly Percentage Gain</span>
-                                <h4 class="mb-0 counter"><span class="monthly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="shopping-bag"></i>
+                            <div class="media-body"><span class="m-0 d-flex align-items-center">Monthly Percentage Gain <i class="p-l-5" data-feather="help-circle"></i></span>
+                                <h4 class="mb-0 counter"><span class="monthly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="shopping-bag" data-bs-toggle="tooltip" data-bs-placement="right" title="Total Account Cumulative Growth for the current Month. Data resets at the start of each Month."></i>
                             </div>
                         </div>
                     </div>
@@ -132,8 +133,8 @@
                     <div class="bg-primary b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="message-circle"></i></div>
-                            <div class="media-body"><span class="m-0">Weekly Percentage Gain</span>
-                                <h4 class="mb-0 counter"><span class="weekly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="message-circle"></i>
+                            <div class="media-body"><span class="m-0 d-flex align-items-center">Weekly Percentage Gain <i class="p-l-5" data-feather="help-circle"></i></span>
+                                <h4 class="mb-0 counter"><span class="weekly_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="message-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Total Account Cumulative Growth for the current Week. Data resets at the start of each Week.">></i>
                             </div>
                         </div>
                     </div>
@@ -144,8 +145,8 @@
                     <div class="bg-primary b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
-                            <div class="media-body"><span class="m-0">Daily Percentage Gain</span>
-                                <h4 class="mb-0 counter"><span class="daily_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="user-plus"></i>
+                            <div class="media-body"><span class="m-0 d-flex align-items-center">Daily Percentage Gain <i class="p-l-5" data-feather="help-circle"></i></span>
+                                <h4 class="mb-0 counter"><span class="daily_percentage_gain">0</span><span>%</span></h4><i class="icon-bg" data-feather="user-plus" data-bs-toggle="tooltip" data-bs-placement="right" title="Total Account Cumulative Growth for the current Day. Data resets at the start of each Day."></i>
                             </div>
                         </div>
                     </div>
@@ -156,7 +157,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Recent Trades</h5>
+                            <h5 class="m-0">Recent Trades </h5>
                             <div class="card-header-right-icon">
                             </div>
                         </div>
@@ -209,7 +210,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Profitability</h5>
+                            <h5 class="m-0 d-flex align-items-center">Profitability <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="How many trades won compared to lost."></i></h5>
                         </div>
                     </div>
                     <div class="card-Body apex-chart">
@@ -248,7 +249,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="header-top">
-                            <h5 class="m-0">Symbol Profitability</h5>
+                            <h5 class="m-0 d-flex align-items-center">Symbol Profitability <i class="p-l-5" data-feather="help-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Cumulative Percentage Growth per symbol traded."></i></h5>
                             <div class="card-header-right-icon">
                                 <div class="dropdown">
                                     <button class="btn dropdown-toggle" id="dropdownMenuButton2" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>

@@ -39,11 +39,13 @@
         .profile-media img{
             width: 37px;
             height: 37px;
+            object-fit: cover;
         }
         .profile-vector img{
             border-radius: 50%;
             width: 120px;
             height: 120px;
+            object-fit: cover;
             border: 5px solid #fff;
         }
     </style>
