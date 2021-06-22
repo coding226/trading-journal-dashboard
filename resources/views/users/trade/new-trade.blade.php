@@ -47,7 +47,7 @@
                     <div class="card-header">
                         <h5>Trade Information</h5>
                     </div>
-                    <form class="form theme-form" method="POST" action="{{ route('newtrade.create') }}" enctype="multipart/form-data">
+                    <form class="form theme-form" method="POST" action="{{ route('newtrade.create') }}" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                         <div class="card-body">
                             @if(session()->has('message'))

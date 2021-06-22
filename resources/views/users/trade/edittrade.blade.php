@@ -45,7 +45,7 @@
                     <div class="card-header">
                         <h5>Trade Information</h5>
                     </div>
-                    <form class="form theme-form" method="POST" action="{{ route('trade.update', ['tradeid' => $trade->id ]) }}" enctype="multipart/form-data">
+                    <form class="form theme-form" method="POST" action="{{ route('trade.update', ['tradeid' => $trade->id ]) }}" enctype="multipart/form-data"  autocomplete="off">
                     @csrf
                         <div class="card-body">
                             <div class="row">

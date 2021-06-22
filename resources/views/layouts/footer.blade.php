@@ -3,7 +3,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 footer-copyright text-center">
-                            <p class="mb-0">Copyright 2021 © Trading Journal Dashboard </p>
+                            <p class="mb-0">Copyright 2021 © The Trading Buddy</p>
                         </div>
                     </div>
                 </div>
@@ -46,11 +46,12 @@
     <script src="{{ url('assets/js/config.js') }}"></script>
     <!-- Plugins JS start-->
     <script src="{{ url('assets/js/sidebar-menu.js') }}"></script>
-    <script src="{{ url('assets/js/tooltip-init.js') }}"></script>
     @yield('script')
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
+    <script src="{{ url('assets/js/tooltip-init.js') }}"></script>
     <script src="{{ url('assets/js/script.js') }}"></script>
+    {{-- <script src="{{ url('assets/js/theme-customizer/customizer.js') }}"></script> --}}
     <script>
         if(localStorage.getItem("primary") != null) {
             document.documentElement.style.setProperty('--theme-deafult', localStorage.getItem("primary"));
