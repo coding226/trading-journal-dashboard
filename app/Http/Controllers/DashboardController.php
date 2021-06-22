@@ -69,7 +69,7 @@ class DashboardController extends Controller
     public function getinfoes(Request $request)
     {
         $currenttime = new Carbon($request->currenttime);
-        $startday = (new Carbon($request->currenttime))->subDay();
+        $startday = substr((new Carbon($request->currenttime))->subDay(), 0, 10).'T00:00:00.000000Z';
         $startweek = (new Carbon($request->currenttime))->startOfWeek();
         $startmonth = (new Carbon($request->currenttime))->startOfMonth();
         $startyear = (new Carbon($request->currenttime))->startOfYear();

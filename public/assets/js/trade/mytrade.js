@@ -41,6 +41,7 @@ $('#reportrange').on('change', function(e) {
                 $('#alertmodal').modal('show');
             });
             TableDatatablesButtons.init();
+            feather.replace();
         },
         error: function(xhr,textStatus,thrownError) {
             // alert(xhr + "\n" + textStatus + "\n" + thrownError);
